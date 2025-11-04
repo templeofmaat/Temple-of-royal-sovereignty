@@ -160,4 +160,23 @@ a:hover {
   margin-top: -10px;
   letter-spacing: 1px;
 }
+/* Remove outer frame around the page */
+main {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep one clean golden intention box */
+.intention {
+  background-color: rgba(255,215,0,0.07);
+  border-left: 3px solid gold;
+  border-radius: 8px;
+  box-shadow: none !important; /* no double border */
+  padding: 12px 25px;
+  margin: 25px auto;
+  max-width: 550px;
+  text-align: center;
+  color: #fff;
+}
 
