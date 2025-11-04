@@ -241,4 +241,20 @@ h1 {
     transform: scale(1);
   }
 }
+/* Fade-in for main content (appears after banner) */
+main {
+  opacity: 0;
+  animation: textFade 3s ease-in-out 2.5s forwards; /* starts 2.5 s later */
+}
+
+@keyframes textFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
