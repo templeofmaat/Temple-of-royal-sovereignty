@@ -88,6 +88,19 @@ a:hover {
   text-align: center;
   margin-top: 60px;
 }
+.intention {
+  max-width: 600px;              /* keeps the box narrower */
+  margin: 40px auto;             /* centers it on the page */
+  padding: 15px 25px;
+  background-color: rgba(255, 215, 0, 0.08); /* faint golden glow */
+  border-left: 3px solid gold;   /* subtle vertical accent */
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
+}
+
 
 .intro p {
   color: #f8f8f8;
