@@ -256,19 +256,25 @@ main {
     opacity: 1;
     transform: translateY(0);
   }
-/* Force Sekhem Flow logo to resize */
+/* Reset Sekhem Flow logo size and center it */
 .sekhem-logo {
   display: block;
-  margin: 10px auto;
-  width: 120px !important;   /* force a specific width */
-  max-width: 25% !important;
-  height: auto !important;
-  filter: drop-shadow(0 0 8px rgba(255,215,0,0.35));
+  margin: 0 auto 15px auto;      /* centers it */
+  max-width: 140px;              /* absolute limit */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255,215,0,0.35));
 }
 
+/* smaller on phones */
 @media (max-width: 768px) {
   .sekhem-logo {
-    width: 80px !important;
-    max-width: 35% !important;
+    max-width: 90px;
   }
+}
+
+/* Center header text */
+header {
+  text-align: center;
 }
