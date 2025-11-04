@@ -118,4 +118,28 @@ a:hover {
   text-align: center;
   box-shadow: 0 0 6px rgba(255, 215, 0, 0.2);
 }
+/* Center the portal section */
+.portal {
+  text-align: center;
+}
+
+/* Style and center the Enter button */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: gold;
+  color: #2e004f;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  text-align: center;
+  margin: 25px auto;
+  transition: 0.3s ease;
+}
+
+/* Optional glow on hover */
+.btn:hover {
+  box-shadow: 0 0 15px gold;
+  transform: scale(1.05);
+}
 
