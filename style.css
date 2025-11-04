@@ -59,3 +59,13 @@ footer {
   border-top: 1px solid gold;
   color: #888;
 }
+/* --- Link colors --- */
+a {
+  color: gold;                /* normal links */
+  text-decoration: none;      /* removes underline */
+}
+
+a:hover {
+  color: #ffd700;             /* lighter gold when you hover */
+  text-decoration: underline; /* optional underline on hover */
+}
