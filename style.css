@@ -152,4 +152,12 @@ a:hover {
   box-shadow: 0 0 15px gold;
   transform: scale(1.05);
 }
+.subtitle {
+  text-align: center;
+  color: gold;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: -10px;
+  letter-spacing: 1px;
+}
 
