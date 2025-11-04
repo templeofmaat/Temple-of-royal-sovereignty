@@ -256,14 +256,19 @@ main {
     opacity: 1;
     transform: translateY(0);
   }
-}
 /* Sekhem Flow logo */
-.Sekhem Flow Logo {
+.sekhem-logo {
   display: block;
-  margin: 20px auto;
-  width: 90px;           /* adjust as needed */
+  margin: 15px auto;
+  width: 120px;           /* base desktop size */
   height: auto;
-  filter: drop-shadow(0 0 10px rgba(255,215,0,0.4));
+  max-width: 20%;         /* keeps it proportional to screen */
+  filter: drop-shadow(0 0 8px rgba(255,215,0,0.35));
   animation: fadeIn 3s ease-in-out;
 }
-
+@media (max-width: 768px) {
+  .sekhem-logo {
+    width: 80px;
+    max-width: 40%;
+  }
+}
