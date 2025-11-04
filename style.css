@@ -278,3 +278,25 @@ main {
 header {
   text-align: center;
 }
+/* Logo container limits actual space */
+.logo-wrap {
+  width: 150px;       /* adjust this number to control size */
+  margin: 0 auto;     /* keeps it centered */
+}
+
+.sekhem-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(255,215,0,0.4));
+}
+
+@media (max-width: 768px) {
+  .logo-wrap {
+    width: 90px;      /* smaller logo on mobile */
+  }
+}
+
+header {
+  text-align: center;
+}
