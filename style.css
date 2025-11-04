@@ -98,36 +98,26 @@ a:hover {
   text-align: center;
   margin-top: 60px;
 }
-.intention {
-  max-width: 600px;              /* keeps the box narrower */
-  margin: 40px auto;             /* centers it on the page */
-  padding: 15px 25px;
-  background-color: rgba(255, 215, 0, 0.08); /* faint golden glow */
-  border-left: 3px solid gold;   /* subtle vertical accent */
-  border-radius: 10px;
-  font-size: 1rem;
-  color: #fff;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
-}
-
 
 .intro p {
   color: #f8f8f8;
   font-size: 1.1rem;
 }
+/* Divine Intention: soft flow, no box */
 .intention {
-  max-width: 500px;
-  margin: 20px auto 40px;
-  padding: 10px 20px;
-  background-color: rgba(255, 215, 0, 0.07);
-  border-left: 3px solid gold;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  color: #fff;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 40px auto;
+  max-width: 700px;
+  color: gold;
+  font-style: italic;
   text-align: center;
-  box-shadow: 0 0 6px rgba(255, 215, 0, 0.2);
+  line-height: 1.6;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
+
 /* Center the portal section */
 .portal {
   text-align: center;
