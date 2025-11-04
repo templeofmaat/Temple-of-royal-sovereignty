@@ -106,3 +106,16 @@ a:hover {
   color: #f8f8f8;
   font-size: 1.1rem;
 }
+.intention {
+  max-width: 500px;
+  margin: 20px auto 40px;
+  padding: 10px 20px;
+  background-color: rgba(255, 215, 0, 0.07);
+  border-left: 3px solid gold;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.2);
+}
+
