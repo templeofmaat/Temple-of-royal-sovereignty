@@ -1,5 +1,7 @@
 /* --- GLOBAL LAYOUT --- */
 body {
+  background: radial-gradient(ellipse at top, #210035 0%, #0b0014 100%);
+background-attachment: fixed;
   background-color: #1a0b2e;     /* deep royal purple background */
   color: #ffffff;                /* white text for contrast */
   font-family: 'Poppins', sans-serif;
