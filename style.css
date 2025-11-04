@@ -179,4 +179,21 @@ main {
   text-align: center;
   color: #fff;
 }
+/* Mystical Ma'at background */
+body {
+  background: radial-gradient(circle at top, #2a0055 0%, #0b0014 100%);
+  background-attachment: fixed;
+  color: #fff;
+  font-family: "Cinzel", serif;
+}
+
+/* Soft star overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.3;
+  pointer-events: none;
+}
 
