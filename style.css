@@ -1,72 +1,94 @@
+/* --- GLOBAL LAYOUT --- */
 body {
-body {
-  background-color: #1a0b2e;      /* deep royal purple background */
-  color: #ffffff;                 /* clean white text */
+  background-color: #1a0b2e;     /* deep royal purple background */
+  color: #ffffff;                /* white text for contrast */
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-
+  line-height: 1.6;
 }
 
+/* --- HEADERS --- */
+h1, h2, h3 {
+  color: gold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* --- NAVIGATION BAR --- */
 header {
-  padding: 3rem 1rem;
-  background: radial-gradient(circle, #381a57, #000000);
-  border-bottom: 2px solid gold;
+  text-align: center;
+  padding: 20px;
 }
 
-h1 {
-  font-size: 2.5rem;
-  color: #ffd700;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  color: #c7a6ff;
-}
-
-.intro {
-  margin: 4rem auto;
-  padding: 2rem;
-  max-width: 600px;
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid #444;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 1rem 2rem;
-  color: #000;
-  background-color: gold;
+nav a {
+  color: gold;
   text-decoration: none;
-  border-radius: 8px;
+  margin: 0 12px;
   font-weight: bold;
-  box-shadow: 0 0 10px gold;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
-.btn:hover {
-  background-color: #ffcc00;
-  box-shadow: 0 0 20px #ffcc00;
+nav a:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
+/* --- MAIN CONTENT --- */
+main {
+  background-color: rgba(255, 255, 255, 0.05); /* faint white overlay for balance */
+  border-radius: 10px;
+  padding: 25px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); /* gold glow */
+}
+
+/* --- FOOTER --- */
 footer {
-  padding: 2rem 0;
-  background-color: #111;
-  border-top: 1px solid gold;
-  color: #888;
+  text-align: center;
+  padding: 20px;
+  color: gold;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-/* --- Link colors --- */
+
+/* --- LINKS (GLOBAL) --- */
 a {
-  color: gold;                /* normal links */
-  text-decoration: none;      /* removes underline */
+  color: gold;
+  text-decoration: none;
 }
 
 a:hover {
-  color: #ffd700;             /* lighter gold when you hover */
-  text-decoration: underline; /* optional underline on hover */
+  color: #fff;
+}
+
+/* --- PORTAL BUTTON --- */
+.btn {
+  display: inline-block;
+  background-color: gold;
+  color: #1a0b2e;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #ffffff;
+  color: #4b0082; /* violet hover */
+}
+
+/* --- INTRO SECTION ON HOMEPAGE --- */
+.intro {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.intro p {
+  color: #f8f8f8;
+  font-size: 1.1rem;
 }
