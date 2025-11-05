@@ -424,3 +424,17 @@ header {
 header {
   text-align: center;
 }
+.btn.offerings {
+  background-color: gold;
+  color: #3b0066;
+  border: 2px solid #3b0066;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+  margin-top: 10px;
+}
+
+.btn.offerings:hover {
+  background-color: #3b0066;
+  color: gold;
+  border-color: gold;
+}
