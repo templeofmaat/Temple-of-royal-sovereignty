@@ -300,3 +300,26 @@ header {
 header {
   text-align: center;
 }
+/* --- Sekhem Flow logo sizing fix --- */
+.logo-wrap {
+  width: 120px;               /* controls overall size */
+  margin: 0 auto 10px auto;   /* centers it */
+}
+
+.sekhem-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+}
+
+@media (max-width: 768px) {
+  .logo-wrap {
+    width: 80px;              /* smaller on mobile */
+  }
+}
+
+header {
+  text-align: center;
+}
