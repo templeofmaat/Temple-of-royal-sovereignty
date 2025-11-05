@@ -464,3 +464,17 @@ header {
   animation: fadeInOfferings 2.5s ease-in-out 5s forwards;
   /* 5s delay before appearing; adjust this delay as needed */
 }
+/* Initial hidden state for Offerings */
+.button-offerings {
+  text-align: center;
+  margin-top: 60px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+/* When scrolled into view */
+.button-offerings.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
