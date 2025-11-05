@@ -342,3 +342,47 @@ img[src*="sekhem-logo"] {
     max-width: 80px !important;
   }
 }
+/* --- Force the Sekhem Flow logo size and centering --- */
+#sekhemLogo {
+  display: block;
+  margin: 0 auto 20px auto;     /* centers it */
+  width: 140px !important;      /* fixed width on desktop */
+  max-width: 140px !important;
+  height: auto !important;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+}
+
+@media (max-width: 768px) {
+  #sekhemLogo {
+    width: 90px !important;     /* smaller on mobile */
+    max-width: 90px !important;
+  }
+}
+
+/* Make sure header text is centered too */
+header {
+  text-align: center;
+}
+/* --- Force the Sekhem Flow logo size and centering --- */
+#sekhemLogo {
+  display: block;
+  margin: 0 auto 20px auto;     /* centers it */
+  width: 140px !important;      /* fixed width on desktop */
+  max-width: 140px !important;
+  height: auto !important;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
+}
+
+@media (max-width: 768px) {
+  #sekhemLogo {
+    width: 90px !important;     /* smaller on mobile */
+    max-width: 90px !important;
+  }
+}
+
+/* Make sure header text is centered too */
+header {
+  text-align: center;
+}
