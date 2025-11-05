@@ -55,5 +55,15 @@
   <footer>
     <p>© 2025 Temple of Royal Sovereignty · All Rights Reserved</p>
   </footer>
-</body>
+<script>
+  // When the page scrolls, check if the Offerings section is visible
+  window.addEventListener('scroll', function() {
+    const offerings = document.querySelector('.button-offerings');
+    const rect = offerings.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 50) {
+      offerings.classList.add('visible');
+    }
+  });
+</script>
+    </body>
 </html>
