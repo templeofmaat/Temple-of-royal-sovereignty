@@ -438,3 +438,15 @@ header {
   color: gold;
   border-color: gold;
 }
+/* Button layout for portal */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;              /* space between buttons */
+  margin-top: 20px;
+}
+
+/* Optional: center text in the intro section */
+.intro {
+  text-align: center;
+}
