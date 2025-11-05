@@ -450,3 +450,17 @@ header {
 .intro {
   text-align: center;
 }
+/* Fade-in animation for the Offerings button */
+@keyframes fadeInOfferings {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* default state: invisible until animation */
+.button-offerings {
+  text-align: center;
+  margin-top: 60px;
+  opacity: 0;
+  animation: fadeInOfferings 2.5s ease-in-out 5s forwards;
+  /* 5s delay before appearing; adjust this delay as needed */
+}
