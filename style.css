@@ -478,3 +478,13 @@ header {
   opacity: 1;
   transform: translateY(0);
 }
+/* Glowing pulse for Offerings button once visible */
+@keyframes glowPulse {
+  0%   { box-shadow: 0 0 8px rgba(255, 215, 0, 0.3); }
+  50%  { box-shadow: 0 0 16px rgba(255, 215, 0, 0.7); }
+  100% { box-shadow: 0 0 8px rgba(255, 215, 0, 0.3); }
+}
+
+.button-offerings.visible .btn.offerings {
+  animation: glowPulse 3s ease-in-out infinite;
+}
