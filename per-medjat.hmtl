@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temple Free Library — Per Medjat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body class="temple-page">
+
+<header style="text-align:center; padding:20px 0;">
+  <h1 style="color:#FFD700; font-size:2.4rem;">Temple Free Library</h1>
+  <p style="color:#fff; font-size:1.1rem;">Per Medjat — House of Sacred Knowledge</p>
+
+  <nav style="margin-top:10px;">
+    <a href="index.html">Home</a> |
+    <a href="maat.html">Temple of Ma’at</a> |
+    <a href="readings.html">Readings & Sessions</a> |
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<main style="max-width:900px; margin:40px auto; padding:0 20px;">
+
+  <p class="lead" style="text-align:center; font-size:1.2rem; color:#fff;">
+    A curated archive of ancestral knowledge, African cosmology, and restored esoteric wisdom.
+    These texts support truth, elevation, and alignment with Ma’at.
+  </p>
+
+  <!-- SECTION: AFRICAN SPIRITUALITY -->
+  <section style="margin-top:40px;">
+    <h2 style="color:#FFD700; border-bottom:1px solid #FFD700; padding-bottom:8px;">
+      I. African Spirituality & Ancestral Memory
+    </h2>
+
+    <ul style="color:#fff; line-height:1.7;">
+      <li><strong>Yoruba Legends — M.I. Ogumefu</strong></li>
+      <li><strong>The History of the Yorubas — Samuel Johnson</strong></li>
+      <li><strong>Ifá Divination — William Bascom</strong></li>
+      <li><strong>Eshu–Eleggua–Elegbara — Baba Raúl Cañizares</strong></li>
+      <li><strong>L’âme Nègre (The Black Soul) — Jean Hess</strong></li>
+    </ul>
+  </section>
+
+  <!-- SECTION: KEMETIC COSMOLOGY -->
+  <section style="margin-top:40px;">
+    <h2 style="color:#FFD700; border-bottom:1px solid #FFD700; padding-bottom:8px;">
+      II. Kemetic / Nile Valley Cosmology
+    </h2>
+
+    <ul style="color:#fff; line-height:1.7;">
+      <li><strong>Egyptian Mythology & Egyptian Christianity</strong></li>
+      <li><strong>The Great Pyramid: Observatory, Tomb, and Temple</strong></li>
+    </ul>
+  </section>
+
+  <!-- SECTION: ASTROLOGY -->
+  <section style="margin-top:40px;">
+    <h2 style="color:#FFD700; border-bottom:1px solid #FFD700; padding-bottom:8px;">
+      III. Cosmic Order & Astrology
+    </h2>
+
+    <ul style="color:#fff; line-height:1.7;">
+      <li><strong>Astrologer Articles (Vintage)</strong></li>
+      <li><strong>Astrology for Beginners — William W. Hewitt</strong></li>
+      <li><strong>Astrology: Technics & Ethics — C. Aq. Libra</strong></li>
+      <li><strong>Crystal Astrology — Marina Costelloe</strong></li>
+      <li><strong>Reports of the Magicians & Astrologers of Nineveh & Babylon</strong></li>
+    </ul>
+  </section>
+
+  <!-- SECTION: SPIRITUAL DEVELOPMENT -->
+  <section style="margin-top:40px;">
+    <h2 style="color:#FFD700; border-bottom:1px solid #FFD700; padding-bottom:8px;">
+      IV. Spiritual Development & Self-Mastery
+    </h2>
+
+    <ul style="color:#fff; line-height:1.7;">
+      <li><strong>Spiritual Growth: Being Your Higher Self — Sanaya Roman</strong></li>
+      <li><strong>The Master Key (1914) — L.W. de Laurence</strong></li>
+    </ul>
+  </section>
+
+  <!-- SECTION: NUMEROLOGY -->
+  <section style="margin-top:40px;">
+    <h2 style="color:#FFD700; border-bottom:1px solid #FFD700; padding-bottom:8px;">
+      V. Numerology & Destiny Science
+    </h2>
+
+    <ul style="color:#fff; line-height:1.7;">
+      <li><strong>The Complete Book of Numerology — David A. Phillips</strong></li>
+    </ul>
+  </section>
+
+  <!-- SECTION: HISTORICAL OCCULT JOURNALS -->
+  <section style="margin-top:40px; margin-bottom:80px;">
+    <h2 style="color:#FFD700; border-bottom:1px solid #FFD700; padding-bottom:8px;">
+      VI. Historical Occult Journals (Reference Only)
+    </h2>
+
+    <ul style="color:#fff; line-height:1.7;">
+      <li><strong>The Occult Magazine (1907)</strong></li>
+      <li><strong>Opportunity Magazine (1907)</strong></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer style="text-align:center; padding:30px 0; color:#fff; font-size:0.9rem;">
+  Temple of Royal Sovereignty &copy; 2025 — Per Medjat, House of Knowledge
+</footer>
+
+</body>
+</html>
