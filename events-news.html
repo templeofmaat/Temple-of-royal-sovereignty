@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events & News — Temple of Royal Sovereignty</title>
+  <link rel="stylesheet" href="style.css" />
 
+  <style>
+    /* SIDEBAR */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100vh;
+      background: #12021f;
+      border-right: 2px solid #d4af37;
+      padding: 30px 20px;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.4);
+      font-size: 1.1rem;
+      z-index: 9999;
+    }
+    .sidebar a {
+      display: block;
+      color: #f7eaff;
+      text-decoration: none;
+      padding: 10px 0;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #3d2a55;
+      transition: 0.3s;
+    }
+    .sidebar a:hover {
+      color: #ffd700;
+      padding-left: 6px;
+    }
+
+    /* CONTENT */
+    .content {
+      margin-left: 240px;
+      padding: 20px;
+    }
+
+    header h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #ffd700;
+    }
+
+    header p.subtitle {
+      text-align: center;
+      margin-top: 5px;
+      color: #e6d6ff;
+      font-size: 1.1rem;
+    }
+
+    /* SCROLL BOARD */
+    .scroll-board {
+      max-width: 900px;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .scroll-entry {
+      background: rgba(255,255,255,0.05);
+      border-left: 4px solid #ffd700;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .scroll-entry h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #ffd700;
+    }
+
+    .scroll-entry .date {
+      font-size: 0.95rem;
+      color: #c8b9e0;
+      margin-bottom: 10px;
+    }
+
+    .scroll-entry p {
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    .scroll-entry a {
+      color: #ffd700;
+      text-decoration: underline;
+    }
+
+    /* MOBILE */
+    @media(max-width: 750px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-bottom: 2px solid #d4af37;
+      }
+      .sidebar a {
+        display: inline-block;
+        border: none;
+        margin-right: 10px;
+      }
+      .content {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+
+<body class="temple-page">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <a href="index.html">Home</a>
+    <a href="maat.html">Temple of Ma’at</a>
+    <a href="readings.html">Readings & Sessions</a>
+    <a href="per-medjat.html">Per Medjat</a>
+    <a href="events-news.html">Events & News</a>
+    <a href="vlog.html">Vlog</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+
+    <header>
+      <h1>𓂀 Events & Temple News 𓂀</h1>
+      <p class="subtitle">Sacred Announcements · Alignments · Teachings</p>
+    </header>
+
+    <!-- SCROLL BOARD -->
+    <section class="scroll-board">
+
+      <!-- SCROLL ENTRY TEMPLATE -->
+      <div class="scroll-entry">
+        <h3>Temple Announcement Title</h3>
+        <div class="date">November 2025</div>
+        <p>
+          This is where your temple update, announcement, teaching, or message will go.
+          You can add links, images, or anything needed. Each entry is a sacred scroll.
+        </p>
+      </div>
+
+      <!-- DUPLICATE THIS BOX FOR MORE SCROLLS -->
+      <div class="scroll-entry">
+        <h3>Second Temple Update</h3>
+        <div class="date">November 2025</div>
+        <p>
+          You can fill this page as your temple grows — livestream dates, energy updates,
+          portal openings, new texts added, events, teachings, and more.
+        </p>
+      </div>
+
+    </section>
+
+    <footer style="text-align:center; padding:20px; margin-top:40px;">
+      <p>© 2025 Temple of Royal Sovereignty</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
