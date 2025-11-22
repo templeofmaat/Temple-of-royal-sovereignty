@@ -488,3 +488,35 @@ header {
 .button-offerings.visible .btn.offerings {
   animation: glowPulse 3s ease-in-out infinite;
 }
+/* Left-Side Navigation */
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 100%;
+  background: #140025; /* deep royal purple */
+  padding-top: 40px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.4);
+  z-index: 9999;
+}
+
+.side-nav a {
+  display: block;
+  color: #FFD700;
+  padding: 12px 20px;
+  font-size: 1.05rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.side-nav a:hover {
+  color: white;
+  background: rgba(255, 215, 0, 0.15);
+  transition: 0.3s;
+}
+
+/* Adjust main page so it doesn't sit behind the nav */
+body {
+  margin-left: 180px; /* same width as nav */
+}
