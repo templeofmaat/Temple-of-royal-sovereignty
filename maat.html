@@ -5,12 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>School of Ma’at — Temple of Royal Sovereignty</title>
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* SIDEBAR — MATCHES HOME, EVENTS, ABOUT */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100vh;
+      background: #12021f;
+      border-right: 2px solid #d4af37;
+      padding: 30px 20px;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.4);
+      font-size: 1.1rem;
+      z-index: 9999;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #f7eaff;             /* white/lavender */
+      text-decoration: none;
+      padding: 10px 0;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #3d2a55;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #ffd700;             /* gold hover */
+      padding-left: 6px;
+    }
+
+    /* CONTENT AREA */
+    .page-content {
+      margin-left: 240px;         /* prevents overlap with sidebar */
+      padding: 20px;
+    }
+
+    /* HEADERS */
+    header h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #ffd700;
+      font-size: 2.2rem;
+      letter-spacing: 0.05em;
+      text-shadow: 0 0 10px rgba(255,215,0,0.4);
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #e6d6ff;
+      margin-top: 6px;
+    }
+
+    /* TEXT SECTIONS */
+    .text-block {
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 25px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      border: 1px solid #ffd700;
+      color: #f7f0ff;
+      line-height: 1.7;
+    }
+
+    .text-block h2 {
+      text-align: center;
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+    /* MOBILE */
+    @media(max-width: 750px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-bottom: 2px solid #d4af37;
+      }
+
+      .sidebar a {
+        display: inline-block;
+        margin-right: 14px;
+        border-bottom: none;
+      }
+
+      .page-content {
+        margin-left: 0;
+      }
+    }
+  </style>
 </head>
 
 <body class="temple-page">
 
-  <!-- Navigation -->
-  <nav class="side-nav">
+<!-- UNIFIED PURPLE/WHITE SIDEBAR -->
+<div class="sidebar">
   <a href="index.html">Home</a>
   <a href="throne-room.html">The Throne Room</a>
   <a href="maat.html">School of Ma’at</a>
@@ -19,93 +117,83 @@
   <a href="events-news.html">Events & News</a>
   <a href="vlog.html">Vlog</a>
   <a href="about.html">About</a>
-</nav>
+</div>
 
-  <header class="page-header">
+<!-- MAIN CONTENT -->
+<div class="page-content">
+
+  <header>
     <h1>School of Ma’at</h1>
     <p class="subtitle">Where Truth Becomes Your Way of Life</p>
   </header>
 
   <main>
 
-    <!-- Section 1: Who Ma’at Is -->
+    <!-- Section 1 -->
     <section class="text-block">
       <h2>Who is Ma’at?</h2>
       <p>
         Ma’at is the embodiment of cosmic truth, balance, reciprocity, harmony,
         right action, and divine law. She governs how energy moves, how justice
-        unfolds, and how creation restores itself. Her feather weighs every heart,
-        revealing whether one lives in truth or distortion.  
+        unfolds, and how creation restores itself.
       </p>
       <p>
-        To walk with Ma’at is to walk in alignment — where your words, choices, and
-        intentions match the truth of your soul.
+        To walk with Ma’at is to walk in alignment — where your words, choices,
+        and intentions match the truth of your soul.
       </p>
     </section>
 
-    <!-- Section 2: Purpose of the School -->
+    <!-- Section 2 -->
     <section class="text-block">
       <h2>The Purpose of the School of Ma’at</h2>
       <p>
         The School of Ma’at is the heart center of the Temple of Royal Sovereignty.
-        It is a sacred learning chamber where initiates remember the original laws
-        that govern the heavens, the earth, and the Self.  
+        It is a remembrance chamber, a learning chamber, and an activation portal.
       </p>
-      <p>
-        This is not a traditional school — it is a spiritual order, a remembrance
-        chamber, and an activation portal. Here, members return to:
-      </p>
-
+      <p>This School returns members to:</p>
       <ul>
         <li>Truth — the First Law</li>
         <li>Balance — the sacred middle path</li>
         <li>Order — the natural flow of creation</li>
         <li>Reciprocity — divine exchange</li>
         <li>Harmony — living without inner conflict</li>
-        <li>Right Action — moving with integrity and clarity</li>
+        <li>Right Action — living in integrity</li>
       </ul>
     </section>
 
-    <!-- Section 3: What You Learn Here -->
+    <!-- Section 3 -->
     <section class="text-block">
-      <h2>What You Learn Inside This Temple</h2>
-      <p>
-        Within the School of Ma’at, you learn how to:
-      </p>
-
+      <h2>What You Learn in This Temple</h2>
       <ul>
         <li>Balance your emotional, spiritual, and physical bodies</li>
         <li>Align your inner world with cosmic law</li>
         <li>Discern truth from illusion</li>
         <li>Navigate life with clarity and spiritual authority</li>
-        <li>Honor your soul contract through right action</li>
-        <li>Restore harmony in chaotic or imbalanced environments</li>
-        <li>Live your life as a keeper of divine law</li>
+        <li>Fulfill your soul contract through right action</li>
+        <li>Restore harmony in chaotic environments</li>
+        <li>Live as a keeper of divine law</li>
       </ul>
     </section>
 
-    <!-- Section 4: Who This School Is For -->
+    <!-- Section 4 -->
     <section class="text-block">
       <h2>Who This School Is For</h2>
-      <p>
-        This path is for those who feel a soul-deep pull to:
-      </p>
-
       <ul>
-        <li>Ancient Kemet and ancestral truth</li>
-        <li>Spiritual justice, balance, and cosmic order</li>
-        <li>Walking in alignment rather than dogma</li>
-        <li>Healing religious or generational distortions</li>
-        <li>Becoming a keeper of truth, not a follower of systems</li>
-        <li>Living as a sovereign spiritual being</li>
+        <li>Those called to ancient Kemet and ancestral truth</li>
+        <li>Those seeking spiritual justice and cosmic balance</li>
+        <li>Those healing distortions and false teachings</li>
+        <li>Those stepping into sovereign identity</li>
+        <li>Those committed to truth over belief systems</li>
       </ul>
     </section>
 
   </main>
 
-  <footer>
+  <footer style="text-align:center; padding:20px; margin-top:40px;">
     <p>© 2025 Temple of Royal Sovereignty · All Rights Reserved</p>
   </footer>
 
+</div>
+
 </body>
-</html> 
+</html>
