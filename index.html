@@ -7,7 +7,11 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* LEFT SIDEBAR */
+    /* -----------------------------------------
+       CLEAN HOME-PAGE SPECIFIC LAYOUT ONLY
+       ----------------------------------------- */
+
+    /* Sidebar (no colors here — controlled by style.css) */
     .sidebar {
       position: fixed;
       top: 0;
@@ -17,55 +21,39 @@
       background: #12021f;
       border-right: 2px solid #d4af37;
       padding: 30px 20px;
-      box-shadow: 2px 0 12px rgba(0,0,0,0.4);
-      font-size: 1.1rem;
       z-index: 9999;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.4);
     }
 
-    .sidebar a {
-      display: block;
-      color: #f7eaff;
-      text-decoration: none;
-      padding: 10px 0;
-      margin-bottom: 12px;
-      border-bottom: 1px solid #3d2a55;
-      transition: 0.3s;
-    }
-
-    .sidebar a:hover {
-      color: #ffd700;
-      padding-left: 6px;
-    }
-
-    /* CONTENT SHIFT */
     .content {
       margin-left: 240px;
       padding: 20px;
     }
 
-    header h1 {
-      text-align: center;
-      margin-top: 20px;
-      color: #ffd700;
-    }
-
-    header p.subtitle {
-      text-align: center;
-      margin-top: 5px;
-      color: #e6d6ff;
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-    }
-
+    /* Banner */
     .hero img {
       width: 100%;
       max-width: 900px;
       display: block;
       margin: 20px auto;
       border-radius: 8px;
+      border-bottom: 2px solid #ffd700;
     }
 
-    /* CREED SECTION */
+    /* Definition Box */
+    .definition-section {
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 25px;
+      background: rgba(255,255,255,0.06);
+      text-align: center;
+      border-left: 4px solid #FFD700;
+      border-radius: 8px;
+      line-height: 1.7;
+      font-size: 1.15rem;
+    }
+
+    /* Creed */
     .creed-section {
       max-width: 800px;
       margin: 40px auto;
@@ -73,33 +61,24 @@
       background: rgba(255,255,255,0.05);
       border-radius: 10px;
       border: 1px solid #FFD700;
+      text-align: center;
     }
 
     .creed-section h2 {
-      text-align: center;
       color: #FFD700;
       margin-bottom: 20px;
     }
 
-    .creed-section p {
-      text-align: center;
-      line-height: 1.8;
-      font-size: 1.1rem;
-    }
-
-    /* PORTAL SECTION */
+    /* Portal section */
     .portal {
-      text-align: center;
       max-width: 750px;
       margin: 40px auto;
+      text-align: center;
       line-height: 1.6;
       font-size: 1.1rem;
     }
 
-    .button-group {
-      margin-top: 20px;
-    }
-
+    /* Buttons */
     .btn {
       background: #330066;
       color: white;
@@ -109,32 +88,35 @@
       border-radius: 6px;
       border: 2px solid #ffd700;
       transition: 0.3s;
+      display: inline-block;
     }
 
     .btn:hover {
       background: #4b0082;
     }
 
-    .offerings {
+    .btn.offerings {
       background: #ffd700;
       color: #16052a;
       font-weight: bold;
     }
 
-    /* MOBILE */
+    /* Mobile */
     @media (max-width: 750px) {
       .sidebar {
+        position: relative;
         width: 100%;
         height: auto;
-        position: relative;
-        border-right: none;
+        padding: 15px;
         border-bottom: 2px solid #d4af37;
+        border-right: none;
       }
 
       .sidebar a {
         display: inline-block;
-        margin-right: 10px;
-        border: none;
+        padding: 8px 12px;
+        margin-right: 8px;
+        border: none !important;
       }
 
       .content {
@@ -146,18 +128,16 @@
 
 <body class="temple-page">
 
-  <!-- LEFT SIDEBAR NAVIGATION -->
+  <!-- SIDEBAR (controlled by global style.css colors) -->
   <div class="sidebar">
-  <a href="index.html">Home</a>
-  <a href="throne-room.html">The Throne Room</a>
-  <a href="maat.html">School of Ma’at</a>
-  <a href="readings.html">Readings & Sessions</a>
-  <a href="per-medjat.html">Free Library</a>
-  <a href="events-news.html">Events & News</a>
-  <a href="vlog.html">Vlog</a>
-  <a href="about.html">About</a>
-</div>
-    
+    <a href="index.html">Home</a>
+    <a href="throne-room.html">The Throne Room</a>
+    <a href="maat.html">School of Ma’at</a>
+    <a href="readings.html">Readings & Sessions</a>
+    <a href="per-medjat.html">Free Library</a>
+    <a href="events-news.html">Events & News</a>
+    <a href="vlog.html">Vlog</a>
+    <a href="about.html">About</a>
   </div>
 
   <!-- MAIN CONTENT -->
@@ -165,37 +145,28 @@
 
     <header>
       <h1>𓂀 Temple of Royal Sovereignty 𓂀</h1>
-
-      <!-- CLEAN NEW TAGLINE -->
       <p class="subtitle">
         Where you learn to govern your body, mind, and spirit the Royal way.
       </p>
     </header>
 
-    <!-- BANNER IMAGE -->
+    <!-- Banner -->
     <section class="hero">
       <img src="mystical banner.png" alt="Temple Banner">
     </section>
-<!-- SACRED DEFINITION -->
-<section class="definition-section" style="
-  max-width: 850px;
-  margin: 40px auto;
-  padding: 25px;
-  background: rgba(255,255,255,0.06);
-  text-align: center;
-  border-left: 4px solid #FFD700;
-  border-radius: 8px;
-  line-height: 1.7;
-  font-size: 1.15rem;
-">
-  <p>
-    You have been awakened to the  the truth that your body is a kingdom designed for Sovereign governance. Here you learn to treat your body the Royal way — 
-    through balance, discipline, intuition, spiritual remembrance, ancestral alignment, 
-    and divine law. Every teaching, reading, offering, and lesson guides you back to your 
-    Sovereign nature and your original power.
-  </p>
-</section>
-    <!-- TEMPLE CREED -->
+
+    <!-- Definition -->
+    <section class="definition-section">
+      <p>
+        You have been awakened to the truth that your body is a kingdom designed for Sovereign governance.
+        Here you learn to treat your body the Royal way — through balance, discipline, intuition,
+        spiritual remembrance, ancestral alignment, and divine law.
+        Every teaching, reading, offering, and lesson guides you back to your Sovereign nature
+        and your original power.
+      </p>
+    </section>
+
+    <!-- Creed -->
     <section class="creed-section">
       <h2>Temple Creed</h2>
       <p>
@@ -213,19 +184,13 @@
       </p>
     </section>
 
-    <!-- PORTAL -->
+    <!-- Portal -->
     <section class="portal">
-      <p>
-        This is not a website — this is a portal.<br />
-        A sacred space activated by solar fire, divine will, and ancestral truth.
-      </p>
-
+      <p>This is not a website — this is a portal.<br>A sacred space activated by solar fire, divine will, and ancestral truth.</p>
       <p>Only those with divine remembrance may enter.</p>
 
-      <div class="button-group">
-        <a class="btn" href="about.html">Enter the Temple</a>
-        <a class="btn offerings" href="https://tors.store/solar-reading.html">Offerings</a>
-      </div>
+      <a class="btn" href="about.html">Enter the Temple</a>
+      <a class="btn offerings" href="https://tors.store/solar-reading.html">Offerings</a>
     </section>
 
     <footer style="text-align:center; padding:20px; margin-top:40px;">
@@ -233,6 +198,5 @@
     </footer>
 
   </div>
-
 </body>
 </html>
