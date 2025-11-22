@@ -3,611 +3,310 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Free Sacred Library</title>
+  <title>Free Library — Temple of Royal Sovereignty</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Page-specific styles (keeps the look aligned with the Temple) -->
-  <style>
-    body.temple-page {
-      background: #16052a;
-      color: #f7f3ff;
-      margin: 0;
-      font-family: "Georgia", "Times New Roman", serif;
-    }
-
-    header {
-      text-align: center;
-      padding: 24px 12px 10px;
-    }
-
-    header h1 {
-      color: #ffd700;
-      font-size: 2.4rem;
-      margin-bottom: 4px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    header p.subtitle {
-      margin: 4px 0 10px;
-      font-size: 0.95rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #f8e9ff;
-      opacity: 0.9;
-    }
-
-    header nav {
-      margin-top: 10px;
-      font-size: 0.95rem;
-    }
-
-    header nav a {
-      color: #ffd700;
-      text-decoration: none;
-      margin: 0 4px;
-    }
-
-    header nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      max-width: 1120px;
-      margin: 0 auto 60px;
-      padding: 0 18px 40px;
-    }
-
-    .library-intro {
-      text-align: center;
-      margin: 10px auto 32px;
-      line-height: 1.7;
-      max-width: 780px;
-      font-size: 1rem;
-    }
-
-    .royal-notice {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      opacity: 0.9;
-      font-style: italic;
-    }
-
-    .section-title {
-      text-align: center;
-      color: #ffd700;
-      font-size: 1.6rem;
-      margin: 28px 0 20px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto 18px;
-      font-size: 0.9rem;
-      opacity: 0.9;
-      line-height: 1.6;
-    }
-
-    .library-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 26px;
-      margin-bottom: 30px;
-    }
-
-    .library-item {
-      background: radial-gradient(circle at top, #2b0a43 0%, #13041f 55%, #0a0315 100%);
-      border-radius: 18px;
-      border: 1px solid rgba(255, 215, 0, 0.4);
-      padding: 16px 16px 20px;
-      text-align: center;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
-    }
-
-    .library-thumb {
-      width: 100%;
-      display: block;
-      border-radius: 14px;
-      margin-bottom: 14px;
-    }
-
-    .library-title {
-      font-size: 1.02rem;
-      font-weight: 600;
-      color: #ffd700;
-      margin-bottom: 4px;
-    }
-
-    .library-meta {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      opacity: 0.9;
-      margin-bottom: 8px;
-    }
-
-    .library-desc {
-      font-size: 0.9rem;
-      line-height: 1.55;
-      margin-bottom: 10px;
-    }
-
-    .library-link {
-      display: inline-block;
-      margin-top: 4px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #ffd700;
-      text-decoration: underline;
-    }
-
-    .text-archive {
-      max-width: 780px;
-      margin: 0 auto;
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    .text-archive h3 {
-      font-size: 1rem;
-      margin-top: 18px;
-      color: #ffd700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .text-archive ul {
-      padding-left: 1.2rem;
-      margin: 4px 0 10px;
-    }
-
-    .text-archive li {
-      margin-bottom: 6px;
-    }
-
-    .text-archive a {
-      color: #ffd700;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.9rem;
-      }
-      .section-title {
-        font-size: 1.3rem;
-      }
-    }
-  </style>
 </head>
 
 <body class="temple-page">
 
-  <header>
-    <h1>Per Medjat — Sacred Library</h1>
-    <p class="subtitle">House of Divine Writings &amp; Remembered Texts</p>
-
-  <div class="sidebar">
+<!-- LEFT SIDE NAVIGATION -->
+<nav class="side-nav">
   <a href="index.html">Home</a>
   <a href="throne-room.html">The Throne Room</a>
   <a href="maat.html">School of Ma’at</a>
   <a href="readings.html">Readings & Sessions</a>
-  <a href="per-medjat.html">Free Library</a>
+  <a href="free-library.html">Free Library</a>
   <a href="events-news.html">Events & News</a>
   <a href="vlog.html">Vlog</a>
   <a href="about.html">About</a>
-</div>
-  
-</div>
-  </header>
+</nav>
 
-  <main>
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <h1>Per Medjat — Sacred Library</h1>
+  <p class="subtitle">House of Divine Writings & Remembered Texts</p>
+</header>
 
-    <!-- INTRO + DISCLAIMER -->
-    <section class="library-intro">
-      These writings are gathered for remembrance, research, and personal study.
-      Some are ancient, some modern, all chosen for the light they reveal on divine
-      law, initiation, and spiritual order.
-      <div class="royal-notice">
-        The Temple makes no claim of authorship or ownership. All texts are shared
-        freely <em>as-is</em> for educational and devotional use.
-      </div>
-    </section>
+<main>
 
-    <!-- ==========================
-         KEMETIC & TEMPLE TEXTS
-         ========================== -->
-    <h2 class="section-title">Kemetic Cosmology &amp; Temple Texts</h2>
-    <p class="section-subtitle">
-      Writings that illuminate Nile Valley wisdom, sacred architecture, and the
-      lunar sciences behind the Temple’s work.
-    </p>
-
-    <section class="library-grid">
-
-      <!-- Temple of Khonsu — Volume I -->
-      <article class="library-item">
-        <img src="A3097131-0881-4C20-B670-6C0D336CA2AD.png"
-             alt="Temple of Khonsu Volume I"
-             class="library-thumb">
-
-        <div class="library-title">Temple of Khonsu — Volume I</div>
-        <div class="library-meta">Ancient Lunar Mysteries</div>
-
-        <p class="library-desc">
-          Teachings of Khonsu: lunar cycles, divine timing, healing currents,
-          and the ancient sciences of night-light guidance.
-        </p>
-
-        <a href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v7.0/Temple.of.Khonsu.Volume.1.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- The Great Pyramid: Observatory, Tomb & Temple (no thumbnail yet) -->
-      <article class="library-item">
-        <img src="41D6EEEF-2E24-4CD4-9584-F38B600DE572.png"
-             alt="The Great Pyramid: Observatory, Tomb &amp; Temple"
-             class="library-thumb">
-        <div class="library-title">The Great Pyramid: Observatory, Tomb &amp; Temple</div>
-        <div class="library-meta">Richard A. Proctor · 1883</div>
-        <p class="library-desc">
-          A detailed examination of the Great Pyramid’s geometry, stellar
-          alignment, and triple role as observatory, spiritual chamber, and temple.
-        </p>
-        <a href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v1.0/greatpyramidobse00proc.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- Egyptian Mythology and Egyptian Christianity -->
-      <article class="library-item">
-        <img src="3016A5C2-6117-41A1-B86E-AA5CA4A8F5BA.png"
-             alt="Egyptian Mythology and Egyptian Christianity"
-             class="library-thumb">
-        <div class="library-title">Egyptian Mythology &amp; Egyptian Christianity</div>
-        <div class="library-meta">Comparative Study</div>
-        <p class="library-desc">
-          A historical comparison tracing how later religious forms drew from
-          older Kemetic symbols, myths, and sacred motifs.
-        </p>
-        <a href="EgyptianMythologyandEgyptianChristianity_10535891.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-    </section>
-
-    <!-- ==========================
-         AFRICAN SPIRITUAL SYSTEMS
-         ========================== -->
-    <h2 class="section-title">African Spiritual Systems</h2>
-    <p class="section-subtitle">
-      Texts honoring Yoruba, Ifa, Hoodoo, Orisha, and other African and diaspora
-      lineages that preserve the ancestral sciences of spirit.
-    </p>
-
-    <section class="library-grid">
-
-      <!-- Yoruba Legends -->
-      <article class="library-item">
-        <img src="076DBD12-8297-4DA9-ABDE-472DDB325A39.png"
-             alt="Yoruba Legends — M.I. Ogumefu"
-             class="library-thumb">
-        <div class="library-title">Yoruba Legends</div>
-        <div class="library-meta">M. I. Ogumefu</div>
-        <p class="library-desc">
-          A collection of stories and mythic tales from the Yoruba people,
-          preserving cultural memory, values, and spiritual worldview.
-        </p>
-        <a href="2015.54438.Yoruba-Legands.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- Ifa Divination -->
-      <article class="library-item">
-        <img src="ifa-divination.png"
-             alt="Ifa Divination — Communication Between Gods and Men in West Africa"
-             class="library-thumb">
-        <div class="library-title">Ifa Divination</div>
-        <div class="library-meta">Communication Between Gods &amp; Men</div>
-        <p class="library-desc">
-          A detailed study of the Ifa system, the odu, and the cosmology that
-          structures divination and ancestral communication in Yoruba culture.
-        </p>
-        <a href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v2.0/Ifa.Divination_.Communication.Between.Gods.and.Men.in.West.Africa.PDFDrive.1.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- Eshu–Eleggua–Elegbara -->
-      <article class="library-item">
-        <img src="eshu-book.png"
-             alt="Eshu–Eleggua–Elegbara"
-             class="library-thumb">
-        <div class="library-title">Eshu–Eleggua–Elegbara</div>
-        <div class="library-meta">Baba Raúl Cañizares</div>
-        <p class="library-desc">
-          An exploration of the Orisha of the crossroads—guardian of thresholds,
-          communication, and the opening and closing of ways in Santería.
-        </p>
-        <a href="Eshu-Eleggua-Elegbara.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- Hoodoo Spellbook -->
-      <article class="library-item">
-        <img src="hoodoo-spellbook.png"
-             alt="Hoodoo Spellbook"
-             class="library-thumb">
-        <div class="library-title">Hoodoo Spellbook</div>
-        <div class="library-meta">Rootwork &amp; Folk Practice</div>
-        <p class="library-desc">
-          A record of Hoodoo traditions, rootwork formulas, and ancestral methods
-          of healing, protection, and manifestation across the diaspora.
-        </p>
-        <a href="Hoodoo-Spellbook.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-    </section>
-
-    <!-- ==========================
-         ASTROLOGY & NUMEROLOGY
-         ========================== -->
-    <h2 class="section-title">Astrology, Numbers &amp; Divination Sciences</h2>
-    <p class="section-subtitle">
-      Foundational works that introduce the language of stars, numbers, and
-      divinatory patterns used to read cycles, destiny, and character.
-    </p>
-
-    <section class="library-grid">
-
-      <!-- Astrology: Its Technics & Ethics -->
-      <article class="library-item">
-        <img src="astrology-ethics.jpg"
-             alt="Astrology: Its Technics &amp; Ethics"
-             class="library-thumb">
-        <div class="library-title">Astrology: Its Technics &amp; Ethics</div>
-        <div class="library-meta">C. Aq. Libra</div>
-        <p class="library-desc">
-          A classic text on astrological technique and ethical practice, offering
-          tools for interpreting planetary influence and karmic patterns.
-        </p>
-        <a href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v5.0/Astrology.Its.Technics.and.Ethics.Book.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- Astrology for Beginners -->
-      <article class="library-item">
-        <img src="030AED94-1325-4D80-99C3-083AD39F6B79.png"
-             alt="Astrology for Beginners — William W. Hewitt"
-             class="library-thumb">
-        <div class="library-title">Astrology for Beginners</div>
-        <div class="library-meta">William W. Hewitt</div>
-        <p class="library-desc">
-          An accessible introduction to Western astrology, covering signs, houses,
-          aspects, and the basics of reading a natal chart.
-        </p>
-        <a href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v6.0/Astrology.for.Beginners_.An.Easy.Guide.to.Understanding.Interpreting.Your.Chart.Llewellyn.s.Modern.Astrology.Library.Series.PDFDrive.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- Cheiro’s Book of Numbers -->
-      <article class="library-item">
-        <img src="cheiros-numbers.png"
-             alt="Cheiro's Book of Numbers"
-             class="library-thumb">
-        <div class="library-title">Cheiro’s Book of Numbers</div>
-        <div class="library-meta">Numerology</div>
-        <p class="library-desc">
-          A foundational numerology manual on destiny numbers, names, and the
-          vibrational laws shaping events and personality.
-        </p>
-        <a href="Numerology-Cheiro.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-    </section>
-
-    <!-- ==========================
-         MYSTICISM & ESOTERIC STUDIES
-         ========================== -->
-    <h2 class="section-title">Mysticism, Magic &amp; Esoteric Studies</h2>
-    <p class="section-subtitle">
-      Texts exploring ceremonial work, mental law, and the hidden structures of
-      the unseen. Offered for research, not as Temple ritual.
-    </p>
-
-    <section class="library-grid">
-
-      <!-- Morals & Dogma of Ancient Mysteries -->
-      <article class="library-item">
-        <img src="8268D193-1B46-45A0-A479-AB75D6FA34D1.png"
-             alt="Morals &amp; Dogma of Ancient Mysteries"
-             class="library-thumb">
-        <div class="library-title">Morals &amp; Dogma of Ancient Mysteries</div>
-        <div class="library-meta">Esoteric Studies</div>
-        <p class="library-desc">
-          A dense initiatic text on symbolism, spiritual law, and layered
-          interpretations of ancient mystery traditions.
-        </p>
-        <a href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v3.0/moralsdogmaofanc00pike_0.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- The Old Book of Magic (1918) -->
-      <article class="library-item">
-        <img src="76ED468F-256A-4CEA-B238-AA1D154F69D1.png"
-             alt="The Old Book of Magic"
-             class="library-thumb">
-        <div class="library-title">The Old Book of Magic</div>
-        <div class="library-meta">L. W. de Laurence · 1918</div>
-        <p class="library-desc">
-          A historic manual on ceremonial magic, charms, talismans, and the
-          theories of directing subtle forces.
-        </p>
-        <a href="1918__de_laurence___the_old_book_of_magic.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- The Master Key (1914) -->
-      <article class="library-item">
-        <img src="597A7F66-5038-41DB-9736-1CB55245D185.png"
-             alt="The Master Key — L. W. de Laurence"
-             class="library-thumb">
-        <div class="library-title">The Master Key</div>
-        <div class="library-meta">L. W. de Laurence · 1914</div>
-        <p class="library-desc">
-          An early twentieth-century work on mental power, vibration, and the
-          laws of thought as a key to shaping experience.
-        </p>
-        <a href="1914__de_laurence___the_master_key.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- Forum of Psychic & Scientific Research -->
-      <article class="library-item">
-        <img src="forum-scientific.png"
-             alt="Forum of Psychic and Scientific Research"
-             class="library-thumb">
-        <div class="library-title">The Forum of Psychic &amp; Scientific Research</div>
-        <div class="library-meta">June 1932</div>
-        <p class="library-desc">
-          A collection of early twentieth-century articles on psychic phenomena,
-          spiritual science, and metaphysical experimentation.
-        </p>
-        <a href="forum_of_psychic_and_scientific_research_v4_n5_jun_1932.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- Daily Studies in Divine Science -->
-      <article class="library-item">
-        <img src="F2051F8A-2AD3-4167-8F09-2570E9CE3D4F.png"
-             alt="Daily Studies in Divine Science"
-             class="library-thumb">
-        <div class="library-title">Daily Studies in Divine Science</div>
-        <div class="library-meta">Ruth B. Smith · March 1930</div>
-        <p class="library-desc">
-          Daily meditations for the seeker walking between worlds, focused on
-          spiritual law, mental alignment, and inner discipline.
-        </p>
-        <a href="daily_studies_in_divine_science_mar_1930.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-    </section>
-
-    <!-- ==========================
-         FICTION & ALLEGORY
-         ========================== -->
-    <h2 class="section-title">Fiction, Allegory &amp; Prophetic Visions</h2>
-    <p class="section-subtitle">
-      Stories that carry prophecy, warning, and spiritual teaching through
-      narrative form.
-    </p>
-
-    <section class="library-grid">
-
-      <!-- The Journey to the East -->
-      <article class="library-item">
-        <img src="E2430270-2D32-4BAC-85D7-6E07E1B8A84F.png"
-             alt="The Journey to the East"
-             class="library-thumb">
-        <div class="library-title">The Journey to the East</div>
-        <div class="library-meta">2015 Edition</div>
-        <p class="library-desc">
-          A spiritual narrative of inner pilgrimage, companionship, and the
-          hidden initiations behind the journey toward higher awareness.
-        </p>
-        <a href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v4.0/The.Journey.To.The.East.-.2015.247218.The-Journey_text.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- Parable of the Sower -->
-      <article class="library-item">
-        <img src="IMG_0996.jpeg"
-             alt="Parable of the Sower"
-             class="library-thumb">
-        <div class="library-title">Parable of the Sower</div>
-        <div class="library-meta">Octavia E. Butler</div>
-        <p class="library-desc">
-          A prophetic vision of collapse and rebirth, following a young seer who
-          crafts a new spiritual path in the midst of societal breakdown.
-        </p>
-        <a href="Parable of the Sower.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-
-      <!-- The Greatest Story Never Told -->
-      <article class="library-item">
-        <img src="DC78D681-E291-4E85-8244-AC40B852015A.png"
-             alt="The Greatest Story Never Told"
-             class="library-thumb">
-        <div class="library-title">The Greatest Story Never Told</div>
-        <div class="library-meta">Revelation &amp; History</div>
-        <p class="library-desc">
-          A work unveiling spiritual truths hidden behind official narratives—a
-          call to remembrance, courage, and inner knowing.
-        </p>
-        <a href="The-Greatest-Story-Never-Told.pdf"
-           class="library-link"
-           target="_blank">Open PDF</a>
-      </article>
-    </section> <!-- closes final library-grid -->
-  </main>
+  <!-- INTRO + DISCLAIMER -->
+  <section class="library-intro">
+    These writings are gathered for remembrance, research, and personal study.
+    Some are ancient, some modern — each chosen for the light they reveal on
+    divine law, initiation, and spiritual order.
+    <div class="royal-notice">
+      The Temple claims no authorship or ownership.  
+      All texts are shared freely <em>as-is</em> for educational and devotional use.
+    </div>
+  </section>
 
   <!-- ==========================
-       FOOTER
+       KEMETIC COSMOLOGY & TEMPLE TEXTS
        ========================== -->
-  <footer style="
-      background:#0d0218;
-      border-top:1px solid rgba(255,215,0,0.35);
-      padding:28px 12px;
-      text-align:center;
-      color:#f7f3ff;
-      margin-top:40px;
-      font-family: 'Georgia', serif;">
-    
-    <div style="font-size:1rem; color:#ffd700; letter-spacing:0.08em; margin-bottom:8px;">
-      Temple of Royal Sovereignty
-    </div>
+  <h2 class="section-title">Kemetic Cosmology & Temple Texts</h2>
+  <p class="section-subtitle">
+    Writings that illuminate Nile Valley wisdom, sacred architecture, and the
+    lunar sciences behind the Temple’s work.
+  </p>
 
-    <p style="font-size:0.85rem; max-width:700px; margin:0 auto 14px; line-height:1.55;">
-      Per Medjat — House of Divine Writings.  
-      All texts shared for educational, spiritual, and research purposes only.
-      The Temple claims no authorship or ownership of any preserved works.
-    </p>
+  <section class="library-grid">
 
-    <div style="font-size:0.85rem; opacity:0.85; margin-bottom:6px;">
-      © <span id="year"></span> Temple of Ma’at · All Rights Reserved
-    </div>
+    <!-- Temple of Khonsu — Volume I -->
+    <article class="library-item">
+      <img src="A3097131-0881-4C20-B670-6C0D336CA2AD.png" class="library-thumb" alt="Temple of Khonsu Volume I">
+      <div class="library-title">Temple of Khonsu — Volume I</div>
+      <div class="library-meta">Ancient Lunar Mysteries</div>
+      <p class="library-desc">
+        Teachings of Khonsu: lunar cycles, divine timing, healing currents,
+        and the ancient sciences of night-light guidance.
+      </p>
+      <a class="library-link" target="_blank"
+         href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v7.0/Temple.of.Khonsu.Volume.1.pdf">
+         Open PDF
+      </a>
+    </article>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+    <!-- Great Pyramid -->
+    <article class="library-item">
+      <img src="41D6EEEF-2E24-4CD4-9584-F38B600DE572.png" class="library-thumb" alt="The Great Pyramid">
+      <div class="library-title">The Great Pyramid</div>
+      <div class="library-meta">Richard A. Proctor · 1883</div>
+      <p class="library-desc">
+        A detailed examination of the Great Pyramid’s geometry, stellar alignment,
+        and role as observatory, spiritual chamber, and temple.
+      </p>
+      <a class="library-link" target="_blank"
+         href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v1.0/greatpyramidobse00proc.pdf">
+         Open PDF
+      </a>
+    </article>
 
-  </footer>
+    <!-- Egyptian Mythology & Christianity -->
+    <article class="library-item">
+      <img src="3016A5C2-6117-41A1-B86E-AA5CA4A8F5BA.png" class="library-thumb" alt="Egyptian Mythology & Christianity">
+      <div class="library-title">Egyptian Mythology & Egyptian Christianity</div>
+      <div class="library-meta">Comparative Study</div>
+      <p class="library-desc">
+        A study tracing how later religions drew from Kemetic symbols, myths, and sacred motifs.
+      </p>
+      <a class="library-link" target="_blank"
+         href="EgyptianMythologyandEgyptianChristianity_10535891.pdf">
+         Open PDF
+      </a>
+    </article>
+
+  </section>
+
+
+  <!-- ==========================
+       AFRICAN SPIRITUAL SYSTEMS
+       ========================== -->
+  <h2 class="section-title">African Spiritual Systems</h2>
+  <p class="section-subtitle">
+    Texts honoring Yoruba, Ifa, Hoodoo, Orisha, and other African and diaspora sciences.
+  </p>
+
+  <section class="library-grid">
+
+    <!-- Yoruba Legends -->
+    <article class="library-item">
+      <img src="076DBD12-8297-4DA9-ABDE-472DDB325A39.png" class="library-thumb">
+      <div class="library-title">Yoruba Legends</div>
+      <div class="library-meta">M. I. Ogumefu</div>
+      <p class="library-desc">
+        Stories and mythic teachings of the Yoruba people — culture, memory, and worldview.
+      </p>
+      <a class="library-link" target="_blank" href="2015.54438.Yoruba-Legands.pdf">Open PDF</a>
+    </article>
+
+    <!-- Ifa Divination -->
+    <article class="library-item">
+      <img src="ifa-divination.png" class="library-thumb">
+      <div class="library-title">Ifa Divination</div>
+      <div class="library-meta">Communication Between Gods & Men</div>
+      <p class="library-desc">
+        A deep study of the odu, cosmology, and ancestral communication of the Ifa system.
+      </p>
+      <a class="library-link" target="_blank"
+         href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v2.0/Ifa.Divination_.Communication.Between.Gods.and.Men.in.West.Africa.PDFDrive.1.pdf">
+         Open PDF
+      </a>
+    </article>
+
+    <!-- Eshu–Eleggua–Elegbara -->
+    <article class="library-item">
+      <img src="eshu-book.png" class="library-thumb">
+      <div class="library-title">Eshu–Eleggua–Elegbara</div>
+      <div class="library-meta">Baba Raúl Cañizares</div>
+      <p class="library-desc">
+        The Orisha of crossroads — guardian of openings, thresholds, and communication.
+      </p>
+      <a class="library-link" target="_blank" href="Eshu-Eleggua-Elegbara.pdf">Open PDF</a>
+    </article>
+
+    <!-- Hoodoo -->
+    <article class="library-item">
+      <img src="hoodoo-spellbook.png" class="library-thumb">
+      <div class="library-title">Hoodoo Spellbook</div>
+      <div class="library-meta">Rootwork & Folk Practice</div>
+      <p class="library-desc">
+        A collection of ancestral rootwork, healing, protection, and manifestation practices.
+      </p>
+      <a class="library-link" target="_blank" href="Hoodoo-Spellbook.pdf">Open PDF</a>
+    </article>
+
+  </section>
+
+
+  <!-- ==========================
+       ASTROLOGY & NUMBERS
+       ========================== -->
+  <h2 class="section-title">Astrology, Numbers & Divination</h2>
+
+  <section class="library-grid">
+
+    <!-- Astrology Technics & Ethics -->
+    <article class="library-item">
+      <img src="astrology-ethics.jpg" class="library-thumb">
+      <div class="library-title">Astrology: Technics & Ethics</div>
+      <div class="library-meta">C. Aq. Libra</div>
+      <p class="library-desc">
+        A classic esoteric astrology text covering karmic patterns and interpretations.
+      </p>
+      <a class="library-link" target="_blank"
+         href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v5.0/Astrology.Its.Technics.and.Ethics.Book.pdf">
+         Open PDF
+      </a>
+    </article>
+
+    <!-- Astrology for Beginners -->
+    <article class="library-item">
+      <img src="030AED94-1325-4D80-99C3-083AD39F6B79.png" class="library-thumb">
+      <div class="library-title">Astrology for Beginners</div>
+      <div class="library-meta">William W. Hewitt</div>
+      <p class="library-desc">
+        Signs, houses, aspects, and how to read a natal chart — simple and powerful.
+      </p>
+      <a class="library-link" target="_blank"
+         href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v6.0/Astrology.for.Beginners_.An.Easy.Guide.to.Understanding.Interpreting.Your.Chart.Llewellyn.s.Modern.Astrology.Library.Series.PDFDrive.pdf">
+         Open PDF
+      </a>
+    </article>
+
+    <!-- Cheiro Numbers -->
+    <article class="library-item">
+      <img src="cheiros-numbers.png" class="library-thumb">
+      <div class="library-title">Cheiro’s Book of Numbers</div>
+      <div class="library-meta">Numerology</div>
+      <p class="library-desc">
+        A classic text on destiny, vibration, and number law.
+      </p>
+      <a class="library-link" target="_blank" href="Numerology-Cheiro.pdf">Open PDF</a>
+    </article>
+
+  </section>
+
+
+  <!-- ==========================
+       MYSTICISM & ESOTERIC
+       ========================== -->
+  <h2 class="section-title">Mysticism & Esoteric Studies</h2>
+
+  <section class="library-grid">
+
+    <article class="library-item">
+      <img src="8268D193-1B46-45A0-A479-AB75D6FA34D1.png" class="library-thumb">
+      <div class="library-title">Morals & Dogma</div>
+      <div class="library-meta">Esoteric Studies</div>
+      <p class="library-desc">
+        Symbolism, spiritual law, and layered teachings of ancient mystery traditions.
+      </p>
+      <a class="library-link" target="_blank"
+         href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v3.0/moralsdogmaofanc00pike_0.pdf">
+         Open PDF
+      </a>
+    </article>
+
+    <article class="library-item">
+      <img src="76ED468F-256A-4CEA-B238-AA1D154F69D1.png" class="library-thumb">
+      <div class="library-title">The Old Book of Magic</div>
+      <div class="library-meta">1918</div>
+      <p class="library-desc">
+        A manual on ceremonial magic, talismans, charms, and metaphysical forces.
+      </p>
+      <a class="library-link" target="_blank" href="1918__de_laurence___the_old_book_of_magic.pdf">
+        Open PDF
+      </a>
+    </article>
+
+    <article class="library-item">
+      <img src="597A7F66-5038-41DB-9736-1CB55245D185.png" class="library-thumb">
+      <div class="library-title">The Master Key</div>
+      <div class="library-meta">1914</div>
+      <p class="library-desc">
+        A work on vibration, mental law, and the power of thought.
+      </p>
+      <a class="library-link" target="_blank" href="1914__de_laurence___the_master_key.pdf">
+        Open PDF
+      </a>
+    </article>
+
+  </section>
+
+
+  <!-- ==========================
+       FICTION & PROPHECY
+       ========================== -->
+  <h2 class="section-title">Fiction, Allegory & Prophetic Visions</h2>
+
+  <section class="library-grid">
+
+    <article class="library-item">
+      <img src="E2430270-2D32-4BAC-85D7-6E07E1B8A84F.png" class="library-thumb">
+      <div class="library-title">The Journey to the East</div>
+      <div class="library-meta">2015 Edition</div>
+      <p class="library-desc">
+        A narrative of pilgrimage and inner initiation.
+      </p>
+      <a class="library-link" target="_blank"
+         href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v4.0/The.Journey.To.The.East.-.2015.247218.The-Journey_text.pdf">
+         Open PDF
+      </a>
+    </article>
+
+    <article class="library-item">
+      <img src="IMG_0996.jpeg" class="library-thumb">
+      <div class="library-title">Parable of the Sower</div>
+      <div class="library-meta">Octavia E. Butler</div>
+      <p class="library-desc">
+        A prophetic vision of collapse, rebirth, and spiritual leadership.
+      </p>
+      <a class="library-link" target="_blank" href="Parable of the Sower.pdf">Open PDF</a>
+    </article>
+
+    <article class="library-item">
+      <img src="DC78D681-E291-4E85-8244-AC40B852015A.png" class="library-thumb">
+      <div class="library-title">The Greatest Story Never Told</div>
+      <div class="library-meta">Prophetic Allegory</div>
+      <p class="library-desc">
+        A revelation text uncovering hidden truths and suppressed histories.
+      </p>
+      <a class="library-link" target="_blank" href="The-Greatest-Story-Never-Told.pdf">Open PDF</a>
+    </article>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© <span id="year"></span> Temple of Royal Sovereignty · All Rights Reserved</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
-
-
-
-
   
