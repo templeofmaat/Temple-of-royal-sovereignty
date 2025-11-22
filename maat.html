@@ -1,114 +1,16 @@
-       <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>School of Ma’at — Temple of Royal Sovereignty</title>
+  <title>Free Library — Temple of Royal Sovereignty</title>
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    /* SIDEBAR — MATCHES HOME, EVENTS, ABOUT */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 220px;
-      height: 100vh;
-      background: #12021f;
-      border-right: 2px solid #d4af37;
-      padding: 30px 20px;
-      box-shadow: 2px 0 12px rgba(0,0,0,0.4);
-      font-size: 1.1rem;
-      z-index: 9999;
-    }
-
-    .sidebar a {
-      display: block;
-      color: #f7eaff;             /* white/lavender */
-      text-decoration: none;
-      padding: 10px 0;
-      margin-bottom: 12px;
-      border-bottom: 1px solid #3d2a55;
-      transition: 0.3s;
-    }
-
-    .sidebar a:hover {
-      color: #ffd700;             /* gold hover */
-      padding-left: 6px;
-    }
-
-    /* CONTENT AREA */
-    .page-content {
-      margin-left: 240px;         /* prevents overlap with sidebar */
-      padding: 20px;
-    }
-
-    /* HEADERS */
-    header h1 {
-      text-align: center;
-      margin-top: 20px;
-      color: #ffd700;
-      font-size: 2.2rem;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 10px rgba(255,215,0,0.4);
-    }
-
-    .subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #e6d6ff;
-      margin-top: 6px;
-    }
-
-    /* TEXT SECTIONS */
-    .text-block {
-      max-width: 850px;
-      margin: 40px auto;
-      padding: 25px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      border: 1px solid #ffd700;
-      color: #f7f0ff;
-      line-height: 1.7;
-    }
-
-    .text-block h2 {
-      text-align: center;
-      color: #ffd700;
-      margin-bottom: 15px;
-    }
-
-    ul {
-      padding-left: 20px;
-      line-height: 1.8;
-    }
-
-    /* MOBILE */
-    @media(max-width: 750px) {
-      .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        border-bottom: 2px solid #d4af37;
-      }
-
-      .sidebar a {
-        display: inline-block;
-        margin-right: 14px;
-        border-bottom: none;
-      }
-
-      .page-content {
-        margin-left: 0;
-      }
-    }
-  </style>
 </head>
 
 <body class="temple-page">
 
-<!-- UNIFIED PURPLE/WHITE SIDEBAR -->
-<div class="sidebar">
+<!-- LEFT SIDE NAVIGATION -->
+<nav class="side-nav">
   <a href="index.html">Home</a>
   <a href="throne-room.html">The Throne Room</a>
   <a href="maat.html">School of Ma’at</a>
@@ -117,83 +19,293 @@
   <a href="events-news.html">Events & News</a>
   <a href="vlog.html">Vlog</a>
   <a href="about.html">About</a>
-</div>
+</nav>
 
-<!-- MAIN CONTENT -->
+<!-- PAGE WRAPPER -->
 <div class="page-content">
 
-  <header>
-    <h1>School of Ma’at</h1>
-    <p class="subtitle">Where Truth Becomes Your Way of Life</p>
-  </header>
+<header class="page-header">
+  <h1>Per Medjat — Sacred Library</h1>
+  <p class="subtitle">House of Divine Writings & Remembered Texts</p>
+</header>
 
-  <main>
+<main class="page-inner">
 
-    <!-- Section 1 -->
-    <section class="text-block">
-      <h2>Who is Ma’at?</h2>
-      <p>
-        Ma’at is the embodiment of cosmic truth, balance, reciprocity, harmony,
-        right action, and divine law. She governs how energy moves, how justice
-        unfolds, and how creation restores itself.
+  <!-- INTRO + DISCLAIMER -->
+  <section class="library-intro">
+    <p>
+      These writings are gathered for remembrance, research, and personal study.
+      Some are ancient, some modern — each chosen for the light they reveal on
+      divine law, initiation, and spiritual order.
+    </p>
+
+    <div class="royal-notice">
+      The Temple claims no authorship or ownership.<br/>
+      All texts are shared freely <em>as-is</em> for educational and devotional use.
+    </div>
+  </section>
+
+  <!-- ==========================
+       KEMETIC COSMOLOGY
+       ========================== -->
+  <h2 class="section-title">Kemetic Cosmology & Temple Texts</h2>
+  <p class="section-subtitle">
+    Writings that illuminate Nile Valley wisdom, sacred architecture, and lunar sciences.
+  </p>
+
+  <section class="library-grid">
+
+    <!-- Temple of Khonsu -->
+    <article class="library-item">
+      <img src="A3097131-0881-4C20-B670-6C0D336CA2AD.png" class="library-thumb">
+      <div class="library-title">Temple of Khonsu — Volume I</div>
+      <div class="library-meta">Ancient Lunar Mysteries</div>
+      <p class="library-desc">
+        Teachings of Khonsu: lunar cycles, divine timing, healing currents.
       </p>
-      <p>
-        To walk with Ma’at is to walk in alignment — where your words, choices,
-        and intentions match the truth of your soul.
+      <a class="library-link" target="_blank"
+        href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v7.0/Temple.of.Khonsu.Volume.1.pdf">
+        Open PDF
+      </a>
+    </article>
+
+    <!-- Great Pyramid -->
+    <article class="library-item">
+      <img src="41D6EEEF-2E24-4CD4-9584-F38B600DE572.png" class="library-thumb">
+      <div class="library-title">The Great Pyramid</div>
+      <div class="library-meta">Richard A. Proctor · 1883</div>
+      <p class="library-desc">
+        A study of the Great Pyramid’s geometry, star alignment, and sacred design.
       </p>
-    </section>
+      <a class="library-link" target="_blank"
+        href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v1.0/greatpyramidobse00proc.pdf">
+        Open PDF
+      </a>
+    </article>
 
-    <!-- Section 2 -->
-    <section class="text-block">
-      <h2>The Purpose of the School of Ma’at</h2>
-      <p>
-        The School of Ma’at is the heart center of the Temple of Royal Sovereignty.
-        It is a remembrance chamber, a learning chamber, and an activation portal.
+    <!-- Egyptian Mythology -->
+    <article class="library-item">
+      <img src="3016A5C2-6117-41A1-B86E-AA5CA4A8F5BA.png" class="library-thumb">
+      <div class="library-title">Egyptian Mythology & Egyptian Christianity</div>
+      <div class="library-meta">Comparative Study</div>
+      <p class="library-desc">
+        How later religions drew heavily from Kemetic symbols and sacred teachings.
       </p>
-      <p>This School returns members to:</p>
-      <ul>
-        <li>Truth — the First Law</li>
-        <li>Balance — the sacred middle path</li>
-        <li>Order — the natural flow of creation</li>
-        <li>Reciprocity — divine exchange</li>
-        <li>Harmony — living without inner conflict</li>
-        <li>Right Action — living in integrity</li>
-      </ul>
-    </section>
+      <a class="library-link" target="_blank"
+        href="EgyptianMythologyandEgyptianChristianity_10535891.pdf">
+        Open PDF
+      </a>
+    </article>
 
-    <!-- Section 3 -->
-    <section class="text-block">
-      <h2>What You Learn in This Temple</h2>
-      <ul>
-        <li>Balance your emotional, spiritual, and physical bodies</li>
-        <li>Align your inner world with cosmic law</li>
-        <li>Discern truth from illusion</li>
-        <li>Navigate life with clarity and spiritual authority</li>
-        <li>Fulfill your soul contract through right action</li>
-        <li>Restore harmony in chaotic environments</li>
-        <li>Live as a keeper of divine law</li>
-      </ul>
-    </section>
+  </section>
 
-    <!-- Section 4 -->
-    <section class="text-block">
-      <h2>Who This School Is For</h2>
-      <ul>
-        <li>Those called to ancient Kemet and ancestral truth</li>
-        <li>Those seeking spiritual justice and cosmic balance</li>
-        <li>Those healing distortions and false teachings</li>
-        <li>Those stepping into sovereign identity</li>
-        <li>Those committed to truth over belief systems</li>
-      </ul>
-    </section>
+  <!-- ==========================
+       AFRICAN SYSTEMS
+       ========================== -->
+  <h2 class="section-title">African Spiritual Systems</h2>
+  <p class="section-subtitle">Texts honoring Yoruba, Ifa, Hoodoo & diaspora knowledge.</p>
 
-  </main>
+  <section class="library-grid">
 
-  <footer style="text-align:center; padding:20px; margin-top:40px;">
-    <p>© 2025 Temple of Royal Sovereignty · All Rights Reserved</p>
-  </footer>
+    <!-- Yoruba -->
+    <article class="library-item">
+      <img src="076DBD12-8297-4DA9-ABDE-472DDB325A39.png" class="library-thumb">
+      <div class="library-title">Yoruba Legends</div>
+      <div class="library-meta">M. I. Ogumefu</div>
+      <p class="library-desc">Mythic teachings of the Yoruba lineage.</p>
+      <a class="library-link" target="_blank" href="2015.54438.Yoruba-Legands.pdf">Open PDF</a>
+    </article>
+
+    <!-- Ifa -->
+    <article class="library-item">
+      <img src="ifa-divination.png" class="library-thumb">
+      <div class="library-title">Ifa Divination</div>
+      <div class="library-meta">Communication Between Gods & Men</div>
+      <p class="library-desc">
+        Deep study of odu, cosmology, and ancestral communication.
+      </p>
+      <a class="library-link" target="_blank"
+        href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v2.0/Ifa.Divination_.Communication.Between.Gods.and.Men.in.West.Africa.PDFDrive.1.pdf">
+        Open PDF
+      </a>
+    </article>
+
+    <!-- Eshu -->
+    <article class="library-item">
+      <img src="eshu-book.png" class="library-thumb">
+      <div class="library-title">Eshu–Eleggua–Elegbara</div>
+      <div class="library-meta">Baba Raúl Cañizares</div>
+      <p class="library-desc">
+        Guardian of crossroads, openings & destiny flow.
+      </p>
+      <a class="library-link" target="_blank" href="Eshu-Eleggua-Elegbara.pdf">Open PDF</a>
+    </article>
+
+    <!-- Hoodoo -->
+    <article class="library-item">
+      <img src="hoodoo-spellbook.png" class="library-thumb">
+      <div class="library-title">Hoodoo Spellbook</div>
+      <div class="library-meta">Rootwork & Folk Practice</div>
+      <p class="library-desc">
+        Protection, healing, and manifestation practices.
+      </p>
+      <a class="library-link" target="_blank" href="Hoodoo-Spellbook.pdf">Open PDF</a>
+    </article>
+
+  </section>
+
+  <!-- ==========================
+       ASTROLOGY
+       ========================== -->
+  <h2 class="section-title">Astrology, Numbers & Divination</h2>
+
+  <section class="library-grid">
+
+    <!-- Technics & Ethics -->
+    <article class="library-item">
+      <img src="astrology-ethics.jpg" class="library-thumb">
+      <div class="library-title">Astrology: Technics & Ethics</div>
+      <div class="library-meta">C. Aq. Libra</div>
+      <p class="library-desc">
+        Esoteric astrology focusing on karmic interpretation.
+      </p>
+      <a class="library-link" target="_blank"
+        href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v5.0/Astrology.Its.Technics.and.Ethics.Book.pdf">
+        Open PDF
+      </a>
+    </article>
+
+    <!-- Beginners -->
+    <article class="library-item">
+      <img src="030AED94-1325-4D80-99C3-083AD39F6B79.png" class="library-thumb">
+      <div class="library-title">Astrology for Beginners</div>
+      <div class="library-meta">William W. Hewitt</div>
+      <p class="library-desc">
+        Simple, powerful natal chart foundations.
+      </p>
+      <a class="library-link" target="_blank"
+        href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v6.0/Astrology.for.Beginners_.An.Easy.Guide.to.Understanding.Interpreting.Your.Chart.Llewellyn.s.Modern.Astrology.Library.Series.PDFDrive.pdf">
+        Open PDF
+      </a>
+    </article>
+
+    <!-- Cheiro -->
+    <article class="library-item">
+      <img src="cheiros-numbers.png" class="library-thumb">
+      <div class="library-title">Cheiro’s Book of Numbers</div>
+      <div class="library-meta">Numerology</div>
+      <p class="library-desc">
+        The foundational text on number law.
+      </p>
+      <a class="library-link" target="_blank" href="Numerology-Cheiro.pdf">Open PDF</a>
+    </article>
+
+  </section>
+
+  <!-- ==========================
+       MYSTICISM
+       ========================== -->
+  <h2 class="section-title">Mysticism & Esoteric Studies</h2>
+
+  <section class="library-grid">
+
+    <article class="library-item">
+      <img src="8268D193-1B46-45A0-A479-AB75D6FA34D1.png" class="library-thumb">
+      <div class="library-title">Morals & Dogma</div>
+      <div class="library-meta">Esoteric Studies</div>
+      <p class="library-desc">
+        Symbolism, spiritual law, and hidden teachings.
+      </p>
+      <a class="library-link" target="_blank"
+        href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v3.0/moralsdogmaofanc00pike_0.pdf">
+        Open PDF
+      </a>
+    </article>
+
+    <article class="library-item">
+      <img src="76ED468F-256A-4CEA-B238-AA1D154F69D1.png" class="library-thumb">
+      <div class="library-title">The Old Book of Magic</div>
+      <div class="library-meta">1918</div>
+      <p class="library-desc">
+        Ceremonial magic, talismans, and metaphysical forces.
+      </p>
+      <a class="library-link" target="_blank" href="1918__de_laurence___the_old_book_of_magic.pdf">
+        Open PDF
+      </a>
+    </article>
+
+    <article class="library-item">
+      <img src="597A7F66-5038-41DB-9736-1CB55245D185.png" class="library-thumb">
+      <div class="library-title">The Master Key</div>
+      <div class="library-meta">1914</div>
+      <p class="library-desc">
+        A study of vibration, mental law, and manifestation power.
+      </p>
+      <a class="library-link" target="_blank" href="1914__de_laurence___the_master_key.pdf">
+        Open PDF
+      </a>
+    </article>
+
+  </section>
+
+  <!-- ==========================
+       FICTION / PROPHECY
+       ========================== -->
+  <h2 class="section-title">Fiction, Allegory & Prophetic Visions</h2>
+
+  <section class="library-grid">
+
+    <article class="library-item">
+      <img src="E2430270-2D32-4BAC-85D7-6E07E1B8A84F.png" class="library-thumb">
+      <div class="library-title">The Journey to the East</div>
+      <div class="library-meta">2015 Edition</div>
+      <p class="library-desc">
+        A narrative of pilgrimage and spiritual awakening.
+      </p>
+      <a class="library-link" target="_blank"
+        href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v4.0/The.Journey.To.The.East.-.2015.247218.The-Journey_text.pdf">
+        Open PDF
+      </a>
+    </article>
+
+    <article class="library-item">
+      <img src="IMG_0996.jpeg" class="library-thumb">
+      <div class="library-title">Parable of the Sower</div>
+      <div class="library-meta">Octavia E. Butler</div>
+      <p class="library-desc">
+        Prophetic vision of collapse, rebirth, and leadership.
+      </p>
+      <a class="library-link" target="_blank" href="Parable of the Sower.pdf">
+        Open PDF
+      </a>
+    </article>
+
+    <article class="library-item">
+      <img src="DC78D681-E291-4E85-8244-AC40B852015A.png" class="library-thumb">
+      <div class="library-title">The Greatest Story Never Told</div>
+      <div class="library-meta">Prophetic Allegory</div>
+      <p class="library-desc">
+        Revelation text uncovering hidden truths.
+      </p>
+      <a class="library-link" target="_blank" href="The-Greatest-Story-Never-Told.pdf">
+        Open PDF
+      </a>
+    </article>
+
+  </section>
+
+</main>
 
 </div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © <span id="year"></span> Temple of Royal Sovereignty · All Rights Reserved
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
