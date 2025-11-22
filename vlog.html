@@ -5,94 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Temple Vlogs — Temple of Royal Sovereignty</title>
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    /* SIDEBAR */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 220px;
-      height: 100vh;
-      background: #12021f;
-      border-right: 2px solid #d4af37;
-      padding: 30px 20px;
-      box-shadow: 2px 0 12px rgba(0,0,0,0.4);
-      font-size: 1.1rem;
-      z-index: 9999;
-    }
-    .sidebar a {
-      display: block;
-      color: #f7eaff;
-      text-decoration: none;
-      padding: 10px 0;
-      margin-bottom: 12px;
-      border-bottom: 1px solid #3d2a55;
-      transition: 0.3s;
-    }
-    .sidebar a:hover {
-      color: #ffd700;
-      padding-left: 6px;
-    }
-
-    /* CONTENT */
-    .content {
-      margin-left: 240px;
-      padding: 20px;
-    }
-
-    header h1 {
-      text-align: center;
-      margin-top: 20px;
-      color: #ffd700;
-    }
-
-    header p.subtitle {
-      text-align: center;
-      color: #e6d6ff;
-      margin-top: 5px;
-      font-size: 1.1rem;
-    }
-
-    .video-box {
-      max-width: 850px;
-      margin: 40px auto;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid #ffd700;
-      border-radius: 8px;
-      padding: 20px;
-    }
-
-    .video-placeholder {
-      background: #000;
-      height: 220px;
-      border-radius: 6px;
-    }
-
-    /* MOBILE */
-    @media(max-width: 750px){
-      .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        border-bottom: 2px solid #d4af37;
-      }
-      .sidebar a {
-        display: inline-block;
-        margin-right: 10px;
-        border: none;
-      }
-      .content {
-        margin-left: 0;
-      }
-    }
-  </style>
 </head>
 
 <body class="temple-page">
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
+<!-- LEFT SIDEBAR -->
+<nav class="side-nav">
   <a href="index.html">Home</a>
   <a href="throne-room.html">The Throne Room</a>
   <a href="maat.html">School of Ma’at</a>
@@ -101,36 +19,41 @@
   <a href="events-news.html">Events & News</a>
   <a href="vlog.html">Vlog</a>
   <a href="about.html">About</a>
-</div>
-  <!-- MAIN CONTENT -->
-  <div class="content">
+</nav>
 
-    <header>
-      <h1>𓂀 Temple Vlogs 𓂀</h1>
-      <p class="subtitle">Livestreams · Teachings · Messages</p>
-    </header>
+<!-- MAIN CONTENT -->
+<div class="page-content">
 
-    <section style="max-width:850px; margin:30px auto; text-align:center; line-height:1.6;">
-      <p>
-        This chamber holds your livestreams, teachings, transmissions, and divine messages.  
-        New vlogs will be added as the Temple expands.
-      </p>
-    </section>
+  <header class="page-header">
+    <h1>𓂀 Temple Vlogs 𓂀</h1>
+    <p class="subtitle">Livestreams · Teachings · Divine Transmission</p>
+  </header>
 
-    <!-- VIDEO TEMPLATE -->
-    <section class="video-box">
-      <h3 style="color:#ffd700; margin-bottom:10px; text-align:center;">Latest Livestream</h3>
-      <div class="video-placeholder"></div>
-      <p style="margin-top:10px; text-align:center;">
-        Upload or embed your video link here.
-      </p>
-    </section>
+  <!-- INTRO -->
+  <section class="text-block" style="text-align:center;">
+    This chamber holds your livestreams, teachings, transmissions,  
+    and divine messages. New vlogs will be added as the Temple expands.
+  </section>
 
-    <footer style="text-align:center; padding:20px; margin-top:40px;">
-      <p>© 2025 Temple of Royal Sovereignty</p>
-    </footer>
+  <!-- VIDEO TEMPLATE -->
+  <section class="video-box">
+    <h2 style="margin-bottom:15px;">Latest Livestream</h2>
+    <div class="video-placeholder" style="
+      background:#000;
+      height:260px;
+      border-radius:8px;
+      border:1px solid #FFD700;
+    "></div>
+    <p style="margin-top:12px; text-align:center;">
+      Upload or embed your livestream link here.
+    </p>
+  </section>
 
-  </div>
+  <footer>
+    © 2025 Temple of Royal Sovereignty
+  </footer>
+
+</div> <!-- end page-content -->
 
 </body>
 </html>
