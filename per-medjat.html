@@ -8,7 +8,42 @@
 </head>
 
 <body class="temple-page">
+<style>
+    /* LEFT SIDEBAR */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100vh;
+      background: #12021f;
+      border-right: 2px solid #d4af37;
+      padding: 30px 20px;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.4);
+      font-size: 1.1rem;
+      z-index: 9999;
+    }
 
+    .sidebar a {
+      display: block;
+      color: #f7eaff;
+      text-decoration: none;
+      padding: 10px 0;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #3d2a55;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #ffd700;
+      padding-left: 6px;
+    }
+
+    /* CONTENT SHIFT */
+    .content {
+      margin-left: 240px;
+      padding: 20px;
+    }
 <!-- LEFT SIDE NAVIGATION -->
 <nav class="side-nav">
   <a href="index.html">Home</a>
