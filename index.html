@@ -5,24 +5,159 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Temple of Royal Sovereignty</title>
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* SIDEBAR */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100%;
+      background: #12021f;
+      border-right: 2px solid #d4af37;
+      padding: 30px 20px;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.4);
+      font-size: 1.1rem;
+      z-index: 999;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #f7eaff;
+      text-decoration: none;
+      padding: 10px 0;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #3d2a55;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #ffd700;
+      padding-left: 6px;
+    }
+
+    /* MAIN CONTENT SHIFT */
+    .content {
+      margin-left: 240px; /* Keeps content beside sidebar */
+      padding: 20px;
+    }
+
+    /* CENTERED HEADER TEXT */
+    header h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #ffd700;
+    }
+
+    header p.subtitle {
+      text-align: center;
+      margin-top: 5px;
+      color: #e6d6ff;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* HERO IMAGE */
+    .hero img {
+      width: 100%;
+      max-width: 900px;
+      display: block;
+      margin: 20px auto;
+      border-radius: 8px;
+    }
+
+    /* PORTAL BUTTONS */
+    .button-group {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .btn {
+      background: #330066;
+      color: white;
+      padding: 12px 24px;
+      margin: 10px;
+      text-decoration: none;
+      border-radius: 6px;
+      border: 2px solid #ffd700;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #4b0082;
+    }
+
+    .offerings {
+      background: #ffd700;
+      color: #16052a;
+      font-weight: bold;
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 750px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 2px solid #d4af37;
+      }
+      .sidebar a {
+        display: inline-block;
+        margin-right: 10px;
+        border: none;
+      }
+      .content {
+        margin-left: 0;
+      }
+    }
+  </style>
 </head>
 
 <body class="temple-page">
 
-  <header>
-    <h1>𓂀 Temple of Royal Sovereignty 𓂀</h1>
-    <p class="subtitle">Where Divine Law, Royal Blood & Celestial Codes Reign</p>
-  </header>
+  <!-- LEFT SIDEBAR -->
+  <div class="sidebar">
+    <a href="index.html">Home</a>
+    <a href="maat.html">Temple of Ma’at</a>
+    <a href="readings.html">Readings & Sessions</a>
+    <a href="about.html">About</a>
+    <a href="per-medjat.html">Per Medjat</a>
+  </div>
 
-  <!-- Mystical Banner -->
-  <section class="hero">
-    <img src="mystical banner.png" alt="Temple of Royal Sovereignty Mystical Banner">
-  </section>
+  <!-- MAIN CONTENT -->
+  <div class="content">
 
-  <main>
+    <header>
+      <h1>𓂀 Temple of Royal Sovereignty 𓂀</h1>
+      <p class="subtitle">Where Divine Law, Royal Blood & Celestial Codes Reign</p>
+    </header>
 
-    <!-- Divine Intention -->
-    <section class="intention">
+    <!-- HERO BANNER -->
+    <section class="hero">
+      <img src="mystical banner.png" alt="Temple of Royal Sovereignty Mystical Banner">
+    </section>
+
+    <!-- WELCOME LINE -->
+    <section style="text-align:center; margin: 40px auto; max-width:750px;">
+      <p style="font-size:1.3rem; line-height:1.6;">
+        <strong>Welcome to the Temple of Royal Sovereignty — where you learn to govern your body, mind, and spirit the Royal way.</strong>
+      </p>
+    </section>
+
+    <!-- SACRED DEFINITION -->
+    <section style="max-width:850px; margin:40px auto; padding:20px; background:rgba(255,255,255,0.06); border-left:4px solid #FFD700; border-radius:8px;">
+      <p style="font-size:1.1rem; line-height:1.7;">
+        Temple of Royal Sovereignty is a divine system of self-governance rooted in the truth that the body is a sacred kingdom. 
+        Here you learn to treat your body the Royal way — through balance, discipline, intuition, spiritual remembrance, 
+        ancestral alignment, and divine law. Every teaching, reading, offering, and lesson guides you back to your Sovereign 
+        nature and your original power.
+      </p>
+    </section>
+
+    <!-- DIVINE INTENTION -->
+    <section class="intention" style="max-width:800px; margin: 20px auto; text-align:center;">
       <p><em>
         Divine Intention: To restore divine order through truth, balance, and sacred creation.  
         The Temple of Royal Sovereignty stands as a living bridge between heaven and earth,  
@@ -30,10 +165,28 @@
       </em></p>
     </section>
 
-    <!-- Portal -->
-    <section class="portal">
+    <!-- TEMPLE CREED -->
+    <section style="max-width:800px; margin:50px auto; padding:30px; background:rgba(255,255,255,0.05); border-radius:10px; border:1px solid #FFD700;">
+      <h2 style="text-align:center; color:#FFD700; margin-bottom:20px;">Temple Creed</h2>
+      <p style="line-height:1.8; font-size:1.1rem; text-align:center;">
+        I am the Temple.<br>
+        I am the Throne.<br>
+        I govern my body with Royal wisdom.<br>
+        I honor myself as sacred land.<br>
+        My choices create my kingdom.<br>
+        My breath restores my balance.<br>
+        My spirit directs my path.<br>
+        I rise in Sovereignty,<br>
+        I walk in Ma’at,<br>
+        And I treat my body the Royal way —<br>
+        every day, in every step, in every breath.
+      </p>
+    </section>
+
+    <!-- PORTAL -->
+    <section class="portal" style="text-align:center; max-width:750px; margin:40px auto;">
       <p>
-        Welcome to the Sovereign Temple. This is not a website — this is a portal.<br />
+        This is not a website — this is a portal.<br />
         A sacred space activated by solar fire, divine will, and ancestral truth.
       </p>
 
@@ -45,18 +198,11 @@
       </div>
     </section>
 
-  <nav style="margin-top:10px; font-size:1.1rem;">
-  <a href="index.html">Home</a> |
-  <a href="maat.html">Temple of Ma’at</a> |
-  <a href="readings.html">Readings & Sessions</a> |
-  <a href="about.html">About</a> |
-  <a href="per-medjat.html">Per Medjat</a>
-</nav>
-  </main>
+    <footer style="text-align:center; padding:20px; margin-top:40px;">
+      <p>© 2025 Temple of Royal Sovereignty · All Rights Reserved</p>
+    </footer>
 
-  <footer>
-    <p>© 2025 Temple of Royal Sovereignty · All Rights Reserved</p>
-  </footer>
+  </div> <!-- END CONTENT -->
 
 </body>
 </html>
