@@ -1,27 +1,33 @@
 /* ===========================================================
-   GLOBAL TEMPLE BACKGROUND & TEXT COLORS
+   GLOBAL RESET + BODY
    =========================================================== */
-
 body.temple-page {
-  background: #16052a; /* deep purple */
-  color: #f7eaff;      /* soft white-purple text */
+  background: #140025; /* Deep purple */
+  color: #f7eaff;      /* Soft lavender-white text */
   margin: 0;
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: "Georgia", serif;
+  line-height: 1.7;
 }
 
-/* Headings */
+/* Default headers */
 h1, h2, h3, h4 {
-  color: #FFD700; /* gold */
+  color: #FFD700; /* Gold */
+  margin-top: 0;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
-/* Paragraphs & text */
-p, li {
-  color: #f7eaff;
-  line-height: 1.6;
+/* Links */
+a {
+  color: #8c78ff;
+  text-decoration: none;
 }
+a:hover {
+  color: #FFD700;
+}
+
 
 /* ===========================================================
-   UNIVERSAL LEFT SIDE NAVIGATION
+   LEFT SIDE NAVIGATION — GOLD TEXT EDITION
    =========================================================== */
 .side-nav {
   position: fixed;
@@ -29,77 +35,145 @@ p, li {
   left: 0;
   width: 180px;
   height: 100%;
-  background: #140025;
+  background: #0d0018;
   padding-top: 40px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
   z-index: 9999;
 }
 
+/* Nav links */
 .side-nav a {
   display: block;
-  color: #ffffff;
+  color: #FFD700;  /* GOLD */
   padding: 12px 20px;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 500;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  transition: 0.3s ease;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+  transition: 0.25s ease;
 }
 
+/* Hover state */
 .side-nav a:hover {
-  color: #FFD700;
-  background: rgba(255, 215, 0, 0.12);
+  background: rgba(255, 215, 0, 0.15);
+  padding-left: 26px;
 }
+
 
 /* ===========================================================
-   PAGE CONTENT WRAPPER
+   CONTENT WRAPPER
    =========================================================== */
-.page-content,
-.content {
+.page-content, .content {
   margin-left: 200px;
   padding: 30px;
 }
 
+
 /* ===========================================================
-   UNIVERSAL BOX STYLES
+   RESTORE GOLD BOXES (SERVICES, READINGS, LIBRARY, ETC.)
    =========================================================== */
+.reading-box,
+.service-box,
+.offer-box,
+.free-reading-box,
 .section,
-.text-block,
-.video-box,
-.definition-section,
-.creed-section,
-.library-intro,
-.library-item {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #FFD700;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 30px;
+article.library-item,
+section[style*="border:1px solid"],
+section[style*="border: 1px solid"] {
+  border: 1px solid #FFD700 !important;
+  background: rgba(255,255,255,0.06) !important;
+  border-radius: 12px !important;
+  padding: 25px !important;
+  margin-bottom: 40px !important;
 }
 
-.section-title,
-.page-header h1 {
-  color: #FFD700;
-  text-align: center;
-}
-
-.subtitle,
-.section-subtitle {
-  text-align: center;
-  color: #e6d6ff;
-}
-
-/* ===========================================================
-   GRID FOR FREE LIBRARY
-   =========================================================== */
+/* Library grid */
 .library-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin: 30px 0;
 }
 
 .library-thumb {
   width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.library-title {
+  font-weight: bold;
+  color: #FFD700;
+}
+
+/* ----------------------------------------------------------- */
+
+
+/* ===========================================================
+   HEADERS / SUBTITLES
+   =========================================================== */
+.page-header h1 {
+  color: #FFD700;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.page-header .subtitle {
+  color: #d4bfff;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+
+/* ===========================================================
+   BUTTONS
+   =========================================================== */
+.btn {
+  background: #330066;
+  color: white;
+  padding: 12px 24px;
   border-radius: 6px;
-  margin-bottom: 12px;
+  border: 2px solid #FFD700;
+  display: inline-block;
+  transition: 0.25s;
+  margin: 10px;
+}
+.btn:hover {
+  background: #4c0099;
+}
+
+.btn.offerings {
+  background: #FFD700;
+  color: #16052a;
+  font-weight: bold;
+}
+
+
+/* ===========================================================
+   MOBILE RESPONSIVE
+   =========================================================== */
+@media (max-width: 750px) {
+
+  .side-nav {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #FFD700;
+  }
+
+  .side-nav a {
+    display: inline-block;
+    border-bottom: none;
+    padding: 10px 15px;
+  }
+
+  .page-content, .content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .library-grid {
+    grid-template-columns: 1fr;
+  }
 }
