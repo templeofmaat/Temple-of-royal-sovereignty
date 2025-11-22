@@ -7,57 +7,79 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    .content {
-      margin-left: 220px;
-      padding: 30px;
-      max-width: 900px;
+    /* PAGE LAYOUT ONLY (colors come from style.css) */
+    .page-content {
+      margin-left: 200px;
+      padding: 30px 20px 60px;
+      max-width: 960px;
     }
 
-    h1 {
+    .page-header {
       text-align: center;
-      color: #ffd700;
+      margin-bottom: 24px;
+    }
+
+    .page-header h1 {
+      font-size: 2.3rem;
       margin-bottom: 6px;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
-    .subtitle {
-      text-align: center;
-      color: #e8d9ff;
-      font-size: 1.05rem;
-      margin-bottom: 30px;
+    .page-header .subtitle {
+      font-size: 1rem;
+      opacity: 0.95;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
 
-    .section {
-      background: rgba(255,255,255,0.05);
-      padding: 22px 24px;
+    .text-block {
+      margin: 0 auto 26px;
+      padding: 20px 18px 22px;
       border-radius: 10px;
-      border: 1px solid rgba(255,215,0,0.5);
-      margin-bottom: 35px;
+      border: 1px solid rgba(255,215,0,0.6);
+      background: rgba(8,0,26,0.7);
       line-height: 1.7;
-      color: #f7eaff;
+      font-size: 0.98rem;
     }
 
-    .section h2 {
-      color: #ffd700;
+    .text-block h2 {
+      margin-top: 0;
       margin-bottom: 10px;
       text-align: left;
-      letter-spacing: 0.05em;
+      font-size: 1.25rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      font-size: 1.3rem;
     }
 
-    .pdf-links a {
-      display: block;
-      margin: 8px 0;
-      color: #ffd700;
-      text-decoration: underline;
-      font-size: 1.05rem;
+    .text-block p {
+      margin: 6px 0;
     }
 
-    @media(max-width: 750px) {
-      .content {
+    .pill-list {
+      margin: 10px 0 4px;
+      padding-left: 18px;
+    }
+
+    .pill-list li {
+      margin: 4px 0;
+    }
+
+    .callout {
+      margin: 32px auto 10px;
+      padding: 18px 18px 20px;
+      border-radius: 10px;
+      border: 1px dashed rgba(255,215,0,0.7);
+      background: rgba(4,0,18,0.85);
+      font-size: 0.96rem;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .page-content {
         margin-left: 0;
-        padding: 20px;
+        padding: 20px 16px 40px;
       }
     }
   </style>
@@ -79,101 +101,161 @@
     <a href="per-djed-hetep.html">Per Djed-Hetep — Offerings</a>
   </nav>
 
-  <!-- MAIN CONTENT -->
-  <div class="content">
+  <!-- MAIN PAGE CONTENT -->
+  <div class="page-content">
 
-    <h1>𓂀 Temple of Ma’at 𓂀</h1>
-    <p class="subtitle">School of Sacred Order · House of Divine Balance</p>
+    <header class="page-header">
+      <h1>Temple of Ma’at</h1>
+      <p class="subtitle">School of Sacred Order</p>
+    </header>
 
-    <!-- INTRO -->
-    <section class="section">
-      <h2>What is the Temple of Ma’at: School of Sacred Order?</h2>
-      <p>
-        The School of Sacred Order is a spiritual sanctuary, wisdom house, and remembrance portal
-        rooted in the Ancient Kemetic principle of Ma’at — Truth, Balance, Order, Justice,
-        Reciprocity, and Divine Law.
-      </p>
+    <main>
 
-      <p>
-        It is a **spiritual learning and activation chamber** where initiates, seekers, and priest(ess)
-        aspirants return to original law, restore divine memory, and reclaim their legacy as sovereign
-        spiritual beings.
-      </p>
+      <!-- WHO MA’AT IS -->
+      <section class="text-block">
+        <h2>Who Ma’at Is</h2>
+        <p>
+          Ma’at is Living Truth. Not an idea, not a rulebook, not a list of laws — a living field
+          of balance, rightness, and clear seeing that holds creation in order.
+        </p>
+        <p>
+          Wherever there is alignment between heart, word, action, and purpose, Ma’at is present.
+          Wherever there is distortion, confusion, or imbalance, Ma’at reveals it and calls it
+          back into order.
+        </p>
+        <p>
+          To walk with Ma’at is to allow Truth to sit in the center of your life:  
+          truth in how you treat your body, truth in how you handle resources,  
+          truth in how you love, lead, speak, and move.
+        </p>
+      </section>
 
-      <p>
-        This is not a school of belief — this is a school of remembrance.  
-        A living system guided by ancestral law, cosmic alignment, and the architecture of the soul.
-      </p>
-    </section>
+      <!-- MA’AT AS A FIELD, NOT “RULES” -->
+      <section class="text-block">
+        <h2>Ma’at is a Field, Not a List</h2>
+        <p>
+          Many speak of Ma’at as if She is a list of “principles” to memorize.  
+          In this Temple, Ma’at is understood as a field of order that you step into and live from.
+        </p>
+        <p>
+          In this field:
+        </p>
+        <ul class="pill-list">
+          <li>Your heart and your actions match.</li>
+          <li>Your inner voice and your outer life speak the same story.</li>
+          <li>Your decisions respect your body, your ancestors, and your destiny.</li>
+          <li>Your exchanges are honest, clean, and balanced.</li>
+        </ul>
+        <p>
+          When you move out of that field, your body feels it, your spirit feels it,  
+          your life begins to wobble. Ma’at is the call back to center.
+        </p>
+      </section>
 
-    <!-- FOUNDATIONS -->
-    <section class="section">
-      <h2>Foundations of the House of Ma’at</h2>
+      <!-- PURPOSE OF THE SCHOOL -->
+      <section class="text-block">
+        <h2>Purpose of the School of Sacred Order</h2>
+        <p>
+          The Temple of Ma’at: School of Sacred Order is the heart chamber of the Temple
+          of Royal Sovereignty. It exists to restore your life to an order that matches
+          your soul — not the world’s expectations.
+        </p>
+        <p>
+          This School is where you learn to:
+        </p>
+        <ul class="pill-list">
+          <li>Stand in Truth when it costs you comfort.</li>
+          <li>Set boundaries that honor your energy and destiny.</li>
+          <li>Release agreements that were made in fear, guilt, or confusion.</li>
+          <li>Rebuild your life on foundations that will not collapse under pressure.</li>
+        </ul>
+        <p>
+          Sacred Order is not control — it is alignment.  
+          When you are aligned, your yes is clean, your no is clear, and your path is firm.
+        </p>
+      </section>
 
-      <p><strong>Truth is the First Law</strong><br>
-      All speech, silence, decisions, and corrections must root in truth — even when uncomfortable.  
-      Truth stabilizes the entire house.</p>
+      <!-- WHAT YOU LEARN HERE -->
+      <section class="text-block">
+        <h2>What You Learn Inside This Temple</h2>
+        <p>
+          Inside the School of Sacred Order, you are not asked to “be perfect.”  
+          You are invited to become honest, disciplined, and aligned.
+        </p>
+        <p>You will explore:</p>
+        <ul class="pill-list">
+          <li><strong>Truth in the Body</strong> — how your body tells you when you are in or out of Ma’at.</li>
+          <li><strong>Truth in Relationships</strong> — how to stop abandoning yourself to belong.</li>
+          <li><strong>Truth in Resources</strong> — how you receive, give, and hold what comes through your hands.</li>
+          <li><strong>Truth in Assignment</strong> — what you are actually here to do, and what you are not.</li>
+        </ul>
+        <p>
+          The work is simple: bring every part of your life into conversation with Truth,  
+          and allow what is false to fall away.
+        </p>
+      </section>
 
-      <p><strong>Balance Shall Be Maintained</strong><br>
-      When imbalance appears, it must be named, addressed, and restored with integrity, grace,
-      and alignment.</p>
+      <!-- WHO THIS SCHOOL IS FOR -->
+      <section class="text-block">
+        <h2>Who This School is For</h2>
+        <p>
+          This chamber is for those who feel a pull to ancient order and inner justice —  
+          the ones who are tired of pretending, tired of carrying lies in their body,  
+          and ready to live clean.
+        </p>
+        <p>It is especially for those who:</p>
+        <ul class="pill-list">
+          <li>Carry ancestral memory tied to Kemet and original spiritual law.</li>
+          <li>Have walked through systems that used fear and control in the name of “faith.”</li>
+          <li>Want their money, relationships, work, and spiritual life to match their soul.</li>
+          <li>Know they are called to lead, but refuse to lead from distortion.</li>
+        </ul>
+        <p>
+          If your spirit has been whispering,  
+          “I want my life to be clean, aligned, and true,”  
+          then you are already standing at the gates of Ma’at.
+        </p>
+      </section>
 
-      <p><strong>Order Is a Sacred Flow</strong><br>
-      Chaos may visit, but it cannot dwell here.  
-      Order is clarity, not control — a structure that keeps the spirit steady.</p>
+      <!-- HOW MA’AT MOVES THROUGH TORS -->
+      <section class="text-block">
+        <h2>Ma’at Within the Temple of Royal Sovereignty</h2>
+        <p>
+          In the Temple of Royal Sovereignty, Ma’at is not a side teaching —  
+          She is the measurement for everything.
+        </p>
+        <p>Ma’at weighs:</p>
+        <ul class="pill-list">
+          <li>How you govern your body.</li>
+          <li>How you honor your ancestors and descendants.</li>
+          <li>How you move through exchange, offerings, and resources.</li>
+          <li>How you speak, teach, and sit in authority.</li>
+        </ul>
+        <p>
+          Nothing built in this Temple is allowed to stand if it does not pass through Ma’at.  
+          This is how the work stays clean, and how your own path stays protected.
+        </p>
+      </section>
 
-      <p><strong>Justice Is Restoration, Not Revenge</strong><br>
-      We restore. We correct. We repair.  
-      Justice is not domination but divine balance.</p>
-    </section>
+      <!-- COMING CURRICULUM CALLOUT -->
+      <section class="callout">
+        <p><strong>Curriculum of the School of Sacred Order</strong></p>
+        <p>
+          The formal teachings, sessions, and scrolls of the School of Sacred Order  
+          will be opened in phases. As they unlock, this chamber will become your portal  
+          to structured lessons, live gatherings, and written works dedicated to Ma’at.
+        </p>
+        <p style="margin-top:8px;">
+          For now, let this page serve as a mirror.  
+          Ask yourself: <em>“Where in my life is Ma’at already strong — and where is She calling me higher?”</em>
+        </p>
+      </section>
 
-    <!-- AUDIENCE -->
-    <section class="section">
-      <h2>Who Is Called to This Temple?</h2>
+    </main>
 
-      <ul style="line-height:1.8; padding-left:18px;">
-        <li>Spiritual seekers & soul healers on the path of remembrance</li>
-        <li>Black and Indigenous descendants of Ancient Kemet, Nubia, and sacred lineages</li>
-        <li>Priestesses, mystics, intuitives, oracles, and starseeds aligned with divine order</li>
-        <li>Those healing religious or colonial trauma seeking ancestral truth, not dogma</li>
-        <li>Leaders & creatives called to sacred service, ritual, or spiritual governance</li>
-      </ul>
-
-      <p style="margin-top:10px;">
-        This temple is for those who feel a soul-deep pull to Ancient Kemet and are ready to walk in alignment with Ma’at.
-      </p>
-    </section>
-
-    <!-- OFFERINGS -->
-    <section class="section">
-      <h2>What Does the School of Sacred Order Offer?</h2>
-
-      <p>Offerings include:</p>
-
-      <ul style="line-height:1.8; padding-left:18px;">
-        <li>Kemetic wisdom studies rooted in Ma’at</li>
-        <li>Astrology aligned with original African sky systems</li>
-        <li>Initiate-level training and spiritual governance</li>
-        <li>Ritual, remembrance work, and soul correction</li>
-        <li>Cosmic timing, ancestral alignment, and intuitive mastery</li>
-        <li>Temple readings, teachings, and guided restoration</li>
-      </ul>
-    </section>
-
-    <!-- PDF RESOURCES -->
-    <section class="section">
-      <h2>Temple Scrolls & Study Texts</h2>
-      <p>
-        These foundational scrolls support your remembrance and preparation as a student of Ma’at.
-        More will be added as the Temple expands.
-      </p>
-
-      <div class="pdf-links">
-        <a href="maat_overview.pdf" target="_blank">𓁹 Ma’at Overview — Placeholder Scroll</a>
-        <a href="maat_foundations.pdf" target="_blank">𓁹 Foundations of Ma’at — Placeholder Scroll</a>
-        <a href="kemet_cosmology.pdf" target="_blank">𓁹 Kemetic Cosmology — Placeholder Scroll</a>
-      </div>
-    </section>
+    <footer style="text-align:center; padding:20px; margin-top:30px;">
+      <p>© 2025 Temple of Royal Sovereignty · All Rights Reserved</p>
+    </footer>
 
   </div>
 </body>
