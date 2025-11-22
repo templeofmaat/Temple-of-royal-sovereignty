@@ -1,183 +1,20 @@
-/* --- GLOBAL LAYOUT --- */
+/* ===========================================================
+   GLOBAL BODY STYLING
+   =========================================================== */
 body {
   background: radial-gradient(ellipse at top, #210035 0%, #0b0014 100%);
-background-attachment: fixed;
+  background-attachment: fixed;
   background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-  background-color: #1a0b2e;     /* deep royal purple background */
-  color: #ffffff;                /* white text for contrast */
+  background-color: #1a0b2e;
+  color: #ffffff;
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  margin-left: 180px !important; /* Space for left-side navigation */
 }
 
-/* --- HEADERS --- */
-h1, h2, h3 {
-  color: gold;
-  text-align: center;
-  letter-spacing: 1px;
-  h1, h2 {
-  border-bottom: 2px solid gold;
-  padding-bottom: 6px;
-  display: inline-block;
-  margin-bottom: 15px;
-}
-
-}
-
-/* --- NAVIGATION BAR --- */
-header {
-  text-align: center;
-  padding: 20px;
-}
-
-nav a {
-  color: gold;
-  text-decoration: none;
-  margin: 0 12px;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-/* --- MAIN CONTENT --- */
-main {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  padding: 25px;
-  max-width: 800px;
-  margin: 40px auto;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-}
-
-
-/* --- FOOTER --- */
-footer {
-  text-align: center;
-  padding: 20px;
-  color: gold;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* --- LINKS (GLOBAL) --- */
-a {
-  color: gold;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #fff;
-}
-
-/* --- PORTAL BUTTON --- */
-.btn {
-  display: inline-block;
-  background-color: gold;
-  color: #1a0b2e;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  margin-top: 20px;
-}
-
-.btn:hover {
-  background-color: #ffffff;
-  color: #4b0082; /* violet hover */
-}
-
-/* --- INTRO SECTION ON HOMEPAGE --- */
-.intro {
-  text-align: center;
-  margin-top: 60px;
-}
-
-.intro p {
-  color: #f8f8f8;
-  font-size: 1.1rem;
-}
-/* Divine Intention: soft flow, no box */
-.intention {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 40px auto;
-  max-width: 700px;
-  color: gold;
-  font-style: italic;
-  text-align: center;
-  line-height: 1.6;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-}
-
-/* Center the portal section */
-.portal {
-  text-align: center;
-}
-
-/* Style and center the Enter button */
-.btn {
-  display: inline-block;
-  padding: 12px 30px;
-  background-color: gold;
-  color: #2e004f;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  text-align: center;
-  margin: 25px auto;
-  transition: 0.3s ease;
-}
-
-/* Optional glow on hover */
-.btn:hover {
-  box-shadow: 0 0 15px gold;
-  transform: scale(1.05);
-}
-.subtitle {
-  text-align: center;
-  color: gold;
-  font-size: 1.2rem;
-  font-style: italic;
-  margin-top: -10px;
-  letter-spacing: 1px;
-}
-/* Remove outer frame around the page */
-main {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Keep one clean golden intention box */
-.intention {
-  background-color: rgba(255,215,0,0.07);
-  border-left: 3px solid gold;
-  border-radius: 8px;
-  box-shadow: none !important; /* no double border */
-  padding: 12px 25px;
-  margin: 25px auto;
-  max-width: 550px;
-  text-align: center;
-  color: #fff;
-}
-/* Mystical Ma'at background */
-body {
-  background: radial-gradient(circle at top, #2a0055 0%, #0b0014 100%);
-  background-attachment: fixed;
-  color: #fff;
-  font-family: "Cinzel", serif;
-}
-
-/* Soft star overlay */
+/* Star overlay */
 body::before {
   content: "";
   position: fixed;
@@ -186,316 +23,17 @@ body::before {
   opacity: 0.3;
   pointer-events: none;
 }
-.divider {
-  text-align: center;
-  color: gold;
-  font-size: 1.4rem;
-  margin: 25px 0;
-}
-<div class="divider">𓆸</div>
 
-section {
-  transition: all 0.8s ease-in-out;
-}
-
-section:hover {
-  background-color: rgba(255,215,0,0.03);
-}
-h1 {
-  color: gold;
-  text-shadow: 0 0 10px rgba(255,215,0,0.4);
-  animation: glow 4s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 8px rgba(255,215,0,0.3); }
-  to   { text-shadow: 0 0 20px rgba(255,215,0,0.8); }
-}
-/* Hero banner styling */
-.hero {
-  max-height: 450px;   /* limits banner height */
-  overflow: hidden;    /* hides excess image */
-}
-
-.hero img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-bottom: 2px solid gold;
-  filter: brightness(0.85);
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
-}
-/* Fade-in animation for banner */
-.hero {
-  animation: fadeIn 3s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-/* Fade-in for main content (appears after banner) */
-main {
-  opacity: 0;
-  animation: textFade 3s ease-in-out 2.5s forwards; /* starts 2.5 s later */
-}
-
-@keyframes textFade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-/* Reset Sekhem Flow logo size and center it */
-.sekhem-logo {
-  display: block;
-  margin: 0 auto 15px auto;      /* centers it */
-  max-width: 140px;              /* absolute limit */
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(255,215,0,0.35));
-}
-
-/* smaller on phones */
-@media (max-width: 768px) {
-  .sekhem-logo {
-    max-width: 90px;
-  }
-}
-
-/* Center header text */
-header {
-  text-align: center;
-}
-/* Logo container limits actual space */
-.logo-wrap {
-  width: 150px;       /* adjust this number to control size */
-  margin: 0 auto;     /* keeps it centered */
-}
-
-.sekhem-logo {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 0 8px rgba(255,215,0,0.4));
-}
-
-@media (max-width: 768px) {
-  .logo-wrap {
-    width: 90px;      /* smaller logo on mobile */
-  }
-}
-
-header {
-  text-align: center;
-}
-/* --- Sekhem Flow logo sizing fix --- */
-.logo-wrap {
-  width: 120px;               /* controls overall size */
-  margin: 0 auto 10px auto;   /* centers it */
-}
-
-.sekhem-logo {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
-}
-
-@media (max-width: 768px) {
-  .logo-wrap {
-    width: 80px;              /* smaller on mobile */
-  }
-}
-
-header {
-  text-align: center;
-}
-/* --- Force Sekhem Flow logo size --- */
-img[src*="sekhem-flow-logo"],
-img[src*="sekhem-logo"] {
-  display: block !important;
-  margin: 10px auto !important;
-  width: 120px !important;     /* fixed width */
-  height: auto !important;
-  max-width: 120px !important; /* prevents it from stretching */
-  object-fit: contain !important;
-  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
-}
-
-@media (max-width: 768px) {
-  img[src*="sekhem-flow-logo"],
-  img[src*="sekhem-logo"] {
-    width: 80px !important;
-    max-width: 80px !important;
-  }
-}
-/* --- Force the Sekhem Flow logo size and centering --- */
-#sekhemLogo {
-  display: block;
-  margin: 0 auto 20px auto;     /* centers it */
-  width: 140px !important;      /* fixed width on desktop */
-  max-width: 140px !important;
-  height: auto !important;
-  object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
-}
-
-@media (max-width: 768px) {
-  #sekhemLogo {
-    width: 90px !important;     /* smaller on mobile */
-    max-width: 90px !important;
-  }
-}
-
-/* Make sure header text is centered too */
-header {
-  text-align: center;
-}
-/* --- Force the Sekhem Flow logo size and centering --- */
-#sekhemLogo {
-  display: block;
-  margin: 0 auto 20px auto;     /* centers it */
-  width: 140px !important;      /* fixed width on desktop */
-  max-width: 140px !important;
-  height: auto !important;
-  object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
-}
-
-@media (max-width: 768px) {
-  #sekhemLogo {
-    width: 90px !important;     /* smaller on mobile */
-    max-width: 90px !important;
-  }
-}
-
-/* Make sure header text is centered too */
-header {
-  text-align: center;
-}
-/* --- Center and resize Sekhem Flow logo --- */
-#sekhemLogo {
-  display: block;
-  margin: 10px auto 20px auto;
-  width: 120px;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
-}
-
-@media (max-width: 768px) {
-  #sekhemLogo {
-    width: 80px;
-  }
-}
-
-header {
-  text-align: center;
-}
-/* --- Sekhem Flow logo sizing --- */
-#sekhemLogo {
-  display: block;
-  margin: 10px auto 20px auto;
-  width: 120px;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(255,215,0,0.4));
-}
-
-@media (max-width: 768px) {
-  #sekhemLogo {
-    width: 80px;
-  }
-}
-
-header {
-  text-align: center;
-}
-.btn.offerings {
-  background-color: gold;
-  color: #3b0066;
-  border: 2px solid #3b0066;
-  font-weight: bold;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
-  margin-top: 10px;
-}
-
-.btn.offerings:hover {
-  background-color: #3b0066;
-  color: gold;
-  border-color: gold;
-}
-/* Button layout for portal */
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 20px;              /* space between buttons */
-  margin-top: 20px;
-}
-
-/* Optional: center text in the intro section */
-.intro {
-  text-align: center;
-}
-/* Fade-in animation for the Offerings button */
-@keyframes fadeInOfferings {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-/* default state: invisible until animation */
-.button-offerings {
-  text-align: center;
-  margin-top: 60px;
-  opacity: 0;
-  animation: fadeInOfferings 2.5s ease-in-out 5s forwards;
-  /* 5s delay before appearing; adjust this delay as needed */
-}
-/* Initial hidden state for Offerings */
-.button-offerings {
-  text-align: center;
-  margin-top: 60px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.5s ease, transform 1.5s ease;
-}
-
-/* When scrolled into view */
-.button-offerings.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* Glowing pulse for Offerings button once visible */
-@keyframes glowPulse {
-  0%   { box-shadow: 0 0 8px rgba(255, 215, 0, 0.3); }
-  50%  { box-shadow: 0 0 16px rgba(255, 215, 0, 0.7); }
-  100% { box-shadow: 0 0 8px rgba(255, 215, 0, 0.3); }
-}
-
-.button-offerings.visible .btn.offerings {
-  animation: glowPulse 3s ease-in-out infinite;
-}
-/* Left-Side Navigation */
+/* ===========================================================
+   LEFT SIDE NAVIGATION
+   =========================================================== */
 .side-nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 180px;
   height: 100%;
-  background: #140025; /* deep royal purple */
+  background: #140025;
   padding-top: 40px;
   box-shadow: 2px 0 10px rgba(0,0,0,0.4);
   z-index: 9999;
@@ -516,7 +54,143 @@ header {
   transition: 0.3s;
 }
 
-/* Adjust main page so it doesn't sit behind the nav */
-body {
-  margin-left: 180px; /* same width as nav */
+/* ===========================================================
+   HEADERS & TITLES
+   =========================================================== */
+h1, h2, h3 {
+  color: gold;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255,215,0,0.4);
+}
+
+h1 {
+  animation: glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 8px rgba(255,215,0,0.3); }
+  to   { text-shadow: 0 0 20px rgba(255,215,0,0.8); }
+}
+
+.subtitle {
+  text-align: center;
+  color: gold;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: -10px;
+  letter-spacing: 1px;
+}
+
+/* ===========================================================
+   MAIN CONTENT AREA
+   =========================================================== */
+main {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 25px;
+  max-width: 900px;
+  margin: 40px auto;
+  opacity: 0;
+  animation: textFade 2s ease-in-out 1s forwards;
+}
+
+@keyframes textFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===========================================================
+   TEXT SECTIONS & HOVER
+   =========================================================== */
+section {
+  transition: all 0.8s ease-in-out;
+  padding-bottom: 20px;
+}
+
+section:hover {
+  background-color: rgba(255,215,0,0.03);
+  border-radius: 10px;
+}
+
+/* Divider symbol */
+.divider {
+  text-align: center;
+  color: gold;
+  font-size: 1.4rem;
+  margin: 25px 0;
+}
+
+/* ===========================================================
+   BUTTONS
+   =========================================================== */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: gold;
+  color: #2e004f;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  box-shadow: 0 0 15px gold;
+  transform: scale(1.05);
+}
+
+/* Offerings special button */
+.btn.offerings {
+  background-color: gold;
+  color: #3b0066;
+  border: 2px solid #3b0066;
+}
+
+.btn.offerings:hover {
+  background-color: #3b0066;
+  color: gold;
+  border-color: gold;
+}
+
+/* Button row */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ===========================================================
+   HERO BANNER
+   =========================================================== */
+.hero {
+  max-height: 450px;
+  overflow: hidden;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.hero img {
+  width: 100%;
+  border-bottom: 2px solid gold;
+  filter: brightness(0.85);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(1.05); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ===========================================================
+   FOOTER
+   =========================================================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: gold;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
