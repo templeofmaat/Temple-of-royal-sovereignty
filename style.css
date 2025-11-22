@@ -1,31 +1,5 @@
 /* ===========================================================
-   GLOBAL BODY STYLING
-   =========================================================== */
-body {
-  background: radial-gradient(ellipse at top, #210035 0%, #0b0014 100%);
-  background-attachment: fixed;
-  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-  background-color: #1a0b2e;
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  margin-left: 180px !important; /* Space for left-side navigation */
-}
-
-/* Star overlay */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-/* ===========================================================
-   LEFT SIDE NAVIGATION
+   LEFT SIDE NAVIGATION — CLEAN & UNIFIED
    =========================================================== */
 .side-nav {
   position: fixed;
@@ -35,162 +9,24 @@ body::before {
   height: 100%;
   background: #140025;
   padding-top: 40px;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.4);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
   z-index: 9999;
 }
 
+/* NAV LINKS — WHITE TEXT, EVEN WEIGHT, CLEAN DIVIDERS */
 .side-nav a {
   display: block;
-  color: #FFD700;
+  color: #ffffff;              /* PURE WHITE TEXT */
   padding: 12px 20px;
   font-size: 1.05rem;
-  text-decoration: none;
   font-weight: 500;
-}
-
-.side-nav a:hover {
-  color: white;
-  background: rgba(255, 215, 0, 0.15);
-  transition: 0.3s;
-}
-
-/* ===========================================================
-   HEADERS & TITLES
-   =========================================================== */
-h1, h2, h3 {
-  color: gold;
-  text-align: center;
-  letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(255,215,0,0.4);
-}
-
-h1 {
-  animation: glow 4s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 8px rgba(255,215,0,0.3); }
-  to   { text-shadow: 0 0 20px rgba(255,215,0,0.8); }
-}
-
-.subtitle {
-  text-align: center;
-  color: gold;
-  font-size: 1.2rem;
-  font-style: italic;
-  margin-top: -10px;
-  letter-spacing: 1px;
-}
-
-/* ===========================================================
-   MAIN CONTENT AREA
-   =========================================================== */
-main {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 25px;
-  max-width: 900px;
-  margin: 40px auto;
-  opacity: 0;
-  animation: textFade 2s ease-in-out 1s forwards;
-}
-
-@keyframes textFade {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ===========================================================
-   TEXT SECTIONS & HOVER
-   =========================================================== */
-section {
-  transition: all 0.8s ease-in-out;
-  padding-bottom: 20px;
-}
-
-section:hover {
-  background-color: rgba(255,215,0,0.03);
-  border-radius: 10px;
-}
-
-/* Divider symbol */
-.divider {
-  text-align: center;
-  color: gold;
-  font-size: 1.4rem;
-  margin: 25px 0;
-}
-
-/* ===========================================================
-   BUTTONS
-   =========================================================== */
-.btn {
-  display: inline-block;
-  padding: 12px 30px;
-  background-color: gold;
-  color: #2e004f;
-  font-weight: bold;
   text-decoration: none;
-  border-radius: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12); /* subtle divider */
   transition: 0.3s ease;
-  margin-top: 20px;
 }
 
-.btn:hover {
-  box-shadow: 0 0 15px gold;
-  transform: scale(1.05);
-}
-
-/* Offerings special button */
-.btn.offerings {
-  background-color: gold;
-  color: #3b0066;
-  border: 2px solid #3b0066;
-}
-
-.btn.offerings:hover {
-  background-color: #3b0066;
-  color: gold;
-  border-color: gold;
-}
-
-/* Button row */
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-/* ===========================================================
-   HERO BANNER
-   =========================================================== */
-.hero {
-  max-height: 450px;
-  overflow: hidden;
-  animation: fadeIn 3s ease-in-out;
-}
-
-.hero img {
-  width: 100%;
-  border-bottom: 2px solid gold;
-  filter: brightness(0.85);
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(1.05); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-/* ===========================================================
-   FOOTER
-   =========================================================== */
-footer {
-  text-align: center;
-  padding: 20px;
-  color: gold;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+/* HOVER — GOLD TEXT + SOFT GOLD BACKLIGHT */
+.side-nav a:hover {
+  color: #FFD700;
+  background: rgba(255, 215, 0, 0.12);
 }
