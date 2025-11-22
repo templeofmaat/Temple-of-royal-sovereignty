@@ -8,42 +8,7 @@
 </head>
 
 <body class="temple-page">
-<style>
-    /* LEFT SIDEBAR */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 220px;
-      height: 100vh;
-      background: #12021f;
-      border-right: 2px solid #d4af37;
-      padding: 30px 20px;
-      box-shadow: 2px 0 12px rgba(0,0,0,0.4);
-      font-size: 1.1rem;
-      z-index: 9999;
-    }
 
-    .sidebar a {
-      display: block;
-      color: #f7eaff;
-      text-decoration: none;
-      padding: 10px 0;
-      margin-bottom: 12px;
-      border-bottom: 1px solid #3d2a55;
-      transition: 0.3s;
-    }
-
-    .sidebar a:hover {
-      color: #ffd700;
-      padding-left: 6px;
-    }
-
-    /* CONTENT SHIFT */
-    .content {
-      margin-left: 240px;
-      padding: 20px;
-    }
 <!-- LEFT SIDE NAVIGATION -->
 <nav class="side-nav">
   <a href="index.html">Home</a>
@@ -56,7 +21,9 @@
   <a href="about.html">About</a>
 </nav>
 
-<!-- PAGE HEADER -->
+<!-- WRAPPER TO PUSH CONTENT RIGHT OF SIDEBAR -->
+<div style="margin-left: 200px; padding: 30px;">
+
 <header class="page-header">
   <h1>Per Medjat — Sacred Library</h1>
   <p class="subtitle">House of Divine Writings & Remembered Texts</p>
@@ -69,8 +36,8 @@
     These writings are gathered for remembrance, research, and personal study.
     Some are ancient, some modern — each chosen for the light they reveal on
     divine law, initiation, and spiritual order.
-    <div class="royal-notice">
-      The Temple claims no authorship or ownership.  
+    <div class="royal-notice" style="margin-top:20px; border-left:3px solid gold; padding-left:12px;">
+      The Temple claims no authorship or ownership.<br>
       All texts are shared freely <em>as-is</em> for educational and devotional use.
     </div>
   </section>
@@ -132,13 +99,12 @@
 
   </section>
 
-
   <!-- ==========================
        AFRICAN SPIRITUAL SYSTEMS
        ========================== -->
   <h2 class="section-title">African Spiritual Systems</h2>
   <p class="section-subtitle">
-    Texts honoring Yoruba, Ifa, Hoodoo, Orisha, and other African and diaspora sciences.
+    Texts honoring Yoruba, Ifa, Hoodoo, Orisha, and diaspora sciences.
   </p>
 
   <section class="library-grid">
@@ -149,7 +115,7 @@
       <div class="library-title">Yoruba Legends</div>
       <div class="library-meta">M. I. Ogumefu</div>
       <p class="library-desc">
-        Stories and mythic teachings of the Yoruba people — culture, memory, and worldview.
+        Mythic teachings of the Yoruba people — culture, memory, and worldview.
       </p>
       <a class="library-link" target="_blank" href="2015.54438.Yoruba-Legands.pdf">Open PDF</a>
     </article>
@@ -174,7 +140,7 @@
       <div class="library-title">Eshu–Eleggua–Elegbara</div>
       <div class="library-meta">Baba Raúl Cañizares</div>
       <p class="library-desc">
-        The Orisha of crossroads — guardian of openings, thresholds, and communication.
+        Orisha of crossroads — guardian of openings and communication.
       </p>
       <a class="library-link" target="_blank" href="Eshu-Eleggua-Elegbara.pdf">Open PDF</a>
     </article>
@@ -185,13 +151,12 @@
       <div class="library-title">Hoodoo Spellbook</div>
       <div class="library-meta">Rootwork & Folk Practice</div>
       <p class="library-desc">
-        A collection of ancestral rootwork, healing, protection, and manifestation practices.
+        Ancestral protection, healing, and manifestation practices.
       </p>
       <a class="library-link" target="_blank" href="Hoodoo-Spellbook.pdf">Open PDF</a>
     </article>
 
   </section>
-
 
   <!-- ==========================
        ASTROLOGY & NUMBERS
@@ -206,7 +171,7 @@
       <div class="library-title">Astrology: Technics & Ethics</div>
       <div class="library-meta">C. Aq. Libra</div>
       <p class="library-desc">
-        A classic esoteric astrology text covering karmic patterns and interpretations.
+        Esoteric astrology focusing on karmic patterns and interpretation.
       </p>
       <a class="library-link" target="_blank"
          href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v5.0/Astrology.Its.Technics.and.Ethics.Book.pdf">
@@ -220,7 +185,7 @@
       <div class="library-title">Astrology for Beginners</div>
       <div class="library-meta">William W. Hewitt</div>
       <p class="library-desc">
-        Signs, houses, aspects, and how to read a natal chart — simple and powerful.
+        A simple, powerful introduction to natal chart reading.
       </p>
       <a class="library-link" target="_blank"
          href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v6.0/Astrology.for.Beginners_.An.Easy.Guide.to.Understanding.Interpreting.Your.Chart.Llewellyn.s.Modern.Astrology.Library.Series.PDFDrive.pdf">
@@ -234,13 +199,12 @@
       <div class="library-title">Cheiro’s Book of Numbers</div>
       <div class="library-meta">Numerology</div>
       <p class="library-desc">
-        A classic text on destiny, vibration, and number law.
+        A foundational text on number vibration and destiny.
       </p>
       <a class="library-link" target="_blank" href="Numerology-Cheiro.pdf">Open PDF</a>
     </article>
 
   </section>
-
 
   <!-- ==========================
        MYSTICISM & ESOTERIC
@@ -254,7 +218,7 @@
       <div class="library-title">Morals & Dogma</div>
       <div class="library-meta">Esoteric Studies</div>
       <p class="library-desc">
-        Symbolism, spiritual law, and layered teachings of ancient mystery traditions.
+        Symbolism and spiritual law from ancient mystery traditions.
       </p>
       <a class="library-link" target="_blank"
          href="https://github.com/templeofmaat/Temple-of-royal-sovereignty/releases/download/v3.0/moralsdogmaofanc00pike_0.pdf">
@@ -267,7 +231,7 @@
       <div class="library-title">The Old Book of Magic</div>
       <div class="library-meta">1918</div>
       <p class="library-desc">
-        A manual on ceremonial magic, talismans, charms, and metaphysical forces.
+        A manual on ceremonial magic, talismans, and metaphysical forces.
       </p>
       <a class="library-link" target="_blank" href="1918__de_laurence___the_old_book_of_magic.pdf">
         Open PDF
@@ -279,7 +243,7 @@
       <div class="library-title">The Master Key</div>
       <div class="library-meta">1914</div>
       <p class="library-desc">
-        A work on vibration, mental law, and the power of thought.
+        Teachings on vibration, mental power, and spiritual law.
       </p>
       <a class="library-link" target="_blank" href="1914__de_laurence___the_master_key.pdf">
         Open PDF
@@ -287,7 +251,6 @@
     </article>
 
   </section>
-
 
   <!-- ==========================
        FICTION & PROPHECY
@@ -333,8 +296,10 @@
 
 </main>
 
+</div> <!-- CLOSE WRAPPER -->
+
 <!-- FOOTER -->
-<footer>
+<footer style="text-align:center; margin-left:200px; padding:20px;">
   <p>© <span id="year"></span> Temple of Royal Sovereignty · All Rights Reserved</p>
 </footer>
 
@@ -344,4 +309,3 @@
 
 </body>
 </html>
-  
