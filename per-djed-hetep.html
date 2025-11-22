@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* PAGE LAYOUT (does NOT touch nav colors) */
     .page-content {
       margin-left: 200px;
       padding: 30px 20px 50px;
@@ -42,35 +41,23 @@
       font-size: 0.98rem;
     }
 
-    .sections-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-bottom: 30px;
-    }
-
     .offering-card {
       border-radius: 10px;
       border: 1px solid rgba(255,215,0,0.6);
       background: rgba(12, 0, 35, 0.7);
       padding: 18px 18px 20px;
+      margin-bottom: 28px;
       text-align: left;
       line-height: 1.6;
       font-size: 0.98rem;
     }
 
     .offering-card h2 {
-      margin-top: 0;
-      margin-bottom: 10px;
+      margin: 0 0 10px 0;
       font-size: 1.2rem;
       color: #ffd700;
-      text-align: left;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-    }
-
-    .offering-card p {
-      margin: 6px 0;
     }
 
     .btn-row {
@@ -99,38 +86,45 @@
       color: #16052a;
     }
 
-    .btn-offer:hover {
-      filter: brightness(1.1);
-    }
-
-    .spoken-offering {
-      margin: 20px auto 10px;
-      padding: 18px 18px 20px;
+    /* TEXT AREA FOR DIVINE REQUEST */
+    .request-box {
       max-width: 720px;
+      margin: 40px auto;
+      padding: 22px;
       border-radius: 10px;
-      border: 1px dashed rgba(255,215,0,0.7);
-      background: rgba(8, 0, 26, 0.7);
-      font-size: 0.96rem;
-      line-height: 1.7;
+      background: rgba(15,0,30,0.7);
+      border: 1px solid rgba(255,215,0,0.7);
     }
 
-    .spoken-offering h2 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-      text-align: center;
+    .request-box h2 {
       color: #ffd700;
+      text-align: center;
+      margin-bottom: 15px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
-    .spoken-offering p {
-      margin: 6px 0;
-      text-align: center;
+    .request-box textarea {
+      width: 100%;
+      height: 160px;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,215,0,0.5);
+      background: rgba(255,255,255,0.08);
+      color: #ffffff;
+      font-size: 1rem;
+      line-height: 1.5;
+      outline: none;
+      resize: vertical;
     }
 
-    .spoken-offering em {
-      opacity: 0.9;
+    .deduction-note {
+      max-width: 720px;
+      margin: 25px auto 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #fbeeff;
+      opacity: 0.85;
     }
 
     @media (max-width: 720px) {
@@ -144,7 +138,7 @@
 
 <body class="temple-page">
 
-  <!-- UNIVERSAL LEFT NAV -->
+  <!-- UNIVERSAL LEFT NAV (store link REMOVED) -->
   <nav class="side-nav">
     <a href="index.html">Home</a>
     <a href="throne-room.html">The Throne Room</a>
@@ -154,11 +148,10 @@
     <a href="events-news.html">Events & News</a>
     <a href="vlog.html">Vlog</a>
     <a href="about.html">About</a>
-    <a href="https://tors.store/">Per Hetep en Sḫm — Store</a>
     <a href="per-djed-hetep.html">Per Djed-Hetep — Offerings</a>
   </nav>
 
-  <!-- PAGE CONTENT -->
+  <!-- CONTENT -->
   <div class="page-content">
 
     <header class="page-header">
@@ -169,99 +162,50 @@
     <!-- INTRO -->
     <section class="intro-box">
       <p>
-        <strong>Per Djed-Hetep</strong> is the chamber where spoken intention and material giving
-        meet. Here, word, will, and offering move together: you speak, you give, you align.
+        <strong>Per Djed-Hetep</strong> is the chamber where spoken intention and material giving meet.
+        Your word, your will, and your offering move together under Ma’at.
       </p>
       <p>
-        Every contribution — whether coin, support, or blessing — is treated as a living offering
-        that strengthens the Temple work, the teachings, and the care extended to the people.
+        Every gift strengthens the Temple, supports the work, and fuels the path that serves the people.
       </p>
     </section>
 
-    <!-- MAIN SECTIONS -->
-    <section class="sections-grid">
+    <!-- TEMPLE SUPPORT -->
+    <article class="offering-card">
+      <h2>Temple Support Offerings</h2>
+      <p>
+        These offerings sustain the daily work of the Temple — movement, tools, travel,
+        land work, care, and the living body of the mission.
+      </p>
 
-      <!-- TEMPLE SUPPORT -->
-      <article class="offering-card">
-        <h2>Temple Support Offerings</h2>
-        <p>
-          These offerings sustain the daily work of the Temple — technology, travel, sacred
-          tools, community care, and the living body that carries the message.
-        </p>
-        <p>
-          Offer as you are led: from gratitude, from remembrance, from alignment with the work.
-        </p>
+      <div class="btn-row">
+        <a class="btn-offer highlight"
+           href="https://cash.app/$BillionaireHeiress7"
+           target="_blank">
+          Give via Cash App
+        </a>
 
-        <div class="btn-row">
-          <a class="btn-offer highlight"
-             href="https://cash.app/$BillionaireHeiress7"
-             target="_blank">
-            Give via Cash App
-          </a>
-          <a class="btn-offer"
-             href="mailto:templeofmaat@proton.me?subject=Temple%20Support%20Offering">
-            Email for Other Ways
-          </a>
-        </div>
-      </article>
+        <a class="btn-offer"
+           href="mailto:templeofmaat@proton.me?subject=Temple%20Support">
+          Email for Other Methods
+        </a>
+      </div>
+    </article>
 
-      <!-- DIVINE EXCHANGE / STORE -->
-      <article class="offering-card">
-        <h2>Per Hetep en Sḫm</h2>
-        <p>
-          <strong>Per Hetep en Sḫm — House of Divine Exchange</strong> is the store chamber:
-          bracelets, readings, sacred tools, and works carrying intentional power.
-        </p>
-        <p>
-          Every exchange is both support for the Temple and activation for the one who receives.
-        </p>
-
-        <div class="btn-row">
-          <a class="btn-offer highlight"
-             href="https://tors.store/"
-             target="_blank">
-            Enter the Store
-          </a>
-        </div>
-      </article>
-
-      <!-- COMMUNITY & LEGACY -->
-      <article class="offering-card">
-        <h2>Community & Legacy Offerings</h2>
-        <p>
-          These offerings undergird land work, travel to key portals, ancestral projects,
-          and the long-term vision carried through the Temple and its houses.
-        </p>
-        <p>
-          If you feel called to sponsor, underwrite, or seed a specific work, reach out directly.
-        </p>
-
-        <div class="btn-row">
-          <a class="btn-offer"
-             href="mailto:templeofmaat@proton.me?subject=Community%20or%20Legacy%20Offering">
-            Discuss a Legacy Offering
-          </a>
-        </div>
-      </article>
-
+    <!-- DIVINE REQUEST TEXT AREA -->
+    <section class="request-box">
+      <h2>Your Divine Request</h2>
+      <textarea
+        placeholder="Speak your intention here. 
+What are you asking the Temple to align with you on?
+What are you placing on the altar of Ma’at?"></textarea>
     </section>
 
-    <!-- SPOKEN OFFERING TEXT -->
-    <section class="spoken-offering">
-      <h2>Spoken Offering</h2>
-      <p>
-        Before you give, pause. Place your hand over your chest. Breathe.
-      </p>
-      <p><em>Then speak:</em></p>
-      <p>
-        “May this offering move in alignment with Ma’at.  
-        May it sustain what is true, what is just, and what is Sovereign.  
-        May it return to me and mine in right form, right time, and right measure.”
-      </p>
-      <p style="margin-top:10px;">
-        Your word is a current. Your gift is a vessel. The Temple is the channel.
-      </p>
-    </section>
+    <!-- TAX DEDUCTIBLE NOTE -->
+    <p class="deduction-note">
+      All offerings, gifts, and contributions are tax-deductible.  
+      The Temple of Royal Sovereignty operates as a **508(c)(1)(a) Private Temple Trust**.
+    </p>
 
   </div>
 
