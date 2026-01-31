@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Temple of Ma’at — School of Sacred Order</title>
+  <title>Temple of Ma'at — School of Sacred Order</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     /* PAGE LAYOUT ONLY (colors come from style.css) */
@@ -17,6 +18,7 @@
     .page-header {
       text-align: center;
       margin-bottom: 24px;
+      position: relative;
     }
 
     .page-header h1 {
@@ -24,6 +26,16 @@
       margin-bottom: 6px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      position: relative;
+      display: inline-block;
+    }
+
+    .page-header h1::after {
+      content: '𓁦';
+      font-size: 1.8rem;
+      margin-left: 10px;
+      opacity: 0.9;
+      vertical-align: middle;
     }
 
     .page-header .subtitle {
@@ -31,6 +43,42 @@
       opacity: 0.95;
       letter-spacing: 0.18em;
       text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    .sacred-number-display {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 15px 0 25px;
+      flex-wrap: wrap;
+    }
+
+    .sacred-number {
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(255,215,0,0.4);
+      min-width: 100px;
+    }
+
+    .sacred-number .number {
+      display: block;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #D4AF37;
+      font-family: 'Cinzel', serif;
+      line-height: 1;
+    }
+
+    .sacred-number .label {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 5px;
+      opacity: 0.9;
     }
 
     .text-block {
@@ -41,6 +89,12 @@
       background: rgba(8,0,26,0.7);
       line-height: 1.7;
       font-size: 0.98rem;
+      transition: all 0.3s ease;
+    }
+
+    .text-block:hover {
+      border-color: rgba(255,215,0,0.8);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
     }
 
     .text-block h2 {
@@ -50,6 +104,14 @@
       font-size: 1.25rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .text-block h2 i {
+      color: #D4AF37;
+      font-size: 1.1rem;
     }
 
     .text-block p {
@@ -63,6 +125,274 @@
 
     .pill-list li {
       margin: 4px 0;
+      position: relative;
+      padding-left: 5px;
+    }
+
+    .pill-list li::before {
+      content: '𓀠';
+      position: absolute;
+      left: -18px;
+      opacity: 0.7;
+    }
+
+    /* Gateway Framework Section */
+    .gateway-framework {
+      background: rgba(4, 0, 20, 0.85);
+      border: 2px solid rgba(212, 175, 55, 0.5);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 30px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gateway-framework::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #D4AF37, #F4D03F, #D4AF37);
+    }
+
+    .gateway-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .gateway-header h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: #D4AF37;
+    }
+
+    .gateway-header p {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .gateway-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .gateway-card {
+      background: rgba(10, 5, 30, 0.7);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .gateway-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(212, 175, 55, 0.7);
+      box-shadow: 0 6px 15px rgba(212, 175, 55, 0.15);
+    }
+
+    .gateway-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: #D4AF37;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .gateway-week {
+      display: inline-block;
+      background: #D4AF37;
+      color: #08001A;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .gateway-title {
+      font-size: 1.2rem;
+      margin: 8px 0 12px;
+      color: #F5F5F5;
+    }
+
+    .gateway-description {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .gateway-declaration {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #D4AF37;
+      border-top: 1px dashed rgba(212, 175, 55, 0.3);
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    /* Somatic Awareness Section */
+    .somatic-section {
+      background: rgba(20, 10, 40, 0.8);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 30px auto;
+      border: 1px solid rgba(128, 0, 128, 0.4);
+    }
+
+    .somatic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .somatic-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .somatic-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #9B30FF;
+    }
+
+    .somatic-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #F5F5F5;
+    }
+
+    .somatic-item p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* CTA for Initiation */
+    .initiation-cta {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, rgba(8,0,26,0.9) 0%, rgba(20,10,40,0.9) 100%);
+      border-radius: 12px;
+      border: 2px solid #D4AF37;
+      margin: 40px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .initiation-cta::before {
+      content: '𓀽𓁦𓀠';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 2rem;
+      opacity: 0.2;
+    }
+
+    .initiation-cta h2 {
+      color: #D4AF37;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .initiation-cta p {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 1.05rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(45deg, #D4AF37, #F4D03F);
+      color: #08001A;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Field vs List Comparison */
+    .comparison-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+
+    .comparison-card {
+      padding: 25px;
+      border-radius: 10px;
+      height: 100%;
+    }
+
+    .comparison-card.outdated {
+      background: rgba(40, 0, 0, 0.7);
+      border: 1px solid rgba(255, 100, 100, 0.4);
+    }
+
+    .comparison-card.field-way {
+      background: rgba(0, 40, 0, 0.7);
+      border: 1px solid rgba(100, 255, 100, 0.4);
+    }
+
+    .comparison-card h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .comparison-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .comparison-list li {
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.1);
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .comparison-list li::before {
+      position: absolute;
+      left: 0;
+      top: 10px;
+    }
+
+    .comparison-card.outdated .comparison-list li::before {
+      content: '✗';
+      color: #FF6666;
+    }
+
+    .comparison-card.field-way .comparison-list li::before {
+      content: '✓';
+      color: #66FF66;
     }
 
     .callout {
@@ -81,6 +411,27 @@
         margin-left: 0;
         padding: 20px 16px 40px;
       }
+      
+      .sacred-number-display {
+        gap: 10px;
+      }
+      
+      .sacred-number {
+        min-width: 80px;
+        padding: 10px 15px;
+      }
+      
+      .sacred-number .number {
+        font-size: 1.8rem;
+      }
+      
+      .gateway-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .comparison-section {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -91,7 +442,7 @@
   <nav class="side-nav">
     <a href="index.html">Home</a>
     <a href="throne-room.html">The Throne Room</a>
-    <a href="maat.html">School of Ma’at</a>
+    <a href="maat.html">School of Ma'at</a>
     <a href="readings.html">Readings & Sessions</a>
     <a href="per-medjat.html">Free Library</a>
     <a href="events-news.html">Events & News</a>
@@ -105,60 +456,215 @@
   <div class="page-content">
 
     <header class="page-header">
-      <h1>Temple of Ma’at</h1>
+      <h1>Temple of Ma'at</h1>
       <p class="subtitle">School of Sacred Order</p>
+      
+      <!-- Sacred Numbers Display -->
+      <div class="sacred-number-display">
+        <div class="sacred-number">
+          <span class="number">42</span>
+          <span class="label">Sacred Declarations</span>
+        </div>
+        <div class="sacred-number">
+          <span class="number">7</span>
+          <span class="label">Gateways</span>
+        </div>
+        <div class="sacred-number">
+          <span class="number">49</span>
+          <span class="label">Days of Initiation</span>
+        </div>
+      </div>
     </header>
 
     <main>
 
-      <!-- WHO MA’AT IS -->
+      <!-- WHO MA'AT IS -->
       <section class="text-block">
-        <h2>Who Ma’at Is</h2>
+        <h2><i class="fas fa-seedling"></i> Who Ma'at Is</h2>
         <p>
-          Ma’at is Living Truth. Not an idea, not a rulebook, not a list of laws — a living field
+          Ma'at is Living Truth. Not an idea, not a rulebook, not a list of laws — a living field
           of balance, rightness, and clear seeing that holds creation in order.
         </p>
         <p>
-          Wherever there is alignment between heart, word, action, and purpose, Ma’at is present.
-          Wherever there is distortion, confusion, or imbalance, Ma’at reveals it and calls it
+          Wherever there is alignment between heart, word, action, and purpose, Ma'at is present.
+          Wherever there is distortion, confusion, or imbalance, Ma'at reveals it and calls it
           back into order.
         </p>
         <p>
-          To walk with Ma’at is to allow Truth to sit in the center of your life:  
+          To walk with Ma'at is to allow Truth to sit in the center of your life:  
           truth in how you treat your body, truth in how you handle resources,  
           truth in how you love, lead, speak, and move.
         </p>
       </section>
 
-      <!-- MA’AT AS A FIELD, NOT “RULES” -->
+      <!-- FIELD VS LIST COMPARISON -->
       <section class="text-block">
-        <h2>Ma’at is a Field, Not a List</h2>
+        <h2><i class="fas fa-balance-scale"></i> Ma'at: Field vs List</h2>
         <p>
-          Many speak of Ma’at as if She is a list of “principles” to memorize.  
-          In this Temple, Ma’at is innerstood as a field of order that you step into and live from.
+          Many speak of the "42 Negative Confessions" as rules to follow. But they're not rules — 
+          they're <strong>42 descriptions of what it feels like to live in the field of Ma'at</strong>.
         </p>
-        <p>
-          In this field:
+        
+        <div class="comparison-section">
+          <div class="comparison-card outdated">
+            <h3><i class="fas fa-list"></i> Ma'at as a List</h3>
+            <ul class="comparison-list">
+              <li>Trying to memorize 42 rules</li>
+              <li>Checking boxes of "good behavior"</li>
+              <li>Spiritual performance</li>
+              <li>Guilt when you "fail"</li>
+              <li>External validation seeking</li>
+              <li>Mental understanding only</li>
+            </ul>
+            <p style="text-align: center; margin-top: 15px; font-style: italic;">
+              <strong>Result:</strong> Burnout. Inauthenticity.
+            </p>
+          </div>
+          
+          <div class="comparison-card field-way">
+            <h3><i class="fas fa-mountain"></i> Ma'at as a Field</h3>
+            <ul class="comparison-list">
+              <li>Stepping into 1 field of balance</li>
+              <li>Your body TELLS you when you're aligned</li>
+              <li>Authentic embodiment</li>
+              <li>Course-correction as love</li>
+              <li>Inner knowing as your guide</li>
+              <li>Whole-being integration</li>
+            </ul>
+            <p style="text-align: center; margin-top: 15px; font-style: italic;">
+              <strong>Result:</strong> Sovereignty. Authentic power.
+            </p>
+          </div>
+        </div>
+        
+        <p style="margin-top: 20px; text-align: center; font-style: italic;">
+          "I have not lied" isn't a rule to follow — it's what happens <strong>naturally</strong> 
+          when you're so aligned that falsehood feels physically uncomfortable.
         </p>
-        <ul class="pill-list">
-          <li>Your heart and your actions match.</li>
-          <li>Your inner voice and your outer life speak the same story.</li>
-          <li>Your decisions respect your body, your ancestors, and your destiny.</li>
-          <li>Your exchanges are honest, clean, and balanced.</li>
-        </ul>
+      </section>
+
+      <!-- THE 7 GATEWAYS FRAMEWORK -->
+      <section class="gateway-framework">
+        <div class="gateway-header">
+          <h2>The 7 Gateways into Ma'at</h2>
+          <p>Stop trying to follow 42 rules. Instead, walk through 7 gateways into the living field of Ma'at. 
+          Each gateway corresponds to a core way the field expresses through you.</p>
+        </div>
+        
+        <div class="gateway-grid">
+          <!-- Gateway 1 -->
+          <div class="gateway-card">
+            <div class="gateway-week">Week 1</div>
+            <h3 class="gateway-title">The Truth-Speaker's Gateway</h3>
+            <p class="gateway-description">Your words match your reality. Speech flows from alignment, not calculation.</p>
+            <div class="gateway-declaration">
+              "My speech flows from the field of Truth"
+            </div>
+          </div>
+          
+          <!-- Gateway 2 -->
+          <div class="gateway-card">
+            <div class="gateway-week">Week 2</div>
+            <h3 class="gateway-title">The Justice-Wielder's Gateway</h3>
+            <p class="gateway-description">Your exchanges feel balanced. You sense energetic harmony in all transactions.</p>
+            <div class="gateway-declaration">
+              "I exist in right exchange with all things"
+            </div>
+          </div>
+          
+          <!-- Gateway 3 -->
+          <div class="gateway-card">
+            <div class="gateway-week">Week 3</div>
+            <h3 class="gateway-title">The Harmony-Keeper's Gateway</h3>
+            <p class="gateway-description">Your life feels ordered, not chaotic. Your presence brings balance.</p>
+            <div class="gateway-declaration">
+              "My presence brings order to chaos"
+            </div>
+          </div>
+          
+          <!-- Gateway 4 -->
+          <div class="gateway-card">
+            <div class="gateway-week">Week 4</div>
+            <h3 class="gateway-title">The Wisdom-Holder's Gateway</h3>
+            <p class="gateway-description">Your choices feel aligned, not forced. You act from knowing, not guessing.</p>
+            <div class="gateway-declaration">
+              "My actions flow from embodied knowing"
+            </div>
+          </div>
+          
+          <!-- Gateway 5 -->
+          <div class="gateway-card">
+            <div class="gateway-week">Week 5</div>
+            <h3 class="gateway-title">The Reverence-Embracer's Gateway</h3>
+            <p class="gateway-description">Your relationships feel sacred, not transactional. You honor what is holy.</p>
+            <div class="gateway-declaration">
+              "I honor the sacred in all beings"
+            </div>
+          </div>
+          
+          <!-- Gateway 6 -->
+          <div class="gateway-card">
+            <div class="gateway-week">Week 6</div>
+            <h3 class="gateway-title">The Courage-Warrior's Gateway</h3>
+            <p class="gateway-description">Your boundaries feel firm, not rigid. You stand in truth without aggression.</p>
+            <div class="gateway-declaration">
+              "I stand firm in my sovereign truth"
+            </div>
+          </div>
+          
+          <!-- Gateway 7 -->
+          <div class="gateway-card">
+            <div class="gateway-week">Week 7</div>
+            <h3 class="gateway-title">The Sovereign's Gateway</h3>
+            <p class="gateway-description">You live in the field. All 42 declarations become your natural state of being.</p>
+            <div class="gateway-declaration">
+              "I am Ma'at embodied"
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOMATIC AWARENESS -->
+      <section class="text-block somatic-section">
+        <h2><i class="fas fa-heartbeat"></i> Your Body Already Knows Ma'at</h2>
         <p>
-          When you move out of that field, your body feels it, your spirit feels it,  
-          your life begins to wobble. Ma’at is the call back to center.
+          The 42 Declarations describe <strong>somatic experiences</strong> — what it feels like in your body 
+          to live in alignment. Your body is your primary Ma'at detector.
+        </p>
+        
+        <div class="somatic-grid">
+          <div class="somatic-item">
+            <div class="somatic-icon">🫀</div>
+            <h3>The Heart Knows</h3>
+            <p>That tightness when you say "yes" but mean "no"? That's your heart telling you you've left the field.</p>
+          </div>
+          
+          <div class="somatic-item">
+            <div class="somatic-icon">🧠</div>
+            <h3>The Gut Knows</h3>
+            <p>That sinking feeling when you make a promise you can't keep? That's your gut sensing imbalance.</p>
+          </div>
+          
+          <div class="somatic-item">
+            <div class="somatic-icon">⚡</div>
+            <h3>The Energy Body Knows</h3>
+            <p>The fatigue after an inauthentic conversation? That's your energy field compensating for misalignment.</p>
+          </div>
+        </div>
+        
+        <p style="text-align: center; margin-top: 20px; font-style: italic;">
+          This initiation doesn't teach you rules. It teaches you to <strong>trust these sensations as your guides</strong> 
+          back into the field of Ma'at.
         </p>
       </section>
 
       <!-- PURPOSE OF THE SCHOOL -->
       <section class="text-block">
-        <h2>Purpose of the School of Sacred Order</h2>
+        <h2><i class="fas fa-compass"></i> Purpose of the School of Sacred Order</h2>
         <p>
-          The Temple of Ma’at: School of Sacred Order is the heart chamber of the Temple
+          The Temple of Ma'at: School of Sacred Order is the heart chamber of the Temple
           of Royal Sovereignty. It exists to restore your life to an order that matches
-          your soul — not the world’s expectations.
+          your soul — not the world's expectations.
         </p>
         <p>
           This School is where you learn to:
@@ -177,14 +683,14 @@
 
       <!-- WHAT YOU LEARN HERE -->
       <section class="text-block">
-        <h2>What You Learn Inside This Temple</h2>
+        <h2><i class="fas fa-graduation-cap"></i> What You Learn Inside This Temple</h2>
         <p>
-          Inside the School of Sacred Order, you are not asked to “be perfect.”  
+          Inside the School of Sacred Order, you are not asked to "be perfect."  
           You are invited to become honest, disciplined, and aligned.
         </p>
         <p>You will explore:</p>
         <ul class="pill-list">
-          <li><strong>Truth in the Body</strong> — how your body tells you when you are in or out of Ma’at.</li>
+          <li><strong>Truth in the Body</strong> — how your body tells you when you are in or out of Ma'at.</li>
           <li><strong>Truth in Relationships</strong> — how to stop abandoning yourself to belong.</li>
           <li><strong>Truth in Resources</strong> — how you receive, give, and hold what comes through your hands.</li>
           <li><strong>Truth in Assignment</strong> — what you are actually here to do, and what you are not.</li>
@@ -197,7 +703,7 @@
 
       <!-- WHO THIS SCHOOL IS FOR -->
       <section class="text-block">
-        <h2>Who This School is For</h2>
+        <h2><i class="fas fa-users"></i> Who This School is For</h2>
         <p>
           This chamber is for those who feel a pull to ancient order and inner justice —  
           the ones who are tired of pretending, tired of carrying lies in their body,  
@@ -206,25 +712,25 @@
         <p>It is especially for those who:</p>
         <ul class="pill-list">
           <li>Carry ancestral memory tied to Kemet and original spiritual law.</li>
-          <li>Have walked through systems that used fear and control in the name of “faith.”</li>
+          <li>Have walked through systems that used fear and control in the name of "faith."</li>
           <li>Want their money, relationships, work, and spiritual life to match their soul.</li>
           <li>Know they are called to lead, but refuse to lead from distortion.</li>
         </ul>
         <p>
           If your spirit has been whispering,  
-          “I want my life to be clean, aligned, and true,”  
-          then you are already standing at the gates of Ma’at.
+          "I want my life to be clean, aligned, and true,"  
+          then you are already standing at the gates of Ma'at.
         </p>
       </section>
 
-      <!-- HOW MA’AT MOVES THROUGH TORS -->
+      <!-- HOW MA'AT MOVES THROUGH TORS -->
       <section class="text-block">
-        <h2>Ma’at Within the Temple of Royal Sovereignty</h2>
+        <h2><i class="fas fa-weight-hanging"></i> Ma'at Within the Temple of Royal Sovereignty</h2>
         <p>
-          In the Temple of Royal Sovereignty, Ma’at is not a side teaching —  
+          In the Temple of Royal Sovereignty, Ma'at is not a side teaching —  
           She is the measurement for everything.
         </p>
-        <p>Ma’at weighs:</p>
+        <p>Ma'at weighs:</p>
         <ul class="pill-list">
           <li>How you govern your body.</li>
           <li>How you honor your ancestors and descendants.</li>
@@ -232,22 +738,41 @@
           <li>How you speak, teach, and sit in authority.</li>
         </ul>
         <p>
-          Nothing built in this Temple is allowed to stand if it does not pass through Ma’at.  
+          Nothing built in this Temple is allowed to stand if it does not pass through Ma'at.  
           This is how the work stays clean, and how your own path stays protected.
+        </p>
+      </section>
+
+      <!-- INITIATION CTA -->
+      <section class="initiation-cta">
+        <h2>The Hall of Truth Initiation</h2>
+        <p>
+          <strong>A 7-Week Journey Through the 7 Gateways</strong><br>
+          Step out of rule-following and into field-living. Master not 42 rules, but the one field from which all 42 declarations naturally flow.
+        </p>
+        <p>
+          This is not another course. It's an initiation into <strong>embodied sovereignty</strong> — 
+          where your body becomes your compass back to Ma'at.
+        </p>
+        <a href="hall-of-truth.html" class="cta-button">
+          Enter The Hall of Truth
+        </a>
+        <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.9;">
+          7 Weeks · 7 Gateways · 42 Declarations Embodied
         </p>
       </section>
 
       <!-- COMING CURRICULUM CALLOUT -->
       <section class="callout">
-        <p><strong>Curriculum of the School of Sacred Order</strong></p>
+        <p><strong>Full Curriculum of the School of Sacred Order</strong></p>
         <p>
           The formal teachings, sessions, and scrolls of the School of Sacred Order  
           will be opened in phases. As they unlock, this chamber will become your portal  
-          to structured lessons, live gatherings, and written works dedicated to Ma’at.
+          to structured lessons, live gatherings, and written works dedicated to Ma'at.
         </p>
         <p style="margin-top:8px;">
           For now, let this page serve as a mirror.  
-          Ask yourself: <em>“Where in my life is Ma’at already strong — and where is She calling me higher?”</em>
+          Ask yourself: <em>"Where in my life is Ma'at already strong — and where is She calling me higher?"</em>
         </p>
       </section>
 
@@ -255,8 +780,51 @@
 
     <footer style="text-align:center; padding:20px; margin-top:30px;">
       <p>© 2025 Temple of Royal Sovereignty · All Rights Reserved</p>
+      <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+        Walking in Truth, Balance, and Eternal Order
+      </p>
     </footer>
 
   </div>
+  
+  <script>
+    // Simple hover effect for gateway cards
+    document.querySelectorAll('.gateway-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+    
+    // Animate sacred numbers on scroll
+    window.addEventListener('scroll', function() {
+      const numbers = document.querySelectorAll('.sacred-number');
+      numbers.forEach(num => {
+        const rect = num.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          num.style.opacity = '1';
+          num.style.transform = 'scale(1)';
+        }
+      });
+    });
+    
+    // Set initial state for animation
+    document.querySelectorAll('.sacred-number').forEach(num => {
+      num.style.opacity = '0.7';
+      num.style.transform = 'scale(0.95)';
+      num.style.transition = 'all 0.5s ease';
+    });
+    
+    // Trigger initial animation
+    setTimeout(() => {
+      document.querySelectorAll('.sacred-number').forEach(num => {
+        num.style.opacity = '1';
+        num.style.transform = 'scale(1)';
+      });
+    }, 300);
+  </script>
 </body>
 </html>
