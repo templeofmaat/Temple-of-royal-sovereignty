@@ -345,7 +345,7 @@
       margin-top: 1rem;
     }
 
-    /* SOMATIC SECTION */
+    /* SOMATIC AWARENESS SECTION */
     .somatic-section {
       padding: 5rem 2rem;
       background: linear-gradient(to bottom, #08001A, #140A28);
@@ -482,140 +482,81 @@
       font-style: italic;
     }
 
-    .payment-options {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1000px;
-      margin: 3rem auto;
-    }
-
-    .payment-option {
-      background: rgba(30, 20, 50, 0.8);
-      border: 2px solid rgba(212, 175, 55, 0.3);
-      border-radius: 10px;
-      padding: 2.5rem 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .payment-option:hover {
-      border-color: rgba(212, 175, 55, 0.7);
-      transform: scale(1.02);
-    }
-
-    .payment-option h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      color: #F5F5F5;
-    }
-
-    .payment-amount {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      color: #D4AF37;
-    }
-
-    .payment-btn {
-      background: linear-gradient(45deg, #D4AF37, #F4D03F);
-      color: #08001A;
-      border: none;
-      padding: 1rem 2rem;
-      font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .payment-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
-    }
-
-    /* ENROLLMENT FORM */
-    .enrollment-section {
+    /* SIMPLE ENROLLMENT SECTION */
+    .simple-enrollment-section {
       padding: 5rem 2rem;
       background: #08001A;
+      text-align: center;
     }
 
-    .enrollment-form {
-      max-width: 700px;
-      margin: 0 auto;
-      background: rgba(26, 15, 45, 0.9);
-      padding: 3rem;
-      border-radius: 12px;
-      border: 1px solid rgba(212, 175, 55, 0.3);
+    .simple-enrollment-section .section-title {
+      margin-bottom: 1rem;
     }
 
-    .form-group {
-      margin-bottom: 2rem;
+    .simple-enrollment-section > p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
     }
 
-    .form-group label {
-      display: block;
-      margin-bottom: 0.8rem;
-      color: #D4AF37;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.95rem;
-    }
-
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 6px;
-      color: #F5F5F5;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: rgba(212, 175, 55, 0.7);
-      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
-    }
-
-    .checkbox-group {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .checkbox-group input {
-      width: auto;
-      margin-top: 0.3rem;
-    }
-
-    .submit-btn {
+    .stripe-checkout-btn {
+      display: inline-block;
       background: linear-gradient(45deg, #D4AF37, #F4D03F);
       color: #08001A;
-      border: none;
-      padding: 1.3rem 3rem;
+      padding: 18px 40px;
       font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
+      text-decoration: none;
+      border-radius: 8px;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-top: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+      margin: 20px 0;
     }
 
-    .submit-btn:hover {
+    .stripe-checkout-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    }
+
+    .klarna-notice {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-top: 15px;
+    }
+
+    .klarna-notice img {
+      height: 18px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .investment-details {
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 20px;
+      background: rgba(212, 175, 55, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid #D4AF37;
+      text-align: left;
+    }
+
+    .investment-details h3 {
+      color: #F4D03F;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      font-family: 'Cinzel', serif;
+    }
+
+    .investment-details ul {
+      padding-left: 20px;
+    }
+
+    .investment-details li {
+      margin: 8px 0;
     }
 
     /* FAQ SECTION */
@@ -788,16 +729,13 @@
         font-size: 3.5rem;
       }
       
-      .payment-options {
-        grid-template-columns: 1fr;
-      }
-      
-      .enrollment-form {
-        padding: 2rem;
-      }
-      
       .gateways-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .stripe-checkout-btn {
+        padding: 15px 30px;
+        font-size: 1.1rem;
       }
     }
 
@@ -812,6 +750,10 @@
       
       .sacred-number .number {
         font-size: 2rem;
+      }
+      
+      .price-amount {
+        font-size: 2.5rem;
       }
     }
   </style>
@@ -1093,81 +1035,40 @@
         <p class="price-description">For 7 Gateways & 42 Declarations Embodied</p>
         <p class="price-note">*Sacred number alignment: 7 principles × 111 = 777*</p>
       </div>
-      
-      <div class="payment-options">
-        <div class="payment-option">
-          <h3>Full Sovereignty Payment</h3>
-          <p class="payment-amount">One payment of <strong>$777</strong></p>
-          <button class="payment-btn" data-plan="full">Choose This Plan</button>
-        </div>
-        
-        <div class="payment-option">
-          <h3>Royal Decree Plan</h3>
-          <p class="payment-amount">Two payments of <strong>$388.50</strong></p>
-          <button class="payment-btn" data-plan="two-pay">Choose This Plan</button>
-        </div>
-        
-        <div class="payment-option">
-          <h3>Sacred Alignment Plan</h3>
-          <p class="payment-amount">Four payments of <strong>$194.25</strong></p>
-          <button class="payment-btn" data-plan="four-pay">Choose This Plan</button>
-        </div>
-      </div>
     </section>
 
- <!-- ===== ENROLLMENT SECTION ===== -->
-<section class="enrollment-section" style="margin: 50px auto; text-align: center;">
-  
-  <h2 style="color: #D4AF37; font-size: 2rem; margin-bottom: 20px;">
-    Ready to Walk Through the Gateways?
-  </h2>
-  
-  <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; line-height: 1.6;">
-    After experiencing Week 1 for free, continue your journey through all 7 Gateways of Ma'at.
-  </p>
-  
-  <div style="margin: 30px 0;">
-    <a href="https://buy.stripe.com/00w6oHf830wQ4hW0gX77O0v" 
-       style="display: inline-block;
-              background: linear-gradient(45deg, #D4AF37, #F4D03F);
-              color: #08001A;
-              padding: 18px 40px;
-              font-family: 'Cinzel', 'Georgia', serif;
-              font-size: 1.3rem;
-              font-weight: bold;
-              text-decoration: none;
-              border-radius: 8px;
-              text-transform: uppercase;
-              letter-spacing: 2px;
-              transition: all 0.3s ease;
-              box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);">
-      Begin Initiation - $777
-    </a>
-    
-    <div style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">
-      <img src="https://cdn.klarna.com/1.0/shared/image/generic/logo/en_us/basic/logo_black.png?width=200" 
-           alt="Klarna" height="18" style="vertical-align: middle; margin-right: 8px;">
-      Available: Pay now or in 4 interest-free installments
-    </div>
-  </div>
-  
-  <div style="max-width: 500px; margin: 30px auto; padding: 20px; 
-              background: rgba(212, 175, 55, 0.05); 
-              border-radius: 8px;
-              border-left: 4px solid #D4AF37;">
-    <h3 style="color: #F4D03F; margin-bottom: 10px; font-size: 1.1rem;">
-      What You're Investing In:
-    </h3>
-    <ul style="text-align: left; padding-left: 20px;">
-      <li>6 Remaining Gateways (Weeks 2-7)</li>
-      <li>2 Private Sacred Audience Calls</li>
-      <li>Sovereign's Field Kit & Rituals</li>
-      <li>Council of Sovereigns Community</li>
-      <li>Lifetime Access to Materials</li>
-    </ul>
-  </div>
-  
-</section>
+    <!-- SIMPLE ENROLLMENT SECTION -->
+    <section class="simple-enrollment-section" id="enrollment">
+      <h2 class="section-title">Ready to Walk Through the Gateways?</h2>
+      
+      <p>After experiencing Week 1 for free, continue your journey through all 7 Gateways of Ma'at.</p>
+      
+      <!-- SIMPLE STRIPE CHECKOUT BUTTON -->
+      <div class="enrollment-action">
+        <a href="https://buy.stripe.com/00w6oHf830wQ4hW0gX77O0v" 
+           class="stripe-checkout-btn">
+          Begin Initiation - $777
+        </a>
+        
+        <div class="klarna-notice">
+          <img src="https://cdn.klarna.com/1.0/shared/image/generic/logo/en_us/basic/logo_black.png?width=200" 
+               alt="Klarna">
+          Available: Pay now or in 4 interest-free installments
+        </div>
+      </div>
+      
+      <div class="investment-details">
+        <h3>What You're Investing In:</h3>
+        <ul>
+          <li>6 Remaining Gateways (Weeks 2-7)</li>
+          <li>2 Private Sacred Audience Calls with Pharaoh Ma'at Ka Ra</li>
+          <li>Sovereign's Field Kit & Rituals</li>
+          <li>Council of Sovereigns Community Access</li>
+          <li>Lifetime Access to All Materials</li>
+          <li>Completion Ceremony & Legacy Tools</li>
+        </ul>
+      </div>
+    </section>
 
     <!-- GUARANTEE SECTION -->
     <section class="guarantee-section">
@@ -1278,50 +1179,6 @@
         button.classList.toggle('active');
         answer.classList.toggle('active');
       });
-    });
-
-    // Payment Plan Selection
-    document.querySelectorAll('.payment-btn').forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
-        const plan = this.dataset.plan;
-        document.getElementById('payment-plan').value = plan;
-        
-        // Scroll to form
-        document.querySelector('#enrollment').scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-        
-        // Highlight form
-        const form = document.querySelector('.enrollment-form');
-        form.style.boxShadow = '0 0 0 3px rgba(212, 175, 55, 0.5)';
-        setTimeout(() => {
-          form.style.boxShadow = '';
-        }, 2000);
-      });
-    });
-
-    // Form Submission
-    const enrollmentForm = document.getElementById('enrollment-form');
-    enrollmentForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      // Get form data
-      const formData = new FormData(enrollmentForm);
-      const data = Object.fromEntries(formData);
-      
-      // Here you would typically send this to your backend
-      console.log('Form submitted:', data);
-      
-      // Show success message
-      alert('Your throne has been reserved! You will receive sacred instructions via email shortly.');
-      
-      // Reset form
-      enrollmentForm.reset();
-      
-      // In production, you would redirect to payment processor:
-      // window.location.href = 'https://your-payment-processor.com/checkout';
     });
 
     // Smooth scrolling for anchor links
