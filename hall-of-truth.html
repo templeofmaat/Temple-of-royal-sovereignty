@@ -1,1 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Hall of Truth — 7-Week Initiation into Ma'at</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Marcellus&display=swap" rel="stylesheet">
 
+  <style>
+    /* PAGE LAYOUT */
+    .page-content {
+      margin-left: 200px;
+      padding: 0;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      min-height: 100vh;
+      background: linear-gradient(rgba(8, 0, 26, 0.92), rgba(20, 10, 40, 0.88)), 
+                  url('images/hall-of-truth-bg.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px 60px;
+      position: relative;
+    }
+
+    .hero-section::before {
+      content: '𓁦𓀽𓀠';
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 3rem;
+      opacity: 0.2;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 3.2rem;
+      color: #D4AF37;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: #F5F5F5;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      opacity: 0.95;
+    }
+
+    .sacred-numbers {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 2rem 0 3rem;
+      flex-wrap: wrap;
+    }
+
+    .sacred-number {
+      text-align: center;
+    }
+
+    .sacred-number .number {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #D4AF37;
+      line-height: 1;
+    }
+
+    .sacred-number .label {
+      display: block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 8px;
+      opacity: 0.9;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: linear-gradient(45deg, #D4AF37, #F4D03F);
+      color: #08001A;
+      padding: 1.3rem 3rem;
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+      margin-top: 1rem;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    }
+
+    /* REVELATION SECTION */
+    .revelation-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #08001A, #140A28);
+    }
+
+    .revelation-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      color: #D4AF37;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: #D4AF37;
+      margin: 1rem auto;
+    }
+
+    .revelation-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .emphasis {
+      color: #D4AF37;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    /* THE SHIFT: FIELD VS LIST */
+    .shift-section {
+      padding: 5rem 2rem;
+      background: #0A001F;
+    }
+
+    .shift-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 3rem auto 0;
+    }
+
+    .shift-card {
+      background: rgba(26, 15, 45, 0.8);
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: relative;
+      border: 1px solid;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .shift-card.outdated {
+      border-color: rgba(255, 100, 100, 0.4);
+      background: rgba(40, 0, 0, 0.3);
+    }
+
+    .shift-card.field-way {
+      border-color: rgba(100, 255, 100, 0.4);
+      background: rgba(0, 40, 0, 0.3);
+    }
+
+    .shift-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .shift-card.outdated::before {
+      background: linear-gradient(90deg, #FF6666, #FF3333);
+    }
+
+    .shift-card.field-way::before {
+      background: linear-gradient(90deg, #66FF66, #33FF33);
+    }
+
+    .shift-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .shift-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .shift-list li {
+      padding: 12px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .shift-list li::before {
+      position: absolute;
+      left: 0;
+      top: 12px;
+      font-size: 1.2rem;
+    }
+
+    .shift-card.outdated .shift-list li::before {
+      content: '✗';
+      color: #FF6666;
+    }
+
+    .shift-card.field-way .shift-list li::before {
+      content: '✓';
+      color: #66FF66;
+    }
+
+    .shift-result {
+      text-align: center;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid rgba(255, 255, 255, 0.1);
+      font-style: italic;
+    }
+
+    /* 7 GATEWAYS SECTION */
+    .gateways-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #0A001F, #08001A);
+    }
+
+    .gateways-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 3rem auto;
+    }
+
+    .gateway-card {
+      background: rgba(30, 20, 50, 0.8);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 10px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gateway-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212, 175, 55, 0.7);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+    }
+
+    .gateway-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #D4AF37, #F4D03F);
+    }
+
+    .gateway-week {
+      display: inline-block;
+      background: #D4AF37;
+      color: #08001A;
+      padding: 6px 15px;
+      border-radius: 4px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .gateway-title {
+      font-size: 1.4rem;
+      margin: 0.5rem 0 1rem;
+      color: #F5F5F5;
+      font-family: 'Cinzel', serif;
+    }
+
+    .gateway-description {
+      font-size: 1rem;
+      opacity: 0.95;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .gateway-declaration {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #D4AF37;
+      border-top: 1px dashed rgba(212, 175, 55, 0.3);
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* SOMATIC SECTION */
+    .somatic-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #08001A, #140A28);
+    }
+
+    .somatic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 900px;
+      margin: 3rem auto;
+    }
+
+    .somatic-item {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(40, 30, 60, 0.5);
+      border-radius: 10px;
+      border: 1px solid rgba(155, 48, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .somatic-item:hover {
+      transform: translateY(-3px);
+      border-color: rgba(155, 48, 255, 0.7);
+    }
+
+    .somatic-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: #9B30FF;
+    }
+
+    .somatic-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #F5F5F5;
+      font-family: 'Cinzel', serif;
+    }
+
+    .somatic-item p {
+      font-size: 1rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* WHAT'S INCLUDED */
+    .included-section {
+      padding: 5rem 2rem;
+      background: #0A001F;
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 3rem auto;
+    }
+
+    .included-item {
+      background: rgba(26, 15, 45, 0.8);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .included-item:hover {
+      border-color: rgba(212, 175, 55, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .included-icon {
+      font-size: 2.5rem;
+      color: #D4AF37;
+      margin-bottom: 1.5rem;
+    }
+
+    .included-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #F5F5F5;
+      font-family: 'Cinzel', serif;
+    }
+
+    .included-item p {
+      font-size: 1rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* INVESTMENT SECTION */
+    .investment-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #140A28, #08001A);
+      text-align: center;
+    }
+
+    .price-display {
+      margin: 3rem 0;
+    }
+
+    .price-main {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .price-currency {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: #D4AF37;
+    }
+
+    .price-amount {
+      font-family: 'Cinzel', serif;
+      font-size: 5rem;
+      color: #D4AF37;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .price-description {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-note {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      font-style: italic;
+    }
+
+    .payment-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 3rem auto;
+    }
+
+    .payment-option {
+      background: rgba(30, 20, 50, 0.8);
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .payment-option:hover {
+      border-color: rgba(212, 175, 55, 0.7);
+      transform: scale(1.02);
+    }
+
+    .payment-option h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #F5F5F5;
+    }
+
+    .payment-amount {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #D4AF37;
+    }
+
+    .payment-btn {
+      background: linear-gradient(45deg, #D4AF37, #F4D03F);
+      color: #08001A;
+      border: none;
+      padding: 1rem 2rem;
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .payment-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    /* ENROLLMENT FORM */
+    .enrollment-section {
+      padding: 5rem 2rem;
+      background: #08001A;
+    }
+
+    .enrollment-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(26, 15, 45, 0.9);
+      padding: 3rem;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.8rem;
+      color: #D4AF37;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 6px;
+      color: #F5F5F5;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: rgba(212, 175, 55, 0.7);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .checkbox-group input {
+      width: auto;
+      margin-top: 0.3rem;
+    }
+
+    .submit-btn {
+      background: linear-gradient(45deg, #D4AF37, #F4D03F);
+      color: #08001A;
+      border: none;
+      padding: 1.3rem 3rem;
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    /* FAQ SECTION */
+    .faq-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #08001A, #0A001F);
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 3rem auto 0;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(26, 15, 45, 0.5);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: rgba(30, 20, 50, 0.8);
+      border: none;
+      padding: 1.5rem;
+      text-align: left;
+      color: #F5F5F5;
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question::after {
+      content: '⌵';
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      color: #D4AF37;
+    }
+
+    .faq-question.active::after {
+      transform: rotate(180deg);
+    }
+
+    .faq-question:hover {
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .faq-answer {
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-answer.active {
+      padding: 1.5rem;
+      max-height: 500px;
+    }
+
+    /* GUARANTEE SECTION */
+    .guarantee-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #0A001F, #08001A);
+      text-align: center;
+    }
+
+    .guarantee-card {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem;
+      background: rgba(0, 40, 0, 0.2);
+      border: 2px solid rgba(100, 255, 100, 0.3);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guarantee-card::before {
+      content: '𓀠';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 4rem;
+      opacity: 0.1;
+    }
+
+    .guarantee-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: #66FF66;
+      margin-bottom: 1.5rem;
+    }
+
+    .guarantee-card p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    /* FINAL CTA */
+    .final-cta {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #08001A 0%, #140A28 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '𓁦𓀽𓀠';
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 4rem;
+      opacity: 0.1;
+    }
+
+    .final-cta h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: #D4AF37;
+      margin-bottom: 1.5rem;
+    }
+
+    .final-cta p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    .page-footer {
+      text-align: center;
+      padding: 2rem;
+      background: #08001A;
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 992px) {
+      .page-content {
+        margin-left: 0;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .price-amount {
+        font-size: 3.5rem;
+      }
+      
+      .payment-options {
+        grid-template-columns: 1fr;
+      }
+      
+      .enrollment-form {
+        padding: 2rem;
+      }
+      
+      .gateways-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .sacred-numbers {
+        gap: 15px;
+      }
+      
+      .sacred-number .number {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="temple-page">
+
+  <!-- UNIVERSAL LEFT NAV -->
+  <nav class="side-nav">
+    <a href="index.html">Home</a>
+    <a href="throne-room.html">The Throne Room</a>
+    <a href="maat.html">School of Ma'at</a>
+    <a href="readings.html">Readings & Sessions</a>
+    <a href="per-medjat.html">Free Library</a>
+    <a href="events-news.html">Events & News</a>
+    <a href="vlog.html">Vlog</a>
+    <a href="about.html">About</a>
+    <a href="https://tors.store/">Store</a>
+    <a href="per-djed-hetep.html">Offerings</a>
+  </nav>
+
+  <!-- MAIN PAGE CONTENT -->
+  <div class="page-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">The Hall of Truth</h1>
+        <p class="hero-subtitle">A 7-Week Initiation into Embodied Ma'at</p>
+        
+        <div class="sacred-numbers">
+          <div class="sacred-number">
+            <span class="number">42</span>
+            <span class="label">Declarations</span>
+          </div>
+          <div class="sacred-number">
+            <span class="number">7</span>
+            <span class="label">Gateways</span>
+          </div>
+          <div class="sacred-number">
+            <span class="number">49</span>
+            <span class="label">Days</span>
+          </div>
+        </div>
+        
+        <p class="hero-description">
+          Stop trying to "follow principles." Start living in the <strong>field of Ma'at</strong>. 
+          This is not another course about rules—it's an initiation into <strong>embodied sovereignty</strong>, 
+          where the 42 Declarations become natural expressions of your aligned being.
+        </p>
+        
+        <a href="#enrollment" class="hero-cta">Begin Your Initiation</a>
+      </div>
+    </section>
+
+    <!-- REVELATION SECTION -->
+    <section class="revelation-section">
+      <div class="revelation-content">
+        <h2 class="section-title">The Sacred Revelation</h2>
+        
+        <p class="revelation-text">
+          For centuries, seekers have referenced the "42 Negative Confessions"—the declarations made before Osiris 
+          in the Hall of Truth. But few have understood their true nature:
+        </p>
+        
+        <p class="revelation-text">
+          <span class="emphasis">These aren't rules to follow. They're 42 descriptions of what it FEELS LIKE 
+          to live in the field of Ma'at.</span>
+        </p>
+        
+        <p class="revelation-text">
+          "I have not lied" isn't a commandment—it's what happens <strong>naturally</strong> when you're so 
+          aligned that falsehood feels physically uncomfortable.
+        </p>
+        
+        <p class="revelation-text">
+          "I have not stolen" isn't morality—it's what happens when your exchanges feel so balanced 
+          that taking more than you give feels energetically "off."
+        </p>
+      </div>
+    </section>
+
+    <!-- THE SHIFT: FIELD VS LIST -->
+    <section class="shift-section">
+      <h2 class="section-title">The Paradigm Shift</h2>
+      
+      <div class="shift-grid">
+        <div class="shift-card outdated">
+          <h3><i class="fas fa-list"></i> Ma'at as a List</h3>
+          <ul class="shift-list">
+            <li>Trying to memorize 42 rules</li>
+            <li>Checking boxes of "good behavior"</li>
+            <li>Spiritual performance</li>
+            <li>Guilt when you "fail"</li>
+            <li>External validation seeking</li>
+            <li>Mental understanding only</li>
+          </ul>
+          <div class="shift-result">
+            <strong>Result:</strong> Burnout. Inauthenticity. Still feeling lost.
+          </div>
+        </div>
+        
+        <div class="shift-card field-way">
+          <h3><i class="fas fa-mountain"></i> Ma'at as a Field</h3>
+          <ul class="shift-list">
+            <li>Stepping into 1 field of balance</li>
+            <li>Your body TELLS you when you're aligned</li>
+            <li>Authentic embodiment</li>
+            <li>Course-correction as love</li>
+            <li>Inner knowing as your guide</li>
+            <li>Whole-being integration</li>
+          </ul>
+          <div class="shift-result">
+            <strong>Result:</strong> Sovereignty. Authentic power. Clean living.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 GATEWAYS SECTION -->
+    <section class="gateways-section">
+      <h2 class="section-title">The 7 Gateways into Ma'at</h2>
+      
+      <div class="gateways-grid">
+        <!-- Gateway 1 -->
+        <div class="gateway-card">
+          <div class="gateway-week">Week 1</div>
+          <h3 class="gateway-title">The Truth-Speaker's Gateway</h3>
+          <p class="gateway-description">Your words match your reality. Speech flows from alignment, not calculation.</p>
+          <div class="gateway-declaration">
+            "My speech flows from the field of Truth"
+          </div>
+        </div>
+        
+        <!-- Gateway 2 -->
+        <div class="gateway-card">
+          <div class="gateway-week">Week 2</div>
+          <h3 class="gateway-title">The Justice-Wielder's Gateway</h3>
+          <p class="gateway-description">Your exchanges feel balanced. You sense energetic harmony in all transactions.</p>
+          <div class="gateway-declaration">
+            "I exist in right exchange with all things"
+          </div>
+        </div>
+        
+        <!-- Gateway 3 -->
+        <div class="gateway-card">
+          <div class="gateway-week">Week 3</div>
+          <h3 class="gateway-title">The Harmony-Keeper's Gateway</h3>
+          <p class="gateway-description">Your life feels ordered, not chaotic. Your presence brings balance.</p>
+          <div class="gateway-declaration">
+            "My presence brings order to chaos"
+          </div>
+        </div>
+        
+        <!-- Gateway 4 -->
+        <div class="gateway-card">
+          <div class="gateway-week">Week 4</div>
+          <h3 class="gateway-title">The Wisdom-Holder's Gateway</h3>
+          <p class="gateway-description">Your choices feel aligned, not forced. You act from knowing, not guessing.</p>
+          <div class="gateway-declaration">
+            "My actions flow from embodied knowing"
+          </div>
+        </div>
+        
+        <!-- Gateway 5 -->
+        <div class="gateway-card">
+          <div class="gateway-week">Week 5</div>
+          <h3 class="gateway-title">The Reverence-Embracer's Gateway</h3>
+          <p class="gateway-description">Your relationships feel sacred, not transactional. You honor what is holy.</p>
+          <div class="gateway-declaration">
+            "I honor the sacred in all beings"
+          </div>
+        </div>
+        
+        <!-- Gateway 6 -->
+        <div class="gateway-card">
+          <div class="gateway-week">Week 6</div>
+          <h3 class="gateway-title">The Courage-Warrior's Gateway</h3>
+          <p class="gateway-description">Your boundaries feel firm, not rigid. You stand in truth without aggression.</p>
+          <div class="gateway-declaration">
+            "I stand firm in my sovereign truth"
+          </div>
+        </div>
+        
+        <!-- Gateway 7 -->
+        <div class="gateway-card">
+          <div class="gateway-week">Week 7</div>
+          <h3 class="gateway-title">The Sovereign's Gateway</h3>
+          <p class="gateway-description">You live in the field. All 42 declarations become your natural state of being.</p>
+          <div class="gateway-declaration">
+            "I am Ma'at embodied"
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOMATIC AWARENESS SECTION -->
+    <section class="somatic-section">
+      <h2 class="section-title">Your Body Already Knows Ma'at</h2>
+      
+      <div class="somatic-grid">
+        <div class="somatic-item">
+          <div class="somatic-icon">🫀</div>
+          <h3>The Heart Knows</h3>
+          <p>That tightness when you say "yes" but mean "no"? That's your heart telling you you've left the field.</p>
+        </div>
+        
+        <div class="somatic-item">
+          <div class="somatic-icon">🧠</div>
+          <h3>The Gut Knows</h3>
+          <p>That sinking feeling when you make a promise you can't keep? That's your gut sensing imbalance.</p>
+        </div>
+        
+        <div class="somatic-item">
+          <div class="somatic-icon">⚡</div>
+          <h3>The Energy Body Knows</h3>
+          <p>The fatigue after an inauthentic conversation? That's your energy field compensating for misalignment.</p>
+        </div>
+      </div>
+      
+      <p style="text-align: center; margin-top: 3rem; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+        This initiation doesn't teach you rules. It teaches you to <strong>trust these sensations as your guides</strong> 
+        back into the field of Ma'at.
+      </p>
+    </section>
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="included-section">
+      <h2 class="section-title">Your Initiation Includes</h2>
+      
+      <div class="included-grid">
+        <div class="included-item">
+          <div class="included-icon"><i class="fas fa-scroll"></i></div>
+          <h3>7 Gateway Teachings</h3>
+          <p>Weekly deep-dive transmissions on each Gateway, delivered as beautifully designed PDFs and audio recordings.</p>
+        </div>
+        
+        <div class="included-item">
+          <div class="included-icon"><i class="fas fa-tools"></i></div>
+          <h3>The Sovereign's Field Kit</h3>
+          <p>Practical tools, templates, and rituals for staying in alignment with Ma'at in daily life.</p>
+        </div>
+        
+        <div class="included-item">
+          <div class="included-icon"><i class="fas fa-users"></i></div>
+          <h3>Sacred Audience Calls</h3>
+          <p>Two private 1:1 sessions with Pharaoh Ma'at Ka Ra for personalized guidance on your journey.</p>
+        </div>
+        
+        <div class="included-item">
+          <div class="included-icon"><i class="fas fa-hands-helping"></i></div>
+          <h3>The Council of Sovereigns</h3>
+          <p>A private community space for shared testimony, support, and collective wisdom.</p>
+        </div>
+        
+        <div class="included-item">
+          <div class="included-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Final Rite & Legacy Tools</h3>
+          <p>A guided completion ceremony and practices to maintain your sovereignty beyond the 7 weeks.</p>
+        </div>
+        
+        <div class="included-item">
+          <div class="included-icon"><i class="fas fa-infinity"></i></div>
+          <h3>Lifetime Access</h3>
+          <p>All materials remain in your personal temple portal for ongoing reference and practice.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTMENT SECTION -->
+    <section class="investment-section">
+      <h2 class="section-title">Investment in Your Eternal Reign</h2>
+      
+      <div class="price-display">
+        <div class="price-main">
+          <span class="price-currency">$</span>
+          <span class="price-amount">777</span>
+        </div>
+        <p class="price-description">For 7 Gateways & 42 Declarations Embodied</p>
+        <p class="price-note">*Sacred number alignment: 7 principles × 111 = 777*</p>
+      </div>
+      
+      <div class="payment-options">
+        <div class="payment-option">
+          <h3>Full Sovereignty Payment</h3>
+          <p class="payment-amount">One payment of <strong>$777</strong></p>
+          <button class="payment-btn" data-plan="full">Choose This Plan</button>
+        </div>
+        
+        <div class="payment-option">
+          <h3>Royal Decree Plan</h3>
+          <p class="payment-amount">Two payments of <strong>$388.50</strong></p>
+          <button class="payment-btn" data-plan="two-pay">Choose This Plan</button>
+        </div>
+        
+        <div class="payment-option">
+          <h3>Sacred Alignment Plan</h3>
+          <p class="payment-amount">Four payments of <strong>$194.25</strong></p>
+          <button class="payment-btn" data-plan="four-pay">Choose This Plan</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENROLLMENT FORM -->
+    <section class="enrollment-section" id="enrollment">
+      <h2 class="section-title">Ready to Claim Your Throne?</h2>
+      
+      <form id="enrollment-form" class="enrollment-form">
+        <div class="form-group">
+          <label for="sacred-name">Your Sacred Name</label>
+          <input type="text" id="sacred-name" name="sacred-name" required placeholder="Enter the name you wish to be addressed by">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="payment-plan">Select Your Payment Plan</label>
+          <select id="payment-plan" name="payment-plan" required>
+            <option value="">Choose a plan...</option>
+            <option value="full">Full Sovereignty Payment - $777 (one time)</option>
+            <option value="two-pay">Royal Decree Plan - $388.50 x 2 payments</option>
+            <option value="four-pay">Sacred Alignment Plan - $194.25 x 4 payments</option>
+          </select>
+        </div>
+        
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="agreement" name="agreement" required>
+          <label for="agreement">I understand this is a sacred commitment and agree to the terms of this initiatory path.</label>
+        </div>
+        
+        <button type="submit" class="submit-btn">Secure My Place in The Hall of Truth</button>
+      </form>
+    </section>
+
+    <!-- GUARANTEE SECTION -->
+    <section class="guarantee-section">
+      <div class="guarantee-card">
+        <h3>The Sovereign's Guarantee</h3>
+        <p>
+          Engage with the initiations. Do the sacred work. Participate in the council.
+        </p>
+        <p>
+          If, by the completion of <strong>Week 2: The Justice-Wielder's Gateway</strong>, you feel this path 
+          is not aligning with your spirit, you may request a full and honorable refund.
+        </p>
+        <p>
+          No battle, no guilt. A sovereign knows their truth.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+      <h2 class="section-title">Sacred Questions</h2>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">I did the free Week 1. Is this just more of the same?</button>
+          <div class="faq-answer">
+            <p>The free initiation is the <em>key</em>. This is the <em>kingdom</em>. Week 1 provides the map; 
+            Weeks 2-7 guide you through building, governing, and celebrating the civilization of your Self 
+            through all 7 Gateways into Ma'at.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">How much time per week is required?</button>
+          <div class="faq-answer">
+            <p>Sacred work requires sacred time. Plan for 2-3 hours of dedicated engagement with teachings 
+            and rituals each week, plus daily mindfulness practices. The depth of your reign correlates 
+            to the depth of your presence.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">Is this a religious program?</button>
+          <div class="faq-answer">
+            <p>This is a <strong>spiritual technology</strong> rooted in the universal, timeless principles 
+            of Ma'at (Truth, Justice, Order, Harmony). It is non-dogmatic and compatible with any faith 
+            or spiritual background that honors self-responsibility and inner truth.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">What if I fall behind?</button>
+          <div class="faq-answer">
+            <p>The path is sequential but personal. All materials are yours for life, and the community 
+            and guide are there for support. Sovereignty is not a race; it is a dignified return to 
+            your own rhythm. Move at the pace that honors your integration.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">When does the next cohort begin?</button>
+          <div class="faq-answer">
+            <p>The Hall of Truth initiation begins on the <strong>New Moon</strong> each month. Upon enrollment, 
+            you'll receive immediate access to the preparatory materials, with the live journey beginning 
+            at the next lunar cycle.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+      <h2>Your Kingdom Awaits Its True Sovereign</h2>
+      <p>
+        This is the call to stop preparing to live and start <strong>ruling your life</strong>.
+        The Hall of Truth is for those ready to exchange the weight of confusion for the weight of the crown.
+      </p>
+      <a href="#enrollment" class="hero-cta">Yes, I Am Ready to Rule</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+      <p>© 2025 Temple of Royal Sovereignty · All Rights Reserved</p>
+      <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+        In Truth, Balance, and Eternal Order<br>
+        <strong>Pharaoh Ma'at Ka Ra</strong>
+      </p>
+    </footer>
+
+  </div>
+  
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        const answer = button.nextElementSibling;
+        
+        // Close other open FAQs
+        document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+          if (otherAnswer !== answer && otherAnswer.classList.contains('active')) {
+            otherAnswer.classList.remove('active');
+            otherAnswer.previousElementSibling.classList.remove('active');
+          }
+        });
+        
+        // Toggle current FAQ
+        button.classList.toggle('active');
+        answer.classList.toggle('active');
+      });
+    });
+
+    // Payment Plan Selection
+    document.querySelectorAll('.payment-btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const plan = this.dataset.plan;
+        document.getElementById('payment-plan').value = plan;
+        
+        // Scroll to form
+        document.querySelector('#enrollment').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Highlight form
+        const form = document.querySelector('.enrollment-form');
+        form.style.boxShadow = '0 0 0 3px rgba(212, 175, 55, 0.5)';
+        setTimeout(() => {
+          form.style.boxShadow = '';
+        }, 2000);
+      });
+    });
+
+    // Form Submission
+    const enrollmentForm = document.getElementById('enrollment-form');
+    enrollmentForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(enrollmentForm);
+      const data = Object.fromEntries(formData);
+      
+      // Here you would typically send this to your backend
+      console.log('Form submitted:', data);
+      
+      // Show success message
+      alert('Your throne has been reserved! You will receive sacred instructions via email shortly.');
+      
+      // Reset form
+      enrollmentForm.reset();
+      
+      // In production, you would redirect to payment processor:
+      // window.location.href = 'https://your-payment-processor.com/checkout';
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Animate sacred numbers on scroll
+    window.addEventListener('scroll', function() {
+      const numbers = document.querySelectorAll('.sacred-number');
+      numbers.forEach(num => {
+        const rect = num.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          num.style.opacity = '1';
+          num.style.transform = 'scale(1)';
+        }
+      });
+    });
+
+    // Set initial state for animation
+    document.querySelectorAll('.sacred-number').forEach(num => {
+      num.style.opacity = '0.7';
+      num.style.transform = 'scale(0.95)';
+      num.style.transition = 'all 0.5s ease';
+    });
+
+    // Trigger initial animation
+    setTimeout(() => {
+      document.querySelectorAll('.sacred-number').forEach(num => {
+        num.style.opacity = '1';
+        num.style.transform = 'scale(1)';
+      });
+    }, 300);
+
+    // Animate gateway cards on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe gateway cards
+    document.querySelectorAll('.gateway-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'all 0.6s ease';
+      observer.observe(card);
+    });
+
+    // Observe included items
+    document.querySelectorAll('.included-item').forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      item.style.transition = 'all 0.6s ease 0.2s';
+      observer.observe(item);
+    });
+  </script>
+</body>
+</html>
