@@ -177,3 +177,5 @@ section[style*="border: 1px solid"] {
     grid-template-columns: 1fr;
   }
 }
+background: linear-gradient(rgba(8, 0, 26, 0.92), rgba(20, 10, 40, 0.88)), 
+            url('images/hall-of-truth-bg.jpg') center/cover no-repeat;
