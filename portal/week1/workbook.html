@@ -9,8 +9,6 @@
             --primary-color: #4CAF50;
             --primary-dark: #3D8B40;
             --primary-light: #81C784;
-            --secondary-color: #2C3E50;
-            --accent-color: #D4AF37;
         }
         
         body {
@@ -29,677 +27,232 @@
             padding: 40px;
             border-radius: 20px;
             border: 3px solid var(--primary-color);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
         
-        .workbook-header {
-            text-align: center;
-            padding: 40px 0;
-            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
-            margin-bottom: 40px;
-        }
-        
-        .workbook-title {
-            color: var(--primary-color);
-            font-size: 2.5em;
-            margin: 0 0 10px 0;
-        }
-        
-        .workbook-subtitle {
-            color: #81C784;
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-        
-        .declaration-badge {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9em;
-            margin: 10px 0;
-        }
-        
-        .module {
+        .section {
             background: rgba(30, 45, 35, 0.7);
             padding: 30px;
             border-radius: 15px;
-            margin: 40px 0;
+            margin: 30px 0;
             border-left: 5px solid var(--primary-color);
         }
         
-        .module h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-            border-bottom: 1px solid rgba(76, 175, 80, 0.3);
-            padding-bottom: 15px;
+        .declaration-card {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid rgba(76, 175, 80, 0.3);
         }
         
         .exercise {
             background: rgba(255, 255, 255, 0.05);
             padding: 25px;
             border-radius: 10px;
-            margin: 25px 0;
-            border: 1px solid rgba(76, 175, 80, 0.2);
-        }
-        
-        .exercise-title {
-            color: var(--primary-light);
-            font-size: 1.2em;
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .prompt-box {
-            background: rgba(26, 40, 33, 0.9);
-            padding: 20px;
-            border-radius: 8px;
             margin: 20px 0;
-            border-left: 4px solid var(--primary-color);
-            font-style: italic;
         }
         
         .writing-space {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px dashed rgba(76, 175, 80, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
             min-height: 100px;
-            font-family: inherit;
-            color: inherit;
-            width: 100%;
-            resize: vertical;
-        }
-        
-        .checklist {
-            margin: 20px 0;
-        }
-        
-        .checklist-item {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-            padding: 10px;
+            border: 1px dashed rgba(76, 175, 80, 0.3);
+            padding: 15px;
+            margin: 15px 0;
             background: rgba(255, 255, 255, 0.03);
-            border-radius: 5px;
-        }
-        
-        .checklist-item input[type="checkbox"] {
-            margin-right: 15px;
-            transform: scale(1.2);
-        }
-        
-        .ritual-card {
-            background: rgba(76, 175, 80, 0.1);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border: 2px solid var(--primary-color);
         }
         
         .download-section {
             text-align: center;
             padding: 40px;
+            margin: 40px 0;
             background: rgba(76, 175, 80, 0.1);
             border-radius: 15px;
-            margin: 40px 0;
         }
         
-        .download-button {
-            display: inline-block;
+        .btn {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 15px 30px;
-            text-decoration: none;
             border-radius: 8px;
-            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
             margin: 10px;
-            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-        }
-        
-        .download-button:hover {
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
-        }
-        
-        .back-link {
-            display: inline-block;
-            color: var(--accent-color);
-            text-decoration: none;
             font-weight: bold;
-            margin-top: 40px;
-            padding: 10px 20px;
-            border: 1px solid var(--accent-color);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .back-link:hover {
-            background: rgba(212, 175, 55, 0.1);
-            transform: scale(1.05);
-        }
-        
-        .declaration-card {
-            background: rgba(30, 45, 35, 0.8);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 5px solid var(--primary-color);
-        }
-        
-        .declaration-number {
-            background: var(--primary-color);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        
-        .declaration-text {
-            font-style: italic;
-            color: #F5E6B3;
-            margin: 15px 0;
-            line-height: 1.6;
         }
         
         @media print {
-            body {
-                background: white;
-                color: black;
-            }
-            
-            .workbook-container {
-                box-shadow: none;
-                border: 1px solid #ccc;
-            }
-            
-            .download-button, .back-link {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .workbook-container {
-                padding: 20px;
-            }
-            
-            .workbook-title {
-                font-size: 2em;
-            }
+            body { background: white; color: black; }
+            .workbook-container { border: 1px solid #ccc; box-shadow: none; }
+            .btn { display: none; }
         }
     </style>
 </head>
 <body>
     <div class="workbook-container">
-        <div class="workbook-header">
-            <div class="declaration-badge">WEEK 1 WORKBOOK</div>
-            <h1 class="workbook-title">The Purity of Heart Inventory</h1>
-            <div class="workbook-subtitle">Mastering the 6 Declarations of Truth</div>
-            <p>Your Journey to Sovereign Authenticity Begins Here</p>
+        <div style="text-align:center; padding:40px 0;">
+            <h1 style="color:var(--primary-color); font-size:2.5em;">The Purity of Heart Inventory</h1>
+            <p style="color:#81C784; font-size:1.2em;">Week 1: Truth-Speaker's Gateway</p>
+            <p>Complete these exercises to master the 6 Declarations of Truth</p>
         </div>
         
-        <!-- Table of Contents -->
-        <div class="module">
-            <h3>📖 Table of Contents</h3>
-            <div class="checklist">
-                <div class="checklist-item">
-                    <input type="checkbox" id="toc1">
-                    <label for="toc1"><strong>Introduction:</strong> The Path of Truth-Speaking</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="toc2">
-                    <label for="toc2"><strong>Module 1:</strong> Declaration 1 - Honest Speech</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="toc3">
-                    <label for="toc3"><strong>Module 2:</strong> Declaration 2 - Rightful Possession</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="toc4">
-                    <label for="toc4"><strong>Module 3:</strong> Declaration 3 - Authenticity</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="toc5">
-                    <label for="toc5"><strong>Module 4:</strong> Declaration 4 - Transparent Action</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="toc6">
-                    <label for="toc6"><strong>Module 5:</strong> Declaration 5 - Self-Truth</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="toc7">
-                    <label for="toc7"><strong>Module 6:</strong> Declaration 6 - Integrity</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="toc8">
-                    <label for="toc8"><strong>Daily Practices:</strong> 7-Day Truth Journey</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="toc9">
-                    <label for="toc9"><strong>Completion:</strong> The Purity Ritual</label>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Introduction -->
-        <div class="module">
-            <h3>🌟 Introduction: The Path of Truth-Speaking</h3>
-            <p>Welcome to your initiation into the first of the 42 Declarations of Ma'at. This week, you begin the journey of becoming a Truth-Speaker - one whose words, thoughts, and actions align with ultimate reality.</p>
+        <!-- Day 1-2: Truth to Self -->
+        <div class="section">
+            <h2 style="color:var(--primary-color);">📖 Day 1-2: Truth to Self</h2>
             
-            <div class="prompt-box">
-                <strong>Reflection Question:</strong> What does "speaking truth" mean to you beyond just not lying?
-            </div>
-            
-            <div class="writing-space" contenteditable="true"></div>
-            
-            <div class="ritual-card">
-                <h4>📿 Daily Truth Mantra</h4>
-                <p><em>"I speak truth. I live truth. I am truth."</em></p>
-                <p><strong>Practice:</strong> Repeat this mantra upon waking and before sleeping each day this week.</p>
-            </div>
-        </div>
-        
-        <!-- Module 1: Declaration 1 -->
-        <div class="module">
             <div class="declaration-card">
-                <div class="declaration-number">1</div>
-                <h3>Declaration of Honest Speech</h3>
-                <div class="declaration-text">"I have not lied"<br>I speak only what is true and necessary</div>
+                <h3>Declaration 1: "I have not lied"</h3>
+                <p><em>I speak only what is true and necessary</em></p>
             </div>
             
             <div class="exercise">
-                <h4 class="exercise-title">📝 Exercise 1.1: Truth Inventory</h4>
-                <p>List 3 truths you've been avoiding speaking:</p>
+                <h4>Exercise 1.1: The Truth Inventory</h4>
+                <p><strong>Instructions:</strong> List 3 truths you've been avoiding speaking to yourself.</p>
                 <div class="writing-space" contenteditable="true"></div>
                 
-                <p>List 3 "white lies" you've told this week:</p>
-                <div class="writing-space" contenteditable="true"></div>
-                
-                <p>What fear keeps you from speaking these truths?</p>
+                <p><strong>Journal Prompt:</strong> What fear keeps you from accepting these truths?</p>
                 <div class="writing-space" contenteditable="true"></div>
             </div>
             
             <div class="exercise">
-                <h4 class="exercise-title">🎯 Exercise 1.2: The Three-Filter Test</h4>
+                <h4>Exercise 1.2: The Three-Filter Test</h4>
                 <p>Before speaking anything today, ask:</p>
-                <div class="checklist">
-                    <div class="checklist-item">
-                        <input type="checkbox" id="filter1">
-                        <label for="filter1"><strong>Is it true?</strong> (Fact-check in your mind)</label>
-                    </div>
-                    <div class="checklist-item">
-                        <input type="checkbox" id="filter2">
-                        <label for="filter2"><strong>Is it necessary?</strong> (Does it need to be said?)</label>
-                    </div>
-                    <div class="checklist-item">
-                        <input type="checkbox" id="filter3">
-                        <label for="filter3"><strong>Is it kind?</strong> (Is it spoken with compassion?)</label>
-                    </div>
-                </div>
-                <p>Record instances where you applied this filter:</p>
+                <ol>
+                    <li>Is it true? (Fact-check in your mind)</li>
+                    <li>Is it necessary? (Does it need to be said?)</li>
+                    <li>Is it kind? (Is it spoken with compassion?)</li>
+                </ol>
+                <p><strong>Record 3 instances where you applied this filter:</strong></p>
                 <div class="writing-space" contenteditable="true"></div>
             </div>
         </div>
         
-        <!-- Module 2: Declaration 2 -->
-        <div class="module">
+        <!-- Day 3-4: Truth in Speech -->
+        <div class="section">
+            <h2 style="color:var(--primary-color);">🗣️ Day 3-4: Truth in Speech</h2>
+            
             <div class="declaration-card">
-                <div class="declaration-number">2</div>
-                <h3>Declaration of Rightful Possession</h3>
-                <div class="declaration-text">"I have not stolen"<br>I take only what is rightfully mine</div>
+                <h3>Declaration 2: "I have not stolen"</h3>
+                <p><em>I take only what is rightfully mine</em></p>
             </div>
             
             <div class="exercise">
-                <h4 class="exercise-title">💎 Exercise 2.1: Energy Exchange Audit</h4>
-                <p><strong>Material Level:</strong> List what you've received that you didn't fully pay for (emotionally, energetically, or materially):</p>
+                <h4>Exercise 2.1: Energy Exchange Audit</h4>
+                <p><strong>Material Level:</strong> List what you've received that you didn't fully pay for:</p>
                 <div class="writing-space" contenteditable="true"></div>
                 
-                <p><strong>Energetic Level:</strong> Where have you taken someone's time, attention, or energy without fair exchange?</p>
+                <p><strong>Energetic Level:</strong> Where have you taken someone's time or energy without fair exchange?</p>
                 <div class="writing-space" contenteditable="true"></div>
                 
-                <p><strong>Restoration Plan:</strong> How will you restore balance for one item above?</p>
+                <p><strong>Restoration Plan:</strong> How will you restore balance?</p>
                 <div class="writing-space" contenteditable="true"></div>
             </div>
             
             <div class="exercise">
-                <h4 class="exercise-title">⚖️ Exercise 2.2: The Giving-Receiving Balance</h4>
-                <p>Track your exchanges today:</p>
-                <table style="width:100%; border-collapse: collapse; margin:20px 0;">
-                    <tr style="background:rgba(76,175,80,0.1)">
-                        <th style="padding:10px; text-align:left;">Exchange</th>
-                        <th style="padding:10px; text-align:left;">What I Gave</th>
-                        <th style="padding:10px; text-align:left;">What I Received</th>
-                        <th style="padding:10px; text-align:left;">Balanced? (Y/N)</th>
-                    </tr>
-                    <tr><td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><input type="text" placeholder="Describe" style="background:transparent; border:none; color:inherit; width:100%;"></td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><input type="text" style="background:transparent; border:none; color:inherit; width:100%;"></td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><input type="text" style="background:transparent; border:none; color:inherit; width:100%;"></td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><select style="background:transparent; border:none; color:inherit;"><option>Y</option><option>N</option></select></td></tr>
-                    <tr><td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><input type="text" placeholder="Describe" style="background:transparent; border:none; color:inherit; width:100%;"></td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><input type="text" style="background:transparent; border:none; color:inherit; width:100%;"></td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><input type="text" style="background:transparent; border:none; color:inherit; width:100%;"></td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><select style="background:transparent; border:none; color:inherit;"><option>Y</option><option>N</option></select></td></tr>
-                </table>
+                <h4>Exercise 2.2: Authentic Communication Practice</h4>
+                <p>For one conversation today, practice:</p>
+                <ul>
+                    <li>Speaking your truth without exaggeration</li>
+                    <li>Listening without planning your response</li>
+                    <li>Asking for clarification when unsure</li>
+                </ul>
+                <p><strong>Reflection:</strong> How did this feel different?</p>
+                <div class="writing-space" contenteditable="true"></div>
             </div>
         </div>
         
-        <!-- Module 3: Declaration 3 -->
-        <div class="module">
+        <!-- Day 5-6: Truth in Action -->
+        <div class="section">
+            <h2 style="color:var(--primary-color);">⚡ Day 5-6: Truth in Action</h2>
+            
             <div class="declaration-card">
-                <div class="declaration-number">3</div>
-                <h3>Declaration of Authenticity</h3>
-                <div class="declaration-text">"I have not been deceitful"<br>My inner and outer selves align</div>
+                <h3>Declaration 3: "I have not been deceitful"</h3>
+                <p><em>My inner and outer selves align</em></p>
             </div>
             
             <div class="exercise">
-                <h4 class="exercise-title">🎭 Exercise 3.1: The Mask Inventory</h4>
-                <p>List the "masks" you wear in different situations (e.g., "The Professional," "The Peacekeeper," "The Strong One"):</p>
-                <div class="writing-space" contenteditable="true"></div>
-                
-                <p>For each mask, ask: When did I last wear this? What part of me was hiding?</p>
-                <div class="writing-space" contenteditable="true"></div>
-                
-                <p>Choose one mask to remove for one day. What will that look like?</p>
-                <div class="writing-space" contenteditable="true"></div>
-            </div>
-            
-            <div class="exercise">
-                <h4 class="exercise-title">🔍 Exercise 3.2: The Alignment Check</h4>
+                <h4>Exercise 3.1: The Alignment Check</h4>
                 <p>Three times today, pause and ask:</p>
                 <ol>
                     <li>What am I feeling right now?</li>
                     <li>What am I showing to others?</li>
                     <li>Are these aligned?</li>
                 </ol>
-                <p>Record your observations:</p>
+                <p><strong>Record your observations:</strong></p>
+                <div class="writing-space" contenteditable="true"></div>
+            </div>
+            
+            <div class="exercise">
+                <h4>Exercise 3.2: Integrity in Action</h4>
+                <p>Choose one small action that aligns with your deepest truth today.</p>
+                <p><strong>Action:</strong> <input type="text" style="width:100%; padding:10px; margin:10px 0; background:rgba(255,255,255,0.1); border:1px solid rgba(76,175,80,0.3); color:inherit;"></p>
+                <p><strong>Result:</strong></p>
                 <div class="writing-space" contenteditable="true"></div>
             </div>
         </div>
         
-        <!-- Module 4: Declaration 4 -->
-        <div class="module">
+        <!-- Day 7: The Purity Ritual -->
+        <div class="section">
+            <h2 style="color:var(--primary-color);">🕊️ Day 7: The Purity Ritual</h2>
+            
             <div class="declaration-card">
-                <div class="declaration-number">4</div>
-                <h3>Declaration of Transparent Action</h3>
-                <div class="declaration-text">"I have not acted in secret"<br>My actions withstand scrutiny</div>
+                <h3>Declaration 4-6: Complete Integration</h3>
+                <p><em>I embody all truth declarations</em></p>
             </div>
             
             <div class="exercise">
-                <h4 class="exercise-title">🕵️ Exercise 4.1: The Spotlight Test</h4>
-                <p>Imagine a spotlight shining on all your actions. List what you would feel uncomfortable having revealed:</p>
-                <div class="writing-space" contenteditable="true"></div>
+                <h4>The Purity Ritual Steps</h4>
+                <p><strong>Step 1:</strong> Create sacred space. Light a candle.</p>
+                <p><strong>Step 2:</strong> Read all 6 Truth Declarations aloud.</p>
+                <p><strong>Step 3:</strong> Write one truth you've been avoiding. Burn it safely.</p>
+                <p><strong>Step 4:</strong> Speak: "I vow to speak truth, live truth, and be truth."</p>
+                <p><strong>Step 5:</strong> Sit in silence for 7 minutes.</p>
                 
-                <p>For each item above, ask: Why do I keep this hidden? What would happen if it were known?</p>
-                <div class="writing-space" contenteditable="true"></div>
-                
-                <p>Choose one item to bring into transparency (either by stopping the action or revealing it to a trusted person):</p>
-                <div class="writing-space" contenteditable="true"></div>
-            </div>
-            
-            <div class="exercise">
-                <h4 class="exercise-title">📋 Exercise 4.2: The Transparency Practice</h4>
-                <p>For one day, practice complete transparency in one area:</p>
-                <div class="checklist">
-                    <div class="checklist-item">
-                        <input type="checkbox" id="trans1">
-                        <label for="trans1">Share your real feelings when asked "How are you?"</label>
-                    </div>
-                    <div class="checklist-item">
-                        <input type="checkbox" id="trans2">
-                        <label for="trans2">Admit when you don't know something</label>
-                    </div>
-                    <div class="checklist-item">
-                        <input type="checkbox" id="trans3">
-                        <label for="trans3">Share your real reason for a decision</label>
-                    </div>
-                    <div class="checklist-item">
-                        <input type="checkbox" id="trans4">
-                        <label for="trans4">Acknowledge your mistakes openly</label>
-                    </div>
-                </div>
-                <p>Record what this practice revealed:</p>
+                <p><strong>Ritual Experience:</strong></p>
                 <div class="writing-space" contenteditable="true"></div>
             </div>
         </div>
         
-        <!-- Module 5: Declaration 5 -->
-        <div class="module">
-            <div class="declaration-card">
-                <div class="declaration-number">5</div>
-                <h3>Declaration of Self-Truth</h3>
-                <div class="declaration-text">"I have not deceived myself"<br>I see myself clearly and honestly</div>
-            </div>
+        <!-- Download Section -->
+        <div class="download-section">
+            <h3>📚 Download Resources</h3>
+            <button class="btn" onclick="generatePDF(1)">📥 Download PDF Workbook</button>
+            <button class="btn" onclick="printWorkbook()">🖨️ Print Workbook</button>
+            <a href="../../index.html" class="btn">🏠 Return to Portal</a>
+            <a href="../members/week2/index.html" class="btn" style="background:linear-gradient(135deg, #D4AF37 0%, #B8941A 100%);">🔓 Access Week 2</a>
             
-            <div class="exercise">
-                <h4 class="exercise-title">🧘 Exercise 5.1: The Mirror Meditation</h4>
-                <p>Sit with a mirror (or close your eyes and visualize). Ask yourself these questions and write honestly:</p>
-                
-                <p><strong>What am I proud of about myself?</strong></p>
-                <div class="writing-space" contenteditable="true"></div>
-                
-                <p><strong>What am I ashamed of or hiding from myself?</strong></p>
-                <div class="writing-space" contenteditable="true"></div>
-                
-                <p><strong>What story do I tell myself that isn't true?</strong></p>
-                <div class="writing-space" contenteditable="true"></div>
-                
-                <p><strong>What truth about myself am I ready to accept today?</strong></p>
-                <div class="writing-space" contenteditable="true"></div>
-            </div>
-            
-            <div class="exercise">
-                <h4 class="exercise-title">📊 Exercise 5.2: The Self-Inventory</h4>
-                <p>Rate yourself honestly (1-10) on these aspects of truth:</p>
-                <div class="checklist">
-                    <div class="checklist-item">
-                        <label for="inv1">Speaking truth to others: </label>
-                        <select id="inv1" style="background:rgba(255,255,255,0.1); color:inherit; border:1px solid rgba(255,255,255,0.3); padding:5px; border-radius:4px;">
-                            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-                            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
-                        </select>
-                    </div>
-                    <div class="checklist-item">
-                        <label for="inv2">Being honest with myself: </label>
-                        <select id="inv2" style="background:rgba(255,255,255,0.1); color:inherit; border:1px solid rgba(255,255,255,0.3); padding:5px; border-radius:4px;">
-                            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-                            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
-                        </select>
-                    </div>
-                    <div class="checklist-item">
-                        <label for="inv3">Living authentically: </label>
-                        <select id="inv3" style="background:rgba(255,255,255,0.1); color:inherit; border:1px solid rgba(255,255,255,0.3); padding:5px; border-radius:4px;">
-                            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-                            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
-                        </select>
-                    </div>
-                </div>
-                <p>What one action will you take to improve your lowest score by 1 point?</p>
-                <div class="writing-space" contenteditable="true"></div>
-            </div>
-        </div>
-        
-        <!-- Module 6: Declaration 6 -->
-        <div class="module">
-            <div class="declaration-card">
-                <div class="declaration-number">6</div>
-                <h3>Declaration of Integrity</h3>
-                <div class="declaration-text">"I have not broken my word"<br>My promises are sacred commitments</div>
-            </div>
-            
-            <div class="exercise">
-                <h4 class="exercise-title">🤝 Exercise 6.1: The Promise Audit</h4>
-                <p>List promises you've made to others that are unfulfilled or incomplete:</p>
-                <div class="writing-space" contenteditable="true"></div>
-                
-                <p>List promises you've made to yourself that are unfulfilled:</p>
-                <div class="writing-space" contenteditable="true"></div>
-                
-                <p>For each, decide: Will I complete it, renegotiate it, or release it? (Note: Releasing requires communication and closure)</p>
-                <div class="writing-space" contenteditable="true"></div>
-            </div>
-            
-            <div class="exercise">
-                <h4 class="exercise-title">🔒 Exercise 6.2: The Integrity Ritual</h4>
-                <p>Create your personal integrity ritual:</p>
-                <div class="ritual-card">
-                    <p><strong>Morning Commitment:</strong> Each morning, speak one commitment for the day aloud.</p>
-                    <p><strong>Evening Review:</strong> Each evening, review: Did I keep my word? If not, what prevented me?</p>
-                    <p><strong>Weekly Cleansing:</strong> Each week, clear any broken promises with amends or communication.</p>
-                </div>
-                <p>Write your first morning commitment:</p>
-                <div class="writing-space" contenteditable="true"></div>
-            </div>
-        </div>
-        
-        <!-- 7-Day Journey -->
-        <div class="module">
-            <h3>📅 7-Day Truth Journey</h3>
-            <div class="ritual-card">
-                <h4>Day 1-2: Truth to Self</h4>
-                <p><strong>Focus:</strong> Complete Modules 1-2 exercises</p>
-                <p><strong>Practice:</strong> Speak your truth in your journal, no filtering</p>
-                <p><strong>Challenge:</strong> Catch yourself in one "white lie" and correct it</p>
-            </div>
-            
-            <div class="ritual-card">
-                <h4>Day 3-4: Truth in Speech</h4>
-                <p><strong>Focus:</strong> Complete Modules 3-4 exercises</p>
-                <p><strong>Practice:</strong> Apply the Three-Filter Test to everything you say</p>
-                <p><strong>Challenge:</strong> Have one completely authentic conversation</p>
-            </div>
-            
-            <div class="ritual-card">
-                <h4>Day 5-6: Truth in Action</h4>
-                <p><strong>Focus:</strong> Complete Modules 5-6 exercises</p>
-                <p><strong>Practice:</strong> Align one action with your deepest truth</p>
-                <p><strong>Challenge:</strong> Keep every promise you make, no matter how small</p>
-            </div>
-            
-            <div class="ritual-card">
-                <h4>Day 7: The Purity Ritual</h4>
-                <p><strong>Focus:</strong> Integration and completion</p>
-                <p><strong>Practice:</strong> Perform the Purity Ritual below</p>
-                <p><strong>Challenge:</strong> Speak your truth declaration to a mirror</p>
-            </div>
-        </div>
-        
-        <!-- The Purity Ritual -->
-        <div class="module">
-            <h3>🕊️ The Purity Ritual (Day 7)</h3>
-            <div class="ritual-card">
-                <h4>Step 1: Preparation</h4>
-                <p>Create a sacred space. Light a candle. Have paper and pen ready.</p>
-            </div>
-            
-            <div class="ritual-card">
-                <h4>Step 2: Declaration Reading</h4>
-                <p>Read all 6 Truth Declarations aloud. After each, say "This I have mastered" or "This I am mastering."</p>
-            </div>
-            
-            <div class="ritual-card">
-                <h4>Step 3: Written Confession</h4>
-                <p>Write one truth you've been avoiding. Write one falsehood you've been living. Then burn the paper safely.</p>
-            </div>
-            
-            <div class="ritual-card">
-                <h4>Step 4: Truth Vow</h4>
-                <p>Speak aloud: "I vow to speak truth, live truth, and be truth. My word is sacred. My life is authentic."</p>
-            </div>
-            
-            <div class="ritual-card">
-                <h4>Step 5: Integration</h4>
-                <p>Sit in silence for 7 minutes. Feel truth integrating into every cell of your being.</p>
-            </div>
-            
-            <div class="writing-space" contenteditable="true" placeholder="Record your ritual experience here..."></div>
-        </div>
-        
-        <!-- Completion Certificate -->
-        <div class="module" style="text-align:center;">
-            <h3>🏆 Truth-Speaker Initiation Complete</h3>
-            <p><strong>You have completed the Purity of Heart Inventory.</strong></p>
-            <p>You are now ready to proceed to Week 2: The Justice-Wielder's Gateway.</p>
-            
-            <div class="download-section">
-                <button class="download-button" onclick="printWorkbook()">🖨️ Print This Workbook</button>
-                <button class="download-button" onclick="saveWorkbook()">💾 Save as PDF</button>
-                <a href="../index.html" class="download-button">🏠 Return to Portal</a>
-                <a href="../members/week2/index.html" class="download-button" style="background:linear-gradient(135deg, #D4AF37 0%, #B8941A 100%); color:#08001A;">
-                    🔓 Access Week 2
-                </a>
-            </div>
-            
-            <div style="margin-top:40px; padding:20px; border-top:2px dashed rgba(76,175,80,0.3);">
-                <p><em>"The truth will set you free, but first it will piss you off."</em></p>
-                <p>- Gloria Steinem</p>
+            <div style="margin-top:30px; padding:20px; background:rgba(255,255,255,0.05); border-radius:10px;">
+                <h4>🎧 Meditation Audio</h4>
+                <p><em>"Purity of Heart Meditation" - 15 minutes</em></p>
+                <button class="btn" style="background:linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);">🎵 Download MP3</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Save workbook content
-        function saveWorkbook() {
-            alert('📚 Workbook saved! In a full implementation, this would generate a PDF with all your answers.');
-            // In production: Generate PDF with user's answers
+        function generatePDF(week) {
+            alert(`Generating Week ${week} PDF...\n\nIn production, this would use a PDF generation library like jsPDF or html2pdf.js to create a downloadable PDF with all user's answers.`);
+            // Implementation would include:
+            // 1. Capture all user inputs
+            // 2. Generate PDF with exercises and answers
+            // 3. Include personalized certificate
+            // 4. Auto-download PDF
         }
         
-        // Print workbook
         function printWorkbook() {
             window.print();
         }
         
-        // Auto-save answers (basic implementation)
-        const writingSpaces = document.querySelectorAll('.writing-space[contenteditable="true"]');
-        writingSpaces.forEach((space, index) => {
+        // Auto-save functionality
+        document.querySelectorAll('.writing-space[contenteditable="true"]').forEach((space, index) => {
             space.addEventListener('input', function() {
-                localStorage.setItem(`truthWorkbook_${index}`, this.innerHTML);
+                localStorage.setItem(`week1_exercise_${index}`, this.innerHTML);
             });
             
             // Load saved content
-            const saved = localStorage.getItem(`truthWorkbook_${index}`);
+            const saved = localStorage.getItem(`week1_exercise_${index}`);
             if (saved) {
                 space.innerHTML = saved;
-            }
-        });
-        
-        // Save checklist states
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach((checkbox, index) => {
-            checkbox.addEventListener('change', function() {
-                localStorage.setItem(`truthCheckbox_${index}`, this.checked);
-            });
-            
-            // Load saved states
-            const savedState = localStorage.getItem(`truthCheckbox_${index}`);
-            if (savedState === 'true') {
-                checkbox.checked = true;
-            }
-        });
-        
-        // Save select values
-        const selects = document.querySelectorAll('select');
-        selects.forEach((select, index) => {
-            select.addEventListener('change', function() {
-                localStorage.setItem(`truthSelect_${index}`, this.value);
-            });
-            
-            // Load saved values
-            const savedValue = localStorage.getItem(`truthSelect_${index}`);
-            if (savedValue) {
-                select.value = savedValue;
             }
         });
     </script>
