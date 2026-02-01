@@ -1,1 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4 Workbook: The Discernment Temple</title>
+    <style>
+        :root {
+            --primary-color: #9B59B6;
+            --primary-dark: #8E44AD;
+            --primary-light: #BB8FCE;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0A1931 0%, #2D1A3D 100%);
+            color: #E6D3A7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .workbook-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(45, 26, 61, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .wisdom-pyramid {
+            width: 0;
+            height: 0;
+            border-left: 75px solid transparent;
+            border-right: 75px solid transparent;
+            border-bottom: 130px solid rgba(155, 89, 182, 0.3);
+            margin: 30px auto;
+            position: relative;
+        }
+        
+        .wisdom-pyramid::before {
+            content: '';
+            position: absolute;
+            top: 43px;
+            left: -53px;
+            width: 106px;
+            height: 106px;
+            background: rgba(187, 143, 206, 0.2);
+            transform: rotate(45deg);
+        }
+        
+        .wisdom-level {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .level-card {
+            background: rgba(155, 89, 182, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(155, 89, 182, 0.3);
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="workbook-container">
+        <div style="text-align:center;">
+            <h1 style="color:var(--primary-color);">The Discernment Temple</h1>
+            <p style="color:var(--primary-light);">Week 4: Wisdom-Holder's Gateway</p>
+            <div class="wisdom-pyramid"></div>
+        </div>
+        
+        <!-- Wisdom Levels -->
+        <div class="wisdom-level">
+            <div class="level-card">
+                <h5>📖 Knowledge</h5>
+                <p>Accumulating facts</p>
+            </div>
+            <div class="level-card">
+                <h5>💡 Understanding</h5>
+                <p>Comprehending meaning</p>
+            </div>
+            <div class="level-card">
+                <h5>🎯 Discernment</h5>
+                <p>Choosing wisely</p>
+            </div>
+            <div class="level-card">
+                <h5>👁️ Wisdom</h5>
+                <p>Living truth</p>
+            </div>
+        </div>
+        
+        <!-- Declaration 19 -->
+        <div style="background:rgba(155,89,182,0.1); padding:25px; border-radius:10px; margin:25px 0; border-left:5px solid var(--primary-color);">
+            <h3 style="color:var(--primary-color);">📖 Declaration 19: "I have not acted in ignorance"</h3>
+            <p><em>I seek understanding before action</em></p>
+        </div>
+        
+        <div style="background:rgba(255,255,255,0.05); padding:25px; border-radius:10px; margin:20px 0;">
+            <h4>Exercise 4.1: The Pause Practice</h4>
+            <p><strong>Before any significant action today, pause and ask:</strong></p>
+            <ol>
+                <li>What do I really know about this situation?</li>
+                <li>What am I assuming?</li>
+                <li>What more do I need to understand?</li>
+            </ol>
+            <p><strong>Record 3 instances where you applied The Pause:</strong></p>
+            <textarea style="width:100%; height:100px; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(155,89,182,0.3);" placeholder="1. 2. 3."></textarea>
+        </div>
+        
+        <!-- Decision Matrix -->
+        <div style="background:rgba(155,89,182,0.15); padding:25px; border-radius:10px; margin:30px 0;">
+            <h4>🧠 Decision Discernment Matrix</h4>
+            <p>Apply to one current decision:</p>
+            <table style="width:100%; margin:20px 0;">
+                <tr>
+                    <th style="padding:10px; text-align:left;">Factor</th>
+                    <th style="padding:10px; text-align:left;">Score (1-5)</th>
+                    <th style="padding:10px; text-align:left;">Notes</th>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">Alignment with Truth</td>
+                    <td style="padding:10px;"><input type="number" min="1" max="5" style="width:60px;"></td>
+                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">Long-term Benefit</td>
+                    <td style="padding:10px;"><input type="number" min="1" max="5" style="width:60px;"></td>
+                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">Harm Prevention</td>
+                    <td style="padding:10px;"><input type="number" min="1" max="5" style="width:60px;"></td>
+                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Wisdom Journal -->
+        <div style="background:rgba(255,255,255,0.05); padding:25px; border-radius:10px;">
+            <h4>📓 Daily Wisdom Journal</h4>
+            <p><strong>Each evening, reflect:</strong></p>
+            <p>1. What wise choice did I make today?</p>
+            <textarea style="width:100%; height:60px; margin:10px 0;" placeholder="Today's wise choice..."></textarea>
+            
+            <p>2. What could I have decided more wisely?</p>
+            <textarea style="width:100%; height:60px; margin:10px 0;" placeholder="Learning opportunity..."></textarea>
+            
+            <p>3. What inner wisdom wants to be heard?</p>
+            <textarea style="width:100%; height:60px; margin:10px 0;" placeholder="Inner guidance..."></textarea>
+        </div>
+        
+        <!-- Download Section -->
+        <div style="text-align:center; padding:40px; margin:40px 0; background:rgba(155,89,182,0.1); border-radius:15px;">
+            <h3>📚 Download Week 4 Resources</h3>
+            <button class="btn" onclick="generatePDF(4)">📥 Download Wisdom PDF</button>
+            <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
+            <a href="wisdom-decision-tool.pdf" class="btn" download>📊 Decision Matrix Tool</a>
+            <a href="../week5/index.html" class="btn">➡️ Continue to Week 5</a>
+            
+            <div style="margin-top:30px;">
+                <h4>🎧 Wisdom Meditations</h4>
+                <button class="btn" style="background:linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);">Intuition Development (20 min)</button>
+                <button class="btn" style="background:linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);">Discernment Practice (15 min)</button>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        function generatePDF(week) {
+            const content = `Week ${week} Wisdom Workbook\n\nExercises completed on ${new Date().toLocaleDateString()}\n\nSave this as reference for your wisdom journey.`;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Wisdom_Week${week}.txt`;
+            a.click();
+            
+            alert('Wisdom workbook saved! For enhanced PDF, integrate jsPDF.');
+        }
+        
+        // Auto-save wisdom entries
+        document.querySelectorAll('textarea, input').forEach((el, idx) => {
+            el.addEventListener('input', () => localStorage.setItem(`wisdom_${idx}`, el.value));
+            const saved = localStorage.getItem(`wisdom_${idx}`);
+            if (saved) el.value = saved;
+        });
+    </script>
+</body>
+</html>
