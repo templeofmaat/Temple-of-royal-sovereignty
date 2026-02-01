@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 5: Reverence-Embracer's Gateway</title>
+    <title>Week 4: Wisdom-Holder's Gateway - The Discernment Temple</title>
     <style>
+        :root {
+            --primary-color: #9B59B6;
+            --primary-dark: #8E44AD;
+            --primary-light: #BB8FCE;
+            --accent-color: #6C8CD5;
+        }
+        
         body {
-            background: linear-gradient(135deg, #0A1931 0%, #3D1A2D 100%);
+            background: linear-gradient(135deg, #0A1931 0%, #2D1A3D 100%);
             color: #E6D3A7;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -15,216 +22,251 @@
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: rgba(61, 26, 45, 0.9);
+            background: rgba(45, 26, 61, 0.95);
             padding: 40px;
             border-radius: 20px;
-            border: 3px solid #E74C3C;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 20px 60px rgba(155, 89, 182, 0.2);
         }
         
-        .header {
+        .member-header {
             text-align: center;
-            padding-bottom: 30px;
-            border-bottom: 2px solid rgba(231, 76, 60, 0.3);
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.1) 0%, rgba(45, 26, 61, 0.5) 100%);
+            border-radius: 15px;
             margin-bottom: 40px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .member-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         h1 {
-            color: #E74C3C;
+            color: var(--primary-color);
             font-size: 2.8em;
             margin: 20px 0;
-            text-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+            text-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
         }
         
-        .gateway-badge {
-            display: inline-block;
-            background: rgba(231, 76, 60, 0.2);
-            color: #E74C3C;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            margin: 10px 0;
-            border: 1px solid #E74C3C;
-        }
-        
-        .reverence-areas {
+        .wisdom-levels {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin: 40px 0;
         }
         
-        .area {
-            background: rgba(80, 40, 55, 0.7);
+        .level-card {
+            background: rgba(60, 40, 80, 0.7);
             padding: 25px;
             border-radius: 15px;
             text-align: center;
-            transition: transform 0.3s ease;
+            border-top: 5px solid var(--primary-color);
         }
         
-        .area:hover {
-            transform: translateY(-5px);
-            border: 1px solid #E74C3C;
-        }
-        
-        .area-icon {
-            font-size: 3em;
+        .level-icon {
+            font-size: 2.5em;
             margin-bottom: 15px;
         }
         
-        .back-link {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.1);
-            color: #D4AF37;
-            padding: 12px 25px;
+        .declaration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .declaration-card {
+            background: rgba(60, 40, 80, 0.7);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .declaration-number {
+            background: var(--primary-color);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .download-button {
+            display: block;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 15px 25px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
-            margin-top: 40px;
+            text-align: center;
+            margin: 15px 0;
             transition: all 0.3s ease;
-            border: 1px solid #D4AF37;
+            border: none;
+            cursor: pointer;
+            width: 100%;
         }
         
-        .back-link:hover {
-            background: rgba(212, 175, 55, 0.2);
-            transform: scale(1.05);
+        .download-button:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
         }
         
-        .ritual-container {
-            background: rgba(80, 40, 55, 0.5);
-            padding: 35px;
+        .pillar-explanation {
+            background: rgba(155, 89, 182, 0.1);
+            padding: 30px;
             border-radius: 15px;
             margin: 40px 0;
-            border: 2px solid #E74C3C;
-        }
-        
-        .progress-bar {
-            height: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            margin: 30px 0;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            background: linear-gradient(90deg, #E74C3C 0%, #FF6B5B 100%);
-            width: 71%;
-            border-radius: 5px;
-        }
-        
-        .sacred-space {
-            background: rgba(231, 76, 60, 0.1);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 30px 0;
-            border-left: 5px solid #E74C3C;
+            border: 2px dashed var(--primary-color);
         }
         
         @media (max-width: 768px) {
-            .reverence-areas {
-                grid-template-columns: 1fr;
-            }
-            
             .container {
                 padding: 20px;
             }
             
             h1 {
-                font-size: 2em;
+                font-size: 2.2em;
+            }
+            
+            .declaration-grid, .wisdom-levels {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="gateway-badge">WEEK 5 - REVERENCE GATEWAY</div>
-            <h1>The Reverence-Embracer's Gateway</h1>
-            <p>Sacred Respect & Cosmic Order</p>
-            
-            <div class="progress-bar">
-                <div class="progress"></div>
+        <div class="member-header">
+            <div class="member-badge">📚 WEEK 4 - WISDOM HOLDER'S GATEWAY</div>
+            <h1>The Discernment Temple</h1>
+            <div style="color: #BB8FCE; font-size: 1.4em; margin: 20px 0 40px;">
+                Master the 6 Declarations of Wisdom & Discernment
             </div>
-            <p>Journey Progress: Week 5 of 7</p>
+            <p>Welcome to the gateway where knowledge becomes wisdom, and information becomes understanding.</p>
         </div>
         
-        <h3>🙏 The Practice of Sacred Respect</h3>
-        <p>Welcome to the fifth gateway, where you learn to honor all life and align with cosmic order.</p>
+        <div class="pillar-explanation">
+            <h2>🎯 The Fourth Core Way of Life: Wisdom-Holder</h2>
+            <p><strong>Ancient Declaration:</strong> "I have not acted in ignorance. I have not spoken without thought. I have not closed my ears to truth."</p>
+            <p><strong>Modern Embodiment:</strong> You become a living library of discernment, knowing what to embrace and what to release.</p>
+            <p><strong>Sovereign Initiation:</strong> The Discernment Temple - building your inner council of wisdom.</p>
+        </div>
         
-        <div class="reverence-areas">
-            <div class="area">
-                <div class="area-icon">🌍</div>
-                <h4>Earth Reverence</h4>
-                <p>Honoring nature and all beings</p>
+        <h2>🧠 The Four Levels of Wisdom</h2>
+        <div class="wisdom-levels">
+            <div class="level-card">
+                <div class="level-icon">📖</div>
+                <h3>Knowledge</h3>
+                <p>Accumulating facts and information</p>
             </div>
             
-            <div class="area">
-                <div class="area-icon">👥</div>
-                <h4>Ancestor Reverence</h4>
-                <p>Honoring those who came before</p>
+            <div class="level-card">
+                <div class="level-icon">💡</div>
+                <h3>Understanding</h3>
+                <p>Comprehending meaning and context</p>
             </div>
             
-            <div class="area">
-                <div class="area-icon">⚡</div>
-                <h4>Energy Reverence</h4>
-                <p>Honoring life force and subtle energies</p>
+            <div class="level-card">
+                <div class="level-icon">🎯</div>
+                <h3>Discernment</h3>
+                <p>Choosing wisely what to apply</p>
             </div>
             
-            <div class="area">
-                <div class="area-icon">🌌</div>
-                <h4>Cosmic Reverence</h4>
-                <p>Honoring universal order and cycles</p>
+            <div class="level-card">
+                <div class="level-icon">👁️</div>
+                <h3>Wisdom</h3>
+                <p>Living truth in right timing</p>
             </div>
         </div>
         
-        <div class="ritual-container">
-            <h3>🕯️ Daily Reverence Ritual</h3>
-            <p><strong>Morning Practice (15 minutes):</strong></p>
-            <ol>
-                <li>Light a candle or face the rising sun</li>
-                <li>Speak gratitude for three things</li>
-                <li>Honor one ancestor by name</li>
-                <li>Set intention: "I walk in reverence today"</li>
-            </ol>
+        <h2>🔮 The 6 Declarations of Wisdom</h2>
+        <div class="declaration-grid">
+            <div class="declaration-card">
+                <div class="declaration-number">19</div>
+                <h3>Declaration of Clarity</h3>
+                <div class="declaration-text">"I have not acted in ignorance"<br>I seek understanding before action</div>
+                <p><strong>Practice:</strong> Daily "pause before acting" ritual</p>
+            </div>
             
-            <p><strong>Evening Practice (10 minutes):</strong></p>
-            <ol>
-                <li>Reflect on where you showed reverence</li>
-                <li>Note where reverence was lacking</li>
-                <li>Offer forgiveness to self and others</li>
-                <li>Give thanks for the day's lessons</li>
-            </ol>
+            <div class="declaration-card">
+                <div class="declaration-number">20</div>
+                <h3>Declaration of Considered Speech</h3>
+                <div class="declaration-text">"I have not spoken without thought"<br>My words carry weight and intention</div>
+                <p><strong>Practice:</strong> Three breaths before speaking</p>
+            </div>
+            
+            <div class="declaration-card">
+                <div class="declaration-number">21</div>
+                <h3>Declaration of Receptivity</h3>
+                <div class="declaration-text">"I have not closed my ears to truth"<br>I remain open to wisdom from all sources</div>
+                <p><strong>Practice:</strong> Daily listening without interrupting</p>
+            </div>
+            
+            <div class="declaration-card">
+                <div class="declaration-number">22</div>
+                <h3>Declaration of Discernment</h3>
+                <div class="declaration-text">"I have not confused truth with falsehood"<br>I distinguish essence from appearance</div>
+                <p><strong>Practice:</strong> Reality-checking assumptions</p>
+            </div>
+            
+            <div class="declaration-card">
+                <div class="declaration-number">23</div>
+                <h3>Declaration of Inner Knowing</h3>
+                <div class="declaration-text">"I have not ignored my inner guidance"<br>I trust the wisdom within</div>
+                <p><strong>Practice:</strong> Morning intuition journaling</p>
+            </div>
+            
+            <div class="declaration-card">
+                <div class="declaration-number">24</div>
+                <h3>Declaration of Applied Wisdom</h3>
+                <div class="declaration-text">"I have not kept wisdom unused"<br>I embody knowledge through action</div>
+                <p><strong>Practice:</strong> Implementing one insight daily</p>
+            </div>
         </div>
         
-        <div class="sacred-space">
-            <h4>🏛️ Creating Sacred Space</h4>
-            <p>Designate a small area in your home as a reverence altar. Include:</p>
-            <ul>
-                <li>Natural elements (stone, plant, water)</li>
-                <li>Symbols of what you revere</li>
-                <li>Photos of honored ancestors</li>
-                <li>Objects of personal significance</li>
-            </ul>
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="#" class="download-button">📥 Download Wisdom-Holder's Workbook</a>
+            <a href="#" class="download-button">🎧 Download Discernment Meditations</a>
+            <a href="#" class="download-button">📚 Download Wisdom Journal</a>
         </div>
         
-        <h3>📚 Week 5 Content</h3>
-        <ul>
-            <li>Video Teaching: "The Temple of Reverence"</li>
-            <li>Workbook: Sacred Rituals & Practices</li>
-            <li>Ancestor Connection Meditation</li>
-            <li>Nature Reverence Exercises</li>
-            <li>Cosmic Alignment Practices</li>
-        </ul>
+        <div class="pillar-explanation">
+            <h3>📅 Week 4 Journey Structure</h3>
+            <p><strong>Day 1-2:</strong> Wisdom of Mind - Developing discernment</p>
+            <p><strong>Day 3-4:</strong> Wisdom of Heart - Intuitive knowing</p>
+            <p><strong>Day 5-6:</strong> Wisdom of Action - Applied understanding</p>
+            <p><strong>Day 7:</strong> Wisdom Integration - The Council of Self</p>
+        </div>
         
         <div style="text-align: center; margin-top: 50px;">
-            <a href="../index.html" class="back-link">← Return to Portal</a>
+            <a href="../../index.html" class="back-to-portal">← Return to Main Portal</a>
             <div style="margin-top: 20px;">
-                <a href="week4/index.html" style="color: #9B59B6; margin-right: 20px;">← Previous: Week 4</a>
-                <a href="week6/index.html" style="color: #E74C3C;">Next: Week 6 →</a>
+                <a href="../week3/index.html" style="color: #6C8CD5; margin-right: 20px;">← Previous: Week 3</a>
+                <a href="../week5/index.html" style="color: #E74C3C;">Next: Week 5 →</a>
             </div>
+        </div>
+        
+        <div style="margin-top: 50px; padding: 20px; background: rgba(155, 89, 182, 0.1); border-radius: 10px; text-align: center;">
+            <p><strong>📚 Wisdom Mantra:</strong> "I see clearly. I know deeply. I choose wisely. I act from understanding."</p>
+            <p><em>Repeat this daily during Week 4</em></p>
         </div>
     </div>
 </body>
