@@ -1,1 +1,218 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4: Wisdom-Holder's Gateway</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0A1931 0%, #2D1A3D 100%);
+            color: #E6D3A7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(45, 26, 61, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid #9B59B6;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(155, 89, 182, 0.3);
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            color: #9B59B6;
+            font-size: 2.8em;
+            margin: 20px 0;
+            text-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
+        }
+        
+        .gateway-badge {
+            display: inline-block;
+            background: rgba(155, 89, 182, 0.2);
+            color: #9B59B6;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 10px 0;
+            border: 1px solid #9B59B6;
+        }
+        
+        .wisdom-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .wisdom-type {
+            background: rgba(60, 40, 80, 0.7);
+            padding: 25px;
+            border-radius: 15px;
+            border-top: 5px solid #9B59B6;
+        }
+        
+        .wisdom-type h4 {
+            color: #9B59B6;
+            margin-top: 0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            color: #D4AF37;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 40px;
+            transition: all 0.3s ease;
+            border: 1px solid #D4AF37;
+        }
+        
+        .back-link:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .quiz-container {
+            background: rgba(60, 40, 80, 0.5);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 2px solid #9B59B6;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #9B59B6 0%, #BB79D6 100%);
+            width: 57%;
+            border-radius: 5px;
+        }
+        
+        .wisdom-quote {
+            font-style: italic;
+            text-align: center;
+            padding: 30px;
+            background: rgba(155, 89, 182, 0.1);
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid #9B59B6;
+            border-right: 5px solid #9B59B6;
+        }
+        
+        @media (max-width: 768px) {
+            .wisdom-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="gateway-badge">WEEK 4 - WISDOM GATEWAY</div>
+            <h1>The Wisdom-Holder's Gateway</h1>
+            <p>Discernment & Right Understanding</p>
+            
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <p>Journey Progress: Week 4 of 7</p>
+        </div>
+        
+        <div class="wisdom-quote">
+            "Wisdom is not knowing more, but understanding more deeply."
+        </div>
+        
+        <h3>📖 The Four Pillars of Wisdom</h3>
+        <p>Welcome to the fourth gateway, where you develop discernment and deeper understanding.</p>
+        
+        <div class="wisdom-types">
+            <div class="wisdom-type">
+                <h4>🧭 Practical Wisdom</h4>
+                <p>Applying knowledge in daily life<br>
+                Making sound decisions<br>
+                Navigating complex situations</p>
+            </div>
+            
+            <div class="wisdom-type">
+                <h4>💭 Reflective Wisdom</h4>
+                <p>Learning from experience<br>
+                Understanding patterns<br>
+                Seeing deeper meanings</p>
+            </div>
+            
+            <div class="wisdom-type">
+                <h4>❤️ Compassionate Wisdom</h4>
+                <p>Understanding with heart<br>
+                Seeing others' perspectives<br>
+                Acting with empathy</p>
+            </div>
+            
+            <div class="wisdom-type">
+                <h4>🌌 Intuitive Wisdom</h4>
+                <p>Trusting inner guidance<br>
+                Accessing higher knowing<br>
+                Following subtle signals</p>
+            </div>
+        </div>
+        
+        <div class="quiz-container">
+            <h3>🔍 Discernment Exercise</h3>
+            <p><strong>Daily Practice:</strong> When faced with a decision, ask:</p>
+            <ol>
+                <li>What does my mind say? (Logic)</li>
+                <li>What does my heart say? (Feeling)</li>
+                <li>What does my gut say? (Intuition)</li>
+                <li>Where do all three align?</li>
+            </ol>
+            <p>Record your answers in your Wisdom Journal each evening.</p>
+        </div>
+        
+        <h3>📚 Week 4 Content</h3>
+        <ul>
+            <li>Video Teaching: "The Well of Wisdom"</li>
+            <li>Workbook: Discernment Exercises</li>
+            <li>Wisdom Journal Templates</li>
+            <li>Case Studies in Right Understanding</li>
+            <li>Meditation: Accessing Inner Wisdom</li>
+        </ul>
+        
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="../index.html" class="back-link">← Return to Portal</a>
+            <div style="margin-top: 20px;">
+                <a href="week3/index.html" style="color: #6C8CD5; margin-right: 20px;">← Previous: Week 3</a>
+                <a href="week5/index.html" style="color: #9B59B6;">Next: Week 5 →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
