@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 7: Sovereign's Gateway</title>
+    <title>Week 7: Sovereign's Gateway - The Completion Ceremony</title>
     <style>
+        :root {
+            --primary-color: #1ABC9C;
+            --primary-dark: #16A085;
+            --primary-light: #76D7C4;
+            --accent-color: #F39C12;
+        }
+        
         body {
             background: linear-gradient(135deg, #0A1931 0%, #1A3D3D 100%);
             color: #E6D3A7;
@@ -15,85 +22,126 @@
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: rgba(26, 61, 61, 0.9);
+            background: rgba(26, 61, 61, 0.95);
             padding: 40px;
             border-radius: 20px;
-            border: 3px solid #1ABC9C;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 20px 60px rgba(26, 188, 156, 0.2);
         }
         
-        .header {
+        .member-header {
             text-align: center;
-            padding-bottom: 30px;
-            border-bottom: 2px solid rgba(26, 188, 156, 0.3);
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(26, 188, 156, 0.1) 0%, rgba(26, 61, 61, 0.5) 100%);
+            border-radius: 15px;
             margin-bottom: 40px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .member-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #08001A;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         h1 {
-            color: #1ABC9C;
+            color: var(--primary-color);
             font-size: 3em;
             margin: 20px 0;
             text-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
         }
         
-        .gateway-badge {
-            display: inline-block;
-            background: rgba(26, 188, 156, 0.2);
-            color: #1ABC9C;
-            padding: 8px 25px;
-            border-radius: 25px;
-            font-weight: bold;
-            margin: 10px 0;
-            border: 2px solid #1ABC9C;
-            font-size: 1.2em;
-        }
-        
-        .celebration {
-            text-align: center;
-            padding: 40px;
-            background: rgba(26, 188, 156, 0.1);
-            border-radius: 15px;
-            margin: 40px 0;
-            border: 2px dashed #1ABC9C;
-        }
-        
-        .integration-grid {
+        .integration-circle {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin: 40px 0;
         }
         
-        .integration-area {
+        .integration-point {
+            background: rgba(40, 80, 80, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .integration-point:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-light);
+        }
+        
+        .point-number {
+            background: var(--primary-color);
+            color: #08001A;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 15px;
+            font-size: 1.2em;
+        }
+        
+        .declaration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .declaration-card {
             background: rgba(40, 80, 80, 0.7);
             padding: 25px;
             border-radius: 15px;
-            text-align: center;
+            border-left: 5px solid var(--primary-color);
         }
         
-        .integration-area h4 {
-            color: #1ABC9C;
-            margin-top: 0;
+        .declaration-number {
+            background: var(--primary-color);
+            color: #08001A;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
         
-        .back-link {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.1);
-            color: #D4AF37;
-            padding: 12px 25px;
+        .download-button {
+            display: block;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #08001A;
+            padding: 15px 25px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
-            margin-top: 40px;
+            text-align: center;
+            margin: 15px 0;
             transition: all 0.3s ease;
-            border: 1px solid #D4AF37;
+            border: none;
+            cursor: pointer;
+            width: 100%;
         }
         
-        .back-link:hover {
-            background: rgba(212, 175, 55, 0.2);
-            transform: scale(1.05);
+        .download-button:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
         }
         
         .completion-certificate {
@@ -102,172 +150,216 @@
             border-radius: 15px;
             margin: 40px 0;
             text-align: center;
-            border: 3px solid #1ABC9C;
+            border: 3px solid var(--primary-color);
         }
         
-        .progress-bar {
-            height: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            margin: 30px 0;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            background: linear-gradient(90deg, #1ABC9C 0%, #2CDBC6 100%);
-            width: 100%;
-            border-radius: 5px;
-        }
-        
-        .next-steps {
+        .sovereign-manifesto {
             background: rgba(212, 175, 55, 0.1);
             padding: 30px;
             border-radius: 15px;
             margin: 40px 0;
             border-left: 5px solid #D4AF37;
-        }
-        
-        .sovereign-declaration {
-            font-style: italic;
-            text-align: center;
-            padding: 30px;
-            background: rgba(26, 188, 156, 0.1);
-            border-radius: 10px;
-            margin: 30px 0;
-            font-size: 1.2em;
+            font-size: 1.1em;
             line-height: 1.8;
         }
         
+        .back-to-portal {
+            display: inline-block;
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 40px;
+            border: 1px solid #4CAF50;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-portal:hover {
+            background: rgba(76, 175, 80, 0.2);
+            transform: scale(1.05);
+        }
+        
         @media (max-width: 768px) {
-            .integration-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .container {
                 padding: 20px;
             }
             
             h1 {
-                font-size: 2.2em;
+                font-size: 2.5em;
+            }
+            
+            .declaration-grid, .integration-circle {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="gateway-badge">FINAL GATEWAY - WEEK 7</div>
-            <h1>The Sovereign's Gateway</h1>
-            <p>Integration & Divine Embodiment</p>
-            
-            <div class="progress-bar">
-                <div class="progress"></div>
+        <div class="member-header">
+            <div class="member-badge">🏆 FINAL GATEWAY - WEEK 7</div>
+            <h1>The Completion Ceremony</h1>
+            <div style="color: #76D7C4; font-size: 1.6em; margin: 20px 0 40px;">
+                Integration of All 42 Declarations
             </div>
-            <p>Journey Complete: 7 of 7 Gateways</p>
-        </div>
-        
-        <div class="celebration">
-            <h2>🎉 Congratulations, Sovereign Being!</h2>
-            <p>You have completed the journey through all seven gateways of The Hall of Truth.</p>
-        </div>
-        
-        <div class="sovereign-declaration">
-            "I now walk as a sovereign being, embodying truth, justice, harmony, wisdom, reverence, courage, and divine integration in all that I am and do."
-        </div>
-        
-        <h3>🌀 The Great Integration</h3>
-        <p>Welcome to the seventh and final gateway, where all principles merge into sovereign embodiment.</p>
-        
-        <div class="integration-grid">
-            <div class="integration-area">
-                <h4>Truth Integration</h4>
-                <p>Speaking your sacred reality<br>
-                Living your deepest truth<br>
-                Being authentic in all moments</p>
-            </div>
-            
-            <div class="integration-area">
-                <h4>Justice Integration</h4>
-                <p>Creating balanced exchange<br>
-                Honoring fair energy flow<br>
-                Maintaining harmony in all relations</p>
-            </div>
-            
-            <div class="integration-area">
-                <h4>Harmony Integration</h4>
-                <p>Living in internal peace<br>
-                Creating external harmony<br>
-                Aligning with cosmic rhythms</p>
-            </div>
-            
-            <div class="integration-area">
-                <h4>Wisdom Integration</h4>
-                <p>Applying deep understanding<br>
-                Making discerning choices<br>
-                Accessing inner knowing</p>
-            </div>
-            
-            <div class="integration-area">
-                <h4>Reverence Integration</h4>
-                <p>Honoring all life<br>
-                Respecting cosmic order<br>
-                Living with sacred awareness</p>
-            </div>
-            
-            <div class="integration-area">
-                <h4>Courage Integration</h4>
-                <p>Acting from heart-centered integrity<br>
-                Facing fears with grace<br>
-                Standing in sovereign power</p>
-            </div>
+            <p>Welcome, Sovereign Being. You stand at the completion of initiation, ready to embody all 42 Declarations as one integrated whole.</p>
         </div>
         
         <div class="completion-certificate">
-            <h3>🏆 Certificate of Completion</h3>
-            <p>You have earned the title of <strong>Sovereign Truth-Embracer</strong></p>
-            <p>This signifies your mastery of the 42 Principles of Ma'at through the 7 Gateways.</p>
-            <p><em>Date of Completion: <span id="completion-date">Loading...</span></em></p>
+            <h2>🎉 Congratulations, Sovereign Truth-Embracer!</h2>
+            <p>You have journeyed through all seven gateways and mastered the 42 Declarations of Ma'at.</p>
+            <p><strong>Initiation Complete:</strong> You now embody the 7 Core Ways of Life as one sovereign being.</p>
             
             <div style="margin-top: 30px;">
-                <button onclick="downloadCertificate()" style="background: linear-gradient(135deg, #1ABC9C 0%, #16A085 100%); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; font-size: 1.1em; cursor: pointer;">
-                    🏅 Download Your Certificate
+                <button onclick="downloadCertificate()" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: #08001A; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; font-size: 1.1em; cursor: pointer;">
+                    🏅 Download Your Sovereign Certificate
                 </button>
             </div>
         </div>
         
-        <div class="next-steps">
-            <h4>🔄 Continuing Your Journey</h4>
-            <p><strong>Daily Practice:</strong> Spend 20 minutes each morning reviewing one principle from each gateway.</p>
-            <p><strong>Monthly Integration:</strong> Each month, focus on deepening one of the seven gateways.</p>
-            <p><strong>Community:</strong> Join fellow sovereign beings in ongoing practice and support.</p>
-            <p><strong>Teaching:</strong> Consider guiding others through their gateway journey.</p>
+        <h2>🌀 The 7-Point Integration System</h2>
+        <div class="integration-circle">
+            <div class="integration-point">
+                <div class="point-number">1</div>
+                <h3>Truth Integration</h3>
+                <p>All 6 Truth Declarations embodied</p>
+            </div>
+            
+            <div class="integration-point">
+                <div class="point-number">2</div>
+                <h3>Justice Integration</h3>
+                <p>All 6 Justice Declarations embodied</p>
+            </div>
+            
+            <div class="integration-point">
+                <div class="point-number">3</div>
+                <h3>Harmony Integration</h3>
+                <p>All 6 Harmony Declarations embodied</p>
+            </div>
+            
+            <div class="integration-point">
+                <div class="point-number">4</div>
+                <h3>Wisdom Integration</h3>
+                <p>All 6 Wisdom Declarations embodied</p>
+            </div>
+            
+            <div class="integration-point">
+                <div class="point-number">5</div>
+                <h3>Reverence Integration</h3>
+                <p>All 6 Reverence Declarations embodied</p>
+            </div>
+            
+            <div class="integration-point">
+                <div class="point-number">6</div>
+                <h3>Courage Integration</h3>
+                <p>All 6 Courage Declarations embodied</p>
+            </div>
+            
+            <div class="integration-point">
+                <div class="point-number">7</div>
+                <h3>Sovereign Integration</h3>
+                <p>All 42 Declarations as One</p>
+            </div>
         </div>
         
-        <h3>📚 Final Integration Content</h3>
-        <ul>
-            <li>Video Teaching: "The Sovereign Embodiment"</li>
-            <li>Workbook: Lifetime Integration Practices</li>
-            <li>Meditation: The Unified Field of Being</li>
-            <li>Community Access Information</li>
-            <li>Advanced Practice Pathways</li>
-        </ul>
+        <div class="sovereign-manifesto">
+            <h2>📜 The Sovereign Manifesto</h2>
+            <p><strong>I now declare my sovereignty:</strong></p>
+            <p>I speak truth from purity of heart.<br>
+            I act with justice in all exchanges.<br>
+            I maintain harmony within and around.<br>
+            I exercise wisdom in all decisions.<br>
+            I live with reverence for all that is.<br>
+            I act with courage and integrity.<br>
+            I embody all 42 Declarations as one sovereign being.</p>
+            <p><em>This is my sovereign decree.</em></p>
+        </div>
+        
+        <h2>👑 The Final 6 Declarations of Sovereignty</h2>
+        <div class="declaration-grid">
+            <div class="declaration-card">
+                <div class="declaration-number">37</div>
+                <h3>Declaration of Wholeness</h3>
+                <div class="declaration-text">"I am not fragmented"<br>I embody all aspects as one</div>
+                <p><strong>Practice:</strong> Daily integration meditation</p>
+            </div>
+            
+            <div class="declaration-card">
+                <div class="declaration-number">38</div>
+                <h3>Declaration of Self-Governance</h3>
+                <div class="declaration-text">"I rule myself"<br>I am master of my thoughts and actions</div>
+                <p><strong>Practice:</strong> Conscious choice in all matters</p>
+            </div>
+            
+            <div class="declaration-card">
+                <div class="declaration-number">39</div>
+                <h3>Declaration of Responsibility</h3>
+                <div class="declaration-text">"I own my power"<br>I take full responsibility for my reality</div>
+                <p><strong>Practice:</strong> Radical self-accountability</p>
+            </div>
+            
+            <div class="declaration-card">
+                <div class="declaration-number">40</div>
+                <h3>Declaration of Legacy</h3>
+                <div class="declaration-text">"I live for generations"<br>My actions create lasting impact</div>
+                <p><strong>Practice:</strong> Seven-generation thinking</p>
+            </div>
+            
+            <div class="declaration-card">
+                <div class="declaration-number">41</div>
+                <h3>Declaration of Service</h3>
+                <div class="declaration-text">"I lead by serving"<br>My sovereignty uplifts all</div>
+                <p><strong>Practice:</strong> Daily conscious service</p>
+            </div>
+            
+            <div class="declaration-card">
+                <div class="declaration-number">42</div>
+                <h3>Declaration of Completion</h3>
+                <div class="declaration-text">"The journey is complete"<br>I am the living embodiment</div>
+                <p><strong>Practice:</strong> The sovereign ceremony</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="#" class="download-button">📥 Download Sovereign Integration Workbook</a>
+            <a href="#" class="download-button">🎧 Download Completion Ceremony Audio</a>
+            <a href="#" class="download-button">📚 Download Lifetime Practice Guide</a>
+        </div>
+        
+        <div class="sovereign-manifesto">
+            <h3>📅 Week 7 Integration Structure</h3>
+            <p><strong>Day 1-2:</strong> Review and Reflection - All 42 Declarations</p>
+            <p><strong>Day 3-4:</strong> Integration Practice - Weaving the 7 Ways</p>
+            <p><strong>Day 5-6:</strong> Sovereign Application - Living as Embodiment</p>
+            <p><strong>Day 7:</strong> Completion Ceremony - The Sovereign Initiation</p>
+        </div>
         
         <div style="text-align: center; margin-top: 50px;">
-            <a href="../index.html" class="back-link">← Return to Portal</a>
+            <a href="../../index.html" class="back-to-portal">← Return to Main Portal</a>
             <div style="margin-top: 20px;">
-                <a href="week6/index.html" style="color: #F39C12; margin-right: 20px;">← Previous: Week 6</a>
-                <span style="color: #1ABC9C;">✓ Journey Complete</span>
+                <a href="../week6/index.html" style="color: #F39C12; margin-right: 20px;">← Previous: Week 6</a>
+                <span style="color: var(--primary-color); font-weight: bold;">✓ Initiation Complete</span>
             </div>
+        </div>
+        
+        <div style="margin-top: 50px; padding: 20px; background: rgba(26, 188, 156, 0.1); border-radius: 10px; text-align: center;">
+            <p><strong>👑 Sovereign Mantra:</strong> "I am truth. I am justice. I am harmony. I am wisdom. I am reverence. I am courage. I am sovereign."</p>
+            <p><em>Repeat this daily as your sovereign practice</em></p>
         </div>
     </div>
     
     <script>
+        function downloadCertificate() {
+            alert('🎖️ Your Sovereign Certificate is downloading!');
+            // In production, this would generate and download a PDF certificate
+        }
+        
         // Set completion date
         const now = new Date();
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('completion-date').textContent = now.toLocaleDateString('en-US', options);
-        
-        function downloadCertificate() {
-            alert('Certificate download initiated! In a full implementation, this would generate and download your personalized certificate PDF.');
-            // In production, this would generate a
+    </script>
+</body>
+</html>
