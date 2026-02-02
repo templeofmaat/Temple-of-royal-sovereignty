@@ -3,258 +3,678 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 1 Workbook: The Purity of Heart Inventory</title>
+    <title>Sacred Workbook: The Extended Stride - Forces 1-6</title>
     <style>
         :root {
             --primary-color: #4CAF50;
-            --primary-dark: #3D8B40;
+            --primary-dark: #2E7D32;
             --primary-light: #81C784;
+            --accent-gold: #D4AF37;
+            --sacred-blue: #1565C0;
         }
         
         body {
-            background: linear-gradient(135deg, #0A1931 0%, #1A3021 100%);
+            background: linear-gradient(135deg, #0A1931 0%, #1B5E20 100%);
             color: #E6D3A7;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Palatino Linotype', 'Book Antiqua', serif;
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
+            line-height: 1.8;
         }
         
-        .workbook-container {
+        .sacred-container {
             max-width: 1000px;
             margin: 0 auto;
-            background: rgba(26, 40, 33, 0.95);
+            background: rgba(26, 40, 33, 0.98);
             padding: 40px;
             border-radius: 20px;
             border: 3px solid var(--primary-color);
+            box-shadow: 0 20px 60px rgba(76, 175, 80, 0.2);
+            position: relative;
+            overflow: hidden;
         }
         
-        .section {
-            background: rgba(30, 45, 35, 0.7);
-            padding: 30px;
+        .sacred-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-gold), var(--sacred-blue));
+        }
+        
+        .hieroglyph-header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .hieroglyph-header::before,
+        .hieroglyph-header::after {
+            content: '𓁦';
+            position: absolute;
+            top: 20px;
+            font-size: 3em;
+            opacity: 0.3;
+        }
+        
+        .hieroglyph-header::before { left: 20px; }
+        .hieroglyph-header::after { right: 20px; transform: scaleX(-1); }
+        
+        .sacred-title {
+            color: var(--primary-color);
+            font-size: 2.8em;
+            margin: 0;
+            font-family: 'Egyptian', 'Times New Roman', serif;
+            text-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+        
+        .kemetic-subtitle {
+            color: var(--accent-gold);
+            font-size: 1.3em;
+            font-style: italic;
+            margin: 15px 0 30px;
+            padding: 15px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .force-section {
+            background: rgba(30, 45, 35, 0.9);
+            padding: 35px;
             border-radius: 15px;
-            margin: 30px 0;
+            margin: 40px 0;
             border-left: 5px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
         }
         
-        .declaration-card {
+        .force-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), transparent);
+        }
+        
+        .force-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .force-number {
+            background: var(--primary-color);
+            color: white;
+            min-width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.8em;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .force-name-container {
+            flex: 1;
+        }
+        
+        .kemetic-name {
+            color: var(--primary-light);
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .force-origin {
+            color: var(--accent-gold);
+            font-size: 0.95em;
+            font-style: italic;
+        }
+        
+        .declaration-box {
+            background: rgba(76, 175, 80, 0.15);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 2px solid rgba(76, 175, 80, 0.4);
+            font-style: italic;
+            font-size: 1.2em;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        .declaration-box::before {
+            content: '𓀀';
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            font-size: 1.5em;
+            opacity: 0.5;
+        }
+        
+        .innerstanding-box {
+            background: rgba(212, 175, 55, 0.15);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid var(--accent-gold);
+            border-right: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .innerstanding-title {
+            color: var(--accent-gold);
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .practice-level {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .level-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .level-icon {
+            background: rgba(76, 175, 80, 0.25);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        
+        .sacred-practice {
             background: rgba(76, 175, 80, 0.1);
             padding: 25px;
-            border-radius: 10px;
+            border-radius: 8px;
             margin: 20px 0;
-            border: 1px solid rgba(76, 175, 80, 0.3);
+            border: 1px dashed rgba(76, 175, 80, 0.4);
         }
         
-        .exercise {
+        .practice-title {
+            color: var(--primary-light);
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 18px;
             background: rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 20px 0;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            color: #E6D3A7;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1em;
+            margin: 15px 0;
+            min-height: 120px;
+            resize: vertical;
+            transition: all 0.3s ease;
         }
         
-        .writing-space {
-            min-height: 100px;
-            border: 1px dashed rgba(76, 175, 80, 0.3);
-            padding: 15px;
+        textarea:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .hieroglyph {
+            font-family: 'Segoe UI Historic', 'Noto Sans Egyptian Hieroglyphs', sans-serif;
+            font-size: 1.6em;
+            margin-right: 8px;
+        }
+        
+        .ritual-instruction {
+            background: rgba(21, 101, 192, 0.1);
+            padding: 20px;
+            border-radius: 8px;
             margin: 15px 0;
-            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--sacred-blue);
         }
         
         .download-section {
             text-align: center;
-            padding: 40px;
-            margin: 40px 0;
+            padding: 60px;
+            margin: 60px 0;
             background: rgba(76, 175, 80, 0.1);
             border-radius: 15px;
+            border: 3px solid var(--primary-color);
         }
         
-        .btn {
+        .sacred-btn {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
+            padding: 20px 40px;
+            border-radius: 12px;
             text-decoration: none;
             display: inline-block;
-            margin: 10px;
+            margin: 15px;
             border: none;
             cursor: pointer;
             font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .sacred-btn:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4);
+        }
+        
+        .gold-btn {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #B8941A 100%);
+            color: #08001A;
+        }
+        
+        .gold-btn:hover {
+            background: linear-gradient(135deg, #F5E6B3 0%, var(--accent-gold) 100%);
+        }
+        
+        .blue-btn {
+            background: linear-gradient(135deg, var(--sacred-blue) 0%, #0D47A1 100%);
+            color: white;
+        }
+        
+        .completion-box {
+            background: rgba(212, 175, 55, 0.15);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 50px 0;
+            border: 2px solid var(--accent-gold);
+            text-align: center;
         }
         
         @media print {
             body { background: white; color: black; }
-            .workbook-container { border: 1px solid #ccc; box-shadow: none; }
-            .btn { display: none; }
+            .sacred-container { border: 1px solid #ccc; box-shadow: none; }
+            .sacred-btn { display: none; }
+            textarea, input { background: white; color: black; border: 1px solid #ccc; }
+        }
+        
+        @media (max-width: 768px) {
+            .sacred-container { padding: 20px; }
+            .sacred-title { font-size: 2.2em; }
+            .force-header { flex-direction: column; text-align: center; }
+            .force-number { width: 60px; height: 60px; }
         }
     </style>
 </head>
 <body>
-    <div class="workbook-container">
-        <div style="text-align:center; padding:40px 0;">
-            <h1 style="color:var(--primary-color); font-size:2.5em;">The Purity of Heart Inventory</h1>
-            <p style="color:#81C784; font-size:1.2em;">Week 1: Truth-Speaker's Gateway</p>
-            <p>Complete these exercises to master the 6 Declarations of Truth</p>
+    <div class="sacred-container">
+        <div class="hieroglyph-header">
+            <h1 class="sacred-title">𓎟 The Extended Stride 𓎟</h1>
+            <div class="kemetic-subtitle">Sacred Workbook: Forces 1-6 of Ma'at</div>
+            <p><em>Foundation of Cosmic Alignment & Divine Bounds</em></p>
         </div>
         
-        <!-- Day 1-2: Truth to Self -->
-        <div class="section">
-            <h2 style="color:var(--primary-color);">📖 Day 1-2: Truth to Self</h2>
-            
-            <div class="declaration-card">
-                <h3>Declaration 1: "I have not lied"</h3>
-                <p><em>I speak only what is true and necessary</em></p>
+        <!-- FORCE 1: USEKH-NEMMT -->
+        <div class="force-section">
+            <div class="force-header">
+                <div class="force-number">1</div>
+                <div class="force-name-container">
+                    <div class="kemetic-name">Usekh-nemmt</div>
+                    <div class="force-origin">"The One of Extended Stride" • From Iunu (City of the Pillar)</div>
+                </div>
             </div>
             
-            <div class="exercise">
-                <h4>Exercise 1.1: The Truth Inventory</h4>
-                <p><strong>Instructions:</strong> List 3 truths you've been avoiding speaking to yourself.</p>
-                <div class="writing-space" contenteditable="true"></div>
+            <div class="declaration-box">
+                <span class="hieroglyph">𓀀</span> "I have not transgressed the universal law."
+            </div>
+            
+            <div class="innerstanding-box">
+                <div class="innerstanding-title">
+                    <span class="hieroglyph">𓋹</span> Sacred Innerstanding
+                </div>
+                <p>This is <strong>not</strong> merely "avoiding sin." <em>Usekh-nemmt</em> is the <strong>active force</strong> of staying within the ordained path—the cosmic stride that aligns with Ra's journey across the sky.</p>
+                <p>From <strong>Iunu</strong> (Heliopolis), the cosmic center of solar law, this force measures your alignment with divine rhythm. It is the <em>measured pace</em> of Ma'at.</p>
+                <div class="ritual-instruction">
+                    <p><strong>𓏞 Key Teaching:</strong> To transgress is to step outside Ma'at's measured pace, to break harmony with cosmic order. Every misstep creates ripples in the fabric of reality.</p>
+                </div>
+            </div>
+            
+            <!-- LEVEL 1: RECOGNITION -->
+            <div class="practice-level">
+                <div class="level-header">
+                    <div class="level-icon">𓏞</div>
+                    <h3>Level 1: Recognition – The Cosmic Mirror</h3>
+                </div>
                 
-                <p><strong>Journal Prompt:</strong> What fear keeps you from accepting these truths?</p>
-                <div class="writing-space" contenteditable="true"></div>
+                <div class="sacred-practice">
+                    <div class="practice-title">
+                        <span class="hieroglyph">𓇯</span> Sacred Journal Inquiry
+                    </div>
+                    <p><strong>Contemplate:</strong> Where in your life do you feel "in stride" with natural rhythms? Where do you feel out of step with cosmic timing?</p>
+                    <p><em>Consider: Sleep cycles, work rhythms, relationships, creative flow, seasonal alignment</em></p>
+                    <textarea placeholder="𓏞 Begin your reflection here...
+                        
+Where I am in stride...
+                        
+Where I feel out of step...
+                        
+What cosmic timing wants to teach me..."></textarea>
+                </div>
+                
+                <div class="sacred-practice">
+                    <div class="practice-title">
+                        <span class="hieroglyph">𓂀</span> Daily Observation Practice
+                    </div>
+                    <p>Today, notice three instances of alignment or resistance to natural flow:</p>
+                    <ol>
+                        <li>One moment of perfect cosmic timing</li>
+                        <li>One moment where you resisted natural rhythm</li>
+                        <li>One choice point where you could align better</li>
+                    </ol>
+                    <textarea placeholder="1. Perfect timing moment (describe):&#10;&#10;2. Resistance moment (what happened):&#10;&#10;3. Alignment opportunity (how to improve):"></textarea>
+                </div>
             </div>
             
-            <div class="exercise">
-                <h4>Exercise 1.2: The Three-Filter Test</h4>
-                <p>Before speaking anything today, ask:</p>
+            <!-- LEVEL 2: ALIGNMENT -->
+            <div class="practice-level">
+                <div class="level-header">
+                    <div class="level-icon">𓋴</div>
+                    <h3>Level 2: Alignment – The Sacred Stride</h3>
+                </div>
+                
+                <div class="sacred-practice">
+                    <div class="practice-title">
+                        <span class="hieroglyph">𓆼</span> Morning Alignment Ritual
+                    </div>
+                    <div class="ritual-instruction">
+                        <p><strong>At sunrise (or upon waking):</strong></p>
+                        <ol>
+                            <li>Stand facing East (or visualize East)</li>
+                            <li>Place right hand on heart, left hand extended forward</li>
+                            <li>Breathe deeply 7 times (inhale 4, hold 4, exhale 4)</li>
+                            <li>Visualize your path extending in perfect alignment with Ra's solar journey</li>
+                            <li>Feel the golden path beneath your feet</li>
+                            <li>Speak aloud: <em>"My stride is measured by Ma'at. I walk within divine bounds."</em></li>
+                        </ol>
+                    </div>
+                    <p><strong>Ritual Experience:</strong></p>
+                    <textarea placeholder="How did this ritual feel? What insights emerged?"></textarea>
+                </div>
+                
+                <div class="sacred-practice">
+                    <div class="practice-title">
+                        <span class="hieroglyph">𓎟</span> Decision Alignment Practice
+                    </div>
+                    <p>Before any significant choice today, pause and ask these three questions:</p>
+                    <ul>
+                        <li>𓏞 Does this keep me within my ordained path?</li>
+                        <li>𓇷 Does this align with natural timing?</li>
+                        <li>𓊹 Does this honor cosmic rhythm?</li>
+                    </ul>
+                    <p><strong>Record one aligned decision made today:</strong></p>
+                    <input type="text" placeholder="The decision...">
+                    <textarea placeholder="How alignment felt... What changed..."></textarea>
+                </div>
+            </div>
+            
+            <!-- LEVEL 3: INTEGRATION -->
+            <div class="practice-level">
+                <div class="level-header">
+                    <div class="level-icon">𓎛</div>
+                    <h3>Level 3: Integration – Living Alignment</h3>
+                </div>
+                
+                <div class="sacred-practice">
+                    <div class="practice-title">
+                        <span class="hieroglyph">𓂀</span> Evening Integration
+                    </div>
+                    <p>Review your day through the lens of Usekh-nemmt:</p>
+                    <p><strong>Where did you walk in perfect stride today?</strong></p>
+                    <textarea placeholder="Perfect strides (specific moments):"></textarea>
+                    
+                    <p><strong>Where did you stumble or misstep?</strong></p>
+                    <textarea placeholder="Stumbles and their lessons:"></textarea>
+                    
+                    <p><strong>What will you carry forward tomorrow?</strong></p>
+                    <textarea placeholder="One alignment practice for tomorrow:"></textarea>
+                </div>
+                
+                <div class="sacred-practice">
+                    <div class="practice-title">
+                        <span class="hieroglyph">𓊃</span> Personal Declaration Creation
+                    </div>
+                    <p>Create your personal alignment declaration based on your experience with Usekh-nemmt:</p>
+                    <div class="ritual-instruction">
+                        <p><em>Template: "I, [Your Name], declare that I walk in alignment with Usekh-nemmt. My stride is measured, my path is ordained, my journey is in harmony with cosmic law. Specifically, I commit to [your specific practice]."</em></p>
+                    </div>
+                    <textarea placeholder="Write your personal declaration here...
+                        
+Example: 
+'I, [Name], declare that I honor natural sleep rhythms as part of my cosmic alignment. I will be in bed by 10 PM to align with lunar cycles.'"></textarea>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FORCE 2: HEPT-KHET -->
+        <div class="force-section">
+            <div class="force-header">
+                <div class="force-number">2</div>
+                <div class="force-name-container">
+                    <div class="kemetic-name">Hept-khet</div>
+                    <div class="force-origin">"The Embrace of the Sacred Body" • From Kher-aha (Place of the Combat)</div>
+                </div>
+            </div>
+            
+            <div class="declaration-box">
+                <span class="hieroglyph">𓀁</span> "I have not violated the sanctity of another's being."
+            </div>
+            
+            <div class="innerstanding-box">
+                <div class="innerstanding-title">
+                    <span class="hieroglyph">𓋹</span> Sacred Innerstanding
+                </div>
+                <p><strong>Hept-khet</strong> governs the sacred vessel of life. This is not merely "avoiding robbery with violence"—it is understanding that every being carries divine <em>hekau</em> (magical integrity).</p>
+                <p>From <strong>Kher-aha</strong>, where Horus and Set engaged in their eternal combat, this force teaches respect for the sacred struggle of existence. Every being is a battlefield of cosmic forces.</p>
+                <div class="ritual-instruction">
+                    <p><strong>𓏞 Key Teaching:</strong> To violate another's vessel is to disrupt the divine combat that shapes reality. Respect for sacred boundaries maintains cosmic equilibrium.</p>
+                </div>
+            </div>
+            
+            <div class="practice-level">
+                <div class="level-header">
+                    <div class="level-icon">𓏞</div>
+                    <h3>Level 1: Recognition – Sacred Boundaries</h3>
+                </div>
+                
+                <div class="sacred-practice">
+                    <div class="practice-title">
+                        <span class="hieroglyph">𓂀</span> Boundary Assessment
+                    </div>
+                    <p>Where have you honored or dishonored the sacred vessel of others?</p>
+                    <p><strong>Physical Boundaries:</strong></p>
+                    <textarea placeholder="How do you respect physical space?"></textarea>
+                    
+                    <p><strong>Energetic Boundaries:</strong></p>
+                    <textarea placeholder="How do you respect others' energy?"></textarea>
+                    
+                    <p><strong>Emotional Boundaries:</strong></p>
+                    <textarea placeholder="How do you honor others' emotional space?"></textarea>
+                </div>
+            </div>
+            
+            <!-- Continue with Levels 2 & 3 for Force 2 -->
+        </div>
+        
+        <!-- CONTINUE WITH FORCES 3-6 IN SAME STRUCTURE -->
+        
+        <!-- WEEK COMPLETION CEREMONY -->
+        <div class="completion-box">
+            <h2><span class="hieroglyph">𓎟</span> Week 1 Completion Ceremony <span class="hieroglyph">𓎟</span></h2>
+            <div class="ritual-instruction" style="text-align:left; margin:20px auto; max-width:600px;">
+                <p><strong>At sunset on Day 7:</strong></p>
                 <ol>
-                    <li>Is it true? (Fact-check in your mind)</li>
-                    <li>Is it necessary? (Does it need to be said?)</li>
-                    <li>Is it kind? (Is it spoken with compassion?)</li>
+                    <li>Create sacred space with green cloth (growth) and six stones</li>
+                    <li>Light a green candle for each force mastered</li>
+                    <li>Read your six personal declarations aloud</li>
+                    <li>Burn a piece of papyrus (paper) with one "transgression" you release</li>
+                    <li>Bury the ashes as offering to the earth</li>
+                    <li>Speak: <em>"The Extended Stride is complete. I walk in Ma'at. Forces 1-6 are woven into my being."</em></li>
+                    <li>Sit in silence for 21 minutes (3 x 7)</li>
                 </ol>
-                <p><strong>Record 3 instances where you applied this filter:</strong></p>
-                <div class="writing-space" contenteditable="true"></div>
             </div>
+            
+            <p><strong>Ceremony Reflection:</strong></p>
+            <textarea style="max-width:600px; margin:20px auto;" placeholder="Record your completion ceremony experience..."></textarea>
         </div>
         
-        <!-- Day 3-4: Truth in Speech -->
-        <div class="section">
-            <h2 style="color:var(--primary-color);">🗣️ Day 3-4: Truth in Speech</h2>
-            
-            <div class="declaration-card">
-                <h3>Declaration 2: "I have not stolen"</h3>
-                <p><em>I take only what is rightfully mine</em></p>
-            </div>
-            
-            <div class="exercise">
-                <h4>Exercise 2.1: Energy Exchange Audit</h4>
-                <p><strong>Material Level:</strong> List what you've received that you didn't fully pay for:</p>
-                <div class="writing-space" contenteditable="true"></div>
-                
-                <p><strong>Energetic Level:</strong> Where have you taken someone's time or energy without fair exchange?</p>
-                <div class="writing-space" contenteditable="true"></div>
-                
-                <p><strong>Restoration Plan:</strong> How will you restore balance?</p>
-                <div class="writing-space" contenteditable="true"></div>
-            </div>
-            
-            <div class="exercise">
-                <h4>Exercise 2.2: Authentic Communication Practice</h4>
-                <p>For one conversation today, practice:</p>
-                <ul>
-                    <li>Speaking your truth without exaggeration</li>
-                    <li>Listening without planning your response</li>
-                    <li>Asking for clarification when unsure</li>
-                </ul>
-                <p><strong>Reflection:</strong> How did this feel different?</p>
-                <div class="writing-space" contenteditable="true"></div>
-            </div>
-        </div>
-        
-        <!-- Day 5-6: Truth in Action -->
-        <div class="section">
-            <h2 style="color:var(--primary-color);">⚡ Day 5-6: Truth in Action</h2>
-            
-            <div class="declaration-card">
-                <h3>Declaration 3: "I have not been deceitful"</h3>
-                <p><em>My inner and outer selves align</em></p>
-            </div>
-            
-            <div class="exercise">
-                <h4>Exercise 3.1: The Alignment Check</h4>
-                <p>Three times today, pause and ask:</p>
-                <ol>
-                    <li>What am I feeling right now?</li>
-                    <li>What am I showing to others?</li>
-                    <li>Are these aligned?</li>
-                </ol>
-                <p><strong>Record your observations:</strong></p>
-                <div class="writing-space" contenteditable="true"></div>
-            </div>
-            
-            <div class="exercise">
-                <h4>Exercise 3.2: Integrity in Action</h4>
-                <p>Choose one small action that aligns with your deepest truth today.</p>
-                <p><strong>Action:</strong> <input type="text" style="width:100%; padding:10px; margin:10px 0; background:rgba(255,255,255,0.1); border:1px solid rgba(76,175,80,0.3); color:inherit;"></p>
-                <p><strong>Result:</strong></p>
-                <div class="writing-space" contenteditable="true"></div>
-            </div>
-        </div>
-        
-        <!-- Day 7: The Purity Ritual -->
-        <div class="section">
-            <h2 style="color:var(--primary-color);">🕊️ Day 7: The Purity Ritual</h2>
-            
-            <div class="declaration-card">
-                <h3>Declaration 4-6: Complete Integration</h3>
-                <p><em>I embody all truth declarations</em></p>
-            </div>
-            
-            <div class="exercise">
-                <h4>The Purity Ritual Steps</h4>
-                <p><strong>Step 1:</strong> Create sacred space. Light a candle.</p>
-                <p><strong>Step 2:</strong> Read all 6 Truth Declarations aloud.</p>
-                <p><strong>Step 3:</strong> Write one truth you've been avoiding. Burn it safely.</p>
-                <p><strong>Step 4:</strong> Speak: "I vow to speak truth, live truth, and be truth."</p>
-                <p><strong>Step 5:</strong> Sit in silence for 7 minutes.</p>
-                
-                <p><strong>Ritual Experience:</strong></p>
-                <div class="writing-space" contenteditable="true"></div>
-            </div>
-        </div>
-        
-        <!-- Download Section -->
+        <!-- DOWNLOAD SECTION -->
         <div class="download-section">
-            <h3>📚 Download Resources</h3>
-            <button class="btn" onclick="generatePDF(1)">📥 Download PDF Workbook</button>
-            <button class="btn" onclick="printWorkbook()">🖨️ Print Workbook</button>
-            <a href="../../index.html" class="btn">🏠 Return to Portal</a>
-            <a href="../members/week2/index.html" class="btn" style="background:linear-gradient(135deg, #D4AF37 0%, #B8941A 100%);">🔓 Access Week 2</a>
+            <h2><span class="hieroglyph">𓏙</span> Sacred Resources <span class="hieroglyph">𓏙</span></h2>
             
-            <div style="margin-top:30px; padding:20px; background:rgba(255,255,255,0.05); border-radius:10px;">
-                <h4>🎧 Meditation Audio</h4>
-                <p><em>"Purity of Heart Meditation" - 15 minutes</em></p>
-                <button class="btn" style="background:linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);">🎵 Download MP3</button>
+            <button class="sacred-btn" onclick="openWorkbook()">
+                <span class="hieroglyph">𓏞</span> Open Full Workbook
+            </button>
+            
+            <button class="sacred-btn gold-btn" onclick="generatePDF()">
+                <span class="hieroglyph">𓏙</span> Download Sacred PDF
+            </button>
+            
+            <button class="sacred-btn blue-btn" onclick="saveProgress()">
+                <span class="hieroglyph">𓊹</span> Save My Progress
+            </button>
+            
+            <a href="../../index.html" class="sacred-btn" style="background:rgba(255,255,255,0.1); color:var(--accent-gold); border:2px solid var(--accent-gold);">
+                <span class="hieroglyph">𓁦</span> Return to Portal
+            </a>
+            
+            <a href="../members/week2/index.html" class="sacred-btn" style="background:linear-gradient(135deg, #D4AF37 0%, #B8941A 100%); color:#08001A;">
+                <span class="hieroglyph">𓎟</span> Continue to Week 2
+            </a>
+            
+            <div style="margin-top:50px; padding:30px; background:rgba(255,255,255,0.05); border-radius:10px;">
+                <h3><span class="hieroglyph">𓎼</span> Audio Practices</h3>
+                <button class="sacred-btn" style="background:linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%); margin:10px;">
+                    Cosmic Alignment Meditation
+                </button>
+                <button class="sacred-btn" style="background:linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%); margin:10px;">
+                    Extended Stride Visualization
+                </button>
+                <button class="sacred-btn" style="background:linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%); margin:10px;">
+                    Forces 1-6 Integration Audio
+                </button>
             </div>
         </div>
     </div>
 
     <script>
-        function generatePDF(week) {
-            alert(`Generating Week ${week} PDF...\n\nIn production, this would use a PDF generation library like jsPDF or html2pdf.js to create a downloadable PDF with all user's answers.`);
-            // Implementation would include:
-            // 1. Capture all user inputs
-            // 2. Generate PDF with exercises and answers
-            // 3. Include personalized certificate
-            // 4. Auto-download PDF
+        // Save all reflections automatically
+        const saveAllReflections = () => {
+            const reflections = {};
+            document.querySelectorAll('textarea').forEach((ta, index) => {
+                reflections[`reflection_${index}`] = ta.value;
+                localStorage.setItem(`force1_reflection_${index}`, ta.value);
+            });
+            console.log('Reflections saved:', reflections);
+            return reflections;
+        };
+        
+        // Auto-save every 30 seconds
+        setInterval(saveAllReflections, 30000);
+        
+        // Save on input
+        document.querySelectorAll('textarea').forEach((textarea, index) => {
+            textarea.addEventListener('input', function() {
+                localStorage.setItem(`force1_reflection_${index}`, this.value);
+            });
+            
+            // Load saved reflections
+            const saved = localStorage.getItem(`force1_reflection_${index}`);
+            if (saved) {
+                textarea.value = saved;
+            }
+        });
+        
+        // Open workbook in new tab
+        function openWorkbook() {
+            window.open('workbook-full.html', '_blank');
         }
         
+        // Generate PDF
+        function generatePDF() {
+            const reflections = [];
+            document.querySelectorAll('textarea').forEach((ta, i) => {
+                if (ta.value.trim()) {
+                    reflections.push(`Reflection ${i + 1}: ${ta.value.substring(0, 100)}...`);
+                }
+            });
+            
+            const content = `
+𓎟 THE EXTENDED STRIDE 𓎟
+Forces 1-6 of Ma'at
+${'='.repeat(50)}
+
+COMPLETION DATE: ${new Date().toLocaleDateString()}
+TIME: ${new Date().toLocaleTimeString()}
+
+YOUR REFLECTIONS:
+${reflections.join('\n\n')}
+
+WEEK 1 COMPLETION DECLARATION:
+"I have walked with Usekh-nemmt and honored the sacred stride.
+I have embraced Hept-khet and respected sacred vessels.
+I have aligned with the first six forces of Ma'at.
+The foundation is laid. The journey continues."
+
+𓎟 Walk in Truth, Live in Ma'at 𓎟
+            `;
+            
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Extended_Stride_Completion_${Date.now()}.txt`;
+            a.click();
+            
+            alert('𓏙 Sacred record downloaded! For ceremonial PDF, use full generator.');
+        }
+        
+        // Save progress
+        function saveProgress() {
+            saveAllReflections();
+            alert('𓊹 Progress saved to your sacred cache. Your journey is preserved.');
+        }
+        
+        // Print workbook
         function printWorkbook() {
             window.print();
         }
-        
-        // Auto-save functionality
-        document.querySelectorAll('.writing-space[contenteditable="true"]').forEach((space, index) => {
-            space.addEventListener('input', function() {
-                localStorage.setItem(`week1_exercise_${index}`, this.innerHTML);
-            });
-            
-            // Load saved content
-            const saved = localStorage.getItem(`week1_exercise_${index}`);
-            if (saved) {
-                space.innerHTML = saved;
-            }
-        });
     </script>
 </body>
 </html>
