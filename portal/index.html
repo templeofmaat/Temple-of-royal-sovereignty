@@ -5,40 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Hall of Truth Portal - 42 Forces of Ma'at</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=Cardo:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Merriweather:wght@300;400;700&display=swap');
         
         :root {
-            --gold: #D4AF37;
-            --deep-blue: #0A1931;
-            --purple: #1A0F2D;
-            --sand: #E6D3A7;
-            --green: #4CAF50;
-            --dark-gold: #B8941A;
-            --accent: #8A2BE2;
+            --primary-dark: #0A0A0A;
+            --secondary-dark: #1A1A1A;
+            --tertiary-dark: #2A2A2A;
+            --light-text: #F5F5F5;
+            --muted-text: #AAAAAA;
+            --accent-gold: #C9A96E;
+            --accent-light: #D8C9A9;
+            --border-color: #333333;
         }
         
         body {
-            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--purple) 100%);
-            color: var(--sand);
-            font-family: 'Cardo', serif;
+            background-color: var(--primary-dark);
+            color: var(--muted-text);
+            font-family: 'Lato', sans-serif;
             margin: 0;
             padding: 20px;
             min-height: 100vh;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 80% 20%, rgba(76, 175, 80, 0.1) 0%, transparent 20%);
+            line-height: 1.6;
         }
         
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 40px;
-            background: rgba(26, 15, 45, 0.9);
-            border-radius: 25px;
-            border: 4px solid var(--gold);
-            box-shadow: 
-                0 25px 75px rgba(0, 0, 0, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            background: var(--secondary-dark);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -48,344 +45,294 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            font-size: 2.5em;
-            opacity: 0.15;
+            font-size: 1.8em;
+            opacity: 0.05;
             z-index: 0;
         }
         
         .header {
             text-align: center;
-            padding-bottom: 50px;
-            border-bottom: 3px solid rgba(212, 175, 55, 0.4);
-            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 50px;
             position: relative;
             z-index: 1;
         }
         
         h1 {
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-            font-size: 4em;
-            margin: 30px 0;
-            text-shadow: 
-                0 5px 20px rgba(212, 175, 55, 0.4),
-                0 0 30px rgba(138, 43, 226, 0.3);
-            letter-spacing: 3px;
+            color: var(--light-text);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin: 30px 0 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
         
         .hieroglyph-title {
-            font-size: 3em;
-            margin-bottom: 20px;
-            opacity: 0.8;
+            font-size: 2em;
+            margin-bottom: 15px;
+            opacity: 0.3;
         }
         
         .subtitle {
-            color: #A89160;
-            font-size: 1.6em;
-            margin: 25px 0 50px;
-            font-family: 'MedievalSharp', cursive;
+            color: var(--accent-light);
+            font-size: 1.4em;
+            margin: 20px 0 40px;
+            font-family: 'Merriweather', serif;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
+            font-weight: 300;
         }
         
         .course-stats {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 30px;
             margin: 40px 0;
             flex-wrap: wrap;
         }
         
         .stat-box {
-            background: rgba(212, 175, 55, 0.1);
-            padding: 20px 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            min-width: 180px;
+            background: var(--tertiary-dark);
+            padding: 20px 25px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            min-width: 160px;
             text-align: center;
         }
         
         .stat-number {
             display: block;
-            font-size: 2.8em;
-            color: var(--gold);
-            font-weight: bold;
-            font-family: 'Cinzel', serif;
+            font-size: 2.5em;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
         }
         
         .stat-label {
-            font-size: 0.9em;
-            color: #A89160;
+            font-size: 0.85em;
+            color: var(--muted-text);
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 300;
         }
         
         .weeks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
+            gap: 25px;
+            margin: 50px 0;
         }
         
         .week-card {
-            background: linear-gradient(145deg, rgba(30, 20, 50, 0.8), rgba(42, 27, 69, 0.9));
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: var(--tertiary-dark);
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-        
-        .week-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--green));
-            opacity: 0;
-            transition: opacity 0.3s;
         }
         
         .week-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--gold);
-            box-shadow: 
-                0 20px 40px rgba(212, 175, 55, 0.25),
-                0 0 60px rgba(138, 43, 226, 0.15);
-        }
-        
-        .week-card:hover::before {
-            opacity: 1;
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
         
         .week-card.free {
-            background: linear-gradient(145deg, rgba(26, 48, 33, 0.9), rgba(42, 69, 48, 0.95));
-            border-color: rgba(76, 175, 80, 0.4);
+            border-color: rgba(201, 169, 110, 0.3);
         }
         
         .week-card.free:hover {
-            border-color: var(--green);
-            box-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
+            border-color: var(--accent-gold);
         }
         
         .week-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .week-number {
-            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
-            color: var(--deep-blue);
-            width: 50px;
-            height: 50px;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 1.4em;
-            font-family: 'Cinzel', serif;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            font-weight: 600;
+            font-size: 1.2em;
+            font-family: 'Playfair Display', serif;
         }
         
         .week-card.free .week-number {
-            background: linear-gradient(135deg, var(--green), #2E7D32);
-            color: white;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
         }
         
         .force-count {
-            background: rgba(138, 43, 226, 0.2);
-            color: var(--sand);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            border: 1px solid rgba(138, 43, 226, 0.4);
+            background: rgba(201, 169, 110, 0.1);
+            color: var(--accent-light);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            border: 1px solid rgba(201, 169, 110, 0.2);
         }
         
         .week-card h3 {
-            color: #F5F5F5;
-            margin: 0 0 15px 0;
-            font-size: 1.8em;
-            font-family: 'Cinzel', serif;
-            min-height: 60px;
+            color: var(--light-text);
+            margin: 0 0 12px 0;
+            font-size: 1.6em;
+            font-family: 'Playfair Display', serif;
+            min-height: 55px;
             line-height: 1.3;
+            font-weight: 600;
         }
         
         .kemetic-name {
-            color: var(--gold);
+            color: var(--accent-gold);
             font-style: italic;
-            font-size: 1.1em;
-            margin-bottom: 15px;
-            font-family: 'MedievalSharp', cursive;
+            font-size: 1em;
+            margin-bottom: 12px;
+            font-family: 'Merriweather', serif;
             opacity: 0.9;
         }
         
         .week-theme {
-            color: #A89160;
-            font-size: 1.1em;
-            margin-bottom: 25px;
+            color: var(--muted-text);
+            font-size: 1em;
+            margin-bottom: 20px;
             line-height: 1.6;
-            min-height: 80px;
-            border-left: 3px solid var(--gold);
-            padding-left: 15px;
+            min-height: 70px;
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 12px;
         }
         
         .forces-preview {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-size: 0.9em;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-size: 0.85em;
+            border: 1px solid var(--border-color);
         }
         
         .force-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin: 8px 0;
-            color: #B8B8B8;
+            gap: 8px;
+            margin: 6px 0;
+            color: #CCCCCC;
         }
         
         .force-item::before {
-            content: "𓀭";
-            color: var(--gold);
-            font-size: 0.9em;
+            content: "•";
+            color: var(--accent-gold);
+            font-size: 1.2em;
         }
         
         .week-link {
             display: block;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
-            color: var(--deep-blue);
-            padding: 15px 30px;
+            background: transparent;
+            color: var(--accent-gold);
+            padding: 14px 25px;
             text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 1.2em;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1.1em;
             transition: all 0.3s ease;
             text-align: center;
-            border: none;
+            border: 1px solid var(--accent-gold);
             cursor: pointer;
-            font-family: 'Cinzel', serif;
+            font-family: 'Playfair Display', serif;
             letter-spacing: 1px;
-            margin-top: 25px;
+            margin-top: 20px;
             position: relative;
             overflow: hidden;
         }
         
-        .week-link::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.3) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            transform: rotate(30deg);
-            transition: all 0.6s;
-        }
-        
         .week-link:hover {
-            background: linear-gradient(135deg, #E6C158 0%, var(--gold) 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
-        }
-        
-        .week-link:hover::after {
-            left: 100%;
+            background: rgba(201, 169, 110, 0.1);
+            transform: translateY(-2px);
         }
         
         .week-link.free {
-            background: linear-gradient(135deg, var(--green) 0%, #2E7D32 100%);
-            color: white;
+            background: rgba(201, 169, 110, 0.1);
+            border-color: var(--accent-gold);
         }
         
         .week-link.free:hover {
-            background: linear-gradient(135deg, #5CBF60 0%, var(--green) 100%);
+            background: rgba(201, 169, 110, 0.2);
         }
         
         .portal-description {
             text-align: center;
-            padding: 50px;
-            background: rgba(30, 20, 50, 0.6);
-            border-radius: 20px;
-            margin: 60px 0;
+            padding: 40px;
+            background: var(--tertiary-dark);
+            border-radius: 8px;
+            margin: 50px 0;
             line-height: 1.8;
-            font-size: 1.2em;
-            border: 2px solid rgba(212, 175, 55, 0.2);
+            font-size: 1.1em;
+            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
         }
         
-        .portal-description::before {
-            content: "𓂀";
+        .portal-description::before,
+        .portal-description::after {
+            content: "";
             position: absolute;
+            width: 50px;
+            height: 1px;
+            background: var(--accent-gold);
+            opacity: 0.3;
+        }
+        
+        .portal-description::before {
             top: 20px;
             left: 20px;
-            font-size: 3em;
-            opacity: 0.1;
         }
         
         .portal-description::after {
-            content: "𓃩";
-            position: absolute;
             bottom: 20px;
             right: 20px;
-            font-size: 3em;
-            opacity: 0.1;
         }
         
         .maat-principle {
-            color: var(--gold);
-            font-size: 1.3em;
-            margin: 30px 0;
-            font-family: 'MedievalSharp', cursive;
+            color: var(--accent-gold);
+            font-size: 1.2em;
+            margin: 25px 0;
+            font-family: 'Merriweather', serif;
+            font-style: italic;
         }
         
         .footer {
             text-align: center;
-            margin-top: 80px;
-            padding-top: 40px;
-            border-top: 2px solid rgba(212, 175, 55, 0.3);
-            color: #888;
-            font-size: 1em;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: #777;
+            font-size: 0.95em;
             position: relative;
-        }
-        
-        .footer::before {
-            content: "𓁦";
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--deep-blue);
-            padding: 0 30px;
-            font-size: 2em;
         }
         
         .initiation-badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--accent), #4B0082);
+            background: transparent;
             padding: 15px 30px;
-            border-radius: 25px;
-            color: white;
-            font-weight: bold;
-            margin: 30px 0;
-            font-family: 'Cinzel', serif;
-            border: 2px solid var(--gold);
+            border-radius: 6px;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin: 25px 0;
+            font-family: 'Playfair Display', serif;
+            border: 1px solid var(--accent-gold);
+            letter-spacing: 1px;
         }
         
         @media (max-width: 768px) {
@@ -394,7 +341,7 @@
             }
             
             h1 {
-                font-size: 2.5em;
+                font-size: 2.2em;
             }
             
             .weeks-grid {
@@ -403,20 +350,20 @@
             }
             
             .course-stats {
-                gap: 15px;
+                gap: 10px;
             }
             
             .stat-box {
-                min-width: 140px;
+                min-width: 130px;
                 padding: 15px;
             }
             
             .stat-number {
-                font-size: 2.2em;
+                font-size: 2em;
             }
         }
         
-        /* Animated hieroglyph background */
+        /* Simplified animated background */
         .hieroglyph-bg {
             position: fixed;
             top: 0;
@@ -425,23 +372,23 @@
             bottom: 0;
             pointer-events: none;
             z-index: -1;
-            opacity: 0.03;
+            opacity: 0.02;
         }
         
         .glyph {
             position: absolute;
-            font-size: 2em;
-            animation: float 20s infinite linear;
+            font-size: 1.5em;
+            animation: float 30s infinite linear;
         }
         
         @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            100% { transform: translateY(-1000px) rotate(360deg); }
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
+    <!-- Simplified animated background -->
     <div class="hieroglyph-bg" id="hieroglyph-bg"></div>
     
     <div class="container">
@@ -630,26 +577,25 @@
         <div class="footer">
             <p>For guidance on your sacred journey: <strong>templeofmaat@proton.me</strong></p>
             <p>© The Hall of Truth • Walk in Balance, Speak in Truth, Live in Ma'at</p>
-            <p style="font-size:0.9em; margin-top:20px; color:#A89160;">
+            <p style="font-size:0.9em; margin-top:20px; color:var(--muted-text); font-style: italic;">
                 "To pass the 42 is to demonstrate that your life was a perfect microcosm of cosmic order."
             </p>
         </div>
     </div>
 
     <script>
-        // Create animated hieroglyph background
+        // Create simplified animated hieroglyph background
         const bg = document.getElementById('hieroglyph-bg');
-        const glyphs = ["𓀭", "𓁦", "𓃩", "𓆣", "𓂀", "𓃒", "𓅓", "𓇋", "𓎛", "𓍯"];
+        const glyphs = ["𓀭", "𓁦", "𓃩", "𓆣", "𓂀", "𓃒", "𓅓"];
         
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 25; i++) {
             const glyph = document.createElement('div');
             glyph.className = 'glyph';
             glyph.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
             glyph.style.left = Math.random() * 100 + '%';
-            glyph.style.top = Math.random() * 100 + '%';
-            glyph.style.fontSize = (Math.random() * 2 + 1.5) + 'em';
-            glyph.style.animationDelay = Math.random() * 20 + 's';
-            glyph.style.animationDuration = (Math.random() * 20 + 20) + 's';
+            glyph.style.fontSize = (Math.random() * 1 + 1) + 'em';
+            glyph.style.animationDuration = (Math.random() * 20 + 30) + 's';
+            glyph.style.opacity = Math.random() * 0.1 + 0.02;
             bg.appendChild(glyph);
         }
         
@@ -661,17 +607,6 @@
             
             card.addEventListener('mouseleave', function() {
                 this.style.zIndex = '1';
-            });
-        });
-        
-        // Add ceremonial sound on click (optional)
-        document.querySelectorAll('.week-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if(this.classList.contains('free')) {
-                    // Play subtle sound for free gateway
-                    const audio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAZGF0YQ');
-                    // In production, replace with actual ceremonial sound
-                }
             });
         });
     </script>
