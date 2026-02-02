@@ -3,250 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 2 Workbook: The Scales of Right Action</title>
+    <title>Sacred Workbook: The Sacred Flame - Forces 7-12</title>
     <style>
         :root {
             --primary-color: #D4AF37;
             --primary-dark: #B8941A;
             --primary-light: #F5E6B3;
+            --flame-red: #E74C3C;
+            --temple-purple: #8E44AD;
         }
         
         body {
-            background: linear-gradient(135deg, #0A1931 0%, #1E1432 100%);
+            background: linear-gradient(135deg, #0A1931 0%, #3D2D1A 100%);
             color: #E6D3A7;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
+            font-family: 'Palatino Linotype', 'Book Antiqua', serif;
         }
         
-        .workbook-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: rgba(30, 20, 50, 0.95);
-            padding: 40px;
-            border-radius: 20px;
-            border: 3px solid var(--primary-color);
+        .flame-decoration {
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, var(--flame-red), var(--primary-color), var(--flame-red), transparent);
+            margin: 20px 0;
         }
         
-        .scales {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 30px 0;
-            gap: 20px;
-        }
-        
-        .scale-pan {
-            width: 100px;
-            height: 100px;
-            background: rgba(212, 175, 55, 0.1);
-            border: 2px solid var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-        }
-        
-        .declaration {
-            background: rgba(212, 175, 55, 0.1);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
+        .force-section {
+            background: rgba(40, 30, 60, 0.9);
             border-left: 5px solid var(--primary-color);
+            border-right: 1px solid rgba(212, 175, 55, 0.3);
         }
         
-        .exercise {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 20px 0;
+        .declaration-box {
+            background: rgba(212, 175, 55, 0.15);
+            border: 2px solid rgba(212, 175, 55, 0.4);
         }
         
-        .exchange-tracker {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 20px 0;
+        .innerstanding-box {
+            background: rgba(142, 68, 173, 0.15);
+            border-left: 4px solid var(--temple-purple);
         }
         
-        .tracker-box {
-            background: rgba(212, 175, 55, 0.05);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .btn {
+        .sacred-btn {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: #08001A;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
-            margin: 10px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
+        }
+        
+        .sacred-btn:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
         }
     </style>
 </head>
 <body>
-    <div class="workbook-container">
-        <div style="text-align:center;">
-            <h1 style="color:var(--primary-color);">The Scales of Right Action</h1>
-            <p style="color:var(--primary-light);">Week 2: Justice-Wielder's Gateway</p>
-            <div class="scales">
-                <div class="scale-pan">GIVE</div>
-                <div style="width:100px; height:10px; background:var(--primary-color); border-radius:5px;"></div>
-                <div class="scale-pan">RECEIVE</div>
+    <div style="max-width:1000px; margin:0 auto; padding:40px; background:rgba(30,20,50,0.98); border-radius:20px; border:3px solid var(--primary-color);">
+        <div style="text-align:center; padding:40px 0;">
+            <h1 style="color:var(--primary-color); font-size:2.8em;">𓎟 The Sacred Flame 𓎟</h1>
+            <div style="color:var(--primary-light); font-size:1.3em; font-style:italic; margin:15px 0 30px; padding:15px 0; border-top:1px solid rgba(212,175,55,0.3); border-bottom:1px solid rgba(212,175,55,0.3);">
+                Sacred Workbook: Forces 7-12 of Ma'at
             </div>
+            <p><em>Truth, Trust & Creative Speech</em></p>
+            <div class="flame-decoration"></div>
         </div>
         
-        <!-- Day 1: Declaration 7 -->
-        <div class="declaration">
-            <h3 style="color:var(--primary-color);">⚖️ Declaration 7: "I have not caused pain"</h3>
-            <p><em>My actions create no unnecessary suffering</em></p>
-        </div>
-        
-        <div class="exercise">
-            <h4>Harm Inventory Exercise</h4>
-            <p><strong>Step 1:</strong> List actions that may have caused harm (conscious or unconscious):</p>
-            <textarea style="width:100%; height:100px; background:rgba(255,255,255,0.05); border:1px solid rgba(212,175,55,0.3); color:inherit; padding:10px; border-radius:5px;"></textarea>
-            
-            <p><strong>Step 2:</strong> For each, was this harm necessary?</p>
-            <textarea style="width:100%; height:80px; background:rgba(255,255,255,0.05); border:1px solid rgba(212,175,55,0.3); color:inherit; padding:10px; border-radius:5px;"></textarea>
-            
-            <p><strong>Step 3:</strong> Choose one instance to make amends for this week:</p>
-            <input type="text" style="width:100%; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(212,175,55,0.3); color:inherit; border-radius:5px;">
-        </div>
-        
-        <!-- Day 2: Declaration 8 -->
-        <div class="declaration">
-            <h3 style="color:var(--primary-color);">🎯 Declaration 8: "I have not committed injustice"</h3>
-            <p><em>I treat all with equal consideration</em></p>
-        </div>
-        
-        <div class="exercise">
-            <h4>Fairness Audit</h4>
-            <div class="exchange-tracker">
-                <div class="tracker-box">
-                    <h5>Personal Relationships</h5>
-                    <p>Where do you give more than you receive?</p>
-                    <textarea style="width:100%; height:60px;"></textarea>
+        <!-- FORCE 7: ARFI-EM-KHET -->
+        <div class="force-section" style="padding:35px; border-radius:15px; margin:40px 0;">
+            <div style="display:flex; align-items:center; gap:20px; margin-bottom:25px; padding-bottom:20px; border-bottom:2px solid rgba(212,175,55,0.3);">
+                <div style="background:var(--primary-color); color:#08001A; min-width:70px; height:70px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.8em; box-shadow:0 5px 20px rgba(212,175,55,0.4);">
+                    7
                 </div>
-                <div class="tracker-box">
-                    <h5>Work/Business</h5>
-                    <p>Are all exchanges fair?</p>
-                    <textarea style="width:100%; height:60px;"></textarea>
+                <div style="flex:1;">
+                    <div style="color:var(--primary-light); font-size:1.4em; font-weight:bold;">Arfi-em-khet</div>
+                    <div style="color:#F5E6B3; font-size:0.95em; font-style:italic;">"He Whose Eyes are Flames of Judgment" • From the Place of the Jackal</div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Exchange Balance Tracker -->
-        <div class="exercise">
-            <h4>📊 Weekly Exchange Tracker</h4>
-            <table style="width:100%; border-collapse:collapse; margin:20px 0;">
-                <thead>
-                    <tr style="background:rgba(212,175,55,0.1)">
-                        <th style="padding:10px; text-align:left;">Day</th>
-                        <th style="padding:10px; text-align:left;">What I Gave</th>
-                        <th style="padding:10px; text-align:left;">What I Received</th>
-                        <th style="padding:10px; text-align:left;">Balance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)">Monday</td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><input type="text" style="width:100%; background:transparent; border:none; color:inherit;"></td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><input type="text" style="width:100%; background:transparent; border:none; color:inherit;"></td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><select style="background:rgba(255,255,255,0.1); color:inherit; border:1px solid rgba(212,175,55,0.3);"><option>Balanced</option><option>Needs Work</option></select></td></tr>
-                    <tr><td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)">Tuesday</td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><input type="text" style="width:100%; background:transparent; border:none; color:inherit;"></td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><input type="text" style="width:100%; background:transparent; border:none; color:inherit;"></td>
-                        <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.1)"><select style="background:rgba(255,255,255,0.1); color:inherit; border:1px solid rgba(212,175,55,0.3);"><option>Balanced</option><option>Needs Work</option></select></td></tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <!-- Balance Ceremony -->
-        <div class="exercise" style="background:rgba(212,175,55,0.1); border:2px solid var(--primary-color);">
-            <h4>⚖️ Day 7: The Balance Ceremony</h4>
-            <p><strong>Step 1:</strong> Gather two equal objects (stones, candles)</p>
-            <p><strong>Step 2:</strong> Write "I release all imbalance" on paper, burn safely</p>
-            <p><strong>Step 3:</strong> Speak: "I invoke perfect balance in all exchanges"</p>
-            <p><strong>Step 4:</strong> Read Justice Declarations 7-12 aloud</p>
-            <p><strong>Step 5:</strong> Sit in meditation for 12 minutes</p>
             
-            <p><strong>Ceremony Reflection:</strong></p>
-            <textarea style="width:100%; height:100px; background:rgba(255,255,255,0.05); border:1px solid rgba(212,175,55,0.3); color:inherit; padding:10px; border-radius:5px;" placeholder="Record your experience..."></textarea>
-        </div>
-        
-        <!-- Download Section -->
-        <div style="text-align:center; padding:40px; margin:40px 0; background:rgba(212,175,55,0.1); border-radius:15px;">
-            <h3>📚 Download Week 2 Resources</h3>
-            <button class="btn" onclick="generatePDF(2)">📥 Download Complete PDF</button>
-            <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
-            <a href="workbook-printable.pdf" class="btn" download>📄 Printable Version</a>
-            <a href="../week3/index.html" class="btn">➡️ Continue to Week 3</a>
-            
-            <div style="margin-top:30px;">
-                <h4>🎧 Justice Meditations</h4>
-                <button class="btn" style="background:linear-gradient(135deg, #6C8CD5 0%, #4A6CC7 100%); color:white;">Balance Meditation (MP3)</button>
-                <button class="btn" style="background:linear-gradient(135deg, #6C8CD5 0%, #4A6CC7 100%); color:white;">Fair Exchange Visualization</button>
+            <div class="declaration-box" style="padding:25px; border-radius:10px; margin:25px 0;">
+                <span style="font-family:'Segoe UI Historic'; font-size:1.6em;">𓀂</span> "I have not violated the sacred trust of the temple, the property that is the god's body on earth."
             </div>
+            
+            <div class="innerstanding-box" style="padding:30px; border-radius:10px; margin:30px 0;">
+                <div style="color:var(--temple-purple); font-size:1.3em; margin-bottom:15px;">
+                    <span style="font-family:'Segoe UI Historic'; font-size:1.6em;">𓋹</span> Sacred Innerstanding
+                </div>
+                <p>Temple goods are not merely property—they are the god's physical <em>sekhem</em> (power) manifest on earth. <strong>Arfi-em-khet</strong> from the Jackal's domain (Anubis) guards the threshold between sacred and profane.</p>
+                <div style="background:rgba(231,76,60,0.1); padding:15px; border-radius:8px; margin:15px 0; border-left:3px solid var(--flame-red);">
+                    <p><strong>𓏞 Key Teaching:</strong> Every commitment is a temple. Every agreement is sacred property. Violation desecrates the divine presence in community.</p>
+                </div>
+            </div>
+            
+            <!-- Practice levels would continue similarly -->
         </div>
+        
+        <!-- Continue with Forces 8-12 -->
+        
     </div>
-
-    <script>
-        // PDF Generation for Week 2
-        function generatePDF(week) {
-            // Collect all data
-            const exercises = [];
-            document.querySelectorAll('textarea, input[type="text"], select').forEach(element => {
-                exercises.push({
-                    question: element.previousElementSibling?.textContent || 'Exercise',
-                    answer: element.value
-                });
-            });
-            
-            // Create PDF content
-            const pdfContent = `
-                Week ${week} Workbook: Justice-Wielder's Gateway
-                ==============================================
-                
-                Exercises Completed:
-                ${exercises.map(ex => `${ex.question}: ${ex.answer}`).join('\n\n')}
-                
-                Completion Certificate:
-                This certifies that you have completed the Justice-Wielder's Gateway
-                and mastered the 6 Declarations of Justice.
-                
-                Date: ${new Date().toLocaleDateString()}
-            `;
-            
-            // Create download
-            const blob = new Blob([pdfContent], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Week${week}_Justice_Workbook_${Date.now()}.txt`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            alert('📄 PDF generated! In production, this would create a formatted PDF with jsPDF library.');
-        }
-        
-        // Save progress
-        document.querySelectorAll('textarea, input[type="text"]').forEach((element, index) => {
-            element.addEventListener('input', function() {
-                localStorage.setItem(`week2_exercise_${index}`, this.value);
-            });
-            
-            const saved = localStorage.getItem(`week2_exercise_${index}`);
-            if (saved) element.value = saved;
-        });
-    </script>
 </body>
 </html>
