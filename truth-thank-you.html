@@ -1,160 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Initiation Confirmed | TORS</title>
+  <meta charset="UTF-8" />
+  <title>Enrollment Confirmed — Temple of Royal Sovereignty</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg: #0b0e11;
+      --panel: #11161c;
+      --gold: #d4af37;
+      --soft-gold: rgba(212,175,55,0.6);
+      --text: #e6e6e6;
+      --muted: #9aa0a6;
+      --border: rgba(212,175,55,0.25);
     }
-    
+
+    * { box-sizing: border-box; }
+
     body {
-      background: linear-gradient(135deg, #0A1931 0%, #1A1A2E 100%);
-      color: #E6D3A7;
-      font-family: 'Arial', sans-serif;
+      margin: 0;
       min-height: 100vh;
+      background: radial-gradient(circle at top, #141922, var(--bg));
+      font-family: system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11,14,17,0.85);
+      backdrop-filter: blur(6px);
+    }
+
+    header .brand {
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    header nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    header nav a:hover {
+      color: var(--gold);
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 40px 20px;
     }
-    
+
     .container {
-      max-width: 700px;
-      background: rgba(26, 15, 45, 0.95);
-      border: 2px solid #D4AF37;
-      border-radius: 15px;
-      padding: 50px;
+      max-width: 680px;
+      width: 100%;
+      background: linear-gradient(180deg, #131922, var(--panel));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 40px;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
     }
-    
-    .container::before {
-      content: '𓁦𓀽𓀠';
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 3rem;
-      opacity: 0.1;
-    }
-    
+
     h1 {
-      color: #D4AF37;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      font-family: 'Georgia', serif;
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 2.2rem;
     }
-    
-    .success-icon {
-      font-size: 4rem;
-      margin: 20px 0;
-      color: #D4AF37;
+
+    h2 {
+      margin-top: 28px;
+      font-size: 1.5rem;
     }
-    
-    .next-steps {
-      text-align: left;
-      background: rgba(212, 175, 55, 0.1);
-      padding: 25px;
-      border-radius: 10px;
-      margin: 30px 0;
-      border-left: 4px solid #D4AF37;
+
+    h3 {
+      margin-top: 32px;
+      color: var(--gold);
+      font-size: 1.2rem;
     }
-    
-    .next-steps h3 {
-      color: #F4D03F;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-    
-    .next-steps ol {
-      padding-left: 20px;
-    }
-    
-    .next-steps li {
-      margin: 10px 0;
+
+    p {
+      color: var(--muted);
       line-height: 1.6;
     }
-    
-    .contact {
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(212, 175, 55, 0.3);
+
+    .divider {
+      height: 1px;
+      margin: 32px 0;
+      background: linear-gradient(to right, transparent, var(--soft-gold), transparent);
     }
-    
-    .contact strong {
-      color: #D4AF37;
+
+    ol {
+      list-style: none;
+      padding: 0;
+      margin: 20px auto 0;
+      max-width: 420px;
+      text-align: left;
     }
-    
-    .signature {
-      margin-top: 30px;
-      font-style: italic;
-      color: #F4D03F;
-      font-size: 1.1rem;
+
+    ol li {
+      padding: 12px 0 12px 28px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-    
-    @media (max-width: 600px) {
-      .container {
-        padding: 30px 20px;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
+
+    ol li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      color: var(--gold);
+      font-size: 1.4rem;
+    }
+
+    .redirect {
+      margin-top: 28px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .redirect span {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: rgba(11,14,17,0.85);
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="success-icon">𓁦</div>
-    <h1>Your Throne Awaits</h1>
-    
-    <p style="font-size: 1.2rem; margin-bottom: 20px;">
-      Your enrollment in <strong>The Hall of Truth</strong> has been consecrated.
-    </p>
-    
-    <div class="next-steps">
-      <h3>What happens next:</h3>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="brand">Temple of Royal Sovereignty</div>
+    <nav>
+      <a href="/index.html">Temple</a>
+      <a href="/throne-room.html">Throne Room</a>
+      <a href="/portal.html">Portal</a>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <div class="container">
+      <h1>Your Throne Awaits</h1>
+      <p>Your enrollment in <strong>The Hall of Truth</strong> is confirmed.</p>
+
+      <div class="divider"></div>
+
+      <div id="student-info"></div>
+
+      <h3>What Happens Next</h3>
       <ol>
-        <li>You'll receive a welcome email within <strong>24 hours</strong> with portal access</li>
-        <li>Our next cohort begins on the <strong>New Moon</strong> - watch your email for the date</li>
-        <li>Prepare your sacred space - journal, quiet time, meditation area</li>
-        <li>Begin with Week 1 (free) if you haven't already</li>
-        <li>Join our community of sovereign beings</li>
+        <li>Welcome communication within 24 hours</li>
+        <li>Portal credentials delivered by email</li>
+        <li>Cohort activation on the New Moon</li>
+        <li>Prepare your space and focus</li>
       </ol>
+
+      <div class="redirect">
+        Redirecting you to the portal in
+        <span id="countdown">7</span> seconds…
+      </div>
     </div>
-    
-    <div class="contact">
-      <p>If you have questions, contact:<br>
-      <strong>templeofmaat@proton.me</strong></p>
-    </div>
-    
-    <div class="signature">
-      In Truth, Balance, and Eternal Order,<br>
-      <strong>Pharaoh Ma'at Ka Ra</strong>
-    </div>
-  </div>
-  
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © Temple of Royal Sovereignty ·
+    <a href="mailto:pharaoh@tors.life">pharaoh@tors.life</a>
+  </footer>
+
+  <!-- ===== SCRIPT ===== -->
   <script>
-    // Simple animation
-    document.addEventListener('DOMContentLoaded', function() {
-      const container = document.querySelector('.container');
-      container.style.opacity = '0';
-      container.style.transform = 'translateY(20px)';
-      
-      setTimeout(() => {
-        container.style.transition = 'all 0.8s ease';
-        container.style.opacity = '1';
-        container.style.transform = 'translateY(0)';
-      }, 300);
-      
-      // Optional: Track conversion (if you have analytics)
-      // console.log('Thank you page loaded - payment completed');
-    });
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name") || "Sovereign";
+    const email = params.get("email") || "your email";
+
+    document.getElementById("student-info").innerHTML = `
+      <h2>Welcome, ${name}</h2>
+      <p>Confirmation will be sent to <strong>${email}</strong></p>
+    `;
+
+    // Save locally
+    localStorage.setItem("latest_student", JSON.stringify({
+      name,
+      email,
+      timestamp: new Date().toISOString()
+    }));
+
+    // AUTO-REDIRECT
+    const portalURL = "/portal.html"; // CHANGE IF NEEDED
+    let seconds = 7;
+    const countdownEl = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      seconds--;
+      countdownEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = portalURL;
+      }
+    }, 1000);
   </script>
+
 </body>
 </html>
