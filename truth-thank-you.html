@@ -7,50 +7,54 @@
 
   <style>
     :root {
-      --bg: #0b0e11;
-      --panel: #11161c;
-      --gold: #d4af37;
-      --soft-gold: rgba(212,175,55,0.6);
-      --text: #e6e6e6;
-      --muted: #9aa0a6;
-      --border: rgba(212,175,55,0.25);
+      --bg: #000000;
+      --panel: #0a0a0a;
+      --gold: #c8a24a;
+      --soft-gold: rgba(200,162,74,0.45);
+      --text: #f2f2f2;
+      --muted: #b0b0b0;
+      --border: rgba(200,162,74,0.3);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(circle at top, #141922, var(--bg));
-      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
       color: var(--text);
+      font-family: inherit; /* inherit tors.life font */
       display: flex;
       flex-direction: column;
     }
 
     /* ===== HEADER ===== */
     header {
+      background: var(--bg);
       border-bottom: 1px solid var(--border);
       padding: 18px 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(11,14,17,0.85);
-      backdrop-filter: blur(6px);
     }
 
     header .brand {
-      font-size: 1.1rem;
-      letter-spacing: 1px;
       color: var(--gold);
-      font-weight: 600;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
     }
 
     header nav a {
-      margin-left: 24px;
+      margin-left: 28px;
       text-decoration: none;
-      color: var(--muted);
-      font-size: 0.9rem;
+      color: var(--text);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     header nav a:hover {
@@ -63,60 +67,76 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 20px;
+      padding: 48px 20px;
     }
 
     .container {
-      max-width: 680px;
       width: 100%;
-      background: linear-gradient(180deg, #131922, var(--panel));
+      max-width: 680px;
+      background: var(--panel);
       border: 1px solid var(--border);
-      border-radius: 16px;
       padding: 48px 40px;
       text-align: center;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+
+    h1, h2, h3 {
+      color: var(--gold);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0 0 16px;
     }
 
     h1 {
-      margin: 0 0 12px;
-      color: var(--gold);
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
 
     h2 {
-      margin-top: 28px;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
+      margin-top: 32px;
     }
 
     h3 {
-      margin-top: 32px;
-      color: var(--gold);
-      font-size: 1.2rem;
+      font-size: 1rem;
+      margin-top: 40px;
     }
 
     p {
+      color: var(--text);
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+      margin: 8px 0;
+    }
+
+    .muted {
       color: var(--muted);
-      line-height: 1.6;
     }
 
     .divider {
       height: 1px;
       margin: 32px 0;
-      background: linear-gradient(to right, transparent, var(--soft-gold), transparent);
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--soft-gold),
+        transparent
+      );
     }
 
     ol {
       list-style: none;
       padding: 0;
-      margin: 20px auto 0;
+      margin: 24px auto 0;
       max-width: 420px;
       text-align: left;
     }
 
     ol li {
-      padding: 12px 0 12px 28px;
+      padding: 12px 0 12px 26px;
       position: relative;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--text);
+      letter-spacing: 0.02em;
     }
 
     ol li::before {
@@ -125,40 +145,49 @@
       left: 0;
       top: 10px;
       color: var(--gold);
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
 
     .redirect {
-      margin-top: 28px;
-      font-size: 0.95rem;
+      margin-top: 32px;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--muted);
     }
 
     .redirect span {
       color: var(--gold);
-      font-weight: 600;
     }
 
     /* ===== FOOTER ===== */
     footer {
+      background: var(--bg);
       border-top: 1px solid var(--border);
       padding: 20px;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--muted);
-      background: rgba(11,14,17,0.85);
     }
 
     footer a {
       color: var(--gold);
       text-decoration: none;
     }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 36px 24px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- ===== HEADER ===== -->
+  <!-- HEADER -->
   <header>
     <div class="brand">Temple of Royal Sovereignty</div>
     <nav>
@@ -168,11 +197,11 @@
     </nav>
   </header>
 
-  <!-- ===== MAIN ===== -->
+  <!-- MAIN -->
   <main>
     <div class="container">
-      <h1>Your Throne Awaits</h1>
-      <p>Your enrollment in <strong>The Hall of Truth</strong> is confirmed.</p>
+      <h1>Enrollment Confirmed</h1>
+      <p class="muted">Your place within the Hall of Truth is secured.</p>
 
       <div class="divider"></div>
 
@@ -187,19 +216,18 @@
       </ol>
 
       <div class="redirect">
-        Redirecting you to the portal in
-        <span id="countdown">7</span> seconds…
+        Entering the Portal in <span id="countdown">7</span> seconds
       </div>
     </div>
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer>
     © Temple of Royal Sovereignty ·
     <a href="mailto:pharaoh@tors.life">pharaoh@tors.life</a>
   </footer>
 
-  <!-- ===== SCRIPT ===== -->
+  <!-- SCRIPT -->
   <script>
     const params = new URLSearchParams(window.location.search);
     const name = params.get("name") || "Sovereign";
@@ -207,24 +235,22 @@
 
     document.getElementById("student-info").innerHTML = `
       <h2>Welcome, ${name}</h2>
-      <p>Confirmation will be sent to <strong>${email}</strong></p>
+      <p class="muted">Confirmation will be sent to ${email}</p>
     `;
 
-    // Save locally
     localStorage.setItem("latest_student", JSON.stringify({
       name,
       email,
       timestamp: new Date().toISOString()
     }));
 
-    // AUTO-REDIRECT
-    const portalURL = "/portal.html"; // CHANGE IF NEEDED
+    const portalURL = "/portal.html";
     let seconds = 7;
-    const countdownEl = document.getElementById("countdown");
+    const countdown = document.getElementById("countdown");
 
     const timer = setInterval(() => {
       seconds--;
-      countdownEl.textContent = seconds;
+      countdown.textContent = seconds;
       if (seconds <= 0) {
         clearInterval(timer);
         window.location.href = portalURL;
