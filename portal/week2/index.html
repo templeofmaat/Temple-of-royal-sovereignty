@@ -3,272 +3,857 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 2: Justice-Wielder's Gateway - The Scales of Right Action</title>
+    <title>Week 2: The Sacred Flame - Forces 8-14 of Ma'at</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=Cardo:wght@400;700&display=swap');
+        
         :root {
-            --primary-color: #D4AF37;
-            --primary-dark: #B8941A;
-            --primary-light: #F5E6B3;
-            --accent-color: #4CAF50;
+            --sacred-gold: #D4AF37;
+            --flame-orange: #FF5722;
+            --deep-purple: #1E1432;
+            --dark-purple: #0A0A1E;
+            --sand: #E6D3A7;
+            --light-orange: #FFB74D;
         }
         
         body {
-            background: linear-gradient(135deg, #0A1931 0%, #1E1432 100%);
-            color: #E6D3A7;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--deep-purple) 100%);
+            color: var(--sand);
+            font-family: 'Cardo', serif;
             margin: 0;
             padding: 20px;
             min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 87, 34, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.1) 0%, transparent 20%);
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             background: rgba(30, 20, 50, 0.95);
-            padding: 40px;
-            border-radius: 20px;
-            border: 3px solid var(--primary-color);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
-        }
-        
-        .member-header {
-            text-align: center;
-            padding: 40px;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(26, 15, 45, 0.5) 100%);
-            border-radius: 15px;
-            margin-bottom: 40px;
-            border: 2px solid var(--primary-color);
-        }
-        
-        .member-badge {
-            display: inline-block;
-            background: var(--primary-color);
-            color: #08001A;
-            padding: 10px 25px;
+            padding: 50px;
             border-radius: 25px;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            border: 4px solid var(--sacred-gold);
+            box-shadow: 
+                0 25px 75px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: "𓀭 𓃩 𓆣 𓂀 𓎟";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5em;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .header {
+            text-align: center;
+            padding-bottom: 50px;
+            border-bottom: 3px solid rgba(212, 175, 55, 0.4);
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
         }
         
         h1 {
-            color: var(--primary-color);
-            font-size: 2.8em;
+            color: var(--flame-orange);
+            font-family: 'Cinzel', serif;
+            font-size: 3.5em;
+            margin: 30px 0;
+            text-shadow: 
+                0 5px 20px rgba(255, 87, 34, 0.4),
+                0 0 30px rgba(212, 175, 55, 0.3);
+            letter-spacing: 2px;
+        }
+        
+        .gateway-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--flame-orange), #E64A19);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: bold;
             margin: 20px 0;
-            text-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            border: 3px solid var(--sacred-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(255, 87, 34, 0.3);
         }
         
-        .scales-system {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-        
-        .scale-point {
-            background: rgba(40, 30, 60, 0.7);
+        .week-theme {
+            color: var(--light-orange);
+            font-size: 1.6em;
+            margin: 30px 0 50px;
+            font-family: 'MedievalSharp', cursive;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
             padding: 25px;
+            background: rgba(255, 87, 34, 0.1);
             border-radius: 15px;
-            text-align: center;
-            border: 2px solid var(--primary-color);
+            border: 2px solid rgba(255, 87, 34, 0.3);
         }
         
-        .scale-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-        
-        .declaration-grid {
+        .forces-overview {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
+            gap: 25px;
+            margin: 60px 0;
         }
         
-        .declaration-card {
-            background: rgba(40, 30, 60, 0.7);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid var(--primary-color);
+        .force-card {
+            background: linear-gradient(145deg, rgba(40, 30, 60, 0.9), rgba(50, 35, 75, 0.95));
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
         
-        .declaration-number {
-            background: var(--primary-color);
-            color: #08001A;
-            width: 35px;
-            height: 35px;
+        .force-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--flame-orange);
+            box-shadow: 0 15px 35px rgba(255, 87, 34, 0.2);
+        }
+        
+        .force-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--flame-orange), var(--sacred-gold));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .force-card:hover::before {
+            opacity: 1;
+        }
+        
+        .force-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .force-number {
+            background: linear-gradient(135deg, var(--flame-orange), #E64A19);
+            color: white;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 1.6em;
+            font-family: 'Cinzel', serif;
+            box-shadow: 0 5px 20px rgba(255, 87, 34, 0.4);
+            border: 2px solid var(--sacred-gold);
         }
         
-        .download-button {
-            display: block;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-            color: #08001A;
-            padding: 15px 25px;
+        .force-range {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--sacred-gold);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+        
+        .force-card h3 {
+            color: var(--flame-orange);
+            margin: 0 0 15px 0;
+            font-size: 1.8em;
+            font-family: 'Cinzel', serif;
+            min-height: 80px;
+            line-height: 1.3;
+        }
+        
+        .kemetic-name {
+            color: var(--sacred-gold);
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-family: 'MedievalSharp', cursive;
+            opacity: 0.9;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .force-declaration {
+            background: rgba(255, 87, 34, 0.15);
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            border-left: 4px solid var(--flame-orange);
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 50px;
+            margin: 70px 0;
+        }
+        
+        .main-content {
+            background: rgba(40, 30, 60, 0.9);
+            padding: 45px;
+            border-radius: 20px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .sidebar {
+            background: rgba(40, 30, 60, 0.9);
+            padding: 45px;
+            border-radius: 20px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        h3 {
+            color: var(--flame-orange);
+            margin-top: 0;
+            border-bottom: 3px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 2em;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--sacred-gold);
+            padding: 18px 40px;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-weight: bold;
-            text-align: center;
-            margin: 15px 0;
+            margin-top: 50px;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            width: 100%;
+            border: 3px solid var(--sacred-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.2em;
         }
         
-        .download-button:hover {
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        .back-link:hover {
+            background: rgba(212, 175, 55, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
         
-        .pillar-explanation {
-            background: rgba(212, 175, 55, 0.1);
+        .sunrise-ritual {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.25), rgba(255, 193, 7, 0.25));
+            padding: 35px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 3px solid rgba(255, 152, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sunrise-ritual::before {
+            content: '☀️';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 3em;
+            opacity: 0.3;
+        }
+        
+        .access-note {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(139, 195, 74, 0.2));
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 50px 0;
+            border: 3px dashed var(--sacred-gold);
+        }
+        
+        .progress-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 50px 0;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .progress-bar {
+            height: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--flame-orange), var(--sacred-gold));
+            width: 29%;
+            border-radius: 10px;
+            transition: width 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .day-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+            margin: 40px 0;
+        }
+        
+        .day-circle {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 87, 34, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 0 auto;
+            border: 2px solid rgba(255, 87, 34, 0.5);
+            transition: all 0.3s ease;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .day-circle.completed {
+            background: linear-gradient(135deg, var(--flame-orange), #E64A19);
+            color: white;
+            border-color: var(--sacred-gold);
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+        }
+        
+        .day-circle.active {
+            background: linear-gradient(135deg, var(--sacred-gold), #B8941A);
+            color: var(--deep-purple);
+            border-color: var(--flame-orange);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 87, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0); }
+        }
+        
+        .practice-list {
+            background: rgba(255, 255, 255, 0.07);
             padding: 30px;
             border-radius: 15px;
-            margin: 40px 0;
-            border: 2px dashed var(--primary-color);
+            margin: 30px 0;
+            border-left: 5px solid var(--flame-orange);
+        }
+        
+        .practice-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .practice-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+        
+        .practice-icon {
+            color: var(--flame-orange);
+            font-size: 1.5em;
+            min-width: 40px;
         }
         
         @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
             .container {
-                padding: 20px;
+                padding: 25px;
             }
             
             h1 {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
             
-            .declaration-grid, .scales-system {
+            .forces-overview {
                 grid-template-columns: 1fr;
+            }
+            
+            .day-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+            
+            .day-circle {
+                width: 50px;
+                height: 50px;
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="member-header">
-            <div class="member-badge">⚖️ WEEK 2 - JUSTICE WIELDER'S GATEWAY</div>
-            <h1>The Scales of Right Action</h1>
-            <div style="color: #F5E6B3; font-size: 1.4em; margin: 20px 0 40px;">
-                Master the 6 Declarations of Justice & Right Action
-            </div>
-            <p>Welcome to the second gateway, where you learn the art of balanced exchange and energetic justice.</p>
-        </div>
-        
-        <div class="pillar-explanation">
-            <h2>🎯 The Second Core Way of Life: Justice-Wielder</h2>
-            <p><strong>Ancient Declaration:</strong> "I have not caused pain. I have not committed injustice. I have not taken more than my share."</p>
-            <p><strong>Modern Embodiment:</strong> You become a living instrument of balance and fair exchange.</p>
-            <p><strong>Sovereign Initiation:</strong> The Scales of Right Action - mastering energetic equilibrium.</p>
-        </div>
-        
-        <h2>⚖️ The Justice System</h2>
-        <div class="scales-system">
-            <div class="scale-point">
-                <div class="scale-icon">💎</div>
-                <h3>Material Justice</h3>
-                <p>Fair exchange of resources</p>
+        <div class="header">
+            <div class="gateway-badge">𓂀 WEEK 2 - THE SACRED FLAME - FORCES 8-14 𓂀</div>
+            <h1>Creative Speech & Divine Trust</h1>
+            <div class="week-theme">
+                Mastery of truthful manifestation • Protecting the vulnerable • Being a source of peace
             </div>
             
-            <div class="scale-point">
-                <div class="scale-icon">💖</div>
-                <h3>Emotional Justice</h3>
-                <p>Balanced emotional exchange</p>
-            </div>
-            
-            <div class="scale-point">
-                <div class="scale-icon">⚡</div>
-                <h3>Energetic Justice</h3>
-                <p>Harmonious energy flow</p>
-            </div>
-            
-            <div class="scale-point">
-                <div class="scale-icon">🧠</div>
-                <h3>Mental Justice</h3>
-                <p>Fairness in thoughts and ideas</p>
+            <div class="sunrise-ritual">
+                <h3 style="color: #FF9800;">☀️ Week 2 Sunrise Practice</h3>
+                <p><strong>Each sunrise this week:</strong> Face East with a candle (real or visualized). Speak: "My words are flames of truth. My speech creates only harmony." Hold the flame while focusing on Force 8-14 for that day.</p>
             </div>
         </div>
         
-        <h2>⚡ The 6 Declarations of Justice</h2>
-        <div class="declaration-grid">
-            <div class="declaration-card">
-                <div class="declaration-number">7</div>
-                <h3>Declaration of Non-Harm</h3>
-                <div class="declaration-text">"I have not caused pain"<br>My actions create no unnecessary suffering</div>
-                <p><strong>Practice:</strong> Daily harm-prevention awareness</p>
+        <!-- 7 Forces Overview -->
+        <div class="forces-overview">
+            <!-- Force 8 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">8</div>
+                    <div class="force-range">Force 8</div>
+                </div>
+                <h3>Neba</h3>
+                <div class="kemetic-name">"The Consuming Flame of Truth" Who Moves Between Worlds</div>
+                <div class="force-declaration">
+                    "I have not given false heka (creative speech) to shape reality with lies."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Truthful creative speech</p>
             </div>
             
-            <div class="declaration-card">
-                <div class="declaration-number">8</div>
-                <h3>Declaration of Fairness</h3>
-                <div class="declaration-text">"I have not committed injustice"<br>I treat all with equal consideration</div>
-                <p><strong>Practice:</strong> Daily fairness audit</p>
+            <!-- Force 9 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">9</div>
+                    <div class="force-range">Force 9</div>
+                </div>
+                <h3>Set-qesu</h3>
+                <div class="kemetic-name">"The Breaker of Corrupt Foundations" from the Seat of Royal Power</div>
+                <div class="force-declaration">
+                    "I have not taken the nourishment of the weak, collapsing their foundation."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Protecting vulnerable foundations</p>
             </div>
             
-            <div class="declaration-card">
-                <div class="declaration-number">9</div>
-                <h3>Declaration of Right Measure</h3>
-                <div class="declaration-text">"I have not taken more than my share"<br>I take only what supports balance</div>
-                <p><strong>Practice:</strong> Daily portion awareness</p>
+            <!-- Force 10 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">10</div>
+                    <div class="force-range">Force 10</div>
+                </div>
+                <h3>Utu-nesert</h3>
+                <div class="kemetic-name">"The Flame Which Ejects Corruption" from the Balance of Ptah's Essence</div>
+                <div class="force-declaration">
+                    "I have not been the source of isfet (chaos/pain) in the world."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Peace-making and harmony creation</p>
             </div>
             
-            <div class="declaration-card">
-                <div class="declaration-number">10</div>
-                <h3>Declaration of Restorative Action</h3>
-                <div class="declaration-text">"I have not left imbalance uncorrected"<br>I restore harmony where I find discord</div>
-                <p><strong>Practice:</strong> Daily restoration practice</p>
+            <!-- Force 11 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">11</div>
+                    <div class="force-range">Force 11</div>
+                </div>
+                <h3>Qerrti</h3>
+                <div class="kemetic-name">"The Silent Watchers of the Threshold" from the West</div>
+                <div class="force-declaration">
+                    "I have not mingled my seed or essence in a way that confuses lineages or sacred bonds."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Clear boundaries in relationships</p>
             </div>
             
-            <div class="declaration-card">
-                <div class="declaration-number">11</div>
-                <h3>Declaration of Balanced Exchange</h3>
-                <div class="declaration-text">"I have not given or received unfairly"<br>All my exchanges are energetically balanced</div>
-                <p><strong>Practice:</strong> Daily exchange evaluation</p>
+            <!-- Force 12 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">12</div>
+                    <div class="force-range">Force 12</div>
+                </div>
+                <h3>Her-f-ha-f</h3>
+                <div class="kemetic-name">"He Who Sees What is Behind" from the Place of Reckoning</div>
+                <div class="force-declaration">
+                    "I have not caused the sacred waters (tears) of the heart to flow from grief I created."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Compassionate action that avoids causing pain</p>
             </div>
             
-            <div class="declaration-card">
-                <div class="declaration-number">12</div>
-                <h3>Declaration of Right Timing</h3>
-                <div class="declaration-text">"I have not acted out of season"<br>My actions align with natural timing</div>
-                <p><strong>Practice:</strong> Daily timing awareness</p>
+            <!-- Force 13 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">13</div>
+                    <div class="force-range">Force 13</div>
+                </div>
+                <h3>Basti</h3>
+                <div class="kemetic-name">"The Devouring and Nurturing Flame" from the House of Bast</div>
+                <div class="force-declaration">
+                    "I have not used the hidden claw while showing the calm face."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Authentic presentation</p>
+            </div>
+            
+            <!-- Force 14 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">14</div>
+                    <div class="force-range">Force 14</div>
+                </div>
+                <h3>Ta-retiu</h3>
+                <div class="kemetic-name">"The Pillars of Fire" from the Primeval Darkness</div>
+                <div class="force-declaration">
+                    "I have not crossed the boundary stone of divine law (thep)."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Honoring divine law</p>
             </div>
         </div>
         
-        <<div style="text-align: center; margin: 50px 0;">
-    <a href="workbook.html" class="download-button" target="_blank">📥 Open Interactive Workbook</a>
-    <a href="justice-workbook.pdf" class="download-button" download>📄 Download PDF Workbook</a>
-    <a href="#" class="download-button">🎧 Download Balance Meditations</a>
-    <a href="#" class="download-button">📚 Download Fair Exchange Guide</a>
-</div>
-        
-        <div class="pillar-explanation">
-            <h3>📅 Week 2 Journey Structure</h3>
-            <p><strong>Day 1-2:</strong> Internal Justice - Balancing your own energies</p>
-            <p><strong>Day 3-4:</strong> Relational Justice - Creating fair relationships</p>
-            <p><strong>Day 5-6:</strong> Systemic Justice - Working within larger systems</p>
-            <p><strong>Day 7:</strong> Justice Integration - The Balance Ceremony</p>
+        <!-- Progress Tracker -->
+        <div class="progress-container">
+            <h3 style="text-align: center;">𓆣 Your Journey Through the Sacred Flame 𓆣</h3>
+            
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <p style="text-align: center; font-size: 1.2em; color: var(--light-orange);">
+                Journey Progress: Week 2 of 7 • Forces 8-14 of 42
+            </p>
+            
+            <div class="day-grid">
+                <div class="day-circle completed">1</div>
+                <div class="day-circle active">2</div>
+                <div class="day-circle">3</div>
+                <div class="day-circle">4</div>
+                <div class="day-circle">5</div>
+                <div class="day-circle">6</div>
+                <div class="day-circle">7</div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 20px;">
+                <em>Complete each day's sunrise practice to activate the corresponding force</em>
+            </p>
         </div>
         
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="../../index.html" class="back-to-portal">← Return to Main Portal</a>
-            <div style="margin-top: 20px;">
-                <a href="../week1/index.html" style="color: #4CAF50; margin-right: 20px;">← Previous: Week 1</a>
-                <a href="../week3/index.html" style="color: #6C8CD5;">Next: Week 3 →</a>
+        <!-- Main Content -->
+        <div class="content-grid">
+            <div class="main-content">
+                <h3>𓂀 The Sacred Flame Teachings</h3>
+                <p>Welcome to the second gateway, where you learn to wield <strong>creative speech</strong> and <strong>sacred trust</strong> as forces of Ma'at. This week transforms your words from mere communication into divine <em>heka</em> (creative power).</p>
+                
+                <div class="sunrise-ritual">
+                    <h4 style="color: #FF9800;">☀️ Week 2 Core Sunrise Ritual</h4>
+                    <p><strong>Each sunrise, perform this sacred practice:</strong></p>
+                    <ol>
+                        <li>Light a candle at sunrise (or visualize flame)</li>
+                        <li>Face East, holding the candle at heart level</li>
+                        <li>Breathe deeply 8 times (for Force 8)</li>
+                        <li>Speak today's force declaration aloud</li>
+                        <li>Visualize your words as golden flames</li>
+                        <li>Carry a small flame symbol throughout the day</li>
+                    </ol>
+                </div>
+                
+                <h4>This Week's Sacred Focus:</h4>
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">🔥</div>
+                        <div>
+                            <strong>Truthful Creative Speech (Force 8):</strong> Your words create reality. Learn to speak only truth that builds harmony.
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🛡️</div>
+                        <div>
+                            <strong>Protecting Foundations (Force 9):</strong> Become a guardian of vulnerable structures in your community.
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">☮️</div>
+                        <div>
+                            <strong>Ejecting Corruption (Force 10):</strong> Learn to identify and remove sources of chaos without creating more.
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">⚖️</div>
+                        <div>
+                            <strong>Clear Sacred Bonds (Force 11):</strong> Honor relationship boundaries with divine clarity.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="access-note">
+                    <h4 style="color: var(--sacred-gold);">🔐 Gateway Activation</h4>
+                    <p>Your completion of <strong>Week 1: The Extended Stride</strong> has opened this gateway.</p>
+                    <p><em>Your Week 1 Weighing Ceremony results have been recorded in the cosmic scales.</em></p>
+                    <p style="margin-top: 20px; font-style: italic; color: var(--light-orange);">
+                        "The Sacred Flame burns away deception, revealing the pure gold of truth beneath."
+                    </p>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <h3>📜 Week 2 Resources</h3>
+                
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">🎬</div>
+                        <div>
+                            <strong>Video Teaching:</strong><br>
+                            "The Sacred Flame: Truthful Creative Power"
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">📓</div>
+                        <div>
+                            <strong>Sacred Workbook:</strong><br>
+                            "Forces 8-14 Integration Manual"
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🕯️</div>
+                        <div>
+                            <strong>Sunrise Meditation:</strong><br>
+                            "Flame Visualization Practice"
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">✍️</div>
+                        <div>
+                            <strong>Daily Practices:</strong><br>
+                            7 Specific Force Activations
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🎭</div>
+                        <div>
+                            <strong>Case Studies:</strong><br>
+                            Truth & Trust in Action
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>⏳ Sacred Time Commitment</h3>
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">☀️</div>
+                        <div>
+                            <strong>Sunrise Ritual:</strong><br>
+                            15 minutes daily
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">📝</div>
+                        <div>
+                            <strong>Daily Integration:</strong><br>
+                            20 minutes reflection
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🔥</div>
+                        <div>
+                            <strong>Weekly Weighing:</strong><br>
+                            45 minutes ceremony
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>🎯 Expected Transformations</h3>
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">✨</div>
+                        <div>Master truthful creative speech</div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🛡️</div>
+                        <div>Develop protective discernment</div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">⚖️</div>
+                        <div>Become a source of peace</div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🔮</div>
+                        <div>Wield words as sacred power</div>
+                    </div>
+                </div>
             </div>
         </div>
         
-        <div style="margin-top: 50px; padding: 20px; background: rgba(212, 175, 55, 0.1); border-radius: 10px; text-align: center;">
-            <p><strong>⚖️ Justice Mantra:</strong> "I give and receive in balance. I act with fairness. I restore harmony."</p>
-            <p><em>Repeat this daily during Week 2</em></p>
+        <!-- Navigation -->
+        <div style="text-align: center; margin-top: 70px; padding-top: 50px; border-top: 3px solid rgba(212, 175, 55, 0.3);">
+            <a href="../index.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
+            
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 40px;">
+                <a href="../week1/index.html" style="
+                    color: #4CAF50; 
+                    font-family: 'Cinzel', serif;
+                    font-size: 1.2em;
+                    text-decoration: none;
+                    padding: 15px 30px;
+                    border: 2px solid #4CAF50;
+                    border-radius: 10px;
+                    transition: all 0.3s ease;
+                ">
+                    ← Previous: The Extended Stride
+                </a>
+                <a href="../week3/index.html" style="
+                    color: var(--flame-orange); 
+                    font-family: 'Cinzel', serif;
+                    font-size: 1.2em;
+                    text-decoration: none;
+                    padding: 15px 30px;
+                    border: 2px solid var(--flame-orange);
+                    border-radius: 10px;
+                    transition: all 0.3s ease;
+                ">
+                    Next: The Veil & Voice →
+                </a>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 30px; background: rgba(255, 87, 34, 0.1); border-radius: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <p style="color: var(--light-orange); font-style: italic;">
+                    <strong>𓂀 Initiation Note:</strong> Complete all 7 sunrise practices and the Week 2 Weighing Ceremony to unlock Week 3. Your words become flames that either illuminate truth or consume with deception. Choose wisely.
+                </p>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Progress animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.querySelector('.progress');
+            setTimeout(() => {
+                progressBar.style.width = '29%';
+            }, 500);
+            
+            // Day circles interaction
+            const dayCircles = document.querySelectorAll('.day-circle');
+            let currentDay = 2; // Week 2, Day 2
+            
+            dayCircles.forEach((circle, index) => {
+                const dayNumber = parseInt(circle.textContent);
+                
+                if (dayNumber < currentDay) {
+                    circle.classList.add('completed');
+                } else if (dayNumber === currentDay) {
+                    circle.classList.add('active');
+                }
+                
+                circle.addEventListener('click', function() {
+                    if (dayNumber <= currentDay) {
+                        alert(`Accessing Day ${dayNumber} of The Sacred Flame practice.`);
+                    } else {
+                        alert(`Day ${dayNumber} unlocks after completing previous days. Focus on today's sunrise practice.`);
+                    }
+                });
+            });
+            
+            // Sunrise reminder
+            function checkForSunrise() {
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                
+                // Check if it's between 4 AM and 8 AM
+                if ((hours === 4 && minutes >= 30) || (hours > 4 && hours < 8)) {
+                    console.log('𓂀 Perfect time for Sacred Flame sunrise practice!');
+                    
+                    // Show subtle notification
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        background: linear-gradient(135deg, var(--flame-orange), var(--sacred-gold));
+                        color: white;
+                        padding: 15px 25px;
+                        border-radius: 10px;
+                        font-family: 'Cinzel', serif;
+                        z-index: 1000;
+                        border: 3px solid var(--sacred-gold);
+                        box-shadow: 0 10px 30px rgba(255, 87, 34, 0.4);
+                        animation: slideIn 0.5s ease;
+                    `;
+                    notification.innerHTML = '☀️ Time for Sunrise Practice: Force ' + currentDay;
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.style.animation = 'slideOut 0.5s ease';
+                        setTimeout(() => notification.remove(), 500);
+                    }, 5000);
+                }
+            }
+            
+            // Check on load and every 30 minutes
+            checkForSunrise();
+            setInterval(checkForSunrise, 1800000); // 30 minutes
+            
+            // Add CSS for animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Force cards hover enhancement
+            document.querySelectorAll('.force-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '10';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '1';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
