@@ -5,39 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 1: The Extended Stride - Forces 1-7 of Ma'at</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=Cardo:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Merriweather:wght@300;400;700&display=swap');
         
         :root {
-            --gold: #D4AF37;
-            --deep-blue: #0A1931;
-            --forest-green: #1A3021;
-            --sand: #E6D3A7;
-            --maat-green: #4CAF50;
-            --accent: #8A2BE2;
+            --primary-dark: #0A0A0A;
+            --secondary-dark: #1A1A1A;
+            --tertiary-dark: #2A2A2A;
+            --light-text: #F5F5F5;
+            --muted-text: #AAAAAA;
+            --accent-gold: #C9A96E;
+            --accent-light: #D8C9A9;
+            --border-color: #333333;
         }
         
         body {
-            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--forest-green) 100%);
-            color: var(--sand);
-            font-family: 'Cardo', serif;
+            background-color: var(--primary-dark);
+            color: var(--muted-text);
+            font-family: 'Lato', sans-serif;
             margin: 0;
             padding: 20px;
             min-height: 100vh;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(76, 175, 80, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 20%);
+            line-height: 1.6;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: rgba(26, 40, 33, 0.95);
-            padding: 50px;
-            border-radius: 25px;
-            border: 4px solid var(--maat-green);
-            box-shadow: 
-                0 25px 75px rgba(0, 0, 0, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            background: var(--secondary-dark);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -47,50 +45,48 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            font-size: 2.5em;
-            opacity: 0.1;
+            font-size: 1.8em;
+            opacity: 0.05;
             z-index: 0;
         }
         
         .header {
             text-align: center;
-            padding-bottom: 40px;
-            border-bottom: 3px solid rgba(76, 175, 80, 0.4);
-            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
             position: relative;
             z-index: 1;
         }
         
         h1 {
-            color: var(--maat-green);
-            font-family: 'Cinzel', serif;
-            font-size: 3.5em;
-            margin: 25px 0;
-            text-shadow: 
-                0 5px 20px rgba(76, 175, 80, 0.4),
-                0 0 30px rgba(76, 175, 80, 0.2);
-            letter-spacing: 2px;
+            color: var(--light-text);
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin: 20px 0;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
         
         .gateway-badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--maat-green), #2E7D32);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: bold;
+            background: transparent;
+            color: var(--accent-gold);
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 600;
             margin: 15px 0;
-            border: 2px solid var(--gold);
-            font-family: 'Cinzel', serif;
-            font-size: 1.1em;
+            border: 1px solid var(--accent-gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1em;
             letter-spacing: 1px;
         }
         
         .week-theme {
-            color: #A89160;
-            font-size: 1.4em;
-            margin: 25px 0 40px;
-            font-family: 'MedievalSharp', cursive;
+            color: var(--accent-light);
+            font-size: 1.2em;
+            margin: 20px 0 30px;
+            font-family: 'Merriweather', serif;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -101,14 +97,14 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin: 50px 0;
+            margin: 40px 0;
         }
         
         .force-card {
-            background: rgba(30, 45, 35, 0.8);
-            padding: 25px;
-            border-radius: 15px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: var(--tertiary-dark);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -116,87 +112,90 @@
         
         .force-card:hover {
             transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
         
         .force-number {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: rgba(76, 175, 80, 0.2);
-            color: var(--maat-green);
-            width: 40px;
-            height: 40px;
+            background: rgba(201, 169, 110, 0.1);
+            color: var(--accent-gold);
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9em;
         }
         
         .force-card h3 {
-            color: var(--maat-green);
-            margin: 0 0 15px 0;
-            font-size: 1.4em;
-            font-family: 'Cinzel', serif;
-            padding-right: 50px;
-            min-height: 60px;
+            color: var(--light-text);
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
+            font-family: 'Playfair Display', serif;
+            padding-right: 45px;
+            min-height: 50px;
+            font-weight: 600;
         }
         
         .kemetic-name {
-            color: var(--gold);
+            color: var(--accent-gold);
             font-style: italic;
-            font-size: 1em;
-            margin-bottom: 15px;
-            font-family: 'MedievalSharp', cursive;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            font-family: 'Merriweather', serif;
             opacity: 0.9;
         }
         
         .force-declaration {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 0.95em;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
             line-height: 1.6;
-            border-left: 3px solid var(--maat-green);
-            margin: 15px 0;
+            border-left: 2px solid var(--accent-gold);
+            margin: 12px 0;
         }
         
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin: 60px 0;
+            gap: 30px;
+            margin: 50px 0;
         }
         
         .module {
-            background: rgba(30, 45, 35, 0.8);
-            padding: 35px;
-            border-radius: 20px;
-            border: 2px solid rgba(76, 175, 80, 0.3);
+            background: var(--tertiary-dark);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
             position: relative;
         }
         
         .module h3 {
-            color: var(--maat-green);
+            color: var(--light-text);
             margin-top: 0;
-            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
-            padding-bottom: 20px;
-            font-family: 'Cinzel', serif;
-            font-size: 1.8em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            font-weight: 600;
         }
         
         .video-placeholder {
-            background: linear-gradient(135deg, #000, #1A3021);
-            height: 250px;
-            border-radius: 15px;
+            background: var(--secondary-dark);
+            height: 200px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 25px 0;
-            border: 3px solid var(--maat-green);
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
         }
@@ -204,129 +203,129 @@
         .video-placeholder::before {
             content: "𓂀";
             position: absolute;
-            font-size: 5em;
-            opacity: 0.1;
+            font-size: 3em;
+            opacity: 0.05;
         }
         
         .play-button {
-            width: 90px;
-            height: 90px;
-            background: rgba(76, 175, 80, 0.9);
+            width: 70px;
+            height: 70px;
+            background: rgba(201, 169, 110, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 2.5em;
+            color: var(--accent-gold);
+            font-size: 1.8em;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
             z-index: 2;
-            border: 3px solid var(--gold);
+            border: 1px solid var(--accent-gold);
         }
         
         .play-button:hover {
-            background: rgba(76, 175, 80, 1);
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(76, 175, 80, 0.5);
+            background: rgba(201, 169, 110, 0.3);
+            transform: scale(1.05);
         }
         
         .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--maat-green) 0%, #2E7D32 100%);
-            color: white;
-            padding: 15px 35px;
+            display: block;
+            background: transparent;
+            color: var(--accent-gold);
+            padding: 14px 30px;
             text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
+            border-radius: 6px;
+            font-weight: 600;
             margin-top: 20px;
             transition: all 0.3s ease;
-            font-family: 'Cinzel', serif;
-            font-size: 1.1em;
-            border: 2px solid var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1em;
+            border: 1px solid var(--accent-gold);
             text-align: center;
             width: 100%;
         }
         
         .download-btn:hover {
-            background: linear-gradient(135deg, #5CBF60 0%, var(--maat-green) 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+            background: rgba(201, 169, 110, 0.1);
+            transform: translateY(-2px);
         }
         
         .back-link {
             display: inline-block;
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--gold);
-            padding: 15px 35px;
+            background: transparent;
+            color: var(--accent-gold);
+            padding: 14px 30px;
             text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            margin-top: 50px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 40px;
             transition: all 0.3s ease;
-            border: 2px solid var(--gold);
-            font-family: 'Cinzel', serif;
-            font-size: 1.1em;
+            border: 1px solid var(--accent-gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1em;
         }
         
         .back-link:hover {
-            background: rgba(212, 175, 55, 0.2);
-            transform: translateY(-3px);
+            background: rgba(201, 169, 110, 0.1);
+            transform: translateY(-2px);
         }
         
         .daily-exercises {
-            margin: 60px 0;
-            padding: 40px;
-            background: rgba(30, 45, 35, 0.6);
-            border-radius: 20px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            margin: 50px 0;
+            padding: 30px;
+            background: var(--tertiary-dark);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
         
         .exercise-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 25px;
-            margin: 25px 0;
-            border-radius: 15px;
-            border-left: 5px solid var(--maat-green);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-gold);
             transition: all 0.3s ease;
         }
         
         .exercise-item:hover {
-            transform: translateX(10px);
-            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.05);
         }
         
         .exercise-item h4 {
-            color: var(--gold);
+            color: var(--light-text);
             margin-top: 0;
-            font-family: 'Cinzel', serif;
-            font-size: 1.4em;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+            font-weight: 600;
         }
         
         .ritual-card {
-            background: linear-gradient(135deg, rgba(26, 48, 33, 0.9), rgba(42, 69, 48, 0.95));
-            padding: 30px;
-            border-radius: 20px;
-            border: 3px solid var(--gold);
-            margin: 40px 0;
+            background: var(--tertiary-dark);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-gold);
+            margin: 30px 0;
             text-align: center;
         }
         
         .ritual-card h3 {
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-            font-size: 2em;
-            margin: 0 0 20px 0;
+            color: var(--accent-gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            margin: 0 0 15px 0;
+            font-weight: 600;
         }
         
         .progress-tracker {
             display: flex;
             justify-content: space-between;
-            margin: 50px 0;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-            border: 2px solid rgba(76, 175, 80, 0.3);
+            margin: 40px 0;
+            padding: 25px;
+            background: var(--tertiary-dark);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
         
         .progress-step {
@@ -338,10 +337,11 @@
         .progress-step::after {
             content: '→';
             position: absolute;
-            right: -20px;
-            top: 40px;
-            color: var(--maat-green);
-            font-size: 1.5em;
+            right: -15px;
+            top: 35px;
+            color: var(--accent-gold);
+            font-size: 1.2em;
+            opacity: 0.5;
         }
         
         .progress-step:last-child::after {
@@ -349,33 +349,33 @@
         }
         
         .step-number {
-            width: 60px;
-            height: 60px;
-            background: rgba(76, 175, 80, 0.2);
+            width: 50px;
+            height: 50px;
+            background: rgba(201, 169, 110, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
-            font-weight: bold;
-            font-size: 1.5em;
-            color: var(--maat-green);
-            border: 2px solid var(--maat-green);
-            font-family: 'Cinzel', serif;
+            margin: 0 auto 12px;
+            font-weight: 600;
+            font-size: 1.2em;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            font-family: 'Playfair Display', serif;
         }
         
         @media (max-width: 768px) {
             .content-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 25px;
             }
             
             .container {
-                padding: 25px;
+                padding: 20px;
             }
             
             h1 {
-                font-size: 2.2em;
+                font-size: 2em;
             }
             
             .forces-overview {
@@ -384,14 +384,14 @@
             
             .progress-tracker {
                 flex-direction: column;
-                gap: 30px;
+                gap: 25px;
             }
             
             .progress-step::after {
                 content: '↓';
                 right: 50%;
                 top: auto;
-                bottom: -35px;
+                bottom: -30px;
             }
         }
     </style>
@@ -528,13 +528,13 @@
                 <h3>📜 Sacred Workbook</h3>
                 <p><strong>"The Extended Stride: Forces 1-7 Integration Manual"</strong></p>
                 <p>Your complete guide to mastering the first 7 forces. Includes:</p>
-                <ul style="line-height: 2;">
-                    <li>𓀭 Daily Force Activation Rituals</li>
-                    <li>𓁦 Alignment Practice Templates</li>
-                    <li>𓃩 Weighing Journal Pages</li>
-                    <li>𓆣 Integration Ceremonies</li>
-                    <li>𓂀 Kemetic Term Glossary</li>
-                    <li>𓍛 Progress Tracking Charts</li>
+                <ul style="line-height: 2; margin-left: 0; padding-left: 20px;">
+                    <li>Daily Force Activation Rituals</li>
+                    <li>Alignment Practice Templates</li>
+                    <li>Weighing Journal Pages</li>
+                    <li>Integration Ceremonies</li>
+                    <li>Kemetic Term Glossary</li>
+                    <li>Progress Tracking Charts</li>
                 </ul>
                 <a href="#" class="download-btn">𓀭 Download Sacred Workbook (PDF)</a>
             </div>
@@ -542,7 +542,7 @@
         
         <!-- Daily Exercises -->
         <div class="daily-exercises">
-            <h3 style="color: var(--maat-green); font-family: 'Cinzel', serif; text-align: center; margin-bottom: 40px;">
+            <h3 style="color: var(--light-text); font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 30px; font-weight: 600;">
                 𓆣 7-Day Sacred Practice Journey 𓆣
             </h3>
             
@@ -571,16 +571,16 @@
             </div>
         </div>
         
-        <div style="text-align: center; margin: 50px 0;">
+        <div style="text-align: center; margin: 40px 0;">
             <a href="../index.html" class="back-link">𓃩 Return to Hall of Truth Portal 𓃩</a>
         </div>
         
         <!-- Completion Note -->
-        <div style="margin-top: 60px; padding: 30px; background: rgba(0,0,0,0.3); border-radius: 15px; text-align: center; border: 2px solid rgba(212, 175, 55, 0.3);">
-            <h3 style="color: var(--gold); font-family: 'Cinzel', serif;">𓂀 Initiation Note 𓂀</h3>
+        <div style="margin-top: 50px; padding: 25px; background: var(--tertiary-dark); border-radius: 8px; text-align: center; border: 1px solid var(--border-color);">
+            <h3 style="color: var(--accent-gold); font-family: 'Playfair Display', serif; font-weight: 600;">𓂀 Initiation Note 𓂀</h3>
             <p><strong>Complete all 7 daily practices and the Weekly Weighing Ceremony to unlock Week 2.</strong></p>
             <p>Your progress is recorded in the cosmic scales. When your heart is lighter than the feather in these 7 forces, the next gateway shall open.</p>
-            <p style="color: var(--maat-green); font-style: italic; margin-top: 15px;">
+            <p style="color: var(--accent-light); font-style: italic; margin-top: 15px;">
                 "To pass these first seven is to demonstrate that you walk within the ordained path of the gods."
             </p>
         </div>
@@ -611,11 +611,11 @@
             const playButton = document.querySelector('.play-button');
             playButton.addEventListener('click', function() {
                 this.innerHTML = '⏸';
-                this.style.backgroundColor = 'rgba(212, 175, 55, 0.9)';
+                this.style.backgroundColor = 'rgba(201, 169, 110, 0.3)';
                 // In production, this would trigger video playback
                 setTimeout(() => {
                     this.innerHTML = '▶';
-                    this.style.backgroundColor = 'rgba(76, 175, 80, 0.9)';
+                    this.style.backgroundColor = 'rgba(201, 169, 110, 0.2)';
                 }, 3000);
             });
             
