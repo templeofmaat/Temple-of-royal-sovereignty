@@ -1,250 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Enrollment Confirmed — Temple of Royal Sovereignty</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Enrollment Confirmed | tors.life</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     :root {
-      --bg: #3b245d;            /* royal purple field */
-      --panel: #4a2c73;         /* elevated purple */
-      --gold: #c9a24d;          /* warm muted gold */
-      --soft-gold: rgba(201,162,77,0.5);
-      --text: #f4f1f7;          /* soft ivory */
-      --muted: #d2c6e3;         /* light lavender */
-      --border: rgba(201,162,77,0.4);
+      --purple-deep: #1a0826;
+      --purple-mid: #240b36;
+      --purple-soft: #2f1145;
+      --gold: #d4b35f;
+      --gold-soft: rgba(212,179,95,0.35);
+      --text-main: #efe6ff;
+      --text-soft: #cbb8e6;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       min-height: 100vh;
-      background: var(--bg);
-      color: var(--text);
-      font-family: inherit; /* inherit tors.life font */
+      background: radial-gradient(circle at top, var(--purple-soft), var(--purple-deep));
+      font-family: "Georgia", "Times New Roman", serif;
+      color: var(--text-main);
       display: flex;
-      flex-direction: column;
-    }
-
-    /* ===== HEADER ===== */
-    header {
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      padding: 20px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header .brand {
-      color: var(--gold);
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-size: 0.95rem;
-    }
-
-    header nav a {
-      margin-left: 28px;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    header nav a:hover {
-      color: var(--gold);
-    }
-
-    /* ===== MAIN ===== */
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 56px 20px;
+      align-items: center;
+      padding: 48px 20px;
     }
 
     .container {
-      max-width: 700px;
+      max-width: 720px;
       width: 100%;
-      background: var(--panel);
-      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--purple-mid), var(--purple-deep));
+      border-radius: 18px;
       padding: 56px 44px;
-      text-align: center;
+      box-shadow: 0 40px 90px rgba(0,0,0,0.65);
+      position: relative;
     }
 
-    h1, h2, h3 {
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      border: 1px solid var(--gold-soft);
+      pointer-events: none;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      margin: 0 0 14px;
+    }
+
+    p.intro {
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: 34px;
+    }
+
+    .gold-rule {
+      width: 90px;
+      height: 2px;
+      margin: 0 auto 36px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0.85;
+    }
+
+    #student-info h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    #student-info p {
+      text-align: center;
+      color: var(--text-soft);
+      margin-bottom: 36px;
+    }
+
+    .next-steps {
+      border: 1px solid var(--gold-soft);
+      border-radius: 14px;
+      padding: 32px 28px;
+      background: rgba(0,0,0,0.15);
+    }
+
+    .next-steps h3 {
+      text-align: center;
       color: var(--gold);
       font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin: 0 0 18px;
-    }
-
-    h1 { font-size: 2.1rem; }
-    h2 { font-size: 1.3rem; margin-top: 36px; }
-    h3 { font-size: 1.05rem; margin-top: 42px; }
-
-    p {
-      line-height: 1.7;
-      letter-spacing: 0.02em;
-      margin: 10px 0;
-      color: var(--text);
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .divider {
-      height: 1px;
-      margin: 36px 0;
-      background: linear-gradient(
-        to right,
-        transparent,
-        var(--soft-gold),
-        transparent
-      );
+      letter-spacing: 0.08em;
+      margin-bottom: 22px;
     }
 
     ol {
-      list-style: none;
-      padding: 0;
-      margin: 26px auto 0;
       max-width: 440px;
-      text-align: left;
+      margin: 0 auto;
+      padding-left: 18px;
+      color: var(--text-soft);
+      line-height: 1.7;
     }
 
     ol li {
-      padding: 14px 0 14px 28px;
-      position: relative;
-      border-bottom: 1px solid rgba(255,255,255,0.18);
-      letter-spacing: 0.02em;
+      margin-bottom: 12px;
     }
 
-    ol li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 12px;
-      color: var(--gold);
-      font-size: 1.2rem;
-    }
-
-    .redirect {
-      margin-top: 36px;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .redirect span {
-      color: var(--gold);
-      font-weight: 600;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 22px;
+    .footer {
+      margin-top: 40px;
       text-align: center;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-size: 0.9rem;
+      color: var(--text-soft);
     }
 
-    footer a {
+    .footer a {
       color: var(--gold);
       text-decoration: none;
+      border-bottom: 1px solid var(--gold-soft);
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .footer a:hover {
+      border-bottom-color: var(--gold);
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 520px) {
       .container {
         padding: 40px 26px;
+      }
+      h1 {
+        font-size: 1.8rem;
       }
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
+    <h1>Enrollment Confirmed</h1>
+    <p class="intro">
+      Your entry has been received.  
+      The path you stepped onto now opens in sequence.
+    </p>
 
-  <!-- HEADER -->
-  <header>
-    <div class="brand">Temple of Royal Sovereignty</div>
-    <nav>
-      <a href="/index.html">Temple</a>
-      <a href="/throne-room.html">Throne Room</a>
-      <a href="/portal.html">Portal</a>
-    </nav>
-  </header>
+    <div class="gold-rule"></div>
 
-  <!-- MAIN -->
-  <main>
-    <div class="container">
-      <h1>Enrollment Confirmed</h1>
-      <p class="muted">Your place within the Hall of Truth is secured.</p>
+    <div id="student-info"></div>
 
-      <div class="divider"></div>
-
-      <div id="student-info"></div>
-
-      <h3>What Happens Next</h3>
+    <div class="next-steps">
+      <h3>NEXT TRANSMISSION</h3>
       <ol>
-        <li>Welcome communication within 24 hours</li>
-        <li>Portal credentials delivered by email</li>
-        <li>Cohort activation on the New Moon</li>
-        <li>Prepare your space and focus</li>
+        <li>A welcome message will arrive within 24 hours</li>
+        <li>Your private portal access will be delivered by email</li>
+        <li>The next activation begins on the New Moon</li>
+        <li>Prepare your space, your body, and your focus</li>
       </ol>
-
-      <div class="redirect">
-        Entering the Portal in <span id="countdown">7</span> seconds
-      </div>
     </div>
-  </main>
 
-  <!-- FOOTER -->
-  <footer>
-    © Temple of Royal Sovereignty ·
-    <a href="mailto:pharaoh@tors.life">pharaoh@tors.life</a>
-  </footer>
+    <div class="footer">
+      Support & correspondence:
+      <a href="mailto:templeofmaat@proton.me">templeofmaat@proton.me</a>
+    </div>
+  </div>
 
-  <!-- SCRIPT -->
   <script>
     const params = new URLSearchParams(window.location.search);
-    const name = params.get("name") || "Sovereign";
-    const email = params.get("email") || "your email";
+    const name = params.get('name') || 'Sovereign';
+    const email = params.get('email') || 'your email';
 
-    document.getElementById("student-info").innerHTML = `
+    document.getElementById('student-info').innerHTML = `
       <h2>Welcome, ${name}</h2>
-      <p class="muted">Confirmation will be sent to ${email}</p>
+      <p>Confirmation has been sent to <strong>${email}</strong></p>
     `;
 
-    const portalURL = "/portal.html";
-    let seconds = 7;
-    const countdown = document.getElementById("countdown");
+    const studentData = {
+      name,
+      email,
+      timestamp: new Date().toISOString()
+    };
 
-    const timer = setInterval(() => {
-      seconds--;
-      countdown.textContent = seconds;
-      if (seconds <= 0) {
-        clearInterval(timer);
-        window.location.href = portalURL;
-      }
-    }, 1000);
+    localStorage.setItem('latest_student', JSON.stringify(studentData));
   </script>
-
 </body>
 </html>
