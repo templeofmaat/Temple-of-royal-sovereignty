@@ -5,40 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 3: The Veil & The Voice - Forces 15-21 of Ma'at</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=Cardo:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Libre+Baskerville:wght@400;700&display=swap');
         
         :root {
-            --veil-purple: #6C8CD5;
-            --deep-purple: #1A1F3D;
-            --midnight: #0A1931;
-            --sand: #E6D3A7;
-            --silver: #C0C0C0;
-            --moonlight: #E6E6FA;
-            --sacred-gold: #D4AF37;
+            --royal-dark: #0B0A0A;
+            --temple-dark: #1A1818;
+            --sovereign-dark: #2A2525;
+            --light-text: #F0EDE9;
+            --muted-text: #B8B2A9;
+            --royal-gold: #B8952C;
+            --sacred-gold: #D4B15F;
+            --border-royal: #3A3530;
+            --accent-earth: #8C7C5A;
+            --veil-accent: #8B95B8;
+            --moonlight: #D8D3E0;
+            --silver-accent: #B8B5C1;
         }
         
         body {
-            background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-purple) 100%);
-            color: var(--sand);
-            font-family: 'Cardo', serif;
+            background-color: var(--royal-dark);
+            color: var(--muted-text);
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 20px;
             min-height: 100vh;
-            background-image: 
-                radial-gradient(circle at 15% 25%, rgba(108, 140, 213, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 85% 75%, rgba(192, 192, 192, 0.1) 0%, transparent 25%);
+            line-height: 1.7;
+            font-weight: 300;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: rgba(30, 35, 60, 0.95);
+            background: var(--temple-dark);
             padding: 50px;
-            border-radius: 25px;
-            border: 4px solid var(--veil-purple);
-            box-shadow: 
-                0 25px 75px rgba(0, 0, 0, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid var(--border-royal);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -46,75 +48,73 @@
         .container::before {
             content: "𓆣 𓀭 𓃩 𓂀 𓎟";
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2.5em;
-            opacity: 0.1;
+            top: 30px;
+            right: 30px;
+            font-size: 2em;
+            opacity: 0.03;
             z-index: 0;
         }
         
         .header {
             text-align: center;
-            padding-bottom: 50px;
-            border-bottom: 3px solid rgba(108, 140, 213, 0.4);
-            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-royal);
+            margin-bottom: 50px;
             position: relative;
             z-index: 1;
         }
         
         h1 {
-            color: var(--moonlight);
-            font-family: 'Cinzel', serif;
+            color: var(--light-text);
+            font-family: 'Cormorant Garamond', serif;
             font-size: 3.5em;
-            margin: 30px 0;
-            text-shadow: 
-                0 5px 20px rgba(108, 140, 213, 0.4),
-                0 0 30px rgba(230, 230, 250, 0.3);
-            letter-spacing: 2px;
+            margin: 30px 0 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         
         .gateway-badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--veil-purple), #4A5FA8);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            font-weight: bold;
+            background: rgba(139, 149, 184, 0.1);
+            color: var(--veil-accent);
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 500;
             margin: 20px 0;
-            border: 3px solid var(--silver);
-            font-family: 'Cinzel', serif;
-            font-size: 1.2em;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 25px rgba(108, 140, 213, 0.3);
+            border: 1px solid var(--veil-accent);
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.1em;
+            letter-spacing: 0.5px;
         }
         
         .week-theme {
-            color: var(--silver);
-            font-size: 1.6em;
-            margin: 30px 0 50px;
-            font-family: 'MedievalSharp', cursive;
+            color: var(--moonlight);
+            font-size: 1.3em;
+            margin: 25px 0 40px;
+            font-family: 'Libre Baskerville', serif;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.6;
+            line-height: 1.8;
+            font-weight: 400;
             padding: 25px;
-            background: rgba(108, 140, 213, 0.1);
-            border-radius: 15px;
-            border: 2px solid rgba(108, 140, 213, 0.3);
+            background: rgba(139, 149, 184, 0.08);
+            border-radius: 10px;
+            border: 1px solid rgba(139, 149, 184, 0.2);
         }
         
         .forces-overview {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            margin: 60px 0;
+            margin: 50px 0;
         }
         
         .force-card {
-            background: linear-gradient(145deg, rgba(40, 45, 80, 0.9), rgba(50, 55, 95, 0.95));
-            padding: 30px;
-            border-radius: 20px;
-            border: 2px solid rgba(192, 192, 192, 0.3);
+            background: var(--sovereign-dark);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid var(--border-royal);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -122,24 +122,8 @@
         
         .force-card:hover {
             transform: translateY(-8px);
-            border-color: var(--veil-purple);
-            box-shadow: 0 15px 35px rgba(108, 140, 213, 0.2);
-        }
-        
-        .force-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--veil-purple), var(--silver));
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .force-card:hover::before {
-            opacity: 1;
+            border-color: var(--veil-accent);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
         
         .force-header {
@@ -150,257 +134,245 @@
         }
         
         .force-number {
-            background: linear-gradient(135deg, var(--veil-purple), #4A5FA8);
-            color: white;
-            width: 60px;
-            height: 60px;
+            background: rgba(139, 149, 184, 0.15);
+            color: var(--veil-accent);
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 1.6em;
-            font-family: 'Cinzel', serif;
-            box-shadow: 0 5px 20px rgba(108, 140, 213, 0.4);
-            border: 2px solid var(--silver);
+            font-weight: 600;
+            font-size: 1.3em;
+            font-family: 'Cormorant Garamond', serif;
+            border: 1px solid var(--veil-accent);
         }
         
         .force-range {
-            background: rgba(192, 192, 192, 0.2);
-            color: var(--silver);
+            background: rgba(184, 149, 44, 0.1);
+            color: var(--royal-gold);
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9em;
-            border: 1px solid rgba(192, 192, 192, 0.4);
+            border: 1px solid rgba(184, 149, 44, 0.2);
         }
         
         .force-card h3 {
-            color: var(--moonlight);
+            color: var(--light-text);
             margin: 0 0 15px 0;
-            font-size: 1.8em;
-            font-family: 'Cinzel', serif;
-            min-height: 80px;
+            font-size: 1.4em;
+            font-family: 'Cormorant Garamond', serif;
+            min-height: 70px;
             line-height: 1.3;
+            font-weight: 600;
         }
         
         .kemetic-name {
-            color: var(--silver);
+            color: var(--sacred-gold);
             font-style: italic;
-            font-size: 1.2em;
+            font-size: 1.05em;
             margin-bottom: 20px;
-            font-family: 'MedievalSharp', cursive;
+            font-family: 'Libre Baskerville', serif;
             opacity: 0.9;
             padding-bottom: 15px;
-            border-bottom: 1px solid rgba(192, 192, 192, 0.3);
+            border-bottom: 1px solid rgba(184, 149, 44, 0.2);
         }
         
         .force-declaration {
-            background: rgba(108, 140, 213, 0.15);
-            padding: 20px;
-            border-radius: 12px;
-            font-size: 1.1em;
-            line-height: 1.6;
-            border-left: 4px solid var(--veil-purple);
+            background: rgba(139, 149, 184, 0.08);
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            line-height: 1.7;
+            border-left: 3px solid var(--veil-accent);
             margin: 20px 0;
-            font-style: italic;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
         }
         
         .content-grid {
             display: grid;
             grid-template-columns: 3fr 2fr;
-            gap: 50px;
-            margin: 70px 0;
+            gap: 35px;
+            margin: 60px 0;
         }
         
         .main-content {
-            background: rgba(40, 45, 80, 0.9);
-            padding: 45px;
-            border-radius: 20px;
-            border: 3px solid rgba(192, 192, 192, 0.3);
+            background: var(--sovereign-dark);
+            padding: 35px;
+            border-radius: 10px;
+            border: 1px solid var(--border-royal);
         }
         
         .sidebar {
-            background: rgba(40, 45, 80, 0.9);
-            padding: 45px;
-            border-radius: 20px;
-            border: 3px solid rgba(192, 192, 192, 0.3);
+            background: var(--sovereign-dark);
+            padding: 35px;
+            border-radius: 10px;
+            border: 1px solid var(--border-royal);
         }
         
         h3 {
-            color: var(--moonlight);
+            color: var(--light-text);
             margin-top: 0;
-            border-bottom: 3px solid rgba(192, 192, 192, 0.3);
+            border-bottom: 1px solid var(--border-royal);
             padding-bottom: 20px;
-            font-family: 'Cinzel', serif;
-            font-size: 2em;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7em;
+            font-weight: 600;
         }
         
         .back-link {
             display: inline-block;
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--sacred-gold);
-            padding: 18px 40px;
+            background: transparent;
+            color: var(--royal-gold);
+            padding: 16px 35px;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: bold;
+            border-radius: 8px;
+            font-weight: 500;
             margin-top: 50px;
             transition: all 0.3s ease;
-            border: 3px solid var(--sacred-gold);
-            font-family: 'Cinzel', serif;
-            font-size: 1.2em;
+            border: 1px solid var(--royal-gold);
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.1em;
         }
         
         .back-link:hover {
-            background: rgba(212, 175, 55, 0.25);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+            background: rgba(184, 149, 44, 0.1);
+            transform: translateY(-3px);
         }
         
         .sunrise-ritual {
-            background: linear-gradient(135deg, rgba(108, 140, 213, 0.25), rgba(230, 230, 250, 0.25));
-            padding: 35px;
-            border-radius: 20px;
-            margin: 40px 0;
-            border: 3px solid rgba(108, 140, 213, 0.5);
+            background: rgba(139, 149, 184, 0.08);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 35px 0;
+            border: 1px solid rgba(139, 149, 184, 0.2);
             position: relative;
             overflow: hidden;
         }
         
-        .sunrise-ritual::before {
-            content: '☀️';
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 3em;
-            opacity: 0.3;
-        }
-        
         .access-note {
-            background: linear-gradient(135deg, rgba(255, 87, 34, 0.2), rgba(255, 152, 0, 0.2));
-            padding: 35px;
-            border-radius: 20px;
+            background: rgba(184, 149, 44, 0.1);
+            padding: 30px;
+            border-radius: 10px;
             text-align: center;
-            margin: 50px 0;
-            border: 3px dashed var(--sacred-gold);
+            margin: 40px 0;
+            border: 1px dashed var(--royal-gold);
         }
         
         .progress-container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 50px 0;
-            border: 2px solid rgba(192, 192, 192, 0.3);
+            background: var(--sovereign-dark);
+            padding: 35px;
+            border-radius: 10px;
+            margin: 45px 0;
+            border: 1px solid var(--border-royal);
         }
         
         .progress-bar {
-            height: 20px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            margin: 30px 0;
+            height: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 9px;
+            margin: 25px 0;
             overflow: hidden;
             position: relative;
         }
         
         .progress {
             height: 100%;
-            background: linear-gradient(90deg, var(--veil-purple), var(--silver));
+            background: linear-gradient(90deg, var(--veil-accent), var(--royal-gold));
             width: 43%;
-            border-radius: 10px;
+            border-radius: 9px;
             transition: width 1s ease;
             position: relative;
             overflow: hidden;
         }
         
-        .progress::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(255, 255, 255, 0.2) 50%, 
-                transparent 100%);
-            animation: shimmer 2s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
         .day-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 15px;
-            margin: 40px 0;
+            gap: 12px;
+            margin: 35px 0;
         }
         
         .day-circle {
-            width: 60px;
-            height: 60px;
-            background: rgba(108, 140, 213, 0.2);
+            width: 55px;
+            height: 55px;
+            background: rgba(139, 149, 184, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 1.2em;
+            font-weight: 600;
+            font-size: 1.1em;
             margin: 0 auto;
-            border: 2px solid rgba(108, 140, 213, 0.5);
+            border: 1px solid rgba(139, 149, 184, 0.3);
             transition: all 0.3s ease;
-            font-family: 'Cinzel', serif;
+            font-family: 'Cormorant Garamond', serif;
         }
         
         .day-circle.completed {
-            background: linear-gradient(135deg, var(--veil-purple), #4A5FA8);
-            color: white;
-            border-color: var(--silver);
-            box-shadow: 0 5px 15px rgba(108, 140, 213, 0.4);
+            background: rgba(139, 149, 184, 0.25);
+            color: var(--light-text);
+            border-color: var(--veil-accent);
         }
         
         .day-circle.active {
-            background: linear-gradient(135deg, var(--silver), #A8A8A8);
-            color: var(--deep-purple);
-            border-color: var(--veil-purple);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(108, 140, 213, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(108, 140, 213, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(108, 140, 213, 0); }
+            background: rgba(184, 149, 44, 0.3);
+            color: var(--light-text);
+            border-color: var(--royal-gold);
         }
         
         .practice-list {
-            background: rgba(255, 255, 255, 0.07);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            border-left: 5px solid var(--veil-purple);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 3px solid var(--veil-accent);
         }
         
         .practice-item {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin: 20px 0;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
+            margin: 18px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
         
         .practice-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateX(5px);
         }
         
         .practice-icon {
-            color: var(--veil-purple);
-            font-size: 1.5em;
-            min-width: 40px;
+            color: var(--veil-accent);
+            font-size: 1.3em;
+            min-width: 35px;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .nav-button {
+            color: var(--royal-gold);
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.1em;
+            text-decoration: none;
+            padding: 14px 30px;
+            border: 1px solid var(--royal-gold);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            background: rgba(184, 149, 44, 0.1);
+            transform: translateY(-2px);
         }
         
         .elements-grid {
@@ -411,22 +383,22 @@
         }
         
         .element-card {
-            background: rgba(108, 140, 213, 0.15);
+            background: rgba(139, 149, 184, 0.08);
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 10px;
             text-align: center;
-            border: 2px solid rgba(108, 140, 213, 0.3);
+            border: 1px solid rgba(139, 149, 184, 0.2);
             transition: all 0.3s ease;
         }
         
         .element-card:hover {
             transform: translateY(-5px);
-            border-color: var(--silver);
-            box-shadow: 0 10px 25px rgba(108, 140, 213, 0.2);
+            border-color: var(--moonlight);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
         
         .element-icon {
-            font-size: 2.5em;
+            font-size: 2.2em;
             margin-bottom: 15px;
             color: var(--moonlight);
         }
@@ -462,6 +434,12 @@
             
             .elements-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
             }
         }
     </style>
@@ -584,12 +562,12 @@
         
         <!-- Progress Tracker -->
         <div class="progress-container">
-            <h3 style="text-align: center; color: var(--moonlight);">𓆣 Your Journey Through The Veil & Voice 𓆣</h3>
+            <h3 style="text-align: center; color: var(--light-text);">𓆣 Your Journey Through The Veil & Voice 𓆣</h3>
             
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
-            <p style="text-align: center; font-size: 1.2em; color: var(--silver);">
+            <p style="text-align: center; font-size: 1.1em; color: var(--moonlight);">
                 Journey Progress: Week 3 of 7 • Forces 15-21 of 42
             </p>
             
@@ -603,7 +581,7 @@
                 <div class="day-circle">7</div>
             </div>
             
-            <p style="text-align: center; margin-top: 20px;">
+            <p style="text-align: center; margin-top: 20px; color: var(--muted-text);">
                 <em>Complete each day's sunrise practice to activate the corresponding force</em>
             </p>
         </div>
@@ -683,10 +661,10 @@
                 </div>
                 
                 <div class="access-note">
-                    <h4 style="color: var(--sacred-gold);">🔐 Gateway Activation</h4>
+                    <h4 style="color: var(--royal-gold);">🔐 Gateway Activation</h4>
                     <p>Your completion of <strong>Week 2: The Sacred Flame</strong> has opened this gateway.</p>
                     <p><em>Your mastery of creative speech prepares you for its restraint.</em></p>
-                    <p style="margin-top: 20px; font-style: italic; color: var(--silver);">
+                    <p style="margin-top: 20px; font-style: italic; color: var(--moonlight);">
                         "The veil separates truth from deception. The voice carries truth across the separation."
                     </p>
                 </div>
@@ -722,13 +700,6 @@
                         <div>
                             <strong>Daily Practices:</strong><br>
                             7 Specific Force Activations
-                        </div>
-                    </div>
-                    <div class="practice-item">
-                        <div class="practice-icon">🎭</div>
-                        <div>
-                            <strong>Case Studies:</strong><br>
-                            Integrity & Restraint Examples
                         </div>
                     </div>
                 </div>
@@ -781,38 +752,20 @@
         </div>
         
         <!-- Navigation -->
-        <div style="text-align: center; margin-top: 70px; padding-top: 50px; border-top: 3px solid rgba(192, 192, 192, 0.3);">
+        <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border-royal);">
             <a href="../index.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
             
-            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 40px;">
-                <a href="../week2/index.html" style="
-                    color: #FF5722; 
-                    font-family: 'Cinzel', serif;
-                    font-size: 1.2em;
-                    text-decoration: none;
-                    padding: 15px 30px;
-                    border: 2px solid #FF5722;
-                    border-radius: 10px;
-                    transition: all 0.3s ease;
-                ">
+            <div class="nav-links">
+                <a href="../week2/index.html" class="nav-button">
                     ← Previous: The Sacred Flame
                 </a>
-                <a href="../week4/index.html" style="
-                    color: var(--veil-purple); 
-                    font-family: 'Cinzel', serif;
-                    font-size: 1.2em;
-                    text-decoration: none;
-                    padding: 15px 30px;
-                    border: 2px solid var(--veil-purple);
-                    border-radius: 10px;
-                    transition: all 0.3s ease;
-                ">
+                <a href="../week4/index.html" class="nav-button">
                     Next: The Solar Path →
                 </a>
             </div>
             
-            <div style="margin-top: 40px; padding: 30px; background: rgba(108, 140, 213, 0.1); border-radius: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <p style="color: var(--silver); font-style: italic;">
+            <div style="margin-top: 40px; padding: 25px; background: rgba(139, 149, 184, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(139, 149, 184, 0.2);">
+                <p style="color: var(--moonlight); font-style: italic; font-family: 'Libre Baskerville', serif;">
                     <strong>𓆣 Initiation Note:</strong> Complete all 7 sunrise practices and the Week 3 Weighing Ceremony to unlock Week 4. The veil reveals what should remain hidden. The voice speaks only what should be heard.
                 </p>
             </div>
@@ -849,63 +802,6 @@
                 });
             });
             
-            // Sunrise reminder
-            function checkForSunrise() {
-                const now = new Date();
-                const hours = now.getHours();
-                const minutes = now.getMinutes();
-                
-                // Check if it's between 4 AM and 8 AM
-                if ((hours === 4 && minutes >= 30) || (hours > 4 && hours < 8)) {
-                    console.log('𓆣 Perfect time for Veil & Voice sunrise practice!');
-                    
-                    // Show subtle notification
-                    if (!document.querySelector('.sunrise-notification')) {
-                        const notification = document.createElement('div');
-                        notification.className = 'sunrise-notification';
-                        notification.style.cssText = `
-                            position: fixed;
-                            bottom: 20px;
-                            right: 20px;
-                            background: linear-gradient(135deg, var(--veil-purple), var(--silver));
-                            color: white;
-                            padding: 15px 25px;
-                            border-radius: 10px;
-                            font-family: 'Cinzel', serif;
-                            z-index: 1000;
-                            border: 3px solid var(--silver);
-                            box-shadow: 0 10px 30px rgba(108, 140, 213, 0.4);
-                            animation: slideIn 0.5s ease;
-                        `;
-                        notification.innerHTML = '☀️ Time for Sunrise Practice: Force ' + (14 + currentDay);
-                        document.body.appendChild(notification);
-                        
-                        setTimeout(() => {
-                            notification.style.animation = 'slideOut 0.5s ease';
-                            setTimeout(() => notification.remove(), 500);
-                        }, 5000);
-                    }
-                }
-            }
-            
-            // Check on load and every 30 minutes
-            checkForSunrise();
-            setInterval(checkForSunrise, 1800000); // 30 minutes
-            
-            // Add CSS for animations
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideIn {
-                    from { transform: translateX(100%); opacity: 0; }
-                    to { transform: translateX(0); opacity: 1; }
-                }
-                @keyframes slideOut {
-                    from { transform: translateX(0); opacity: 1; }
-                    to { transform: translateX(100%); opacity: 0; }
-                }
-            `;
-            document.head.appendChild(style);
-            
             // Force cards hover enhancement
             document.querySelectorAll('.force-card').forEach(card => {
                 card.addEventListener('mouseenter', function() {
@@ -924,6 +820,58 @@
                     alert(`Exploring ${title}: This week's practice will deepen your understanding of this sacred element.`);
                 });
             });
+            
+            // Sunrise reminder
+            function checkForSunrise() {
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                
+                // Check if it's between 4 AM and 8 AM
+                if ((hours === 4 && minutes >= 30) || (hours > 4 && hours < 8)) {
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        background: rgba(139, 149, 184, 0.15);
+                        backdrop-filter: blur(10px);
+                        color: var(--moonlight);
+                        padding: 15px 25px;
+                        border-radius: 8px;
+                        font-family: 'Libre Baskerville', serif;
+                        z-index: 1000;
+                        border: 1px solid var(--veil-accent);
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                        animation: slideIn 0.5s ease;
+                    `;
+                    notification.innerHTML = '☀️ Time for Sunrise Practice: Force ' + (14 + currentDay);
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.style.animation = 'slideOut 0.5s ease';
+                        setTimeout(() => notification.remove(), 500);
+                    }, 5000);
+                }
+            }
+            
+            // Add CSS for animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Check on load and every 30 minutes
+            checkForSunrise();
+            setInterval(checkForSunrise, 1800000); // 30 minutes
         });
     </script>
 </body>
