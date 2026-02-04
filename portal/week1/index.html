@@ -8,12 +8,14 @@
         @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&family=system-ui,-apple-system,Segoe+UI,Roboto,Ubuntu,sans-serif&display=swap');
 
         :root {
-            --bg: #f8f6f1;              /* light parchment/neutral */
-            --text: #1a1a1a;
-            --muted: #4a4a4a;
-            --heading: #0d0d0d;
-            --accent-symbol: #3a3a3a;   /* subtle dark for hieroglyphs */
-            --link: #0066cc;
+            --bg: #0a0a0f;                  /* Deep cosmic dark background matching screenshot */
+            --text: #e0e0e0;                /* Light readable text */
+            --heading: #ffffff;             /* Bright for titles */
+            --gold-accent: #d4af37;         /* Gold for symbols, accents, numbers (common Kemetic gold) */
+            --gold-muted: #c9a96e;          /* Softer gold for hovers/subtle */
+            --muted: #a0a0a0;               /* Subdued text */
+            --link: #d4af37;                /* Gold links */
+            --divider: #333344;             /* Dark subtle divider */
         }
 
         body {
@@ -38,12 +40,13 @@
             color: var(--heading);
             margin: 0.4em 0;
             font-weight: 700;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); /* Subtle glow for mystical feel */
         }
 
         .title-symbol {
             font-size: 1.4em;
-            color: var(--accent-symbol);
-            opacity: 0.8;
+            color: var(--gold-accent);
+            opacity: 0.9;
         }
 
         nav a, .back-link {
@@ -54,14 +57,16 @@
         }
 
         nav a:hover, .back-link:hover {
+            color: var(--gold-muted);
             text-decoration: underline;
         }
 
-        .intro, .creed {
+        .intro {
             font-size: 1.15em;
             max-width: 760px;
             margin: 0 auto 40px;
             text-align: center;
+            color: var(--muted);
         }
 
         h2, h3, h4 {
@@ -70,16 +75,25 @@
             margin-top: 2.2em;
         }
 
+        h2 {
+            text-align: center;
+            border-bottom: 1px solid var(--divider);
+            padding-bottom: 10px;
+        }
+
         .force-item {
             margin: 2em 0;
-            padding-left: 1.2em;
-            border-left: 3px solid #d4af37; /* subtle gold line only */
+            padding: 20px;
+            border-left: 4px solid var(--gold-accent);
+            background: rgba(212, 175, 55, 0.03); /* Very faint gold tint for cards */
+            border-radius: 6px;
         }
 
         .force-number {
             font-weight: bold;
-            color: #d4af37;
+            color: var(--gold-accent);
             margin-right: 8px;
+            font-size: 1.4em;
         }
 
         .kemetic-name {
@@ -90,50 +104,50 @@
         .declaration {
             font-style: italic;
             margin: 0.8em 0;
-            color: #333;
-        }
-
-        ul {
-            padding-left: 1.8em;
-            margin: 1em 0;
-        }
-
-        .divider {
-            border: 0;
-            height: 1px;
-            background: #ccc;
-            margin: 50px 0;
+            color: #d0d0d0;
         }
 
         .ritual-box {
-            background: rgba(212, 175, 55, 0.06); /* very faint gold tint */
-            padding: 25px;
-            margin: 35px 0;
-            border-radius: 4px;
+            background: rgba(212, 175, 55, 0.08);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
             text-align: center;
+            border: 1px solid var(--gold-accent);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
         }
 
         .download-btn, .back-link {
             display: inline-block;
             padding: 12px 28px;
-            border: 1px solid #0066cc;
-            border-radius: 4px;
-            color: #0066cc;
+            border: 1px solid var(--gold-accent);
+            border-radius: 6px;
+            color: var(--gold-accent);
             font-weight: 600;
             text-decoration: none;
             margin: 20px 0;
+            transition: all 0.3s;
         }
 
         .download-btn:hover, .back-link:hover {
-            background: rgba(0, 102, 204, 0.08);
+            background: rgba(212, 175, 55, 0.15);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
 
         .symbol-cluster {
             text-align: center;
-            font-size: 2em;
-            opacity: 0.6;
+            font-size: 2.5em;
+            color: var(--gold-accent);
+            opacity: 0.7;
             margin: 30px 0;
-            letter-spacing: 8px;
+            letter-spacing: 12px;
+        }
+
+        .divider {
+            border: 0;
+            height: 1px;
+            background: var(--divider);
+            margin: 50px 0;
         }
 
         @media (max-width: 768px) {
@@ -147,19 +161,19 @@
     <header>
         <div class="symbol-cluster">𓂀 𓁦 𓃩</div>
         <h1><span class="title-symbol">𓂀</span> Week 1: The Extended Stride <span class="title-symbol">𓂀</span></h1>
-        <p class="intro">Forces 1-7 of Ma'at • Foundation of Cosmic Alignment</p>
+        <p class="intro">Forces 1-7 of Ma'at • Foundation of Cosmic Alignment • Walking the Royal Path</p>
         
         <nav>
             <a href="../index.html">Home</a> • 
-            <a href="#">School of Ma’at</a> • 
-            <a href="#">Return to Temple</a>
+            <a href="https://tors.life/maat.html">School of Ma’at</a> • 
+            <a href="https://tors.life">Return to Temple</a>
         </nav>
     </header>
 
     <div class="ritual-box">
         <h2>𓂀 The First Weighing 𓂀</h2>
         <p><em>"My heart is not heavier than the Feather of Ma'at in these first seven forces."</em></p>
-        <p>Complete the practices to align with divine order.</p>
+        <p>Complete the practices to align with divine order and royal sovereignty.</p>
     </div>
 
     <h2>Forces 1–7 Overview</h2>
@@ -178,7 +192,7 @@
         <p><strong>Practice:</strong> Boundary honoring meditation</p>
     </div>
 
-    <!-- Repeat similar block for Forces 3–7 -->
+    <!-- Add remaining forces 3-6 here in same .force-item pattern -->
 
     <div class="force-item">
         <h3><span class="force-number">7</span> Arfi-em-khet</h3>
@@ -190,21 +204,22 @@
     <hr class="divider">
 
     <h2>Teaching & Integration</h2>
+
     <h3>𓂀 Teaching Video</h3>
     <p>"The Extended Stride: Walking Within Divine Bounds" (52 min)</p>
-    <p>Align your daily walk with cosmic rhythms of Ma'at.</p>
+    <p>Align your daily walk with cosmic rhythms of Ma'at and the Royal way.</p>
 
     <h3>📜 Sacred Workbook</h3>
-    <p>Your guide to Forces 1-7. Includes rituals, templates, journal pages.</p>
+    <p>Your guide to Forces 1-7. Includes rituals, templates, journal pages, and glossary.</p>
     <a href="#" class="download-btn">Download Sacred Workbook (PDF)</a>
 
     <hr class="divider">
 
     <h2>7-Day Sacred Practice Journey</h2>
-    <!-- Add your day blocks here as simple <div> or <p> with <h4> -->
+    <!-- Insert your daily exercise blocks here, using similar <div class="force-item"> or simple <h4> + <p> styled with gold accents -->
 
     <div style="text-align: center; margin: 60px 0;">
-        <a href="../index.html" class="back-link">Return to Hall of Truth Portal</a>
+        <a href="../index.html" class="back-link">Return to Hall of Truth Portal 𓃩</a>
     </div>
 
     <div class="symbol-cluster">𓂀 𓆣 𓁦</div>
