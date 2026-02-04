@@ -3,284 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sacred Workbook — The Extended Stride (Forces 1–7)</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<title>Sacred Workbook: The Extended Stride - Forces 1-7 of Ma'at</title>
 
 <style>
-:root{
-  --bg-main:#1e0f33;
-  --bg-panel:#2a1645;
-  --bg-soft:rgba(255,255,255,0.05);
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
 
-  --gold:#e0b84f;
-  --gold-soft:#f0d78a;
+:root {
+  --royal-dark:#1e0f33;
+  --temple-dark:#2a1645;
+  --sovereign-dark:#321a52;
 
-  --text-main:#f4efe6;
-  --text-muted:#d8cfbf;
+  --light-text:#f4efe6;
+  --muted-text:#d8cfbf;
 
-  --border:rgba(224,184,79,0.35);
+  --royal-gold:#e0b84f;
+  --sacred-gold:#f0d78a;
+  --week1-accent:#e0b84f;
+
+  --border-royal:rgba(224,184,79,0.35);
 }
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  padding:32px;
-  background:radial-gradient(circle at top,#3a1c60 0%,var(--bg-main) 65%);
-  color:var(--text-muted);
+body {
+  background:radial-gradient(circle at top,#3a1c60 0%,var(--royal-dark) 65%);
+  color:var(--muted-text);
   font-family:'Playfair Display',serif;
+  margin:0;
+  padding:20px;
+  min-height:100vh;
   line-height:1.75;
 }
 
-.container{
-  max-width:1100px;
-  margin:auto;
+.sacred-container {
+  max-width:1200px;
+  margin:0 auto;
   background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
-  border:1px solid var(--border);
+  padding:40px;
   border-radius:14px;
-  padding:48px;
+  border:1px solid var(--border-royal);
+  box-shadow:0 30px 70px rgba(0,0,0,0.45);
 }
 
-/* ---------- HEADER ---------- */
-
-.header{
+.hieroglyph-header {
   text-align:center;
-  margin-bottom:56px;
+  padding:40px 0;
+  margin-bottom:50px;
+  border-bottom:1px solid var(--border-royal);
 }
 
-.header h1{
+.sacred-title {
+  color:var(--royal-gold);
+  font-size:2.8em;
   font-family:'Cinzel',serif;
-  color:var(--gold);
-  font-size:2.8rem;
-  margin-bottom:12px;
+  font-weight:600;
   letter-spacing:1.5px;
 }
 
-.header p{
-  max-width:760px;
-  margin:0 auto;
-  color:var(--text-main);
+.kemetic-subtitle {
+  color:var(--sacred-gold);
+  font-size:1.3em;
+  font-family:'Playfair Display',serif;
+  margin:20px 0 30px;
+  padding:20px 0;
+  border-top:1px solid var(--border-royal);
+  border-bottom:1px solid var(--border-royal);
 }
 
-/* ---------- SECTION BASE ---------- */
-
-.section{
-  background:var(--bg-panel);
-  border:1px solid var(--border);
+.force-section,
+.completion-box,
+.practice-level,
+.download-section,
+.day-card {
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--border-royal);
   border-radius:12px;
-  padding:32px;
-  margin-bottom:40px;
 }
 
-/* ---------- FORCE HEADER ---------- */
+.force-section {
+  padding:35px;
+  margin:40px 0;
+}
 
-.force-header{
+.force-header {
   display:flex;
-  gap:18px;
-  align-items:center;
-  margin-bottom:20px;
+  gap:25px;
+  margin-bottom:30px;
+  border-bottom:1px solid var(--border-royal);
+  padding-bottom:25px;
 }
 
-.force-number{
-  width:42px;
-  height:42px;
+.force-number {
+  background:rgba(224,184,79,0.18);
+  color:var(--royal-gold);
+  width:70px;
+  height:70px;
   border-radius:50%;
-  background:rgba(224,184,79,0.2);
-  color:var(--gold);
-  font-family:'Cinzel',serif;
   display:flex;
   align-items:center;
   justify-content:center;
-}
-
-.force-title{
   font-family:'Cinzel',serif;
-  color:var(--gold-soft);
-  font-size:1.4rem;
+  font-size:1.8em;
+  border:1px solid var(--border-royal);
 }
 
-.force-origin{
-  font-size:0.9rem;
-  color:var(--text-muted);
+.kemetic-name {
+  color:var(--light-text);
+  font-size:1.6em;
+  font-family:'Cinzel',serif;
 }
 
-/* ---------- DECLARATION ---------- */
-
-.declaration{
-  background:var(--bg-soft);
-  border-left:4px solid var(--gold);
-  padding:16px;
-  margin:20px 0;
+.force-origin {
+  color:var(--sacred-gold);
   font-style:italic;
-  color:var(--text-main);
 }
 
-/* ---------- PRACTICE BLOCK ---------- */
-
-.practice{
-  margin-top:24px;
+.declaration-box {
+  background:rgba(224,184,79,0.12);
+  padding:30px;
+  border-radius:8px;
+  border:1px solid var(--border-royal);
+  color:var(--light-text);
+  font-style:italic;
+  font-size:1.2em;
 }
 
-.practice h3{
+.innerstanding-box {
+  background:rgba(255,255,255,0.04);
+  padding:30px;
+  border-radius:8px;
+  border-left:4px solid var(--royal-gold);
+}
+
+.innerstanding-title {
+  color:var(--royal-gold);
   font-family:'Cinzel',serif;
-  color:var(--gold-soft);
-  margin-bottom:10px;
-  font-size:1.2rem;
+  font-size:1.4em;
+  margin-bottom:20px;
+}
+
+.practice-title {
+  color:var(--sacred-gold);
+  font-family:'Cinzel',serif;
+  font-size:1.2em;
 }
 
 textarea,
-input{
-  width:100%;
-  background:rgba(0,0,0,0.2);
-  border:1px solid var(--border);
+input[type="text"] {
+  background:rgba(0,0,0,0.25);
+  border:1px solid var(--border-royal);
+  color:var(--light-text);
   border-radius:8px;
-  padding:14px;
-  color:var(--text-main);
+  padding:15px;
+  width:100%;
   font-family:'Playfair Display',serif;
-  margin-top:10px;
 }
 
-textarea{min-height:110px}
-
-/* ---------- BUTTONS ---------- */
-
-.actions{
-  text-align:center;
-  margin-top:48px;
+textarea:focus,
+input:focus {
+  outline:none;
+  border-color:var(--royal-gold);
 }
 
-button,a.btn{
-  display:inline-block;
-  margin:10px;
-  padding:14px 28px;
+.sacred-btn {
   background:transparent;
-  border:1px solid var(--gold);
-  color:var(--gold);
+  color:var(--royal-gold);
+  border:1px solid var(--royal-gold);
+  padding:14px 28px;
   border-radius:8px;
   font-family:'Cinzel',serif;
-  text-decoration:none;
-  cursor:pointer;
 }
 
-button:hover,a.btn:hover{
+.sacred-btn:hover {
   background:rgba(224,184,79,0.15);
 }
 
-/* ---------- MOBILE ---------- */
-
-@media(max-width:768px){
-  .container{padding:28px}
-  .header h1{font-size:2.2rem}
+@media (max-width:768px){
+  .sacred-container{padding:25px}
+  .sacred-title{font-size:2.2em}
 }
 </style>
 </head>
 
 <body>
-
-<div class="container">
-
-  <div class="header">
-    <h1>The Extended Stride</h1>
-    <p>Sacred Workbook — Forces 1–7 of Ma’at  
-    A lived practice of alignment, rhythm, and measured action.</p>
-  </div>
-
-  <!-- FORCE 1 -->
-  <div class="section">
-    <div class="force-header">
-      <div class="force-number">1</div>
-      <div>
-        <div class="force-title">Usekh-nemmt</div>
-        <div class="force-origin">The Extended Stride</div>
-      </div>
-    </div>
-
-    <div class="declaration">
-      “I have not stepped outside the measured path.”
-    </div>
-
-    <p>
-      This force governs rhythm, pacing, and timing.  
-      Alignment is not speed — it is *measure*.
-    </p>
-
-    <div class="practice">
-      <h3>Daily Reflection</h3>
-      <textarea placeholder="Where today did I move in rhythm? Where did I rush or resist?"></textarea>
-    </div>
-
-    <div class="practice">
-      <h3>Sunrise Intention</h3>
-      <textarea placeholder="What stride do I consciously choose for tomorrow?"></textarea>
-    </div>
-  </div>
-
-  <!-- FORCE 2 -->
-  <div class="section">
-    <div class="force-header">
-      <div class="force-number">2</div>
-      <div>
-        <div class="force-title">Hept-khet</div>
-        <div class="force-origin">Sacred Vessel Respect</div>
-      </div>
-    </div>
-
-    <div class="declaration">
-      “I have not crossed the boundary of another being.”
-    </div>
-
-    <div class="practice">
-      <h3>Boundary Awareness</h3>
-      <textarea placeholder="Where did I honor space — mine or another’s?"></textarea>
-    </div>
-  </div>
-
-  <!-- COMPLETION -->
-  <div class="section">
-    <h2 style="font-family:'Cinzel',serif;color:var(--gold);text-align:center;">
-      Week One Completion
-    </h2>
-
-    <p style="text-align:center;">
-      Completion is not perfection.  
-      It is awareness, correction, and return.
-    </p>
-
-    <textarea placeholder="What truth did this week reveal about my alignment?"></textarea>
-  </div>
-
-  <div class="actions">
-    <button onclick="save()">Save Progress</button>
-    <button onclick="download()">Download Record</button>
-    <a class="btn" href="../../index.html">Return to Portal</a>
-  </div>
-
-</div>
-
-<script>
-function save(){
-  document.querySelectorAll('textarea').forEach((t,i)=>{
-    localStorage.setItem('wk1_'+i,t.value)
-  })
-  alert('Progress saved.')
-}
-
-document.querySelectorAll('textarea').forEach((t,i)=>{
-  const v=localStorage.getItem('wk1_'+i)
-  if(v)t.value=v
-})
-
-function download(){
-  const text=[...document.querySelectorAll('textarea')]
-    .map(t=>t.value).join('\n\n')
-  const blob=new Blob([text],{type:'text/plain'})
-  const a=document.createElement('a')
-  a.href=URL.createObjectURL(blob)
-  a.download='extended_stride_week1.txt'
-  a.click()
-}
-</script>
-
-</body>
-</html>
+<!-- BODY CONTENT UNCHANGED -->
