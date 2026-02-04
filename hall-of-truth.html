@@ -7,241 +7,328 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
 
-        :root {
-            --bg: #140025;                  /* Deep purple from tors.life */
-            --text: #f7eaff;                /* Soft lavender-white */
-            --heading: #FFD700;             /* Gold headings + accents */
-            --muted: #d4bfff;               /* Softer subtitle/muted */
-            --link: #8c78ff;                /* Purple links hover gold */
-            --box-bg: rgba(255, 255, 255, 0.06); /* Faint translucent boxes */
-            --border-gold: #FFD700;
-            --glow: rgba(255, 215, 0, 0.5);
-        }
-
-        body {
+        body.temple-page {
             background: linear-gradient(rgba(8, 0, 26, 0.92), rgba(20, 10, 40, 0.88)),
-                        var(--bg);  /* Add url('images/hall-of-truth-bg.jpg') center/cover no-repeat; if image hosted */
-            color: var(--text);
-            font-family: 'Georgia', serif;
+                        url('images/hall-of-truth-bg.jpg') center/cover no-repeat fixed;
+            background-color: #140025; /* fallback if image not present */
+            color: #f7eaff;
+            font-family: "Georgia", serif;
             margin: 0;
             padding: 40px 20px;
             line-height: 1.7;
             min-height: 100vh;
         }
 
+        h1, h2, h3, h4 {
+            color: #FFD700;
+            margin-top: 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        a {
+            color: #8c78ff;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #FFD700;
+        }
+
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 40px;
+            background: rgba(20, 0, 37, 0.65); /* semi-transparent dark purple overlay */
+            border-radius: 12px;
+            border: 1px solid #FFD700;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "𓁦 𓃩 𓆣 𓀭";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
+            opacity: 0.08;
+            color: #FFD700;
+            z-index: 0;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .hieroglyph-title {
-            font-size: 2.5em;
-            color: var(--heading);
-            opacity: 0.8;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px var(--glow);
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+            margin-bottom: 50px;
         }
 
         h1 {
-            color: var(--heading);
-            font-size: 3.2em;
-            margin: 0 0 15px;
-            text-shadow: 0 0 12px var(--glow);
+            font-size: 3.5em;
+            margin: 30px 0 20px;
+            font-weight: 700;
+        }
+
+        .hieroglyph-title {
+            font-size: 2em;
+            margin-bottom: 15px;
+            opacity: 0.6;
+            color: #FFD700;
         }
 
         .subtitle {
-            color: var(--muted);
+            color: #d4bfff;
             font-size: 1.4em;
-            max-width: 900px;
-            margin: 0 auto 40px;
+            margin: 20px 0 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            font-weight: 300;
         }
 
         .course-stats {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
+            gap: 30px;
             margin: 40px 0;
+            flex-wrap: wrap;
         }
 
         .stat-box {
-            background: var(--box-bg);
-            padding: 20px 30px;
-            border: 1px solid var(--border-gold);
-            border-radius: 10px;
-            min-width: 140px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid #FFD700;
+            border-radius: 12px;
+            padding: 20px 25px;
+            min-width: 160px;
             text-align: center;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
         }
 
         .stat-number {
-            color: var(--heading);
-            font-size: 2.4em;
+            display: block;
+            font-size: 2.5em;
+            color: #FFD700;
             font-weight: bold;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
         }
 
         .stat-label {
-            color: var(--muted);
-            font-size: 0.95em;
+            font-size: 0.85em;
+            color: #d4bfff;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .weeks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             margin: 50px 0;
         }
 
         .week-card {
-            background: var(--box-bg);
-            padding: 30px;
-            border: 1px solid var(--border-gold);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid #FFD700;
             border-radius: 12px;
+            padding: 25px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .week-card:hover {
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
             transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.25);
         }
 
         .week-card.free {
-            border-color: var(--heading);
-            background: rgba(255, 215, 0, 0.05);
+            border-color: #FFD700;
+            background: rgba(255, 215, 0, 0.08);
         }
 
         .week-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 20px;
         }
 
         .week-number {
-            background: var(--heading);
+            background: #FFD700;
             color: #140025;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.4em;
+            font-size: 1.2em;
         }
 
         .force-count {
-            color: var(--muted);
-            font-size: 0.95em;
+            background: rgba(255, 215, 0, 0.15);
+            color: #FFD700;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
-        h3 {
-            color: var(--heading);
-            font-size: 1.8em;
-            margin: 0 0 15px;
+        .week-card h3 {
+            color: #FFD700;
+            margin: 0 0 12px 0;
+            font-size: 1.6em;
+            min-height: 55px;
+            line-height: 1.3;
+            font-weight: 700;
+            text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
         }
 
         .kemetic-name {
-            color: var(--muted);
+            color: #FFD700;
             font-style: italic;
-            margin-bottom: 10px;
+            font-size: 1em;
+            margin-bottom: 12px;
+            opacity: 0.9;
         }
 
         .week-theme {
-            color: var(--text);
+            color: #f7eaff;
+            font-size: 1em;
             margin-bottom: 20px;
+            line-height: 1.6;
             min-height: 70px;
+            border-left: 3px solid #FFD700;
+            padding-left: 12px;
         }
 
         .forces-preview {
-            color: var(--muted);
-            margin-bottom: 20px;
+            background: rgba(255, 215, 0, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 0.85em;
+            border: 1px solid rgba(255, 215, 0, 0.2);
         }
 
         .force-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             margin: 6px 0;
+            color: #d4bfff;
+        }
+
+        .force-item::before {
+            content: "•";
+            color: #FFD700;
+            font-size: 1.2em;
         }
 
         .week-link {
             display: block;
-            background: rgba(51, 0, 102, 0.6);
-            color: var(--heading);
-            padding: 14px;
-            text-align: center;
-            border: 2px solid var(--border-gold);
-            border-radius: 8px;
+            background: #330066;
+            color: #FFD700;
+            padding: 14px 25px;
             text-decoration: none;
+            border-radius: 8px;
             font-weight: bold;
-            transition: all 0.3s;
+            font-size: 1.1em;
+            text-align: center;
+            border: 2px solid #FFD700;
+            transition: all 0.3s ease;
+            margin-top: 20px;
         }
 
         .week-link:hover {
-            background: rgba(76, 0, 153, 0.8);
-            box-shadow: 0 0 20px var(--glow);
+            background: #4c0099;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .week-link.free {
+            background: rgba(255, 215, 0, 0.15);
         }
 
         .portal-description {
-            background: var(--box-bg);
-            padding: 40px;
-            border: 1px solid var(--border-gold);
-            border-radius: 12px;
             text-align: center;
+            padding: 40px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid #FFD700;
+            border-radius: 12px;
             margin: 50px 0;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+            line-height: 1.8;
+            font-size: 1.1em;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
         }
 
         .maat-principle {
-            color: var(--heading);
-            font-size: 1.3em;
+            color: #FFD700;
+            font-size: 1.2em;
             margin: 25px 0;
             font-style: italic;
-        }
-
-        .initiation-badge {
-            display: inline-block;
-            color: var(--heading);
-            padding: 12px 30px;
-            border: 1px solid var(--border-gold);
-            border-radius: 8px;
-            margin: 30px 0;
-            font-weight: bold;
+            text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
         }
 
         .footer {
             text-align: center;
-            margin-top: 80px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
-            color: var(--muted);
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 215, 0, 0.25);
+            color: #d4bfff;
             font-size: 0.95em;
         }
 
-        .symbol-cluster {
-            text-align: center;
-            font-size: 3em;
-            color: var(--heading);
-            opacity: 0.7;
-            margin: 40px 0;
-            letter-spacing: 12px;
-            text-shadow: 0 0 10px var(--glow);
+        .initiation-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 15px 30px;
+            border-radius: 8px;
+            color: #FFD700;
+            font-weight: bold;
+            margin: 25px 0;
+            border: 1px solid #FFD700;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
-            body { padding: 25px 15px; }
-            h1 { font-size: 2.4em; }
+            .container { padding: 25px; }
+            h1 { font-size: 2.5em; }
             .weeks-grid { grid-template-columns: 1fr; }
-            .course-stats { flex-direction: column; }
+            .course-stats { gap: 15px; }
+            .stat-box { min-width: 120px; }
+        }
+
+        /* Animated hieroglyph background */
+        .hieroglyph-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.02;
+        }
+
+        .glyph {
+            position: absolute;
+            font-size: 1.5em;
+            animation: float 30s infinite linear;
+            color: #FFD700;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
         }
     </style>
 </head>
-<body>
+<body class="temple-page">
+
+    <!-- Animated hieroglyph background -->
+    <div class="hieroglyph-bg" id="hieroglyph-bg"></div>
 
     <div class="container">
         <div class="header">
@@ -271,18 +358,21 @@
 
         <div class="portal-description">
             <p>Welcome, Seeker of Truth. You stand before the Hall of Ma'at, where 42 cosmic forces await your alignment.</p>
+
             <div class="maat-principle">
                 "This is not a checklist of sins, but a map of the 42 threads that weave the garment of Ma'at."
             </div>
+
             <p>Each gateway represents an active force of cosmic order. To pass through is to demonstrate that your life is a perfect microcosm of divine law.</p>
-            <p><strong>Begin with The Extended Stride</strong> – your free initiation into Forces 1-7. Walk the path that the gods ordained.</p>
+            <p><strong>Begin with The Extended Stride</strong> – your free initiation into Force 1-7. Walk the path that the gods ordained.</p>
+
             <div class="initiation-badge">
                 𓂀 First Gateway: FREELY GIVEN 𓂀
             </div>
         </div>
 
         <div class="weeks-grid">
-            <!-- Week 1 FREE -->
+            <!-- Week 1: The Extended Stride (FREE) -->
             <div class="week-card free">
                 <div class="week-header">
                     <div class="week-number">1</div>
@@ -299,10 +389,10 @@
                     <div class="force-item">Force 3: True Energy Ownership</div>
                     <div class="force-item">Force 4: Divine Timing</div>
                 </div>
-                <a href="week1/index.html" class="week-link">𓁦 Access Free Gateway 𓁦</a>
+                <a href="week1/index.html" class="week-link free">𓁦 Access Free Gateway 𓁦</a>
             </div>
 
-            <!-- Weeks 2-7 (locked/preview style) -->
+            <!-- Week 2: The Sacred Flame -->
             <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">2</div>
@@ -311,25 +401,152 @@
                 <h3>The Sacred Flame</h3>
                 <div class="kemetic-name">Neba • Set-qesu • Utu-nesert • Qerrti • Her-f-ha-f • Basti • Ta-retiu</div>
                 <div class="week-theme">
-                    Mastery of creative speech and divine trust...
+                    Mastery of creative speech and divine trust. Learn truthful manifestation, protect the vulnerable, and be a source of peace.
                 </div>
-                <a href="#" class="week-link">Enter Gateway →</a>
+                <div class="forces-preview">
+                    <div class="force-item">Force 8: Truthful Creative Speech</div>
+                    <div class="force-item">Force 9: Protecting Foundations</div>
+                    <div class="force-item">Force 10: Ejecting Corruption</div>
+                    <div class="force-item">Force 11: Clear Lineages</div>
+                </div>
+                <a href="week2/index.html" class="week-link">Enter Gateway →</a>
             </div>
 
-            <!-- Repeat similar structure for weeks 3-7 as in your original -->
+            <!-- Week 3: The Veil & The Voice -->
+            <div class="week-card">
+                <div class="week-header">
+                    <div class="week-number">3</div>
+                    <div class="force-count">Forces 15-21</div>
+                </div>
+                <h3>The Veil & The Voice</h3>
+                <div class="kemetic-name">Unem-snef • Unem-besek • Neb-Ma'at • Tenemiu • Sertiu • Tutu • Uamenti</div>
+                <div class="week-theme">
+                    Integrity and sacred restraint. Walk straight paths, honor creation's work, and maintain personal purity.
+                </div>
+                <div class="forces-preview">
+                    <div class="force-item">Force 15: The Straight Path</div>
+                    <div class="force-item">Force 16: Honoring Creation</div>
+                    <div class="force-item">Force 17: Respecting Privacy</div>
+                    <div class="force-item">Force 18: Restrained Speech</div>
+                </div>
+                <a href="week3/index.html" class="week-link">Enter Gateway →</a>
+            </div>
 
+            <!-- Week 4: The Solar Path -->
+            <div class="week-card">
+                <div class="week-header">
+                    <div class="week-number">4</div>
+                    <div class="force-count">Forces 22-28</div>
+                </div>
+                <h3>The Solar Path</h3>
+                <div class="kemetic-name">Maa-antef • Khemi • Utu-nes • Khaui • Nekhen • Nekher • Ser-kheru</div>
+                <div class="week-theme">
+                    Righteous action and discernment. Learn measured wrath, authentic being, earth stewardship, and constructive speech.
+                </div>
+                <div class="forces-preview">
+                    <div class="force-item">Force 22: Non-Terrorizing</div>
+                    <div class="force-item">Force 23: Pattern Integrity</div>
+                    <div class="force-item">Force 24: Measured Wrath</div>
+                    <div class="force-item">Force 25: Authentic Being</div>
+                </div>
+                <a href="week4/index.html" class="week-link">Enter Gateway →</a>
+            </div>
+
+            <!-- Week 5: The Sacred Waters -->
+            <div class="week-card">
+                <div class="week-header">
+                    <div class="week-number">5</div>
+                    <div class="force-count">Forces 29-35</div>
+                </div>
+                <h3>The Sacred Waters</h3>
+                <div class="kemetic-name">Shei • Rekhi • Heru-khenti-khas • Sef-kha • Khenti-khas • An-hetep • Serti</div>
+                <div class="week-theme">
+                    Purity, flow, and community harmony. Master controlled force, patient judgment, concise truth, and peace-bringing.
+                </div>
+                <div class="forces-preview">
+                    <div class="force-item">Force 29: Controlled Force</div>
+                    <div class="force-item">Force 30: Community Harmony</div>
+                    <div class="force-item">Force 31: Patient Judgment</div>
+                    <div class="force-item">Force 32: Respecting Privacy</div>
+                </div>
+                <a href="week5/index.html" class="week-link">Enter Gateway →</a>
+            </div>
+
+            <!-- Week 6: The Eye of Judgment -->
+            <div class="week-card">
+                <div class="week-header">
+                    <div class="week-number">6</div>
+                    <div class="force-count">Forces 36-42</div>
+                </div>
+                <h3>The Eye of Judgment</h3>
+                <div class="kemetic-name">Neb-heru • Khenemti • Pa-heri • Serekhi • Ahi • Uatch-ner • Hetch-abhu</div>
+                <div class="week-theme">
+                    Final discernment and stewardship. Practice pure expression, recognize divinity, maintain flow, and sacred stewardship.
+                </div>
+                <div class="forces-preview">
+                    <div class="force-item">Force 36: Pure Expression</div>
+                    <div class="force-item">Force 37: Recognizing Divinity</div>
+                    <div class="force-item">Force 38: Divine Honor</div>
+                    <div class="force-item">Force 39: Authentic Reputation</div>
+                </div>
+                <a href="week6/index.html" class="week-link">Enter Gateway →</a>
+            </div>
+
+            <!-- Week 7: The Complete Garment -->
+            <div class="week-card">
+                <div class="week-header">
+                    <div class="week-number">7</div>
+                    <div class="force-count">Integration</div>
+                </div>
+                <h3>The Complete Garment</h3>
+                <div class="kemetic-name">Weaving All 42 Threads</div>
+                <div class="week-theme">
+                    Synthesis and divine embodiment. Weave all forces into your life garment, receive your true name, and become a living pillar of Ma'at.
+                </div>
+                <div class="forces-preview">
+                    <div class="force-item">Synthesis of All Forces</div>
+                    <div class="force-item">Personal Ma'at Code Creation</div>
+                    <div class="force-item">Initiation Ceremony</div>
+                    <div class="force-item">Living Embodiment</div>
+                </div>
+                <a href="week7/index.html" class="week-link">𓀭 Final Initiation 𓀭</a>
+            </div>
         </div>
 
         <div class="footer">
             <p>For guidance on your sacred journey: <strong>templeofmaat@proton.me</strong></p>
             <p>© The Hall of Truth • Walk in Balance, Speak in Truth, Live in Ma'at</p>
-            <p style="font-size:0.95em; margin-top:20px; font-style: italic;">
+            <p style="font-size:0.9em; margin-top:20px; color:#d4bfff; font-style: italic;">
                 "To pass the 42 is to demonstrate that your life was a perfect microcosm of cosmic order."
             </p>
         </div>
-
-        <div class="symbol-cluster">𓂀 𓁦 𓃩 𓆣</div>
     </div>
 
+    <script>
+        // Animated hieroglyph background (gold-colored glyphs)
+        const bg = document.getElementById('hieroglyph-bg');
+        const glyphs = ["𓀭", "𓁦", "𓃩", "𓆣", "𓂀", "𓃒", "𓅓"];
+
+        for (let i = 0; i < 25; i++) {
+            const glyph = document.createElement('div');
+            glyph.className = 'glyph';
+            glyph.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+            glyph.style.left = Math.random() * 100 + '%';
+            glyph.style.fontSize = (Math.random() * 1 + 1) + 'em';
+            glyph.style.animationDuration = (Math.random() * 20 + 30) + 's';
+            glyph.style.opacity = Math.random() * 0.1 + 0.02;
+            bg.appendChild(glyph);
+        }
+
+        // Subtle hover interaction on week cards
+        document.querySelectorAll('.week-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+    </script>
 </body>
 </html>
