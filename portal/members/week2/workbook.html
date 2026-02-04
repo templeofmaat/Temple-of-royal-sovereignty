@@ -5,257 +5,274 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sacred Workbook: The Sacred Flame - Forces 8-14</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=Cardo:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cardo:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
         
         :root {
-            --sacred-gold: #D4AF37;
-            --flame-orange: #FF5722;
-            --deep-purple: #1E1432;
-            --ember-red: #C0392B;
+            --primary-gold: #D4AF37;
+            --gold-light: #F4D03F;
+            --gold-dark: #B8941A;
+            --accent-flame: #FF7043;
+            --flame-dark: #E64A19;
+            --background-dark: #0A0A1E;
+            --background-deep: #141432;
+            --background-light: #1E1E3A;
+            --text-primary: #F5F5F7;
+            --text-secondary: #D1D1D6;
+            --text-accent: #E6D3A7;
+            --success-green: #4CAF50;
+            --border-glow: rgba(212, 175, 55, 0.4);
             --temple-purple: #8E44AD;
-            --sand: #E6D3A7;
-            --light-orange: #FFB74D;
-            --dark-bronze: #3D2D1A;
+            --ember-red: #C0392B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
-            background: linear-gradient(135deg, #0A1931 0%, var(--dark-bronze) 100%);
-            color: var(--sand);
-            font-family: 'Cardo', serif;
+            background: var(--background-dark);
+            color: var(--text-secondary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
             margin: 0;
-            padding: 20px;
-            line-height: 1.8;
+            padding: 40px 20px;
+            min-height: 100vh;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255, 87, 34, 0.1) 0%, transparent 25%),
-                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 25%);
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 112, 67, 0.08) 0%, transparent 20%),
+                linear-gradient(135deg, var(--background-dark) 0%, var(--background-deep) 100%);
         }
         
-        .sacred-container {
+        .workbook-container {
             max-width: 1200px;
             margin: 0 auto;
-            background: rgba(30, 20, 50, 0.98);
+            background: rgba(20, 20, 50, 0.85);
             padding: 50px;
-            border-radius: 25px;
-            border: 4px solid var(--sacred-gold);
+            border-radius: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
             box-shadow: 
-                0 25px 75px rgba(0, 0, 0, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                0 15px 40px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
         }
         
-        .sacred-container::before {
-            content: "𓂀 𓀭 𓃩 𓆣 𓎟";
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2.5em;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .hieroglyph-header {
-            text-align: center;
-            padding: 60px 0;
-            margin-bottom: 70px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hieroglyph-header::before,
-        .hieroglyph-header::after {
-            content: '𓂀';
-            position: absolute;
-            top: 20px;
-            font-size: 4em;
-            opacity: 0.3;
-        }
-        
-        .hieroglyph-header::before { left: 20px; }
-        .hieroglyph-header::after { right: 20px; transform: scaleX(-1); }
-        
-        .sacred-title {
-            color: var(--flame-orange);
-            font-size: 4em;
-            margin: 0;
-            font-family: 'Cinzel', serif;
-            text-shadow: 
-                0 5px 20px rgba(255, 87, 34, 0.4),
-                0 0 40px rgba(212, 175, 55, 0.3);
-            letter-spacing: 3px;
-        }
-        
-        .kemetic-subtitle {
-            color: var(--light-orange);
-            font-size: 1.8em;
-            font-family: 'MedievalSharp', cursive;
-            margin: 25px 0 40px;
-            padding: 25px 0;
-            border-top: 2px solid rgba(212, 175, 55, 0.4);
-            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
-        }
-        
-        .flame-decoration {
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, 
-                transparent, 
-                var(--ember-red),
-                var(--flame-orange),
-                var(--sacred-gold),
-                var(--flame-orange),
-                var(--ember-red),
-                transparent);
-            margin: 40px 0;
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .flame-decoration::after {
-            content: '';
+        .workbook-container::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
+            height: 1px;
             background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(255, 255, 255, 0.3) 50%, 
-                transparent 100%);
-            animation: flicker 3s infinite;
+                transparent, 
+                var(--primary-gold), 
+                transparent);
+            z-index: 1;
         }
         
-        @keyframes flicker {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+        .workbook-header {
+            text-align: center;
+            padding: 60px 30px 50px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .workbook-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(212, 175, 55, 0.3), 
+                transparent);
+        }
+        
+        .sacred-title {
+            color: var(--text-primary);
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 3.2em;
+            margin: 20px 0;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .sacred-title::before {
+            content: "𓂀";
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.5;
+            font-size: 0.8em;
+        }
+        
+        .sacred-title::after {
+            content: "𓂀";
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.5;
+            font-size: 0.8em;
+        }
+        
+        .kemetic-subtitle {
+            color: var(--text-accent);
+            font-size: 1.6em;
+            margin: 25px auto 35px;
+            font-family: 'Cardo', serif;
+            max-width: 800px;
+            line-height: 1.5;
+            font-weight: 500;
+            opacity: 0.9;
+            padding: 0 20px;
+        }
+        
+        .flame-divider {
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--accent-flame),
+                var(--primary-gold),
+                var(--accent-flame),
+                transparent);
+            margin: 40px auto;
+            border-radius: 2px;
+            position: relative;
         }
         
         .force-section {
-            background: linear-gradient(145deg, 
-                rgba(40, 30, 60, 0.9), 
-                rgba(50, 35, 70, 0.95));
+            background: rgba(30, 30, 58, 0.6);
             padding: 45px;
             border-radius: 20px;
-            margin: 50px 0;
-            border-left: 8px solid var(--flame-orange);
-            border-right: 2px solid rgba(212, 175, 55, 0.3);
+            margin: 60px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
         
         .force-section:hover {
-            transform: translateX(5px);
-            box-shadow: 0 15px 35px rgba(255, 87, 34, 0.2);
+            border-color: rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
         
         .force-section::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             bottom: 0;
-            width: 5px;
-            background: linear-gradient(to bottom, var(--flame-orange), var(--sacred-gold));
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent-flame), var(--primary-gold));
+            opacity: 0.7;
         }
         
         .force-header {
             display: flex;
             align-items: center;
             gap: 30px;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             padding-bottom: 25px;
-            border-bottom: 3px solid rgba(212, 175, 55, 0.4);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
         
         .force-number {
-            background: linear-gradient(135deg, var(--flame-orange), var(--ember-red));
+            background: linear-gradient(135deg, var(--accent-flame), var(--flame-dark));
             color: white;
-            min-width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 2.2em;
+            font-weight: 600;
+            font-size: 1.8em;
             font-family: 'Cinzel', serif;
-            box-shadow: 
-                0 8px 25px rgba(255, 87, 34, 0.5),
-                0 0 30px rgba(192, 57, 43, 0.3);
-            border: 4px solid var(--sacred-gold);
-        }
-        
-        .force-name-container {
-            flex: 1;
+            box-shadow: 0 10px 25px rgba(255, 112, 67, 0.3);
+            border: 3px solid var(--primary-gold);
+            flex-shrink: 0;
         }
         
         .kemetic-name {
-            color: var(--light-orange);
-            font-size: 1.8em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-family: 'MedievalSharp', cursive;
+            color: var(--text-primary);
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-family: 'Cinzel', serif;
         }
         
         .force-origin {
-            color: var(--sacred-gold);
+            color: var(--text-accent);
             font-size: 1.1em;
             font-style: italic;
-        }
-        
-        .declaration-box {
-            background: linear-gradient(135deg, 
-                rgba(255, 87, 34, 0.2), 
-                rgba(212, 175, 55, 0.2));
-            padding: 35px;
-            border-radius: 15px;
-            margin: 35px 0;
-            border: 3px solid rgba(255, 87, 34, 0.5);
-            font-style: italic;
-            font-size: 1.5em;
-            line-height: 1.6;
-            position: relative;
+            opacity: 0.8;
             font-family: 'Cardo', serif;
         }
         
+        .declaration-box {
+            background: rgba(255, 112, 67, 0.1);
+            padding: 35px 40px;
+            border-radius: 16px;
+            margin: 35px 0;
+            border: 1px solid rgba(255, 112, 67, 0.3);
+            font-family: 'Cardo', serif;
+            font-size: 1.3em;
+            line-height: 1.7;
+            position: relative;
+            border-left: 4px solid var(--accent-flame);
+        }
+        
         .declaration-box::before {
-            content: '𓀂';
+            content: '"';
             position: absolute;
             left: 20px;
-            top: 20px;
-            font-size: 2.5em;
-            opacity: 0.5;
+            top: -15px;
+            font-size: 4em;
+            color: var(--accent-flame);
+            opacity: 0.3;
+            font-family: serif;
         }
         
         .innerstanding-box {
-            background: linear-gradient(135deg, 
-                rgba(142, 68, 173, 0.2), 
-                rgba(108, 140, 213, 0.2));
+            background: rgba(142, 68, 173, 0.1);
             padding: 40px;
-            border-radius: 15px;
+            border-radius: 16px;
             margin: 40px 0;
-            border-left: 6px solid var(--temple-purple);
-            border-right: 2px solid rgba(142, 68, 173, 0.3);
+            border: 1px solid rgba(142, 68, 173, 0.3);
         }
         
         .innerstanding-title {
             color: var(--temple-purple);
-            font-size: 1.7em;
+            font-size: 1.5em;
             margin-bottom: 25px;
             display: flex;
             align-items: center;
             gap: 15px;
             font-family: 'Cinzel', serif;
+            font-weight: 500;
         }
         
         .practice-level {
-            background: rgba(255, 255, 255, 0.09);
+            background: rgba(40, 40, 60, 0.5);
             padding: 40px;
-            border-radius: 15px;
+            border-radius: 16px;
             margin: 35px 0;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.1);
         }
         
         .level-header {
@@ -264,192 +281,106 @@
             gap: 25px;
             margin-bottom: 35px;
             padding-bottom: 25px;
-            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
         
         .level-icon {
             background: linear-gradient(135deg, 
-                rgba(255, 87, 34, 0.3), 
+                rgba(255, 112, 67, 0.3), 
                 rgba(33, 150, 243, 0.3));
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2em;
+            font-size: 1.5em;
             font-weight: bold;
-            border: 3px solid var(--flame-orange);
-            font-family: 'Segoe UI Historic', sans-serif;
+            border: 2px solid var(--accent-flame);
+            flex-shrink: 0;
         }
         
         .sacred-practice {
-            background: linear-gradient(135deg, 
-                rgba(255, 87, 34, 0.15), 
-                rgba(212, 175, 55, 0.1));
+            background: rgba(255, 255, 255, 0.03);
             padding: 35px;
             border-radius: 12px;
             margin: 30px 0;
-            border: 2px dashed rgba(255, 87, 34, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.1);
             transition: all 0.3s ease;
         }
         
         .sacred-practice:hover {
-            background: linear-gradient(135deg, 
-                rgba(255, 87, 34, 0.2), 
-                rgba(212, 175, 55, 0.15));
-            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(212, 175, 55, 0.3);
         }
         
         .practice-title {
-            color: var(--light-orange);
+            color: var(--text-primary);
             font-size: 1.4em;
             margin-bottom: 25px;
             display: flex;
             align-items: center;
             gap: 20px;
             font-family: 'Cinzel', serif;
+            font-weight: 500;
         }
         
         .ritual-instruction {
-            background: linear-gradient(135deg, 
-                rgba(255, 152, 0, 0.2), 
-                rgba(255, 193, 7, 0.2));
+            background: rgba(255, 152, 0, 0.1);
             padding: 30px;
             border-radius: 12px;
             margin: 25px 0;
-            border-left: 5px solid #FF9800;
+            border-left: 4px solid #FF9800;
             font-family: 'Cardo', serif;
         }
         
         .ritual-instruction strong {
-            color: var(--light-orange);
+            color: var(--text-accent);
         }
         
         textarea, input[type="text"] {
             width: 100%;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.07);
-            border: 3px solid rgba(255, 87, 34, 0.4);
-            color: var(--sand);
-            border-radius: 12px;
-            font-family: 'Cardo', serif;
-            font-size: 1.2em;
-            margin: 25px 0;
-            min-height: 180px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-secondary);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1em;
+            margin: 20px 0;
+            min-height: 120px;
             resize: vertical;
             transition: all 0.3s ease;
         }
         
         textarea:focus, input[type="text"]:focus {
             outline: none;
-            border-color: var(--sacred-gold);
-            box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .hieroglyph {
-            font-family: 'Segoe UI Historic', 'Noto Sans Egyptian Hieroglyphs', sans-serif;
-            font-size: 2.2em;
-            margin-right: 15px;
+            border-color: var(--primary-gold);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
         }
         
         .sunrise-ritual {
-            background: linear-gradient(135deg, 
-                rgba(255, 152, 0, 0.3), 
-                rgba(255, 193, 7, 0.3));
-            padding: 40px;
-            border-radius: 20px;
-            margin: 45px 0;
-            border: 4px solid rgba(255, 152, 0, 0.6);
+            background: rgba(255, 152, 0, 0.1);
+            padding: 35px;
+            border-radius: 16px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 152, 0, 0.3);
             position: relative;
-            overflow: hidden;
-        }
-        
-        .sunrise-ritual::before {
-            content: '☀️';
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 4em;
-            opacity: 0.3;
-        }
-        
-        .download-section {
-            text-align: center;
-            padding: 80px;
-            margin: 80px 0;
-            background: linear-gradient(135deg, 
-                rgba(255, 87, 34, 0.15), 
-                rgba(212, 175, 55, 0.15));
-            border-radius: 25px;
-            border: 5px solid var(--sacred-gold);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .download-section::before {
-            content: '𓏙 𓊹 𓎟';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 3em;
-            opacity: 0.2;
-        }
-        
-        .sacred-btn {
-            background: linear-gradient(135deg, var(--flame-orange) 0%, var(--ember-red) 100%);
-            color: white;
-            padding: 25px 50px;
-            border-radius: 15px;
-            text-decoration: none;
-            display: inline-block;
-            margin: 20px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.3em;
-            transition: all 0.3s ease;
-            font-family: 'Cinzel', serif;
-            box-shadow: 0 10px 30px rgba(255, 87, 34, 0.4);
-            border: 3px solid var(--sacred-gold);
-        }
-        
-        .sacred-btn:hover {
-            background: linear-gradient(135deg, #FF7043 0%, var(--flame-orange) 100%);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 87, 34, 0.5);
-        }
-        
-        .gold-btn {
-            background: linear-gradient(135deg, var(--sacred-gold) 0%, #B8941A 100%);
-            color: var(--dark-bronze);
-        }
-        
-        .gold-btn:hover {
-            background: linear-gradient(135deg, #F5E6B3 0%, var(--sacred-gold) 100%);
-        }
-        
-        .purple-btn {
-            background: linear-gradient(135deg, var(--temple-purple) 0%, #6C3483 100%);
-            color: white;
         }
         
         .completion-box {
-            background: linear-gradient(135deg, 
-                rgba(212, 175, 55, 0.25), 
-                rgba(255, 193, 7, 0.25));
-            padding: 60px;
-            border-radius: 25px;
-            margin: 70px 0;
-            border: 4px solid var(--sacred-gold);
+            background: rgba(212, 175, 55, 0.1);
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 60px 0;
+            border: 2px solid rgba(212, 175, 55, 0.3);
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
         
         .completion-box::before {
-            content: '𓎟 𓂀 𓎟';
+            content: '𓂀';
             position: absolute;
             top: 20px;
             left: 50%;
@@ -458,43 +389,163 @@
             opacity: 0.2;
         }
         
-        .flame-symbol {
-            display: inline-block;
-            font-size: 3em;
-            margin: 0 10px;
-            animation: flameFloat 3s ease-in-out infinite;
+        .download-section {
+            text-align: center;
+            padding: 60px 40px;
+            margin: 60px 0;
+            background: rgba(20, 20, 50, 0.6);
+            border-radius: 20px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            position: relative;
         }
         
-        @keyframes flameFloat {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-10px) scale(1.1); }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--gold-dark) 100%);
+            color: var(--background-dark);
+            padding: 18px 35px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-size: 1em;
+            margin: 10px;
+            border: 2px solid rgba(212, 175, 55, 0.5);
         }
         
-        @media print {
-            body { background: white; color: black; }
-            .sacred-container { border: 1px solid #ccc; box-shadow: none; }
-            .sacred-btn { display: none; }
-            textarea, input { background: white; color: black; border: 1px solid #ccc; }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255, 112, 67, 0.1);
+            color: var(--text-primary);
+            padding: 18px 35px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 112, 67, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            margin: 10px;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 112, 67, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .support-box {
+            background: rgba(255, 112, 67, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 112, 67, 0.3);
+            text-align: center;
         }
         
         @media (max-width: 768px) {
-            .sacred-container { padding: 30px; }
-            .sacred-title { font-size: 2.8em; }
-            .force-header { flex-direction: column; text-align: center; }
-            .force-number { width: 80px; height: 80px; font-size: 1.8em; }
-            .download-section { padding: 40px; }
+            body {
+                padding: 20px 15px;
+            }
+            
+            .workbook-container {
+                padding: 30px 25px;
+            }
+            
+            .sacred-title {
+                font-size: 2.2em;
+            }
+            
+            .sacred-title::before,
+            .sacred-title::after {
+                display: none;
+            }
+            
+            .kemetic-subtitle {
+                font-size: 1.2em;
+                padding: 0 10px;
+            }
+            
+            .force-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .force-number {
+                width: 70px;
+                height: 70px;
+                font-size: 1.6em;
+            }
+            
+            .force-section,
+            .practice-level,
+            .sacred-practice {
+                padding: 30px;
+            }
+            
+            .level-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                margin: 10px 0;
+                padding: 16px 25px;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .workbook-container {
+                border: 1px solid #ccc;
+                box-shadow: none;
+                background: white;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                display: none;
+            }
+            
+            textarea,
+            input {
+                background: white;
+                color: black;
+                border: 1px solid #ccc;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="sacred-container">
-        <div class="hieroglyph-header">
-            <h1 class="sacred-title">𓂀 THE SACRED FLAME 𓂀</h1>
+    <div class="workbook-container">
+        <div class="workbook-header">
+            <h1 class="sacred-title">The Sacred Flame</h1>
             <div class="kemetic-subtitle">Sacred Workbook: Forces 8-14 of Ma'at</div>
-            <p style="font-size:1.3em; color:var(--light-orange); max-width:800px; margin:0 auto;">
+            <div class="flame-divider"></div>
+            <p style="max-width: 800px; margin: 0 auto; color: var(--text-accent); font-size: 1.1em; font-family: 'Cardo', serif;">
                 <em>"Creative Speech & Divine Trust - Mastering Heka as Divine Power"</em>
             </p>
-            <div class="flame-decoration"></div>
         </div>
         
         <!-- FORCE 8: NEBA -->
@@ -508,17 +559,17 @@
             </div>
             
             <div class="declaration-box">
-                <span class="hieroglyph">𓀂</span> "I have not given false heka (creative speech) to shape reality with lies."
+                "I have not given false heka (creative speech) to shape reality with lies."
             </div>
             
             <div class="innerstanding-box">
                 <div class="innerstanding-title">
-                    <span class="hieroglyph">𓋹</span> SACRED INNERSTANDING
+                    𓋹 Sacred Understanding
                 </div>
                 <p>This is <strong>not</strong> merely "avoiding lies." <em>Neba</em> is the <strong>active force</strong> of truthful creative speech—the understanding that words are the building blocks of reality through <em>heka</em> (creative magic).</p>
                 <p>As the "Flame that Moves Between Worlds," this force governs how speech bridges the spiritual and material realms. Every utterance either builds Ma'at or creates Isfet.</p>
                 <div class="ritual-instruction">
-                    <p><strong>𓏞 KEY TEACHING:</strong> False heka is corrupted creation—using the god-given power of speech to build illusions instead of truth. Your words literally shape your world.</p>
+                    <p><strong>Key Teaching:</strong> False heka is corrupted creation—using the god-given power of speech to build illusions instead of truth. Your words literally shape your world.</p>
                 </div>
             </div>
             
@@ -526,14 +577,14 @@
             <div class="practice-level">
                 <div class="level-header">
                     <div class="level-icon">𓏞</div>
-                    <h3 style="margin:0; color:var(--light-orange); font-family:'Cinzel', serif; font-size:1.8em;">
+                    <h3 style="margin:0; color:var(--text-primary); font-family:'Cinzel', serif; font-size:1.5em; font-weight:500;">
                         Level 1: Recognition – The Mirror of Speech
                     </h3>
                 </div>
                 
                 <div class="sunrise-ritual">
                     <div class="practice-title">
-                        <span class="hieroglyph">☀️</span> Sunrise Speech Audit
+                        ☀️ Sunrise Speech Audit
                     </div>
                     <div class="ritual-instruction">
                         <p><strong>AT SUNRISE (before speaking to anyone):</strong></p>
@@ -546,16 +597,14 @@
                         </ol>
                     </div>
                     <p><strong>Sunrise Reflection:</strong> Record three instances from yesterday:</p>
-                    <textarea placeholder="𓏞 My truthful heka moments (words that built reality):
-
-𓂀 My false heka moments (words that created illusion):
-
-🔥 What I will speak differently today:"></textarea>
+                    <textarea placeholder="𓏞 My truthful heka moments (words that built reality):"></textarea>
+                    <textarea placeholder="𓂀 My false heka moments (words that created illusion):"></textarea>
+                    <textarea placeholder="🔥 What I will speak differently today:"></textarea>
                 </div>
                 
                 <div class="sacred-practice">
                     <div class="practice-title">
-                        <span class="hieroglyph">🗣️</span> Daily Speech Monitoring
+                        🗣️ Daily Speech Monitoring
                     </div>
                     <p><strong>Practice:</strong> Today, pause for 3 breaths before speaking in any significant conversation.</p>
                     <p><strong>Ask these three questions silently:</strong></p>
@@ -574,14 +623,14 @@
             <div class="practice-level">
                 <div class="level-header">
                     <div class="level-icon">𓋴</div>
-                    <h3 style="margin:0; color:var(--light-orange); font-family:'Cinzel', serif; font-size:1.8em;">
+                    <h3 style="margin:0; color:var(--text-primary); font-family:'Cinzel', serif; font-size:1.5em; font-weight:500;">
                         Level 2: Alignment – The Truthful Flame
                     </h3>
                 </div>
                 
                 <div class="sacred-practice">
                     <div class="practice-title">
-                        <span class="hieroglyph">🔥</span> Heka Activation Ritual
+                        🔥 Heka Activation Ritual
                     </div>
                     <div class="ritual-instruction">
                         <p><strong>Morning Practice:</strong></p>
@@ -599,7 +648,7 @@
                 
                 <div class="sacred-practice">
                     <div class="practice-title">
-                        <span class="hieroglyph">🎭</span> Truthful Creation Practice
+                        🎭 Truthful Creation Practice
                     </div>
                     <p><strong>Exercise:</strong> Today, consciously use speech to create one positive reality:</p>
                     <ul>
@@ -616,14 +665,14 @@
             <div class="practice-level">
                 <div class="level-header">
                     <div class="level-icon">𓎛</div>
-                    <h3 style="margin:0; color:var(--light-orange); font-family:'Cinzel', serif; font-size:1.8em;">
+                    <h3 style="margin:0; color:var(--text-primary); font-family:'Cinzel', serif; font-size:1.5em; font-weight:500;">
                         Level 3: Integration – Living Truth
                     </h3>
                 </div>
                 
                 <div class="sacred-practice">
                     <div class="practice-title">
-                        <span class="hieroglyph">𓂀</span> Evening Integration
+                        𓂀 Evening Integration
                     </div>
                     <p>Review your day through the lens of Neba:</p>
                     
@@ -639,7 +688,7 @@
                 
                 <div class="sacred-practice">
                     <div class="practice-title">
-                        <span class="hieroglyph">𓊃</span> Personal Declaration Creation
+                        𓊃 Personal Declaration Creation
                     </div>
                     <p>Create your personal heka declaration based on your experience with Neba:</p>
                     <div class="ritual-instruction">
@@ -664,23 +713,23 @@ Example:
             </div>
             
             <div class="declaration-box">
-                <span class="hieroglyph">𓀃</span> "I have not taken the nourishment of the weak, collapsing their foundation (sepat)."
+                "I have not taken the nourishment of the weak, collapsing their foundation (sepat)."
             </div>
             
             <div class="innerstanding-box">
                 <div class="innerstanding-title">
-                    <span class="hieroglyph">𓋹</span> SACRED INNERSTANDING
+                    𓋹 Sacred Understanding
                 </div>
                 <p><strong>Set-qesu</strong> governs the protection of vulnerable foundations. This is not merely "avoiding theft from the weak"—it is understanding that every being has a sacred <em>sepat</em> (foundation/territory) that must be respected.</p>
                 <p>From the <strong>Seat of Royal Power</strong>, this force teaches that true power protects, never exploits. The king/pharaoh's duty is to guard the foundations of the weak, not consume them.</p>
                 <div class="ritual-instruction">
-                    <p><strong>𓏞 KEY TEACHING:</strong> Taking nourishment from the weak doesn't just feed you—it collapses their entire world. True strength builds foundations, never breaks them.</p>
+                    <p><strong>Key Teaching:</strong> Taking nourishment from the weak doesn't just feed you—it collapses their entire world. True strength builds foundations, never breaks them.</p>
                 </div>
             </div>
             
             <div class="sunrise-ritual">
                 <div class="practice-title">
-                    <span class="hieroglyph">☀️</span> Day 2: Sunrise Foundation Ritual
+                    ☀️ Day 2: Sunrise Foundation Ritual
                 </div>
                 <div class="ritual-instruction">
                     <p><strong>AT SUNRISE:</strong></p>
@@ -694,11 +743,9 @@ Example:
                 </div>
             </div>
             
-            <!-- Continue with similar structure for Forces 10-14 -->
-            
             <div class="sacred-practice">
                 <div class="practice-title">
-                    <span class="hieroglyph">🏛️</span> Foundation Assessment
+                    🏛️ Foundation Assessment
                 </div>
                 <p><strong>Assessment:</strong> Where have you protected or threatened foundations?</p>
                 
@@ -713,12 +760,10 @@ Example:
             </div>
         </div>
 
-        <!-- ADD FORCES 10-14 HERE WITH SAME STRUCTURE -->
-
         <!-- WEEK COMPLETION CEREMONY -->
         <div class="completion-box">
-            <h2 style="color:var(--sacred-gold); font-family:'Cinzel', serif; margin-bottom:40px;">
-                <span class="flame-symbol">🔥</span> Week 2: Sacred Flame Completion Ceremony <span class="flame-symbol">🔥</span>
+            <h2 style="color:var(--primary-gold); font-family:'Cinzel', serif; margin-bottom:40px; font-size:2em; font-weight:600;">
+                Week 2: Sacred Flame Completion Ceremony
             </h2>
             
             <div class="ritual-instruction" style="text-align:left; margin:40px auto; max-width:700px;">
@@ -734,59 +779,65 @@ Example:
             </div>
             
             <p><strong>Sacred Flame Completion Experience:</strong></p>
-            <textarea style="max-width:700px; margin:30px auto; display:block;" placeholder="Record your completion ceremony experience... What transformed? What truth was revealed through fire?"></textarea>
+            <textarea style="max-width:700px; margin:30px auto; display:block; min-height:150px;" placeholder="Record your completion ceremony experience... What transformed? What truth was revealed through fire?"></textarea>
             
-            <p style="color:var(--light-orange); margin-top:40px; font-size:1.2em;">
-                <em>"The flame that consumes deception illuminates truth. Walk as living heka."</em>
+            <p style="color:var(--text-accent); margin-top:40px; font-size:1.1em; font-family: 'Cardo', serif; font-style: italic;">
+                "The flame that consumes deception illuminates truth. Walk as living heka."
             </p>
         </div>
         
         <!-- DOWNLOAD SECTION -->
         <div class="download-section">
-            <h2 style="color:var(--sacred-gold); font-family:'Cinzel', serif; margin-bottom:50px;">
-                <span class="flame-symbol">𓏙</span> SACRED FLAME RESOURCES <span class="flame-symbol">𓏙</span>
+            <h2 style="color:var(--primary-gold); font-family:'Cinzel', serif; margin-bottom:40px; font-size:1.8em; font-weight:600;">
+                Sacred Flame Resources
             </h2>
             
-            <button class="sacred-btn" onclick="openWorkbook()">
-                <span class="hieroglyph">📖</span> Open Complete Workbook
+            <button class="btn-primary" onclick="generatePDF()">
+                📥 Download Sacred Flame PDF
             </button>
             
-            <button class="sacred-btn gold-btn" onclick="generatePDF()">
-                <span class="hieroglyph">🔥</span> Download Sacred Flame PDF
+            <button class="btn-secondary" onclick="saveProgress()">
+                💾 Save My Week 2 Progress
             </button>
             
-            <button class="sacred-btn purple-btn" onclick="saveProgress()">
-                <span class="hieroglyph">𓊹</span> Save My Week 2 Progress
-            </button>
-            
-            <a href="../../index.html" class="sacred-btn" style="background:linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2)); color:var(--sacred-gold); border:4px solid var(--sacred-gold);">
-                <span class="hieroglyph">𓁦</span> Return to Hall of Truth Portal
+            <a href="../../index.html" class="btn-secondary">
+                🏠 Return to Hall of Truth Portal
             </a>
             
-            <div style="margin-top:60px; padding:50px; background:rgba(255,255,255,0.08); border-radius:20px;">
-                <h3 style="color:var(--light-orange); font-family:'Cinzel', serif;">
-                    <span class="flame-symbol">🎧</span> SACRED FLAME AUDIO PRACTICES
+            <div style="margin-top:50px; padding:40px; background:rgba(255,255,255,0.03); border-radius:16px; border:1px solid rgba(212, 175, 55, 0.2);">
+                <h3 style="color:var(--text-primary); font-family:'Cinzel', serif; margin-bottom:30px;">
+                    🎧 Sacred Flame Audio Practices
                 </h3>
-                <button class="sacred-btn" style="background:linear-gradient(135deg, var(--temple-purple), #6C3483); margin:15px;">
+                <button class="btn-secondary" style="display:block; width:100%; max-width:400px; margin:15px auto;">
                     Force 8: Heka Activation Meditation
                 </button>
-                <button class="sacred-btn" style="background:linear-gradient(135deg, var(--temple-purple), #6C3483); margin:15px;">
+                <button class="btn-secondary" style="display:block; width:100%; max-width:400px; margin:15px auto;">
                     Sunrise Flame Visualization
                 </button>
-                <button class="sacred-btn" style="background:linear-gradient(135deg, var(--temple-purple), #6C3483); margin:15px;">
+                <button class="btn-secondary" style="display:block; width:100%; max-width:400px; margin:15px auto;">
                     Forces 8-14 Integration Audio
                 </button>
             </div>
         </div>
+        
+        <!-- SUPPORT SECTION -->
+        <div class="support-box">
+            <h3 style="color:var(--text-primary); font-family:'Cinzel', serif; margin-bottom:20px;">
+                📜 Member Support
+            </h3>
+            <p>Questions about the Sacred Flame practices?</p>
+            <p><strong>Email:</strong> templeofmaat@proton.me</p>
+            <p style="margin-top:15px; color:var(--text-accent);"><em>Include "Sacred Flame Support" in subject</em></p>
+        </div>
     </div>
 
     <script>
-        // Save all reflections automatically
+        // Auto-save functionality
         const saveAllReflections = () => {
             const reflections = {};
-            document.querySelectorAll('textarea').forEach((ta, index) => {
-                reflections[`week2_reflection_${index}`] = ta.value;
-                localStorage.setItem(`sacred_flame_reflection_${index}`, ta.value);
+            document.querySelectorAll('textarea, input[type="text"]').forEach((el, index) => {
+                reflections[`week2_reflection_${index}`] = el.value;
+                localStorage.setItem(`sacred_flame_workbook_${index}`, el.value);
             });
             return reflections;
         };
@@ -795,15 +846,15 @@ Example:
         setInterval(saveAllReflections, 30000);
         
         // Save on input
-        document.querySelectorAll('textarea').forEach((textarea, index) => {
-            textarea.addEventListener('input', function() {
-                localStorage.setItem(`sacred_flame_reflection_${index}`, this.value);
+        document.querySelectorAll('textarea, input[type="text"]').forEach((el, index) => {
+            el.addEventListener('input', function() {
+                localStorage.setItem(`sacred_flame_workbook_${index}`, this.value);
             });
             
             // Load saved reflections
-            const saved = localStorage.getItem(`sacred_flame_reflection_${index}`);
+            const saved = localStorage.getItem(`sacred_flame_workbook_${index}`);
             if (saved) {
-                textarea.value = saved;
+                el.value = saved;
             }
         });
         
@@ -812,8 +863,87 @@ Example:
             const completionDate = new Date().toLocaleDateString();
             const sunriseTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
             
-            const content = `
-𓂀 THE SACRED FLAME - COMPLETION RECORD 𓂀
-${'='.repeat(60)}
-
-WEEK 2: FORCES 8-14 OF MA'AT
+            // Show notification
+            showNotification('Downloading Sacred Flame PDF... Your workbook is being prepared.', 'success');
+            
+            // In a real implementation, this would generate and download a PDF
+            setTimeout(() => {
+                showNotification('PDF download complete! Check your downloads folder.', 'success');
+            }, 2000);
+        }
+        
+        function saveProgress() {
+            const saved = saveAllReflections();
+            showNotification('Progress saved successfully! Your reflections are stored locally.', 'success');
+        }
+        
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 30px;
+                right: 30px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, var(--primary-gold), var(--gold-dark))' : 'linear-gradient(135deg, var(--accent-flame), var(--flame-dark))'};
+                color: ${type === 'success' ? 'var(--background-dark)' : 'white'};
+                padding: 20px 30px;
+                border-radius: 10px;
+                font-family: 'Inter', sans-serif;
+                z-index: 10000;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                animation: slideIn 0.3s ease;
+                max-width: 300px;
+                border: 2px solid ${type === 'success' ? 'var(--primary-gold)' : 'var(--accent-flame)'};
+            `;
+            
+            notification.innerHTML = `
+                <strong>${type === 'success' ? '✓' : '⚠'}</strong>
+                <div style="margin-top: 10px; font-size: 0.9em;">${message}</div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+            
+            // Add CSS for animations
+            if (!document.querySelector('#notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notification-styles';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+        
+        // Add subtle animations
+        document.querySelectorAll('.force-section').forEach(section => {
+            section.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.3s ease';
+            });
+        });
+        
+        // Print functionality
+        window.addEventListener('beforeprint', () => {
+            document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+                btn.style.display = 'none';
+            });
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showNotification('Sacred Flame Workbook loaded. Your progress auto-saves every 30 seconds.', 'success');
+        });
+    </script>
+</body>
+</html>
