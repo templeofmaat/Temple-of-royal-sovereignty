@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+This is week 2 code is it correct <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -360,505 +360,397 @@
     </style>
 </head>
 <body class="temple-page">
-
-<!-- ========== WEEK 2 PROTECTION SCRIPT ========== -->
-<script>
-    // Week 2 Protection Script
-    (function() {
-        // Get current user from localStorage
-        const currentUser = JSON.parse(localStorage.getItem('tors_sacred_current'));
-        const weekNumber = 2; // Change this for each week (3 for week3, etc.)
-        
-        // If no user is logged in, redirect to Hall of Truth
-        if (!currentUser) {
-            alert('Sacred access required. Please login to access Week 2.');
-            window.location.href = 'https://www.tors.life/hall-of-truth.html';
-            return;
-        }
-        
-        // Check if user has access to this week
-        if (!currentUser.weeks || !currentUser.weeks.includes(weekNumber)) {
-            alert(`Week ${weekNumber} access requires purchase. You only have access to weeks: ${currentUser.weeks.join(', ')}`);
-            window.location.href = 'https://www.tors.life/hall-of-truth.html';
-            return;
-        }
-        
-        // User has access - add user interface
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add logout button to top right
-            const logoutBtn = document.createElement('button');
-            logoutBtn.innerHTML = 'Logout';
-            logoutBtn.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: rgba(255, 215, 0, 0.2);
-                color: #FFD700;
-                border: 1px solid #FFD700;
-                padding: 10px 20px;
-                border-radius: 5px;
-                cursor: pointer;
-                z-index: 10000;
-                font-family: "Georgia", serif;
-                font-size: 14px;
-                transition: all 0.3s ease;
-            `;
-            logoutBtn.onmouseenter = function() {
-                this.style.background = 'rgba(255, 215, 0, 0.3)';
-                this.style.boxShadow = '0 0 10px rgba(255, 215, 0, 0.5)';
-            };
-            logoutBtn.onmouseleave = function() {
-                this.style.background = 'rgba(255, 215, 0, 0.2)';
-                this.style.boxShadow = 'none';
-            };
-            logoutBtn.onclick = function() {
-                if (confirm('Leave sacred space?')) {
-                    localStorage.removeItem('tors_sacred_current');
-                    window.location.href = 'https://www.tors.life/hall-of-truth.html';
-                }
-            };
-            document.body.appendChild(logoutBtn);
+    <div class="container">
+        <div class="header">
+            <div class="gateway-badge">𓂀 WEEK 2 - THE SACRED FLAME - FORCES 8-14 𓂀</div>
+            <h1>Creative Speech & Divine Trust</h1>
+            <div class="week-theme">
+                Mastery of truthful manifestation • Protecting the vulnerable • Being a source of peace
+            </div>
             
-            // Add welcome message to top left
-            const welcomeMsg = document.createElement('div');
-            welcomeMsg.innerHTML = `Sacred Flame Initiate: ${currentUser.name}`;
-            welcomeMsg.style.cssText = `
-                position: fixed;
-                top: 20px;
-                left: 20px;
-                color: #FFD700;
-                font-family: "Georgia", serif;
-                z-index: 10000;
-                background: rgba(0,0,0,0.5);
-                padding: 10px 20px;
-                border-radius: 5px;
-                font-size: 14px;
-                border: 1px solid rgba(255, 215, 0, 0.3);
-            `;
-            document.body.appendChild(welcomeMsg);
+            <div class="sunrise-ritual">
+                <h3 style="color: #FFD700;">☀️ Week 2 Sunrise Practice</h3>
+                <p><strong>Each sunrise this week:</strong> Face East with a candle (real or visualized). Speak: "My words are flames of truth. My speech creates only harmony." Hold the flame while focusing on Force 8-14 for that day.</p>
+            </div>
+        </div>
+        
+        <!-- 7 Forces Overview -->
+        <div class="forces-overview">
+            <!-- Force 8 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">8</div>
+                    <div class="force-range">Force 8</div>
+                </div>
+                <h3>Neba</h3>
+                <div class="kemetic-name">"The Consuming Flame of Truth" Who Moves Between Worlds</div>
+                <div class="force-declaration">
+                    "I have not given false heka (creative speech) to shape reality with lies."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Truthful creative speech</p>
+            </div>
             
-            // Update the progress section to include user's name
-            const progressSection = document.querySelector('.progress-container');
-            if (progressSection) {
-                const title = progressSection.querySelector('h3');
-                if (title) {
-                    title.innerHTML = `𓆣 ${currentUser.name}'s Journey Through the Sacred Flame 𓆣`;
-                }
-            }
+            <!-- Force 9 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">9</div>
+                    <div class="force-range">Force 9</div>
+                </div>
+                <h3>Set-qesu</h3>
+                <div class="kemetic-name">"The Breaker of Corrupt Foundations" from the Seat of Royal Power</div>
+                <div class="force-declaration">
+                    "I have not taken the nourishment of the weak, collapsing their foundation."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Protecting vulnerable foundations</p>
+            </div>
             
-            // Update the "Access Note" section
-            const accessNote = document.querySelector('.access-note');
-            if (accessNote) {
-                accessNote.innerHTML = `
-                    <h4 style="color: #FFD700;">🔐 Gateway Activated for ${currentUser.name}</h4>
+            <!-- Force 10 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">10</div>
+                    <div class="force-range">Force 10</div>
+                </div>
+                <h3>Utu-nesert</h3>
+                <div class="kemetic-name">"The Flame Which Ejects Corruption" from the Balance of Ptah's Essence</div>
+                <div class="force-declaration">
+                    "I have not been the source of isfet (chaos/pain) in the world."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Peace-making and harmony creation</p>
+            </div>
+            
+            <!-- Force 11 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">11</div>
+                    <div class="force-range">Force 11</div>
+                </div>
+                <h3>Qerrti</h3>
+                <div class="kemetic-name">"The Silent Watchers of the Threshold" from the West</div>
+                <div class="force-declaration">
+                    "I have not mingled my seed or essence in a way that confuses lineages or sacred bonds."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Clear boundaries in relationships</p>
+            </div>
+            
+            <!-- Force 12 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">12</div>
+                    <div class="force-range">Force 12</div>
+                </div>
+                <h3>Her-f-ha-f</h3>
+                <div class="kemetic-name">"He Who Sees What is Behind" from the Place of Reckoning</div>
+                <div class="force-declaration">
+                    "I have not caused the sacred waters (tears) of the heart to flow from grief I created."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Compassionate action that avoids causing pain</p>
+            </div>
+            
+            <!-- Force 13 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">13</div>
+                    <div class="force-range">Force 13</div>
+                </div>
+                <h3>Basti</h3>
+                <div class="kemetic-name">"The Devouring and Nurturing Flame" from the House of Bast</div>
+                <div class="force-declaration">
+                    "I have not used the hidden claw while showing the calm face."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Authentic presentation</p>
+            </div>
+            
+            <!-- Force 14 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">14</div>
+                    <div class="force-range">Force 14</div>
+                </div>
+                <h3>Ta-retiu</h3>
+                <div class="kemetic-name">"The Pillars of Fire" from the Primeval Darkness</div>
+                <div class="force-declaration">
+                    "I have not crossed the boundary stone of divine law (thep)."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Honoring divine law</p>
+            </div>
+        </div>
+        
+        <!-- Progress Tracker -->
+        <div class="progress-container">
+            <h3 style="text-align: center;">𓆣 Your Journey Through the Sacred Flame 𓆣</h3>
+            
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <p style="text-align: center; font-size: 1.1em;">
+                Journey Progress: Week 2 of 7 • Forces 8-14 of 42
+            </p>
+            
+            <div class="day-grid">
+                <div class="day-circle completed">1</div>
+                <div class="day-circle active">2</div>
+                <div class="day-circle">3</div>
+                <div class="day-circle">4</div>
+                <div class="day-circle">5</div>
+                <div class="day-circle">6</div>
+                <div class="day-circle">7</div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 20px;">
+                <em>Complete each day's sunrise practice to activate the corresponding force</em>
+            </p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content-grid">
+            <div class="main-content">
+                <h3>𓂀 The Sacred Flame Teachings</h3>
+                <p>Welcome to the second gateway, where you learn to wield <strong>creative speech</strong> and <strong>sacred trust</strong> as forces of Ma'at. This week transforms your words from mere communication into divine <em>heka</em> (creative power).</p>
+                
+                <div class="sunrise-ritual">
+                    <h4 style="color: #FFD700;">☀️ Week 2 Core Sunrise Ritual</h4>
+                    <p><strong>Each sunrise, perform this sacred practice:</strong></p>
+                    <ol>
+                        <li>Light a candle at sunrise (or visualize flame)</li>
+                        <li>Face East, holding the candle at heart level</li>
+                        <li>Breathe deeply 8 times (for Force 8)</li>
+                        <li>Speak today's force declaration aloud</li>
+                        <li>Visualize your words as golden flames</li>
+                        <li>Carry a small flame symbol throughout the day</li>
+                    </ol>
+                </div>
+                
+                <h4>This Week's Sacred Focus:</h4>
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">🔥</div>
+                        <div>
+                            <strong>Truthful Creative Speech (Force 8):</strong> Your words create reality. Learn to speak only truth that builds harmony.
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🛡️</div>
+                        <div>
+                            <strong>Protecting Foundations (Force 9):</strong> Become a guardian of vulnerable structures in your community.
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">☮️</div>
+                        <div>
+                            <strong>Ejecting Corruption (Force 10):</strong> Learn to identify and remove sources of chaos without creating more.
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">⚖️</div>
+                        <div>
+                            <strong>Clear Sacred Bonds (Force 11):</strong> Honor relationship boundaries with divine clarity.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="access-note">
+                    <h4 style="color: #FFD700;">🔐 Gateway Activation</h4>
                     <p>Your completion of <strong>Week 1: The Extended Stride</strong> has opened this gateway.</p>
-                    <p><em>Welcome back, ${currentUser.name}. Your Week 1 Weighing Ceremony results have been recorded.</em></p>
+                    <p><em>Your Week 1 Weighing Ceremony results have been recorded in the cosmic scales.</em></p>
                     <p style="margin-top: 20px; font-style: italic;">
                         "The Sacred Flame burns away deception, revealing the pure gold of truth beneath."
                     </p>
-                    <div style="margin-top: 20px; padding: 10px; background: rgba(255,215,0,0.1); border-radius: 5px; font-size: 0.9em;">
-                        Access granted to weeks: ${currentUser.weeks.join(', ')}
-                    </div>
-                `;
-            }
-        });
-    })();
-</script>
-<!-- ========== END PROTECTION SCRIPT ========== -->
-
-<!-- YOUR PAGE CONTENT STARTS HERE -->
-<div class="container">
-    <div class="header">
-        <div class="gateway-badge">𓂀 WEEK 2 - THE SACRED FLAME - FORCES 8-14 𓂀</div>
-        <h1>Creative Speech & Divine Trust</h1>
-        <div class="week-theme">
-            Mastery of truthful manifestation • Protecting the vulnerable • Being a source of peace
-        </div>
-        
-        <div class="sunrise-ritual">
-            <h3 style="color: #FFD700;">☀️ Week 2 Sunrise Practice</h3>
-            <p><strong>Each sunrise this week:</strong> Face East with a candle (real or visualized). Speak: "My words are flames of truth. My speech creates only harmony." Hold the flame while focusing on Force 8-14 for that day.</p>
-        </div>
-    </div>
-    
-    <!-- 7 Forces Overview -->
-    <div class="forces-overview">
-        <!-- Force 8 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">8</div>
-                <div class="force-range">Force 8</div>
-            </div>
-            <h3>Neba</h3>
-            <div class="kemetic-name">"The Consuming Flame of Truth" Who Moves Between Worlds</div>
-            <div class="force-declaration">
-                "I have not given false heka (creative speech) to shape reality with lies."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Truthful creative speech</p>
-        </div>
-        
-        <!-- Force 9 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">9</div>
-                <div class="force-range">Force 9</div>
-            </div>
-            <h3>Set-qesu</h3>
-            <div class="kemetic-name">"The Breaker of Corrupt Foundations" from the Seat of Royal Power</div>
-            <div class="force-declaration">
-                "I have not taken the nourishment of the weak, collapsing their foundation."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Protecting vulnerable foundations</p>
-        </div>
-        
-        <!-- Force 10 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">10</div>
-                <div class="force-range">Force 10</div>
-            </div>
-            <h3>Utu-nesert</h3>
-            <div class="kemetic-name">"The Flame Which Ejects Corruption" from the Balance of Ptah's Essence</div>
-            <div class="force-declaration">
-                "I have not been the source of isfet (chaos/pain) in the world."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Peace-making and harmony creation</p>
-        </div>
-        
-        <!-- Force 11 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">11</div>
-                <div class="force-range">Force 11</div>
-            </div>
-            <h3>Qerrti</h3>
-            <div class="kemetic-name">"The Silent Watchers of the Threshold" from the West</div>
-            <div class="force-declaration">
-                "I have not mingled my seed or essence in a way that confuses lineages or sacred bonds."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Clear boundaries in relationships</p>
-        </div>
-        
-        <!-- Force 12 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">12</div>
-                <div class="force-range">Force 12</div>
-            </div>
-            <h3>Her-f-ha-f</h3>
-            <div class="kemetic-name">"He Who Sees What is Behind" from the Place of Reckoning</div>
-            <div class="force-declaration">
-                "I have not caused the sacred waters (tears) of the heart to flow from grief I created."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Compassionate action that avoids causing pain</p>
-        </div>
-        
-        <!-- Force 13 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">13</div>
-                <div class="force-range">Force 13</div>
-            </div>
-            <h3>Basti</h3>
-            <div class="kemetic-name">"The Devouring and Nurturing Flame" from the House of Bast</div>
-            <div class="force-declaration">
-                "I have not used the hidden claw while showing the calm face."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Authentic presentation</p>
-        </div>
-        
-        <!-- Force 14 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">14</div>
-                <div class="force-range">Force 14</div>
-            </div>
-            <h3>Ta-retiu</h3>
-            <div class="kemetic-name">"The Pillars of Fire" from the Primeval Darkness</div>
-            <div class="force-declaration">
-                "I have not crossed the boundary stone of divine law (thep)."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Honoring divine law</p>
-        </div>
-    </div>
-    
-    <!-- Progress Tracker -->
-    <div class="progress-container">
-        <h3 style="text-align: center;">𓆣 Your Journey Through the Sacred Flame 𓆣</h3>
-        
-        <div class="progress-bar">
-            <div class="progress"></div>
-        </div>
-        <p style="text-align: center; font-size: 1.1em;">
-            Journey Progress: Week 2 of 7 • Forces 8-14 of 42
-        </p>
-        
-        <div class="day-grid">
-            <div class="day-circle completed">1</div>
-            <div class="day-circle active">2</div>
-            <div class="day-circle">3</div>
-            <div class="day-circle">4</div>
-            <div class="day-circle">5</div>
-            <div class="day-circle">6</div>
-            <div class="day-circle">7</div>
-        </div>
-        
-        <p style="text-align: center; margin-top: 20px;">
-            <em>Complete each day's sunrise practice to activate the corresponding force</em>
-        </p>
-    </div>
-    
-    <!-- Main Content -->
-    <div class="content-grid">
-        <div class="main-content">
-            <h3>𓂀 The Sacred Flame Teachings</h3>
-            <p>Welcome to the second gateway, where you learn to wield <strong>creative speech</strong> and <strong>sacred trust</strong> as forces of Ma'at. This week transforms your words from mere communication into divine <em>heka</em> (creative power).</p>
-            
-            <div class="sunrise-ritual">
-                <h4 style="color: #FFD700;">☀️ Week 2 Core Sunrise Ritual</h4>
-                <p><strong>Each sunrise, perform this sacred practice:</strong></p>
-                <ol>
-                    <li>Light a candle at sunrise (or visualize flame)</li>
-                    <li>Face East, holding the candle at heart level</li>
-                    <li>Breathe deeply 8 times (for Force 8)</li>
-                    <li>Speak today's force declaration aloud</li>
-                    <li>Visualize your words as golden flames</li>
-                    <li>Carry a small flame symbol throughout the day</li>
-                </ol>
-            </div>
-            
-            <h4>This Week's Sacred Focus:</h4>
-            <div class="practice-list">
-                <div class="practice-item">
-                    <div class="practice-icon">🔥</div>
-                    <div>
-                        <strong>Truthful Creative Speech (Force 8):</strong> Your words create reality. Learn to speak only truth that builds harmony.
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">🛡️</div>
-                    <div>
-                        <strong>Protecting Foundations (Force 9):</strong> Become a guardian of vulnerable structures in your community.
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">☮️</div>
-                    <div>
-                        <strong>Ejecting Corruption (Force 10):</strong> Learn to identify and remove sources of chaos without creating more.
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">⚖️</div>
-                    <div>
-                        <strong>Clear Sacred Bonds (Force 11):</strong> Honor relationship boundaries with divine clarity.
-                    </div>
                 </div>
             </div>
             
-            <div class="access-note">
-                <h4 style="color: #FFD700;">🔐 Gateway Activation</h4>
-                <p>Your completion of <strong>Week 1: The Extended Stride</strong> has opened this gateway.</p>
-                <p><em>Your Week 1 Weighing Ceremony results have been recorded in the cosmic scales.</em></p>
-                <p style="margin-top: 20px; font-style: italic;">
-                    "The Sacred Flame burns away deception, revealing the pure gold of truth beneath."
+            <div class="sidebar">
+                <h3>📜 Week 2 Resources</h3>
+                
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">🎬</div>
+                        <div>
+                            <strong>Video Teaching:</strong><br>
+                            "The Sacred Flame: Truthful Creative Power"
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">📓</div>
+                        <div>
+                            <strong>Sacred Workbook:</strong><br>
+                            "Forces 8-14 Integration Manual"
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🕯️</div>
+                        <div>
+                            <strong>Sunrise Meditation:</strong><br>
+                            "Flame Visualization Practice"
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">✍️</div>
+                        <div>
+                            <strong>Daily Practices:</strong><br>
+                            7 Specific Force Activations
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>⏳ Sacred Time Commitment</h3>
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">☀️</div>
+                        <div>
+                            <strong>Sunrise Ritual:</strong><br>
+                            15 minutes daily
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">📝</div>
+                        <div>
+                            <strong>Daily Integration:</strong><br>
+                            20 minutes reflection
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🔥</div>
+                        <div>
+                            <strong>Weekly Weighing:</strong><br>
+                            45 minutes ceremony
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>🎯 Expected Transformations</h3>
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">✨</div>
+                        <div>Master truthful creative speech</div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🛡️</div>
+                        <div>Develop protective discernment</div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">⚖️</div>
+                        <div>Become a source of peace</div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🔮</div>
+                        <div>Wield words as sacred power</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 215, 0, 0.25);">
+            <a href="https://www.tors.life/hall-of-truth.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
+            
+            <div class="nav-links">
+                <a href="../week1/index.html" class="nav-button">
+                    ← Previous: The Extended Stride
+                </a>
+                <a href="../members/week3/index.html" class="week-link">Enter Gateway</a>" class="nav-button">
+                    Next: The Veil & Voice →
+                </a>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 25px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(255, 215, 0, 0.2);">
+                <p style="font-style: italic;">
+                    <strong>𓂀 Initiation Note:</strong> Complete all 7 sunrise practices and the Week 2 Weighing Ceremony to unlock Week 3. Your words become flames that either illuminate truth or consume with deception. Choose wisely.
                 </p>
             </div>
         </div>
-        
-        <div class="sidebar">
-            <h3>📜 Week 2 Resources</h3>
-            
-            <div class="practice-list">
-                <div class="practice-item">
-                    <div class="practice-icon">🎬</div>
-                    <div>
-                        <strong>Video Teaching:</strong><br>
-                        "The Sacred Flame: Truthful Creative Power"
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">📓</div>
-                    <div>
-                        <strong>Sacred Workbook:</strong><br>
-                        "Forces 8-14 Integration Manual"
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">🕯️</div>
-                    <div>
-                        <strong>Sunrise Meditation:</strong><br>
-                        "Flame Visualization Practice"
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">✍️</div>
-                    <div>
-                        <strong>Daily Practices:</strong><br>
-                        7 Specific Force Activations
-                    </div>
-                </div>
-            </div>
-            
-            <h3>⏳ Sacred Time Commitment</h3>
-            <div class="practice-list">
-                <div class="practice-item">
-                    <div class="practice-icon">☀️</div>
-                    <div>
-                        <strong>Sunrise Ritual:</strong><br>
-                        15 minutes daily
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">📝</div>
-                    <div>
-                        <strong>Daily Integration:</strong><br>
-                        20 minutes reflection
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">🔥</div>
-                    <div>
-                        <strong>Weekly Weighing:</strong><br>
-                        45 minutes ceremony
-                    </div>
-                </div>
-            </div>
-            
-            <h3>🎯 Expected Transformations</h3>
-            <div class="practice-list">
-                <div class="practice-item">
-                    <div class="practice-icon">✨</div>
-                    <div>Master truthful creative speech</div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">🛡️</div>
-                    <div>Develop protective discernment</div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">⚖️</div>
-                    <div>Become a source of peace</div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">🔮</div>
-                    <div>Wield words as sacred power</div>
-                </div>
-            </div>
-        </div>
     </div>
-    
-    <!-- Navigation -->
-    <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 215, 0, 0.25);">
-        <a href="https://www.tors.life/hall-of-truth.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
-        
-        <div class="nav-links">
-            <a href="../week1/index.html" class="nav-button">
-                ← Previous: The Extended Stride
-            </a>
-            <a href="../week3/index.html" class="nav-button">
-                Next: The Veil & Voice →
-            </a>
-        </div>
-        
-        <div style="margin-top: 40px; padding: 25px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(255, 215, 0, 0.2);">
-            <p style="font-style: italic;">
-                <strong>𓂀 Initiation Note:</strong> Complete all 7 sunrise practices and the Week 2 Weighing Ceremony to unlock Week 3. Your words become flames that either illuminate truth or consume with deception. Choose wisely.
-            </p>
-        </div>
-    </div>
-</div>
 
-<!-- Your existing page scripts stay at the bottom -->
-<script>
-    // Progress animation
-    document.addEventListener('DOMContentLoaded', function() {
-        const progressBar = document.querySelector('.progress');
-        setTimeout(() => {
-            progressBar.style.width = '29%';
-        }, 500);
-        
-        // Day circles interaction
-        const dayCircles = document.querySelectorAll('.day-circle');
-        let currentDay = 2; // Week 2, Day 2
-        
-        dayCircles.forEach((circle, index) => {
-            const dayNumber = parseInt(circle.textContent);
+    <script>
+        // Progress animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.querySelector('.progress');
+            setTimeout(() => {
+                progressBar.style.width = '29%';
+            }, 500);
             
-            if (dayNumber < currentDay) {
-                circle.classList.add('completed');
-            } else if (dayNumber === currentDay) {
-                circle.classList.add('active');
-            }
+            // Day circles interaction
+            const dayCircles = document.querySelectorAll('.day-circle');
+            let currentDay = 2; // Week 2, Day 2
             
-            circle.addEventListener('click', function() {
-                if (dayNumber <= currentDay) {
-                    alert(`Accessing Day ${dayNumber} of The Sacred Flame practice.`);
-                } else {
-                    alert(`Day ${dayNumber} unlocks after completing previous days. Focus on today's sunrise practice.`);
-                }
-            });
-        });
-        
-        // Force cards hover enhancement
-        document.querySelectorAll('.force-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.zIndex = '10';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.zIndex = '1';
-            });
-        });
-        
-        // Sunrise reminder
-        function checkForSunrise() {
-            const now = new Date();
-            const hours = now.getHours();
-            const minutes = now.getMinutes();
-            
-            if ((hours === 4 && minutes >= 30) || (hours > 4 && hours < 8)) {
-                const notification = document.createElement('div');
-                notification.style.cssText = `
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    background: rgba(255, 215, 0, 0.15);
-                    backdrop-filter: blur(10px);
-                    color: #FFD700;
-                    padding: 15px 25px;
-                    border-radius: 8px;
-                    font-family: "Georgia", serif;
-                    z-index: 1000;
-                    border: 1px solid #FFD700;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                    animation: slideIn 0.5s ease;
-                `;
-                notification.innerHTML = '☀️ Time for Sunrise Practice: Force ' + currentDay;
-                document.body.appendChild(notification);
+            dayCircles.forEach((circle, index) => {
+                const dayNumber = parseInt(circle.textContent);
                 
-                setTimeout(() => {
-                    notification.style.animation = 'slideOut 0.5s ease';
-                    setTimeout(() => notification.remove(), 500);
-                }, 5000);
+                if (dayNumber < currentDay) {
+                    circle.classList.add('completed');
+                } else if (dayNumber === currentDay) {
+                    circle.classList.add('active');
+                }
+                
+                circle.addEventListener('click', function() {
+                    if (dayNumber <= currentDay) {
+                        alert(`Accessing Day ${dayNumber} of The Sacred Flame practice.`);
+                    } else {
+                        alert(`Day ${dayNumber} unlocks after completing previous days. Focus on today's sunrise practice.`);
+                    }
+                });
+            });
+            
+            // Force cards hover enhancement
+            document.querySelectorAll('.force-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '10';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '1';
+                });
+            });
+            
+            // Sunrise reminder
+            function checkForSunrise() {
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                
+                if ((hours === 4 && minutes >= 30) || (hours > 4 && hours < 8)) {
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        background: rgba(255, 215, 0, 0.15);
+                        backdrop-filter: blur(10px);
+                        color: #FFD700;
+                        padding: 15px 25px;
+                        border-radius: 8px;
+                        font-family: "Georgia", serif;
+                        z-index: 1000;
+                        border: 1px solid #FFD700;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                        animation: slideIn 0.5s ease;
+                    `;
+                    notification.innerHTML = '☀️ Time for Sunrise Practice: Force ' + currentDay;
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.style.animation = 'slideOut 0.5s ease';
+                        setTimeout(() => notification.remove(), 500);
+                    }, 5000);
+                }
             }
-        }
-        
-        // Add CSS for animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        checkForSunrise();
-        setInterval(checkForSunrise, 1800000); // 30 minutes
-    });
-</script>
+            
+            // Add CSS for animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            checkForSunrise();
+            setInterval(checkForSunrise, 1800000); // 30 minutes
+        });
+    </script>
 </body>
 </html>
