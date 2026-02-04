@@ -779,7 +779,7 @@
             });
         });
 
-        // ========== AUTHENTICATION SYSTEM ========== //
+        // ========== AUTHENTICATION & PAYMENT SYSTEM ========== //
         
         // Initialize user database
         const TorsAuth = {
@@ -787,14 +787,26 @@
             currentUser: JSON.parse(localStorage.getItem('tors_sacred_current')) || null,
             
             init: function() {
-                // Create test user if none exist
+                // Create test users if none exist
                 if (Object.keys(this.users).length === 0) {
-                    this.users['initiate@example.com'] = {
-                        password: this.hash('Sacred123!'),
-                        name: 'Sacred Initiate',
-                        weeks: [1, 2, 3, 4, 5, 6, 7], // New - all weeks 1-7
+                    // Free test user (only Week 1)
+                    this.users['free@example.com'] = {
+                        password: this.hash('Free123!'),
+                        name: 'Free Initiate',
+                        weeks: [1], // Free users get only Week 1
+                        type: 'free',
                         joined: new Date().toISOString()
                     };
+                    
+                    // Paid test user (all weeks)
+                    this.users['paid@example.com'] = {
+                        password: this.hash('Paid123!'),
+                        name: 'Paid Initiate',
+                        weeks: [1, 2, 3, 4, 5, 6, 7], // Paid users get all weeks
+                        type: 'paid',
+                        joined: new Date().toISOString()
+                    };
+                    
                     this.saveUsers();
                 }
                 
@@ -814,15 +826,17 @@
                     return { success: false, message: 'Password must be at least 6 characters' };
                 }
                 
+                // NEW USERS START WITH ONLY WEEK 1 (FREE)
                 this.users[email] = {
                     password: this.hash(password),
                     name: email.split('@')[0],
-                    weeks: [1], // Start with free week 1
+                    weeks: [1], // ONLY Week 1 for free
+                    type: 'free', // Default is free user
                     joined: new Date().toISOString()
                 };
                 
                 this.saveUsers();
-                return { success: true, message: 'Account created successfully' };
+                return { success: true, message: 'Account created! You have free access to Week 1.' };
             },
             
             login: function(email, password) {
@@ -839,7 +853,8 @@
                 this.currentUser = {
                     email: email,
                     name: user.name,
-                    weeks: user.weeks
+                    weeks: user.weeks,
+                    type: user.type
                 };
                 
                 localStorage.setItem('tors_sacred_current', JSON.stringify(this.currentUser));
@@ -862,16 +877,42 @@
                 return this.currentUser.weeks.includes(weekNumber);
             },
             
+            getUserType: function() {
+                if (!this.isLoggedIn()) return null;
+                return this.currentUser.type;
+            },
+            
+            // PAYMENT FUNCTION: Upgrade user to paid (all weeks)
+            upgradeToPaid: function(email) {
+                const user = this.users[email];
+                if (user) {
+                    user.weeks = [1, 2, 3, 4, 5, 6, 7]; // Grant all weeks
+                    user.type = 'paid';
+                    
+                    // Update current user if logged in
+                    if (this.currentUser && this.currentUser.email === email) {
+                        this.currentUser.weeks = [1, 2, 3, 4, 5, 6, 7];
+                        this.currentUser.type = 'paid';
+                        localStorage.setItem('tors_sacred_current', JSON.stringify(this.currentUser));
+                    }
+                    
+                    this.saveUsers();
+                    this.updateWeekStatus();
+                    return { success: true, message: 'Upgraded to paid access! All weeks unlocked.' };
+                }
+                return { success: false, message: 'User not found' };
+            },
+            
             updateWeekStatus: function() {
-                for (let week = 2; week <= 7; week++) {
+                for (let week = 1; week <= 7; week++) {
                     const statusElement = document.getElementById(`week${week}Status`);
                     const linkElement = document.getElementById(`week${week}Link`);
                     
                     if (!statusElement) continue;
                     
                     if (this.isLoggedIn() && this.hasAccess(week)) {
-                        statusElement.textContent = 'ACCESS GRANTED';
-                        statusElement.className = 'week-status status-unlocked';
+                        statusElement.textContent = week === 1 ? 'FREE ACCESS' : 'ACCESS GRANTED';
+                        statusElement.className = 'week-status ' + (week === 1 ? 'status-free' : 'status-unlocked');
                         linkElement.href = `https://www.tors.life/portal/week${week}/index.html`;
                         linkElement.onclick = null;
                         linkElement.style.cursor = 'pointer';
@@ -879,15 +920,238 @@
                         statusElement.textContent = 'PURCHASE REQUIRED';
                         statusElement.className = 'week-status status-locked';
                         linkElement.href = 'javascript:void(0)';
-                        linkElement.onclick = () => {
-                            alert(`Week ${week} access requires purchase. Contact templeofmaat@proton.me`);
-                        };
+                        linkElement.onclick = () => this.showUpgradeModal(week);
                     } else {
-                        statusElement.textContent = 'LOGIN REQUIRED';
-                        statusElement.className = 'week-status status-locked';
-                        linkElement.href = 'javascript:void(0)';
-                        linkElement.onclick = () => openLoginModal();
+                        statusElement.textContent = week === 1 ? 'FREE ACCESS' : 'LOGIN REQUIRED';
+                        statusElement.className = 'week-status ' + (week === 1 ? 'status-free' : 'status-locked');
+                        linkElement.href = week === 1 ? 'https://www.tors.life/portal/week1/index.html' : 'javascript:void(0)';
+                        linkElement.onclick = week === 1 ? null : () => openLoginModal();
                     }
+                }
+            },
+            
+            showUpgradeModal: function(weekNumber) {
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(8, 0, 26, 0.98);
+                    z-index: 2000;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    backdrop-filter: blur(5px);
+                `;
+                
+                const modalContent = document.createElement('div');
+                modalContent.style.cssText = `
+                    background: linear-gradient(145deg, rgba(20, 0, 37, 0.98), rgba(40, 0, 70, 0.95));
+                    border: 3px solid #FFD700;
+                    border-radius: 16px;
+                    padding: 50px 40px;
+                    width: 90%;
+                    max-width: 600px;
+                    box-shadow: 0 0 60px rgba(255, 215, 0, 0.5);
+                    position: relative;
+                    overflow: hidden;
+                `;
+                
+                // Add sacred symbol background
+                const bgSymbol = document.createElement('div');
+                bgSymbol.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 8em;
+                    opacity: 0.05;
+                    color: #FFD700;
+                    z-index: 0;
+                `;
+                bgSymbol.textContent = '𓎟';
+                modalContent.appendChild(bgSymbol);
+                
+                modalContent.innerHTML += `
+                    <div style="position: relative; z-index: 1;">
+                        <h2 style="color: #FFD700; text-align: center; margin-bottom: 20px; font-size: 2.2em;">
+                            ✨ Unlock The Complete Journey ✨
+                        </h2>
+                        <p style="color: #d4bfff; text-align: center; margin-bottom: 30px; font-size: 1.1em; line-height: 1.6;">
+                            Access all 7 Sacred Gateways and master all 42 Forces of Ma'at
+                        </p>
+                        
+                        <!-- Sacred Offering Display -->
+                        <div style="
+                            background: rgba(255,215,0,0.08);
+                            border: 2px solid #FFD700;
+                            border-radius: 12px;
+                            padding: 30px;
+                            margin-bottom: 30px;
+                            position: relative;
+                            overflow: hidden;
+                        ">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <div>
+                                    <h3 style="color: #FFD700; margin-top: 0; font-size: 1.5em;">𓎟 Complete Ma'at Initiation 𓎟</h3>
+                                    <p style="color: #d4bfff; margin-bottom: 5px;">Full access to Weeks 1-7</p>
+                                    <p style="color: #d4bfff; font-size: 0.9em; opacity: 0.8;">(Includes Week ${weekNumber} you're trying to access)</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 3em; color: #FFD700; font-weight: bold; line-height: 1;">$911</div>
+                                    <div style="color: #d4bfff; font-size: 0.9em;">One-time sacred offering</div>
+                                </div>
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 25px;">
+                                <div style="color: #d4bfff; display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: #4CAF50; font-size: 1.2em;">✓</span>
+                                    <span>All 42 Forces of Ma'at</span>
+                                </div>
+                                <div style="color: #d4bfff; display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: #4CAF50; font-size: 1.2em;">✓</span>
+                                    <span>7 Sacred Gateways</span>
+                                </div>
+                                <div style="color: #d4bfff; display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: #4CAF50; font-size: 1.2em;">✓</span>
+                                    <span>Lifetime Access</span>
+                                </div>
+                                <div style="color: #d4bfff; display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: #4CAF50; font-size: 1.2em;">✓</span>
+                                    <span>Sacred Resources</span>
+                                </div>
+                                <div style="color: #d4bfff; display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: #4CAF50; font-size: 1.2em;">✓</span>
+                                    <span>Completion Certificate</span>
+                                </div>
+                                <div style="color: #d4bfff; display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: #4CAF50; font-size: 1.2em;">✓</span>
+                                    <span>True Name Revelation</span>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 25px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 3px solid #FFD700;">
+                                <p style="color: #FFD700; margin: 0; font-style: italic; text-align: center;">
+                                    "The 42 Forces are not taught, but awakened through sacred offering."
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Payment Section -->
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <h4 style="color: #FFD700; margin-bottom: 15px;">Choose Your Sacred Offering Method:</h4>
+                            
+                            <!-- Stripe Payment Button -->
+                            <a href="https://buy.stripe.com/5kQcN55xt2EY8ycbZF77O0w" 
+                               target="_blank"
+                               style="
+                                   display: inline-block;
+                                   background: linear-gradient(45deg, #635BFF, #8B5CF6);
+                                   color: white;
+                                   text-decoration: none;
+                                   padding: 20px 40px;
+                                   border-radius: 10px;
+                                   font-size: 1.3em;
+                                   font-weight: bold;
+                                   margin: 10px;
+                                   border: 2px solid #FFD700;
+                                   box-shadow: 0 5px 20px rgba(99, 91, 255, 0.3);
+                                   transition: all 0.3s ease;
+                                   min-width: 250px;
+                               "
+                               onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(99, 91, 255, 0.4)';"
+                               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 20px rgba(99, 91, 255, 0.3)';">
+                                ⚡ Pay with Stripe ($911)
+                            </a>
+                            
+                            <div style="color: #d4bfff; font-size: 0.9em; margin-top: 15px;">
+                                Secure payment processed by Stripe
+                            </div>
+                        </div>
+                        
+                        <!-- After Payment Instructions -->
+                        <div style="
+                            background: rgba(255,215,0,0.05);
+                            border: 1px dashed #FFD700;
+                            border-radius: 10px;
+                            padding: 20px;
+                            margin-bottom: 25px;
+                        ">
+                            <h4 style="color: #FFD700; margin-top: 0; font-size: 1.1em;">After Payment:</h4>
+                            <ol style="color: #d4bfff; padding-left: 20px; margin-bottom: 0;">
+                                <li>Complete your payment via Stripe</li>
+                                <li>Email your receipt to: <strong style="color: #FFD700;">templeofmaat@proton.me</strong></li>
+                                <li>We'll manually upgrade your account within 24 hours</li>
+                                <li>You'll receive email confirmation when your access is granted</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div style="text-align: center; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                            <button id="testUpgradeBtn" style="
+                                background: rgba(76, 175, 80, 0.2);
+                                color: #4CAF50;
+                                border: 1px solid #4CAF50;
+                                padding: 15px 30px;
+                                border-radius: 8px;
+                                font-size: 1.1em;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                            ">Test Upgrade (Dev Only)</button>
+                            
+                            <button id="closeModalBtn" style="
+                                background: rgba(255,112,67,0.2);
+                                color: #FF7043;
+                                border: 1px solid #FF7043;
+                                padding: 15px 30px;
+                                border-radius: 8px;
+                                font-size: 1.1em;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                            ">Continue Free Journey</button>
+                        </div>
+                        
+                        <!-- Contact Info -->
+                        <div style="text-align: center; margin-top: 30px;">
+                            <p style="color: #d4bfff; font-size: 0.9em; margin-bottom: 5px;">
+                                Need assistance with your offering?
+                            </p>
+                            <p style="color: #FFD700; font-size: 1em; margin: 0;">
+                                ✉️ Email: templeofmaat@proton.me
+                            </p>
+                        </div>
+                    </div>
+                `;
+                
+                modal.appendChild(modalContent);
+                document.body.appendChild(modal);
+                
+                // Close modal
+                modalContent.querySelector('#closeModalBtn').onclick = function() {
+                    document.body.removeChild(modal);
+                };
+                
+                modal.onclick = function(e) {
+                    if (e.target === modal) {
+                        document.body.removeChild(modal);
+                    }
+                };
+                
+                // Test upgrade button (development only)
+                const testBtn = modalContent.querySelector('#testUpgradeBtn');
+                if (window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1') || window.location.hostname.includes('tors.life')) {
+                    testBtn.style.display = 'inline-block';
+                    testBtn.onclick = function() {
+                        const result = TorsAuth.upgradeToPaid(TorsAuth.currentUser.email);
+                        alert('🎉 SACRED UPGRADE COMPLETE!\n\n' + result.message + '\n\nYou now have access to all 7 weeks.');
+                        document.body.removeChild(modal);
+                        TorsAuth.updateWeekStatus();
+                        setTimeout(() => window.location.reload(), 500);
+                    };
+                } else {
+                    testBtn.style.display = 'none';
                 }
             },
             
@@ -895,15 +1159,9 @@
                 localStorage.setItem('tors_sacred_users', JSON.stringify(this.users));
             },
             
-            // Admin function to add paid users
-            addPaidUser: function(email, password, weeks = [1, 2, 3, 4, 5, 6, 7]) {
-                this.users[email] = {
-                    password: this.hash(password),
-                    name: email.split('@')[0],
-                    weeks: weeks,
-                    joined: new Date().toISOString()
-                };
-                this.saveUsers();
+            // Admin function to manually upgrade users
+            adminUpgradeUser: function(email) {
+                return this.upgradeToPaid(email);
             }
         };
         
@@ -962,10 +1220,16 @@
             const result = TorsAuth.login(email, password);
             
             if (result.success) {
-                showMessage('loginMessage', 'Access granted! Welcome back, ' + result.user.name, 'success');
+                const userType = result.user.type === 'paid' ? 'Paid Initiate' : 'Free Initiate';
+                const accessInfo = result.user.type === 'paid' ? 
+                    'You have access to all 7 Sacred Gateways!' : 
+                    'You have free access to Week 1. Upgrade for full access.';
+                
+                showMessage('loginMessage', `Access granted! Welcome, ${result.user.name} (${userType})\n${accessInfo}`, 'success');
                 setTimeout(() => {
                     closeLoginModal();
                     TorsAuth.updateWeekStatus();
+                    window.location.reload();
                 }, 1500);
             } else {
                 showMessage('loginMessage', result.message, 'error');
@@ -995,10 +1259,11 @@
                 // Auto-login after registration
                 const loginResult = TorsAuth.login(email, password);
                 if (loginResult.success) {
-                    showMessage('registerMessage', 'Account created! Welcome to the sacred journey.', 'success');
+                    showMessage('registerMessage', result.message + '\n\nUpgrade now to access all 7 weeks.', 'success');
                     setTimeout(() => {
                         closeLoginModal();
                         TorsAuth.updateWeekStatus();
+                        window.location.reload();
                     }, 1500);
                 }
             } else {
@@ -1017,7 +1282,7 @@
             if (TorsAuth.hasAccess(weekNumber)) {
                 window.location.href = `https://www.tors.life/portal/week${weekNumber}/index.html`;
             } else {
-                alert(`Week ${weekNumber} access requires purchase. Contact templeofmaat@proton.me to upgrade your access.`);
+                TorsAuth.showUpgradeModal(weekNumber);
             }
         }
         
@@ -1038,45 +1303,110 @@
                 userBadge.className = 'initiation-badge';
                 userBadge.style.margin = '20px auto';
                 userBadge.style.cursor = 'pointer';
-                userBadge.innerHTML = `Sacred Initiate: ${user.name} • <span style="color:#8c78ff; font-size:0.9em;">Click to logout</span>`;
-                userBadge.onclick = function() {
-                    if (confirm('Leave the sacred portal?')) {
-                        TorsAuth.logout();
-                        window.location.reload();
-                    }
-                };
+                userBadge.style.maxWidth = '800px';
+                userBadge.style.textAlign = 'center';
+                
+                const isPaid = user.type === 'paid';
+                const statusText = isPaid ? 
+                    '𓀭 PAID INITIATE - Full Access to All 7 Weeks 𓀭' : 
+                    '𓂀 FREE INITIATE - Access to Week 1 Only 𓂀';
+                
+                const statusColor = isPaid ? '#FFD700' : '#8c78ff';
+                const upgradeBtn = !isPaid ? `
+                    <div style="margin-top: 15px;">
+                        <button onclick="TorsAuth.showUpgradeModal(2)" style="
+                            background: linear-gradient(45deg, #330066, #4c0099);
+                            color: #FFD700;
+                            border: 2px solid #FFD700;
+                            padding: 12px 25px;
+                            border-radius: 8px;
+                            font-weight: bold;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            font-size: 1em;
+                        " 
+                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(255,215,0,0.3)';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                            ✨ Upgrade to Full Access ($911) ✨
+                        </button>
+                    </div>
+                ` : '';
+                
+                userBadge.innerHTML = `
+                    <div style="font-size: 1.1em; color: ${statusColor}; margin-bottom: 10px;">
+                        ${statusText}
+                    </div>
+                    <div style="color: #d4bfff; margin-bottom: 10px;">
+                        Initiate: <strong style="color: #FFD700;">${user.name}</strong><br>
+                        Access Level: <strong style="color: ${isPaid ? '#4CAF50' : '#FF7043'};">${isPaid ? 'Paid' : 'Free'}</strong><br>
+                        Weeks Accessible: <strong style="color: #FFD700;">${user.weeks.join(', ')}</strong>
+                    </div>
+                    ${upgradeBtn}
+                    <div style="margin-top: 15px; font-size: 0.9em; color: #FF7043;">
+                        <span onclick="TorsAuth.logout(); window.location.reload();" style="cursor: pointer;">
+                            Click here to logout
+                        </span>
+                    </div>
+                `;
                 
                 header.appendChild(userBadge);
             }
         });
         
-        // Add test account button for easy testing
-        const testBtn = document.createElement('button');
-        testBtn.textContent = 'Test Account';
-        testBtn.style.cssText = `
+        // Add test account buttons (development only)
+        const testContainer = document.createElement('div');
+        testContainer.style.cssText = `
             position: fixed;
             bottom: 20px;
             right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+            display: none;
+        `;
+        
+        const freeTestBtn = document.createElement('button');
+        freeTestBtn.textContent = 'Test Free Account';
+        freeTestBtn.style.cssText = `
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Georgia", serif;
+        `;
+        freeTestBtn.onclick = function() {
+            document.getElementById('loginEmail').value = 'free@example.com';
+            document.getElementById('loginPassword').value = 'Free123!';
+            showMessage('loginMessage', 'Free account credentials filled. Click "Enter Sacred Portal"', 'success');
+        };
+        
+        const paidTestBtn = document.createElement('button');
+        paidTestBtn.textContent = 'Test Paid Account';
+        paidTestBtn.style.cssText = `
             background: rgba(255,215,0,0.2);
             color: #FFD700;
             border: 1px solid #FFD700;
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            z-index: 100;
             font-family: "Georgia", serif;
-            display: none; /* Hidden by default */
         `;
-        testBtn.onclick = function() {
-            document.getElementById('loginEmail').value = 'initiate@example.com';
-            document.getElementById('loginPassword').value = 'Sacred123!';
-            showMessage('loginMessage', 'Test credentials filled. Click "Enter Sacred Portal"', 'success');
+        paidTestBtn.onclick = function() {
+            document.getElementById('loginEmail').value = 'paid@example.com';
+            document.getElementById('loginPassword').value = 'Paid123!';
+            showMessage('loginMessage', 'Paid account credentials filled. Click "Enter Sacred Portal"', 'success');
         };
-        document.body.appendChild(testBtn);
         
-        // Show test button only in development
-        if (window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1')) {
-            testBtn.style.display = 'block';
+        testContainer.appendChild(freeTestBtn);
+        testContainer.appendChild(paidTestBtn);
+        document.body.appendChild(testContainer);
+        
+        // Show test buttons only in development
+        if (window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1') || window.location.hostname.includes('tors.life')) {
+            testContainer.style.display = 'flex';
         }
     </script>
 </body>
