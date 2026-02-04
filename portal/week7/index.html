@@ -4,206 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 7: The Complete Garment - Synthesis of 42 Forces</title>
-    
-    <!-- ========== WEEK 7 PROTECTION SCRIPT ========== -->
-    <script>
-        // Week 7 Protection Script
-        (function() {
-            // Get current user from localStorage
-            const currentUser = JSON.parse(localStorage.getItem('tors_sacred_current'));
-            const weekNumber = 7; // ← CHANGED TO 7 FOR WEEK 7
-            
-            // If no user is logged in, redirect to Hall of Truth
-            if (!currentUser) {
-                alert('Sacred access required. Please login to access Week 7.');
-                window.location.href = 'https://www.tors.life/hall-of-truth.html';
-                return;
-            }
-            
-            // Check if user has access to this week
-            if (!currentUser.weeks || !currentUser.weeks.includes(weekNumber)) {
-                alert(`Week ${weekNumber} access requires completion of all previous weeks. You have access to weeks: ${currentUser.weeks ? currentUser.weeks.join(', ') : 'none'}`);
-                window.location.href = 'https://www.tors.life/hall-of-truth.html';
-                return;
-            }
-            
-            // User has access - add user interface
-            document.addEventListener('DOMContentLoaded', function() {
-                // Add logout button to top right
-                const logoutBtn = document.createElement('button');
-                logoutBtn.innerHTML = 'Logout';
-                logoutBtn.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: #330066;
-                    color: #FFD700;
-                    border: 2px solid #FFD700;
-                    padding: 10px 20px;
-                    border-radius: 8px;
-                    cursor: pointer;
-                    z-index: 10000;
-                    font-family: "Georgia", serif;
-                    font-size: 14px;
-                    transition: all 0.3s ease;
-                `;
-                logoutBtn.onmouseenter = function() {
-                    this.style.background = '#4c0099';
-                    this.style.boxShadow = '0 0 15px rgba(255, 215, 0, 0.4)';
-                };
-                logoutBtn.onmouseleave = function() {
-                    this.style.background = '#330066';
-                    this.style.boxShadow = 'none';
-                };
-                logoutBtn.onclick = function() {
-                    if (confirm('Leave sacred space?')) {
-                        localStorage.removeItem('tors_sacred_current');
-                        window.location.href = 'https://www.tors.life/hall-of-truth.html';
-                    }
-                };
-                document.body.appendChild(logoutBtn);
-                
-                // Add welcome message to top left - UPDATED FOR WEEK 7
-                const welcomeMsg = document.createElement('div');
-                welcomeMsg.innerHTML = `Living Pillar Initiate: ${currentUser.name}`;
-                welcomeMsg.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    left: 20px;
-                    color: #FFD700;
-                    font-family: "Georgia", serif;
-                    z-index: 10000;
-                    background: rgba(51, 0, 102, 0.6);
-                    padding: 10px 20px;
-                    border-radius: 8px;
-                    font-size: 14px;
-                    border: 1px solid #FFD700;
-                    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-                `;
-                document.body.appendChild(welcomeMsg);
-            });
-        })();
-    </script>
-    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
-
-        body.temple-page {
-            background: #140025;
-            color: #f7eaff;
-            font-family: "Georgia", serif;
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Libre+Baskerville:wght@400;700&display=swap');
+        
+        :root {
+            --royal-dark: #0B0A0A;
+            --temple-dark: #1A1818;
+            --sovereign-dark: #2A2525;
+            --light-text: #F0EDE9;
+            --muted-text: #B8B2A9;
+            --royal-gold: #B8952C;
+            --sacred-gold: #D4B15F;
+            --completion-gold: #D4AF37;
+            --border-royal: #3A3530;
+            --accent-earth: #8C7C5A;
+            --judgment-accent: #D49C2C;
+            --eye-light: #E8B85F;
+            --bronze-light: #C8A86E;
+            --completion-accent: #D4B15F;
+        }
+        
+        body {
+            background-color: var(--royal-dark);
+            color: var(--muted-text);
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 40px 20px;
-            line-height: 1.7;
+            padding: 20px;
             min-height: 100vh;
+            line-height: 1.7;
+            font-weight: 300;
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 20% 80%, rgba(184, 149, 44, 0.08) 0%, transparent 20%);
         }
-
-        h1, h2, h3, h4 {
-            color: #FFD700;
-            margin-top: 0;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-
-        a {
-            color: #8c78ff;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #FFD700;
-        }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: rgba(255,255,255,0.06);
+            background: var(--temple-dark);
             padding: 50px;
             border-radius: 12px;
-            border: 1px solid #FFD700;
+            border: 1px solid var(--border-royal);
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
         }
-
+        
         .container::before {
             content: "𓎟 𓀭 𓃩 𓂀 𓊹 𓆣 𓇳";
             position: absolute;
             top: 30px;
             right: 30px;
             font-size: 2em;
-            opacity: 0.08;
-            color: #FFD700;
+            opacity: 0.03;
             z-index: 0;
         }
-
+        
+        /* Completion woven border effect */
+        .container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, transparent 50%, rgba(212, 175, 55, 0.1) 50%);
+            background-size: 8px 8px;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
         .header {
             text-align: center;
             padding-bottom: 40px;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+            border-bottom: 1px solid var(--border-royal);
             margin-bottom: 50px;
             position: relative;
             z-index: 1;
         }
-
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
         h1 {
+            color: var(--light-text);
             font-size: 3.5em;
             margin: 30px 0 20px;
-            font-weight: 700;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
-
+        
         .gateway-badge {
             display: inline-block;
-            background: rgba(255, 215, 0, 0.1);
-            color: #FFD700;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--completion-gold);
             padding: 14px 30px;
             border-radius: 8px;
             font-weight: 500;
             margin: 20px 0;
-            border: 1px solid #FFD700;
+            border: 1px solid var(--completion-gold);
+            font-family: 'Libre Baskerville', serif;
             font-size: 1.1em;
             letter-spacing: 0.5px;
+            animation: completionPulse 3s infinite;
         }
-
+        
+        @keyframes completionPulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            }
+        }
+        
         .week-theme {
-            color: #f7eaff;
+            color: var(--completion-accent);
             font-size: 1.3em;
             margin: 25px 0 40px;
+            font-family: 'Libre Baskerville', serif;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.8;
             font-weight: 400;
             padding: 25px;
-            background: rgba(255, 215, 0, 0.08);
+            background: rgba(212, 175, 55, 0.1);
             border-radius: 10px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
-
+        
         .completion-celebration {
             text-align: center;
             padding: 50px;
-            background: rgba(255, 215, 0, 0.08);
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.12), 
+                rgba(184, 149, 44, 0.08));
             border-radius: 10px;
             margin: 40px 0;
-            border: 2px dashed #FFD700;
+            border: 2px dashed var(--completion-gold);
             position: relative;
             overflow: hidden;
         }
-
+        
+        .completion-celebration::before {
+            content: '𓎟 𓊹 𓎟';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em;
+            opacity: 0.1;
+        }
+        
         .weaving-animation {
             height: 8px;
             background: linear-gradient(90deg, 
-                rgba(255, 215, 0, 0.3),
-                rgba(255, 215, 0, 0.5),
-                rgba(255, 215, 0, 0.7),
-                rgba(255, 215, 0, 0.5),
-                rgba(255, 215, 0, 0.3));
+                rgba(184, 149, 44, 0.3),
+                rgba(212, 175, 55, 0.5),
+                rgba(212, 156, 44, 0.5),
+                rgba(212, 175, 55, 0.5),
+                rgba(184, 149, 44, 0.3));
             border-radius: 4px;
             margin: 35px auto;
             max-width: 600px;
             position: relative;
             overflow: hidden;
         }
-
+        
         .weaving-animation::after {
             content: '';
             position: absolute;
@@ -217,40 +188,42 @@
                 transparent 100%);
             animation: weave 3s infinite;
         }
-
+        
         @keyframes weave {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
         }
-
+        
         .integration-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin: 50px 0;
         }
-
+        
         .week-card {
-            background: rgba(255,255,255,0.06);
+            background: var(--sovereign-dark);
             padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #FFD700;
+            border-radius: 10px;
+            border: 1px solid var(--border-royal);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             text-align: center;
             cursor: pointer;
         }
-
+        
         .week-card:hover {
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.25);
+            transform: translateY(-8px);
+            border-color: var(--completion-accent);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
-
+        
         .week-number {
             width: 60px;
             height: 60px;
-            background: rgba(255, 215, 0, 0.15);
-            color: #FFD700;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--completion-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -258,206 +231,270 @@
             margin: 0 auto 20px;
             font-weight: 600;
             font-size: 1.6em;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            font-family: 'Cormorant Garamond', serif;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
         }
-
+        
+        .week-card:hover .week-number {
+            background: rgba(212, 175, 55, 0.25);
+            border-color: var(--completion-accent);
+        }
+        
+        .week-card h3 {
+            color: var(--light-text);
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            min-height: 70px;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+        
         .forces-summary {
-            color: #f7eaff;
+            color: var(--muted-text);
             font-size: 0.95em;
             line-height: 1.6;
             margin: 15px 0;
             padding: 15px;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 8px;
-            border-left: 2px solid #FFD700;
+            border-left: 2px solid rgba(212, 175, 55, 0.3);
         }
-
+        
         .week-7-card {
-            background: rgba(255, 215, 0, 0.08);
-            border-color: #FFD700;
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.1), rgba(184, 149, 44, 0.05));
+            border-color: var(--completion-gold);
+            animation: goldenGlow 4s infinite;
         }
-
+        
+        @keyframes goldenGlow {
+            0%, 100% { 
+                box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1); 
+            }
+            50% { 
+                box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2); 
+            }
+        }
+        
         .week-7-card .week-number {
-            background: rgba(255, 215, 0, 0.25);
-            border-color: #FFD700;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(184, 149, 44, 0.2));
+            color: var(--light-text);
+            border-color: var(--completion-gold);
         }
-
+        
         .week-7-card h3 {
-            color: #FFD700;
+            color: var(--completion-gold);
         }
-
+        
         .content-grid {
             display: grid;
             grid-template-columns: 3fr 2fr;
             gap: 35px;
             margin: 60px 0;
         }
-
-        .main-content,
-        .sidebar {
-            background: rgba(255,255,255,0.06);
+        
+        .main-content, .sidebar {
+            background: var(--sovereign-dark);
             padding: 35px;
-            border-radius: 12px;
-            border: 1px solid #FFD700;
+            border-radius: 10px;
+            border: 1px solid var(--border-royal);
+            position: relative;
+            z-index: 1;
         }
-
-        h3 {
-            color: #FFD700;
+        
+        h2, h3 {
+            color: var(--light-text);
             margin-top: 0;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+            border-bottom: 1px solid var(--border-royal);
             padding-bottom: 20px;
             font-size: 1.7em;
             font-weight: 600;
         }
-
+        
+        h2 {
+            font-size: 1.9em;
+        }
+        
         .back-link {
             display: inline-block;
-            background: #330066;
-            color: #FFD700;
+            background: transparent;
+            color: var(--royal-gold);
             padding: 16px 35px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 500;
             margin-top: 50px;
             transition: all 0.3s ease;
-            border: 2px solid #FFD700;
+            border: 1px solid var(--royal-gold);
+            font-family: 'Libre Baskerville', serif;
             font-size: 1.1em;
         }
-
+        
         .back-link:hover {
-            background: #4c0099;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            background: rgba(184, 149, 44, 0.1);
+            transform: translateY(-3px);
         }
-
+        
         .sunrise-ritual {
-            background: rgba(255, 215, 0, 0.08);
+            background: rgba(212, 175, 55, 0.1);
             padding: 30px;
             border-radius: 10px;
             margin: 35px 0;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
         }
-
+        
         .access-note {
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(184, 149, 44, 0.1);
             padding: 30px;
             border-radius: 10px;
             text-align: center;
             margin: 40px 0;
-            border: 1px dashed #FFD700;
+            border: 1px dashed var(--royal-gold);
         }
-
+        
         .progress-container {
-            background: rgba(255,255,255,0.06);
+            background: var(--sovereign-dark);
             padding: 35px;
-            border-radius: 12px;
+            border-radius: 10px;
             margin: 45px 0;
-            border: 1px solid #FFD700;
+            border: 1px solid var(--border-royal);
         }
-
+        
         .progress-bar {
             height: 18px;
             background: rgba(255, 255, 255, 0.08);
             border-radius: 9px;
             margin: 25px 0;
             overflow: hidden;
+            position: relative;
         }
-
+        
         .progress {
             height: 100%;
-            background: linear-gradient(90deg, #FFD700, #FFD700);
+            background: linear-gradient(90deg, 
+                rgba(184, 149, 44, 0.6), 
+                rgba(212, 175, 55, 0.8),
+                rgba(212, 175, 55, 1),
+                rgba(212, 175, 55, 0.8),
+                rgba(184, 149, 44, 0.6));
             width: 100%;
             border-radius: 9px;
             transition: width 2s ease;
+            position: relative;
+            overflow: hidden;
         }
-
+        
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
         .practice-list {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             padding: 25px;
             border-radius: 8px;
             margin: 25px 0;
-            border-left: 3px solid #FFD700;
+            border-left: 3px solid var(--completion-accent);
         }
-
+        
         .practice-item {
             display: flex;
             align-items: center;
             gap: 15px;
             margin: 18px 0;
             padding: 16px;
-            background: rgba(255,255,255,0.02);
+            background: rgba(255, 255, 255, 0.02);
             border-radius: 8px;
             transition: all 0.3s ease;
         }
-
+        
         .practice-item:hover {
-            background: rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.04);
             transform: translateX(5px);
         }
-
+        
         .practice-icon {
-            color: #FFD700;
+            color: var(--completion-accent);
             font-size: 1.3em;
             min-width: 35px;
         }
-
+        
         .nav-links {
             display: flex;
             justify-content: center;
             gap: 30px;
             margin: 40px 0;
         }
-
+        
         .nav-button {
-            color: #FFD700;
+            color: var(--royal-gold);
+            font-family: 'Libre Baskerville', serif;
             font-size: 1.1em;
             text-decoration: none;
             padding: 14px 30px;
-            border: 2px solid #FFD700;
+            border: 1px solid var(--royal-gold);
             border-radius: 8px;
             transition: all 0.3s ease;
-            background: #330066;
         }
-
+        
         .nav-button:hover {
-            background: #4c0099;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            background: rgba(184, 149, 44, 0.1);
+            transform: translateY(-2px);
         }
-
+        
         .completion-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin: 40px 0;
         }
-
+        
         .completion-card {
-            background: rgba(255,255,255,0.06);
+            background: rgba(212, 175, 55, 0.08);
             padding: 25px;
             border-radius: 10px;
             text-align: center;
-            border: 1px solid #FFD700;
+            border: 1px solid rgba(212, 175, 55, 0.2);
             transition: all 0.3s ease;
         }
-
+        
         .completion-card:hover {
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.25);
+            transform: translateY(-5px);
+            border-color: var(--completion-gold);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
-
+        
         .completion-icon {
             font-size: 2.2em;
             margin-bottom: 15px;
-            color: #FFD700;
+            color: var(--completion-gold);
         }
-
+        
         .weaving-thread {
             position: fixed;
             bottom: 30px;
             left: 30px;
             width: 70px;
             height: 70px;
-            background: rgba(255, 215, 0, 0.2);
+            background: rgba(212, 175, 55, 0.15);
             border-radius: 50%;
-            border: 1px solid #FFD700;
+            border: 1px solid var(--completion-gold);
             z-index: 100;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -466,36 +503,86 @@
             align-items: center;
             justify-content: center;
             font-size: 1.8em;
-            color: #FFD700;
+            color: var(--completion-gold);
+            animation: gentleSpin 40s linear infinite;
         }
-
+        
         .weaving-thread:hover {
-            background: rgba(255, 215, 0, 0.3);
+            background: rgba(212, 175, 55, 0.25);
             transform: scale(1.1);
+            animation: gentleSpin 20s linear infinite;
         }
-
+        
+        @keyframes gentleSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
         .completion-certificate {
-            background: rgba(255, 215, 0, 0.08);
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.12), 
+                rgba(184, 149, 44, 0.08));
             padding: 50px;
             border-radius: 10px;
             margin: 50px 0;
-            border: 2px solid #FFD700;
+            border: 2px solid var(--completion-gold);
             position: relative;
             overflow: hidden;
         }
-
+        
+        .completion-certificate::before {
+            content: '𓎟 𓊹 𓎟';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em;
+            opacity: 0.1;
+        }
+        
         @media (max-width: 768px) {
-            .content-grid { grid-template-columns: 1fr; gap: 30px; }
-            .container { padding: 25px; }
-            h1 { font-size: 2.5em; }
-            .integration-grid { grid-template-columns: 1fr; }
-            .completion-grid { grid-template-columns: 1fr; }
-            .weaving-thread { width: 60px; height: 60px; bottom: 15px; left: 15px; font-size: 1.5em; }
-            .nav-links { flex-direction: column; gap: 15px; }
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .integration-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .week-7-card {
+                grid-column: 1;
+            }
+            
+            .completion-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .weaving-thread {
+                width: 60px;
+                height: 60px;
+                bottom: 15px;
+                left: 15px;
+                font-size: 1.5em;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
         }
     </style>
 </head>
-<body class="temple-page">
+<body>
     <!-- Weaving Thread Floating Element -->
     <div class="weaving-thread" id="weavingThread" title="The 42 Threads Woven">𓎟</div>
     
@@ -510,7 +597,7 @@
             <div class="weaving-animation"></div>
             
             <div class="completion-celebration">
-                <h3 style="color: #FFD700; font-size: 1.8em;">
+                <h3 style="color: var(--completion-gold); font-size: 1.8em;">
                     𓎟 CONGRATULATIONS, LIVING PILLAR 𓎟
                 </h3>
                 <p style="font-size: 1.2em; margin-top: 20px;">
@@ -529,7 +616,7 @@
                     <strong>Forces 1-7:</strong> Usekh-nemmt to Arfi-em-khet<br>
                     <em>Walking within divine bounds, honoring sacred vessels</em>
                 </div>
-                <p style="color: #d4bfff; font-size: 0.95em;">Your foundation in cosmic alignment</p>
+                <p style="color: var(--muted-text); font-size: 0.95em;">Your foundation in cosmic alignment</p>
             </div>
             
             <!-- Week 2 -->
@@ -540,7 +627,7 @@
                     <strong>Forces 8-14:</strong> Neba to Ta-retiu<br>
                     <em>Truthful creative speech, protecting foundations</em>
                 </div>
-                <p style="color: #d4bfff; font-size: 0.95em;">Your mastery of creative power</p>
+                <p style="color: var(--muted-text); font-size: 0.95em;">Your mastery of creative power</p>
             </div>
             
             <!-- Week 3 -->
@@ -551,7 +638,7 @@
                     <strong>Forces 15-21:</strong> Unem-snef to Uamenti<br>
                     <em>Integrity, restraint, personal purity</em>
                 </div>
-                <p style="color: #d4bfff; font-size: 0.95em;">Your commitment to straight paths</p>
+                <p style="color: var(--muted-text); font-size: 0.95em;">Your commitment to straight paths</p>
             </div>
             
             <!-- Week 4 -->
@@ -562,7 +649,7 @@
                     <strong>Forces 22-28:</strong> Maa-antef to Ser-kheru<br>
                     <em>Righteous action, earth stewardship, constructive speech</em>
                 </div>
-                <p style="color: #d4bfff; font-size: 0.95em;">Your alignment with Ra's journey</p>
+                <p style="color: var(--muted-text); font-size: 0.95em;">Your alignment with Ra's journey</p>
             </div>
             
             <!-- Week 5 -->
@@ -573,7 +660,7 @@
                     <strong>Forces 29-35:</strong> Shei to Serti<br>
                     <em>Purity, flow, community harmony</em>
                 </div>
-                <p style="color: #d4bfff; font-size: 0.95em;">Your connection to Nun's clarity</p>
+                <p style="color: var(--muted-text); font-size: 0.95em;">Your connection to Nun's clarity</p>
             </div>
             
             <!-- Week 6 -->
@@ -584,18 +671,18 @@
                     <strong>Forces 36-42:</strong> Neb-heru to Hetch-abhu<br>
                     <em>Final discernment, sacred stewardship</em>
                 </div>
-                <p style="color: #d4bfff; font-size: 0.95em;">Your preparation for the scales</p>
+                <p style="color: var(--muted-text); font-size: 0.95em;">Your preparation for the scales</p>
             </div>
             
             <!-- Week 7 - The Garment -->
             <div class="week-card week-7-card">
                 <div class="week-number">7</div>
                 <h3>The Complete Garment</h3>
-                <div class="forces-summary" style="border-color: #FFD700;">
+                <div class="forces-summary" style="border-color: var(--completion-gold);">
                     <strong>All 42 Forces Woven:</strong> The synthesis of cosmic order<br>
                     <em>Your life as perfect microcosm of Ma'at</em>
                 </div>
-                <p style="font-size: 1em; color: #FFD700; font-style: italic;">
+                <p style="font-size: 1em; color: var(--completion-accent); font-style: italic;">
                     "The universe recognizes itself in you and opens the gates to the Field of Reeds."
                 </p>
             </div>
@@ -603,16 +690,16 @@
         
         <!-- Progress Tracker -->
         <div class="progress-container">
-            <h3 style="text-align: center;">𓎟 Your Journey Complete: 42 Forces Mastered 𓎟</h3>
+            <h3 style="text-align: center; color: var(--light-text);">𓎟 Your Journey Complete: 42 Forces Mastered 𓎟</h3>
             
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
-            <p style="text-align: center; font-size: 1.1em; color: #FFD700; margin-top: 20px;">
+            <p style="text-align: center; font-size: 1.1em; color: var(--completion-gold); margin-top: 20px;">
                 JOURNEY COMPLETE: Week 7 of 7 • All 42 Forces of Ma'at Integrated
             </p>
             
-            <p style="text-align: center; margin-top: 15px; color: #d4bfff; font-style: italic;">
+            <p style="text-align: center; margin-top: 15px; color: var(--muted-text); font-style: italic;">
                 "This is not a checklist of sins, but a map of the 42 threads that weave the garment of Ma'at."
             </p>
         </div>
@@ -648,10 +735,10 @@
         <div class="content-grid">
             <div class="main-content">
                 <h3>𓎟 The Complete Garment Teachings</h3>
-                <p>Welcome to the final gateway, where all 42 Forces of Ma'at are woven into <strong style="color: #FFD700;">The Complete Garment</strong> of your being. This week is not about learning new forces, but about synthesizing all that you have mastered into seamless embodiment.</p>
+                <p>Welcome to the final gateway, where all 42 Forces of Ma'at are woven into <strong style="color: var(--completion-gold);">The Complete Garment</strong> of your being. This week is not about learning new forces, but about synthesizing all that you have mastered into seamless embodiment.</p>
                 
                 <div class="sunrise-ritual">
-                    <h4 style="color: #FFD700;">☀️ Week 7 Sunrise Practice</h4>
+                    <h4 style="color: var(--completion-gold);">☀️ Week 7 Sunrise Practice</h4>
                     <p><strong>Each sunrise this week:</strong> Face East at sunrise with all 7 weeks' ritual objects. Speak all 42 declarations (7 per day, or all on Day 7). Visualize each force as a golden thread weaving into your energy field. Wear white during the ritual.</p>
                 </div>
                 
@@ -683,10 +770,10 @@
                 </div>
                 
                 <div class="access-note">
-                    <h4 style="color: #FFD700;">🎖️ Gateway Activation</h4>
+                    <h4 style="color: var(--royal-gold);">🎖️ Gateway Activation</h4>
                     <p>Your completion of <strong>Week 6: The Eye of Judgment</strong> has opened this final gateway.</p>
                     <p><em>Your discernment prepares you for synthesis and divine embodiment.</em></p>
-                    <p style="margin-top: 20px; font-style: italic;">
+                    <p style="margin-top: 20px; font-style: italic; color: var(--completion-gold);">
                         "The Complete Garment is woven from the 42 threads of Ma'at. Each force becomes part of your very skin, and you walk as a living expression of cosmic order."
                     </p>
                 </div>
@@ -775,28 +862,28 @@
         
         <!-- Completion Certificate -->
         <div class="completion-certificate">
-            <h3 style="color: #FFD700; text-align: center;">𓎟 LIVING PILLAR CERTIFICATE 𓎟</h3>
+            <h3 style="color: var(--completion-gold); text-align: center;">𓎟 LIVING PILLAR CERTIFICATE 𓎟</h3>
             <p style="font-size: 1.1em; margin: 25px 0; text-align: center;">
-                You have earned the title of <strong style="color: #FFD700;">Living Pillar of Ma'at</strong>
+                You have earned the title of <strong style="color: var(--completion-accent);">Living Pillar of Ma'at</strong>
             </p>
             <p style="font-size: 0.95em; margin: 15px 0; text-align: center;">
                 This signifies your mastery and synthesis of all 42 Forces of Ma'at through the 7 Sacred Gateways.
             </p>
-            <p style="font-style: italic; margin: 25px 0; font-size: 0.95em; color: #d4bfff; text-align: center;">
-                <em>Date of Completion: <span id="completion-date" style="color: #FFD700;">Loading...</span></em>
+            <p style="font-style: italic; margin: 25px 0; font-size: 0.95em; color: var(--muted-text); text-align: center;">
+                <em>Date of Completion: <span id="completion-date" style="color: var(--completion-accent);">Loading...</span></em>
             </p>
             
             <div style="text-align: center; margin-top: 35px;">
                 <button onclick="initiateFinalWeighing()" style="
-                    background: #330066;
-                    color: #FFD700;
-                    border: 2px solid #FFD700;
+                    background: rgba(212, 175, 55, 0.15);
+                    color: var(--completion-gold);
+                    border: 1px solid var(--completion-gold);
                     padding: 14px 30px;
                     border-radius: 8px;
                     font-weight: 500;
                     font-size: 1.1em;
                     cursor: pointer;
-                    font-family: 'Georgia', serif;
+                    font-family: 'Libre Baskerville', serif;
                     transition: all 0.3s ease;
                     margin: 8px;
                 ">
@@ -804,15 +891,15 @@
                 </button>
                 
                 <button onclick="downloadCertificate()" style="
-                    background: #330066;
-                    color: #FFD700;
-                    border: 2px solid #FFD700;
+                    background: rgba(184, 149, 44, 0.2);
+                    color: var(--light-text);
+                    border: 1px solid var(--royal-gold);
                     padding: 14px 30px;
                     border-radius: 8px;
                     font-weight: 500;
                     font-size: 1.1em;
                     cursor: pointer;
-                    font-family: 'Georgia', serif;
+                    font-family: 'Libre Baskerville', serif;
                     transition: all 0.3s ease;
                     margin: 8px;
                 ">
@@ -823,19 +910,19 @@
             <div id="true-name-reveal" style="
                 margin-top: 40px;
                 padding: 30px;
-                background: rgba(255,255,255,0.06);
+                background: rgba(0, 0, 0, 0.2);
                 border-radius: 8px;
-                border: 1px solid #FFD700;
+                border: 1px solid var(--completion-gold);
                 display: none;
             ">
-                <h4 style="color: #FFD700; text-align: center;">𓎟 Your True Name Has Been Revealed 𓎟</h4>
-                <p id="true-name-text" style="font-size: 1.8em; color: #FFD700; text-align: center; margin: 15px 0; font-family: 'Georgia', serif;"></p>
+                <h4 style="color: var(--completion-accent); text-align: center;">𓎟 Your True Name Has Been Revealed 𓎟</h4>
+                <p id="true-name-text" style="font-size: 1.8em; color: var(--completion-gold); text-align: center; margin: 15px 0; font-family: 'Cormorant Garamond', serif;"></p>
                 <p style="text-align: center; font-size: 0.9em;">Carry this name as your sacred vibration. Speak it each sunrise to maintain your alignment as a Living Pillar.</p>
             </div>
         </div>
         
         <!-- Navigation -->
-        <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 215, 0, 0.25);">
+        <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border-royal);">
             <a href="../index.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
             
             <div class="nav-links">
@@ -843,20 +930,20 @@
                     ← Previous: The Eye of Judgment
                 </a>
                 <span class="nav-button" style="
-                    background: rgba(255, 215, 0, 0.1);
-                    color: #FFD700;
-                    border-color: #FFD700;
+                    background: rgba(212, 175, 55, 0.1);
+                    color: var(--completion-gold);
+                    border-color: var(--completion-gold);
                     cursor: default;
                 ">
                     ✓ JOURNEY COMPLETE
                 </span>
             </div>
             
-            <div style="margin-top: 40px; padding: 25px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(255, 215, 0, 0.2);">
-                <p style="color: #FFD700; font-style: italic; font-size: 0.95em;">
+            <div style="margin-top: 40px; padding: 25px; background: rgba(212, 175, 55, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(212, 175, 55, 0.2);">
+                <p style="color: var(--completion-accent); font-style: italic; font-family: 'Libre Baskerville', serif; font-size: 0.95em;">
                     <strong>𓎟 Final Initiation Note:</strong> The Complete Garment is woven. The 42 threads become one fabric. You are no longer separate from Ma'at—you are a living expression of cosmic order. Walk as a pillar between earth and sky, sustaining harmony through your very being.
                 </p>
-                <p style="color: #FFD700; margin-top: 15px; font-size: 1.1em; text-align: center;">
+                <p style="color: var(--completion-gold); margin-top: 15px; font-family: 'Cormorant Garamond', serif; font-size: 1.1em; text-align: center;">
                     "To pass the 42 is to demonstrate that your life was a perfect microcosm of cosmic order."
                 </p>
             </div>
@@ -893,7 +980,7 @@
                 
                 // Pulse animation
                 this.style.animation = 'none';
-                this.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.4)';
+                this.style.boxShadow = '0 0 20px rgba(212, 175, 55, 0.4)';
                 setTimeout(() => {
                     this.style.animation = 'gentleSpin 20s linear infinite';
                     this.style.boxShadow = 'none';
@@ -1065,7 +1152,7 @@ MA'AT WEARS THIS BEING AS HER LIVING FORM.
             style.textContent = `
                 @keyframes completionPulse {
                     0% { background-color: inherit; }
-                    50% { background-color: rgba(255, 215, 0, 0.1); }
+                    50% { background-color: rgba(212, 175, 55, 0.1); }
                     100% { background-color: inherit; }
                 }
             `;
