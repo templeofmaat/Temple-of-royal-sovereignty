@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Is this correct <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -389,539 +389,432 @@
 </head>
 <body class="temple-page">
 
-<!-- ========== WEEK 3 PROTECTION SCRIPT ========== -->
-<script>
-    // Week 3 Protection Script
-    (function() {
-        // Get current user from localStorage
-        const currentUser = JSON.parse(localStorage.getItem('tors_sacred_current'));
-        const weekNumber = 3; // THIS IS WEEK 3
-        
-        // If no user is logged in, redirect to Hall of Truth
-        if (!currentUser) {
-            alert('Sacred access required. Please login to access Week 3.');
-            window.location.href = 'https://www.tors.life/hall-of-truth.html';
-            return;
-        }
-        
-        // Check if user has access to this week
-        if (!currentUser.weeks || !currentUser.weeks.includes(weekNumber)) {
-            alert(`Week ${weekNumber} access requires purchase. You only have access to weeks: ${currentUser.weeks.join(', ')}`);
-            window.location.href = 'https://www.tors.life/hall-of-truth.html';
-            return;
-        }
-        
-        // User has access - add user interface
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add logout button to top right
-            const logoutBtn = document.createElement('button');
-            logoutBtn.innerHTML = 'Logout';
-            logoutBtn.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: rgba(255, 215, 0, 0.2);
-                color: #FFD700;
-                border: 1px solid #FFD700;
-                padding: 10px 20px;
-                border-radius: 5px;
-                cursor: pointer;
-                z-index: 10000;
-                font-family: "Georgia", serif;
-                font-size: 14px;
-                transition: all 0.3s ease;
-            `;
-            logoutBtn.onmouseenter = function() {
-                this.style.background = 'rgba(255, 215, 0, 0.3)';
-                this.style.boxShadow = '0 0 10px rgba(255, 215, 0, 0.5)';
-            };
-            logoutBtn.onmouseleave = function() {
-                this.style.background = 'rgba(255, 215, 0, 0.2)';
-                this.style.boxShadow = 'none';
-            };
-            logoutBtn.onclick = function() {
-                if (confirm('Leave sacred space?')) {
-                    localStorage.removeItem('tors_sacred_current');
-                    window.location.href = 'https://www.tors.life/hall-of-truth.html';
-                }
-            };
-            document.body.appendChild(logoutBtn);
+    <div class="container">
+        <div class="header">
+            <div class="gateway-badge">𓆣 WEEK 3 - THE VEIL & THE VOICE - FORCES 15-21 𓆣</div>
+            <h1>Integrity & Sacred Restraint</h1>
+            <div class="week-theme">
+                Walking straight paths • Honoring creation's work • Maintaining personal purity • Sacred speech restraint
+            </div>
             
-            // Add welcome message to top left
-            const welcomeMsg = document.createElement('div');
-            welcomeMsg.innerHTML = `Veil & Voice Initiate: ${currentUser.name}`;
-            welcomeMsg.style.cssText = `
-                position: fixed;
-                top: 20px;
-                left: 20px;
-                color: #FFD700;
-                font-family: "Georgia", serif;
-                z-index: 10000;
-                background: rgba(0,0,0,0.5);
-                padding: 10px 20px;
-                border-radius: 5px;
-                font-size: 14px;
-                border: 1px solid rgba(255, 215, 0, 0.3);
-            `;
-            document.body.appendChild(welcomeMsg);
+            <div class="sunrise-ritual">
+                <h3 style="color: #FFD700;">☀️ Week 3 Sunrise Practice</h3>
+                <p><strong>Each sunrise this week:</strong> Face East holding a veil or scarf (real or visualized). Speak: "My path is straight, my voice is measured, my integrity is complete." Wrap the veil around your shoulders while focusing on Force 15-21 for that day.</p>
+            </div>
+        </div>
+        
+        <!-- 7 Forces Overview -->
+        <div class="forces-overview">
+            <!-- Force 15 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">15</div>
+                    <div class="force-range">Force 15</div>
+                </div>
+                <h3>Unem-snef</h3>
+                <div class="kemetic-name">"The Consuming One of the Life River" from the Place of Transformation</div>
+                <div class="force-declaration">
+                    "I have not used the twisted path to achieve my end."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Walking straight paths</p>
+            </div>
             
-            // Update the progress section to include user's name
-            const progressSection = document.querySelector('.progress-container');
-            if (progressSection) {
-                const title = progressSection.querySelector('h3');
-                if (title) {
-                    title.innerHTML = `𓆣 ${currentUser.name}'s Journey Through The Veil & Voice 𓆣`;
-                }
-            }
+            <!-- Force 16 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">16</div>
+                    <div class="force-range">Force 16</div>
+                </div>
+                <h3>Unem-besek</h3>
+                <div class="kemetic-name">"The Consuming One of the Inner Vitals" from the Place of Purification</div>
+                <div class="force-declaration">
+                    "I have not reversed the work of the creator who turned the desert into fertile land."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Honoring creation's work</p>
+            </div>
             
-            // Update the "Access Note" section
-            const accessNote = document.querySelector('.access-note');
-            if (accessNote) {
-                accessNote.innerHTML = `
-                    <h4 style="color: #FFD700;">🔐 Gateway Activated for ${currentUser.name}</h4>
+            <!-- Force 17 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">17</div>
+                    <div class="force-range">Force 17</div>
+                </div>
+                <h3>Neb-Ma'at</h3>
+                <div class="kemetic-name">"The Lord of the Cosmic Pattern" from the Double Truth</div>
+                <div class="force-declaration">
+                    "I have not stolen the secret sound (medu) of another's heart."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Respecting privacy</p>
+            </div>
+            
+            <!-- Force 18 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">18</div>
+                    <div class="force-range">Force 18</div>
+                </div>
+                <h3>Tenemiu</h3>
+                <div class="kemetic-name">"The Measured Retrograde Stepper" from the Flame of Judgment</div>
+                <div class="force-declaration">
+                    "I have not unleashed my tongue as a weapon against the ka of another."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Restrained speech</p>
+            </div>
+            
+            <!-- Force 19 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">19</div>
+                    <div class="force-range">Force 19</div>
+                </div>
+                <h3>Sertiu</h3>
+                <div class="kemetic-name">"The Guide of the Solar Path" from Iunu</div>
+                <div class="force-declaration">
+                    "My heat (anger) has only ever risen as the justified flame of Ma'at itself."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Righteous anger</p>
+            </div>
+            
+            <!-- Force 20 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">20</div>
+                    <div class="force-range">Force 20</div>
+                </div>
+                <h3>Tutu</h3>
+                <div class="kemetic-name">"The Doubled Chaos" from the Mound of the Djed-Pillar</div>
+                <div class="force-declaration">
+                    "I have not sown confusion in the sacred field of another man's lineage."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Clear lineages</p>
+            </div>
+            
+            <!-- Force 21 -->
+            <div class="force-card">
+                <div class="force-header">
+                    <div class="force-number">21</div>
+                    <div class="force-range">Force 21</div>
+                </div>
+                <h3>Uamenti</h3>
+                <div class="kemetic-name">"The Unifier of the Two Lands" from the Double City of Balance</div>
+                <div class="force-declaration">
+                    "I have not made my body a vessel for impurity, mixing the pure with the corrupt."
+                </div>
+                <p><strong>Sunrise Focus:</strong> Personal purity</p>
+            </div>
+        </div>
+        
+        <!-- Progress Tracker -->
+        <div class="progress-container">
+            <h3 style="text-align: center;">𓆣 Your Journey Through The Veil & Voice 𓆣</h3>
+            
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <p style="text-align: center; font-size: 1.1em;">
+                Journey Progress: Week 3 of 7 • Forces 15-21 of 42
+            </p>
+            
+            <div class="day-grid">
+                <div class="day-circle completed">1</div>
+                <div class="day-circle completed">2</div>
+                <div class="day-circle active">3</div>
+                <div class="day-circle">4</div>
+                <div class="day-circle">5</div>
+                <div class="day-circle">6</div>
+                <div class="day-circle">7</div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 20px;">
+                <em>Complete each day's sunrise practice to activate the corresponding force</em>
+            </p>
+        </div>
+        
+        <!-- Sacred Elements -->
+        <div class="elements-grid">
+            <div class="element-card">
+                <div class="element-icon">🕊️</div>
+                <h4>Integrity</h4>
+                <p>Walking straight paths without guile or deception</p>
+            </div>
+            
+            <div class="element-card">
+                <div class="element-icon">🗣️</div>
+                <h4>Restraint</h4>
+                <p>Measured speech that heals rather than harms</p>
+            </div>
+            
+            <div class="element-card">
+                <div class="element-icon">🧿</div>
+                <h4>Purity</h4>
+                <p>Maintaining personal sanctity as a sacred vessel</p>
+            </div>
+            
+            <div class="element-card">
+                <div class="element-icon">⚖️</div>
+                <h4>Justice</h4>
+                <p>Anger that serves Ma'at, not personal ego</p>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content-grid">
+            <div class="main-content">
+                <h3>𓆣 The Veil & Voice Teachings</h3>
+                <p>Welcome to the third gateway, where you master <strong>integrity</strong> and <strong>sacred restraint</strong>. This week transforms your ability to walk straight paths and wield your voice with divine precision.</p>
+                
+                <div class="sunrise-ritual">
+                    <h4 style="color: #FFD700;">☀️ Week 3 Core Sunrise Ritual</h4>
+                    <p><strong>Each sunrise, perform this sacred practice:</strong></p>
+                    <ol>
+                        <li>At sunrise, face East with a white cloth or veil</li>
+                        <li>Hold the veil before your mouth, then your eyes</li>
+                        <li>Breathe deeply 15 times (for Force 15)</li>
+                        <li>Speak today's force declaration with measured tone</li>
+                        <li>Visualize your path as a straight golden line</li>
+                        <li>Wrap the veil around your left wrist as a reminder</li>
+                    </ol>
+                </div>
+                
+                <h4>This Week's Sacred Focus:</h4>
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">🛤️</div>
+                        <div>
+                            <strong>Straight Paths (Force 15):</strong> Eliminate guile and manipulation. Walk directly toward truth.
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🌱</div>
+                        <div>
+                            <strong>Honoring Creation (Force 16):</strong> Respect the work of creators. Never undo what divinity has built.
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🤫</div>
+                        <div>
+                            <strong>Sacred Privacy (Force 17):</strong> Honor unspoken words and private thoughts of others.
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">👅</div>
+                        <div>
+                            <strong>Tongue Restraint (Force 18):</strong> Master the retrograde step before speaking harmful words.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="access-note">
+                    <h4 style="color: #FFD700;">🔐 Gateway Activation</h4>
                     <p>Your completion of <strong>Week 2: The Sacred Flame</strong> has opened this gateway.</p>
-                    <p><em>Welcome back, ${currentUser.name}. Your Week 2 Weighing Ceremony results have been recorded.</em></p>
+                    <p><em>Your mastery of creative speech prepares you for its restraint.</em></p>
                     <p style="margin-top: 20px; font-style: italic;">
                         "The veil separates truth from deception. The voice carries truth across the separation."
                     </p>
-                    <div style="margin-top: 20px; padding: 10px; background: rgba(255,215,0,0.1); border-radius: 5px; font-size: 0.9em;">
-                        Access granted to weeks: ${currentUser.weeks.join(', ')}
-                    </div>
-                `;
-            }
-        });
-    })();
-</script>
-<!-- ========== END PROTECTION SCRIPT ========== -->
-
-<!-- YOUR PAGE CONTENT STARTS HERE -->
-<div class="container">
-    <div class="header">
-        <div class="gateway-badge">𓆣 WEEK 3 - THE VEIL & THE VOICE - FORCES 15-21 𓆣</div>
-        <h1>Integrity & Sacred Restraint</h1>
-        <div class="week-theme">
-            Walking straight paths • Honoring creation's work • Maintaining personal purity • Sacred speech restraint
-        </div>
-        
-        <div class="sunrise-ritual">
-            <h3 style="color: #FFD700;">☀️ Week 3 Sunrise Practice</h3>
-            <p><strong>Each sunrise this week:</strong> Face East holding a veil or scarf (real or visualized). Speak: "My path is straight, my voice is measured, my integrity is complete." Wrap the veil around your shoulders while focusing on Force 15-21 for that day.</p>
-        </div>
-    </div>
-    
-    <!-- 7 Forces Overview -->
-    <div class="forces-overview">
-        <!-- Force 15 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">15</div>
-                <div class="force-range">Force 15</div>
-            </div>
-            <h3>Unem-snef</h3>
-            <div class="kemetic-name">"The Consuming One of the Life River" from the Place of Transformation</div>
-            <div class="force-declaration">
-                "I have not used the twisted path to achieve my end."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Walking straight paths</p>
-        </div>
-        
-        <!-- Force 16 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">16</div>
-                <div class="force-range">Force 16</div>
-            </div>
-            <h3>Unem-besek</h3>
-            <div class="kemetic-name">"The Consuming One of the Inner Vitals" from the Place of Purification</div>
-            <div class="force-declaration">
-                "I have not reversed the work of the creator who turned the desert into fertile land."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Honoring creation's work</p>
-        </div>
-        
-        <!-- Force 17 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">17</div>
-                <div class="force-range">Force 17</div>
-            </div>
-            <h3>Neb-Ma'at</h3>
-            <div class="kemetic-name">"The Lord of the Cosmic Pattern" from the Double Truth</div>
-            <div class="force-declaration">
-                "I have not stolen the secret sound (medu) of another's heart."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Respecting privacy</p>
-        </div>
-        
-        <!-- Force 18 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">18</div>
-                <div class="force-range">Force 18</div>
-            </div>
-            <h3>Tenemiu</h3>
-            <div class="kemetic-name">"The Measured Retrograde Stepper" from the Flame of Judgment</div>
-            <div class="force-declaration">
-                "I have not unleashed my tongue as a weapon against the ka of another."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Restrained speech</p>
-        </div>
-        
-        <!-- Force 19 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">19</div>
-                <div class="force-range">Force 19</div>
-            </div>
-            <h3>Sertiu</h3>
-            <div class="kemetic-name">"The Guide of the Solar Path" from Iunu</div>
-            <div class="force-declaration">
-                "My heat (anger) has only ever risen as the justified flame of Ma'at itself."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Righteous anger</p>
-        </div>
-        
-        <!-- Force 20 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">20</div>
-                <div class="force-range">Force 20</div>
-            </div>
-            <h3>Tutu</h3>
-            <div class="kemetic-name">"The Doubled Chaos" from the Mound of the Djed-Pillar</div>
-            <div class="force-declaration">
-                "I have not sown confusion in the sacred field of another man's lineage."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Clear lineages</p>
-        </div>
-        
-        <!-- Force 21 -->
-        <div class="force-card">
-            <div class="force-header">
-                <div class="force-number">21</div>
-                <div class="force-range">Force 21</div>
-            </div>
-            <h3>Uamenti</h3>
-            <div class="kemetic-name">"The Unifier of the Two Lands" from the Double City of Balance</div>
-            <div class="force-declaration">
-                "I have not made my body a vessel for impurity, mixing the pure with the corrupt."
-            </div>
-            <p><strong>Sunrise Focus:</strong> Personal purity</p>
-        </div>
-    </div>
-    
-    <!-- Progress Tracker -->
-    <div class="progress-container">
-        <h3 style="text-align: center;">𓆣 Your Journey Through The Veil & Voice 𓆣</h3>
-        
-        <div class="progress-bar">
-            <div class="progress"></div>
-        </div>
-        <p style="text-align: center; font-size: 1.1em;">
-            Journey Progress: Week 3 of 7 • Forces 15-21 of 42
-        </p>
-        
-        <div class="day-grid">
-            <div class="day-circle completed">1</div>
-            <div class="day-circle completed">2</div>
-            <div class="day-circle active">3</div>
-            <div class="day-circle">4</div>
-            <div class="day-circle">5</div>
-            <div class="day-circle">6</div>
-            <div class="day-circle">7</div>
-        </div>
-        
-        <p style="text-align: center; margin-top: 20px;">
-            <em>Complete each day's sunrise practice to activate the corresponding force</em>
-        </p>
-    </div>
-    
-    <!-- Sacred Elements -->
-    <div class="elements-grid">
-        <div class="element-card">
-            <div class="element-icon">🕊️</div>
-            <h4>Integrity</h4>
-            <p>Walking straight paths without guile or deception</p>
-        </div>
-        
-        <div class="element-card">
-            <div class="element-icon">🗣️</div>
-            <h4>Restraint</h4>
-            <p>Measured speech that heals rather than harms</p>
-        </div>
-        
-        <div class="element-card">
-            <div class="element-icon">🧿</div>
-            <h4>Purity</h4>
-            <p>Maintaining personal sanctity as a sacred vessel</p>
-        </div>
-        
-        <div class="element-card">
-            <div class="element-icon">⚖️</div>
-            <h4>Justice</h4>
-            <p>Anger that serves Ma'at, not personal ego</p>
-        </div>
-    </div>
-    
-    <!-- Main Content -->
-    <div class="content-grid">
-        <div class="main-content">
-            <h3>𓆣 The Veil & Voice Teachings</h3>
-            <p>Welcome to the third gateway, where you master <strong>integrity</strong> and <strong>sacred restraint</strong>. This week transforms your ability to walk straight paths and wield your voice with divine precision.</p>
-            
-            <div class="sunrise-ritual">
-                <h4 style="color: #FFD700;">☀️ Week 3 Core Sunrise Ritual</h4>
-                <p><strong>Each sunrise, perform this sacred practice:</strong></p>
-                <ol>
-                    <li>At sunrise, face East with a white cloth or veil</li>
-                    <li>Hold the veil before your mouth, then your eyes</li>
-                    <li>Breathe deeply 15 times (for Force 15)</li>
-                    <li>Speak today's force declaration with measured tone</li>
-                    <li>Visualize your path as a straight golden line</li>
-                    <li>Wrap the veil around your left wrist as a reminder</li>
-                </ol>
-            </div>
-            
-            <h4>This Week's Sacred Focus:</h4>
-            <div class="practice-list">
-                <div class="practice-item">
-                    <div class="practice-icon">🛤️</div>
-                    <div>
-                        <strong>Straight Paths (Force 15):</strong> Eliminate guile and manipulation. Walk directly toward truth.
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">🌱</div>
-                    <div>
-                        <strong>Honoring Creation (Force 16):</strong> Respect the work of creators. Never undo what divinity has built.
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">🤫</div>
-                    <div>
-                        <strong>Sacred Privacy (Force 17):</strong> Honor unspoken words and private thoughts of others.
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">👅</div>
-                    <div>
-                        <strong>Tongue Restraint (Force 18):</strong> Master the retrograde step before speaking harmful words.
-                    </div>
                 </div>
             </div>
             
-            <div class="access-note">
-                <h4 style="color: #FFD700;">🔐 Gateway Activation</h4>
-                <p>Your completion of <strong>Week 2: The Sacred Flame</strong> has opened this gateway.</p>
-                <p><em>Your mastery of creative speech prepares you for its restraint.</em></p>
-                <p style="margin-top: 20px; font-style: italic;">
-                    "The veil separates truth from deception. The voice carries truth across the separation."
+            <div class="sidebar">
+                <h3>📜 Week 3 Resources</h3>
+                
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">🎬</div>
+                        <div>
+                            <strong>Video Teaching:</strong><br>
+                            "The Straight Path: Integrity in Action"
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">📓</div>
+                        <div>
+                            <strong>Sacred Workbook:</strong><br>
+                            "Forces 15-21 Integration Manual"
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🕊️</div>
+                        <div>
+                            <strong>Sunrise Meditation:</strong><br>
+                            "Veil of Restraint Practice"
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">✍️</div>
+                        <div>
+                            <strong>Daily Practices:</strong><br>
+                            7 Specific Force Activations
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>⏳ Sacred Time Commitment</h3>
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">☀️</div>
+                        <div>
+                            <strong>Sunrise Ritual:</strong><br>
+                            20 minutes daily
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">📝</div>
+                        <div>
+                            <strong>Daily Reflection:</strong><br>
+                            25 minutes integration
+                        </div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">⚖️</div>
+                        <div>
+                            <strong>Weekly Weighing:</strong><br>
+                            50 minutes ceremony
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>🎯 Expected Transformations</h3>
+                <div class="practice-list">
+                    <div class="practice-item">
+                        <div class="practice-icon">✨</div>
+                        <div>Master straight-path walking</div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🗣️</div>
+                        <div>Develop sacred speech restraint</div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">🧿</div>
+                        <div>Cultivate personal purity</div>
+                    </div>
+                    <div class="practice-item">
+                        <div class="practice-icon">⚔️</div>
+                        <div>Wield righteous anger wisely</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 215, 0, 0.25);">
+            <a href="../index.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
+            
+            <div class="nav-links">
+                <a href="../week2/index.html" class="nav-button">
+                    ← Previous: The Sacred Flame
+                </a>
+                <a href="../week4/index.html" class="nav-button">
+                    Next: The Solar Path →
+                </a>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 25px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(255, 215, 0, 0.2);">
+                <p style="font-style: italic;">
+                    <strong>𓆣 Initiation Note:</strong> Complete all 7 sunrise practices and the Week 3 Weighing Ceremony to unlock Week 4. The veil reveals what should remain hidden. The voice speaks only what should be heard.
                 </p>
             </div>
         </div>
-        
-        <div class="sidebar">
-            <h3>📜 Week 3 Resources</h3>
-            
-            <div class="practice-list">
-                <div class="practice-item">
-                    <div class="practice-icon">🎬</div>
-                    <div>
-                        <strong>Video Teaching:</strong><br>
-                        "The Straight Path: Integrity in Action"
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">📓</div>
-                    <div>
-                        <strong>Sacred Workbook:</strong><br>
-                        "Forces 15-21 Integration Manual"
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">🕊️</div>
-                    <div>
-                        <strong>Sunrise Meditation:</strong><br>
-                        "Veil of Restraint Practice"
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">✍️</div>
-                    <div>
-                        <strong>Daily Practices:</strong><br>
-                        7 Specific Force Activations
-                    </div>
-                </div>
-            </div>
-            
-            <h3>⏳ Sacred Time Commitment</h3>
-            <div class="practice-list">
-                <div class="practice-item">
-                    <div class="practice-icon">☀️</div>
-                    <div>
-                        <strong>Sunrise Ritual:</strong><br>
-                        20 minutes daily
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">📝</div>
-                    <div>
-                        <strong>Daily Reflection:</strong><br>
-                        25 minutes integration
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">⚖️</div>
-                    <div>
-                        <strong>Weekly Weighing:</strong><br>
-                        50 minutes ceremony
-                    </div>
-                </div>
-            </div>
-            
-            <h3>🎯 Expected Transformations</h3>
-            <div class="practice-list">
-                <div class="practice-item">
-                    <div class="practice-icon">✨</div>
-                    <div>Master straight-path walking</div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">🗣️</div>
-                    <div>Develop sacred speech restraint</div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">🧿</div>
-                    <div>Cultivate personal purity</div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon">⚔️</div>
-                    <div>Wield righteous anger wisely</div>
-                </div>
-            </div>
-        </div>
     </div>
-    
-    <!-- Navigation -->
-    <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 215, 0, 0.25);">
-        <a href="https://www.tors.life/hall-of-truth.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
-        
-        <div class="nav-links">
-            <a href="../week2/index.html" class="nav-button">
-                ← Previous: The Sacred Flame
-            </a>
-            <a href="../week4/index.html" class="nav-button">
-                Next: The Solar Path →
-            </a>
-        </div>
-        
-        <div style="margin-top: 40px; padding: 25px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(255, 215, 0, 0.2);">
-            <p style="font-style: italic;">
-                <strong>𓆣 Initiation Note:</strong> Complete all 7 sunrise practices and the Week 3 Weighing Ceremony to unlock Week 4. The veil reveals what should remain hidden. The voice speaks only what should be heard.
-            </p>
-        </div>
-    </div>
-</div>
 
-<!-- Your existing page scripts stay at the bottom -->
-<script>
-    // Progress animation
-    document.addEventListener('DOMContentLoaded', function() {
-        const progressBar = document.querySelector('.progress');
-        setTimeout(() => {
-            progressBar.style.width = '43%';
-        }, 500);
-        
-        // Day circles interaction
-        const dayCircles = document.querySelectorAll('.day-circle');
-        let currentDay = 3; // Week 3, Day 3
-        
-        dayCircles.forEach((circle, index) => {
-            const dayNumber = parseInt(circle.textContent);
+    <script>
+        // Progress animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.querySelector('.progress');
+            setTimeout(() => {
+                progressBar.style.width = '43%';
+            }, 500);
             
-            if (dayNumber < currentDay) {
-                circle.classList.add('completed');
-            } else if (dayNumber === currentDay) {
-                circle.classList.add('active');
-            }
+            // Day circles interaction
+            const dayCircles = document.querySelectorAll('.day-circle');
+            let currentDay = 3; // Week 3, Day 3
             
-            circle.addEventListener('click', function() {
-                if (dayNumber <= currentDay) {
-                    alert(`Accessing Day ${dayNumber} of The Veil & Voice practice.`);
-                } else {
-                    alert(`Day ${dayNumber} unlocks after completing previous days. Focus on today's sunrise practice.`);
-                }
-            });
-        });
-        
-        // Force cards hover enhancement
-        document.querySelectorAll('.force-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.zIndex = '10';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.zIndex = '1';
-            });
-        });
-        
-        // Element cards interaction
-        document.querySelectorAll('.element-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const title = this.querySelector('h4').textContent;
-                alert(`Exploring ${title}: This week's practice will deepen your understanding of this sacred element.`);
-            });
-        });
-        
-        // Sunrise reminder
-        function checkForSunrise() {
-            const now = new Date();
-            const hours = now.getHours();
-            const minutes = now.getMinutes();
-            
-            if ((hours === 4 && minutes >= 30) || (hours > 4 && hours < 8)) {
-                const notification = document.createElement('div');
-                notification.style.cssText = `
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    background: rgba(255, 215, 0, 0.15);
-                    backdrop-filter: blur(10px);
-                    color: #FFD700;
-                    padding: 15px 25px;
-                    border-radius: 8px;
-                    font-family: "Georgia", serif;
-                    z-index: 1000;
-                    border: 1px solid #FFD700;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                    animation: slideIn 0.5s ease;
-                `;
-                notification.innerHTML = '☀️ Time for Sunrise Practice: Force ' + (14 + currentDay);
-                document.body.appendChild(notification);
+            dayCircles.forEach((circle, index) => {
+                const dayNumber = parseInt(circle.textContent);
                 
-                setTimeout(() => {
-                    notification.style.animation = 'slideOut 0.5s ease';
-                    setTimeout(() => notification.remove(), 500);
-                }, 5000);
+                if (dayNumber < currentDay) {
+                    circle.classList.add('completed');
+                } else if (dayNumber === currentDay) {
+                    circle.classList.add('active');
+                }
+                
+                circle.addEventListener('click', function() {
+                    if (dayNumber <= currentDay) {
+                        alert(`Accessing Day ${dayNumber} of The Veil & Voice practice.`);
+                    } else {
+                        alert(`Day ${dayNumber} unlocks after completing previous days. Focus on today's sunrise practice.`);
+                    }
+                });
+            });
+            
+            // Force cards hover enhancement
+            document.querySelectorAll('.force-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '10';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '1';
+                });
+            });
+            
+            // Element cards interaction
+            document.querySelectorAll('.element-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const title = this.querySelector('h4').textContent;
+                    alert(`Exploring ${title}: This week's practice will deepen your understanding of this sacred element.`);
+                });
+            });
+            
+            // Sunrise reminder
+            function checkForSunrise() {
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                
+                if ((hours === 4 && minutes >= 30) || (hours > 4 && hours < 8)) {
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        background: rgba(255, 215, 0, 0.15);
+                        backdrop-filter: blur(10px);
+                        color: #FFD700;
+                        padding: 15px 25px;
+                        border-radius: 8px;
+                        font-family: "Georgia", serif;
+                        z-index: 1000;
+                        border: 1px solid #FFD700;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                        animation: slideIn 0.5s ease;
+                    `;
+                    notification.innerHTML = '☀️ Time for Sunrise Practice: Force ' + (14 + currentDay);
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.style.animation = 'slideOut 0.5s ease';
+                        setTimeout(() => notification.remove(), 500);
+                    }, 5000);
+                }
             }
-        }
-        
-        // Add CSS for animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        checkForSunrise();
-        setInterval(checkForSunrise, 1800000); // 30 minutes
-    });
-</script>
+            
+            // Add CSS for animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            checkForSunrise();
+            setInterval(checkForSunrise, 1800000); // 30 minutes
+        });
+    </script>
 </body>
 </html>
