@@ -5,137 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 5: The Sacred Waters - Forces 29-35 of Ma'at</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Libre+Baskerville:wght@400;700&display=swap');
-        
-        :root {
-            --royal-dark: #0B0A0A;
-            --temple-dark: #1A1818;
-            --sovereign-dark: #2A2525;
-            --light-text: #F0EDE9;
-            --muted-text: #B8B2A9;
-            --royal-gold: #B8952C;
-            --sacred-gold: #D4B15F;
-            --border-royal: #3A3530;
-            --accent-earth: #8C7C5A;
-            --water-accent: #5D8AA8;
-            --river-light: #A3C4D6;
-            --sacred-blue: #6C91B2;
-        }
-        
-        body {
-            background-color: var(--royal-dark);
-            color: var(--muted-text);
-            font-family: 'Inter', sans-serif;
+        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body.temple-page {
+            background: #140025;
+            color: #f7eaff;
+            font-family: "Georgia", serif;
             margin: 0;
-            padding: 20px;
-            min-height: 100vh;
+            padding: 40px 20px;
             line-height: 1.7;
-            font-weight: 300;
+            min-height: 100vh;
         }
-        
+
+        h1, h2, h3, h4 {
+            color: #FFD700;
+            margin-top: 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        a {
+            color: #8c78ff;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #FFD700;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: var(--temple-dark);
+            background: rgba(255,255,255,0.06);
             padding: 50px;
             border-radius: 12px;
-            border: 1px solid var(--border-royal);
+            border: 1px solid #FFD700;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
         }
-        
+
         .container::before {
             content: "𓈗 𓀭 𓃩 𓂀 𓎟";
             position: absolute;
             top: 30px;
             right: 30px;
             font-size: 2em;
-            opacity: 0.03;
+            opacity: 0.08;
+            color: #FFD700;
             z-index: 0;
         }
-        
+
         .header {
             text-align: center;
             padding-bottom: 40px;
-            border-bottom: 1px solid var(--border-royal);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
             margin-bottom: 50px;
             position: relative;
             z-index: 1;
         }
-        
+
         h1 {
-            color: var(--light-text);
-            font-family: 'Cormorant Garamond', serif;
             font-size: 3.5em;
             margin: 30px 0 20px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-weight: 700;
         }
-        
+
         .gateway-badge {
             display: inline-block;
-            background: rgba(93, 138, 168, 0.1);
-            color: var(--water-accent);
+            background: rgba(255, 215, 0, 0.1);
+            color: #FFD700;
             padding: 14px 30px;
             border-radius: 8px;
             font-weight: 500;
             margin: 20px 0;
-            border: 1px solid var(--water-accent);
-            font-family: 'Libre Baskerville', serif;
+            border: 1px solid #FFD700;
             font-size: 1.1em;
             letter-spacing: 0.5px;
         }
-        
+
         .week-theme {
-            color: var(--river-light);
+            color: #f7eaff;
             font-size: 1.3em;
             margin: 25px 0 40px;
-            font-family: 'Libre Baskerville', serif;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.8;
             font-weight: 400;
             padding: 25px;
-            background: rgba(93, 138, 168, 0.08);
+            background: rgba(255, 215, 0, 0.08);
             border-radius: 10px;
-            border: 1px solid rgba(93, 138, 168, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.2);
         }
-        
+
         .forces-overview {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin: 50px 0;
         }
-        
+
         .force-card {
-            background: var(--sovereign-dark);
+            background: rgba(255,255,255,0.06);
             padding: 25px;
-            border-radius: 10px;
-            border: 1px solid var(--border-royal);
+            border-radius: 12px;
+            border: 1px solid #FFD700;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
-        
+
         .force-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--water-accent);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.25);
         }
-        
+
         .force-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 20px;
         }
-        
+
         .force-number {
-            background: rgba(93, 138, 168, 0.15);
-            color: var(--water-accent);
+            background: rgba(255, 215, 0, 0.15);
+            color: #FFD700;
             width: 55px;
             height: 55px;
             border-radius: 50%;
@@ -144,164 +136,143 @@
             justify-content: center;
             font-weight: 600;
             font-size: 1.3em;
-            font-family: 'Cormorant Garamond', serif;
-            border: 1px solid var(--water-accent);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
-        
+
         .force-range {
-            background: rgba(184, 149, 44, 0.1);
-            color: var(--royal-gold);
+            background: rgba(255, 215, 0, 0.15);
+            color: #FFD700;
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9em;
-            border: 1px solid rgba(184, 149, 44, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
-        
+
         .force-card h3 {
-            color: var(--light-text);
+            color: #FFD700;
             margin: 0 0 15px 0;
             font-size: 1.4em;
-            font-family: 'Cormorant Garamond', serif;
             min-height: 70px;
             line-height: 1.3;
-            font-weight: 600;
+            font-weight: 700;
+            text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
         }
-        
+
         .kemetic-name {
-            color: var(--sacred-gold);
+            color: #FFD700;
             font-style: italic;
             font-size: 1.05em;
             margin-bottom: 20px;
-            font-family: 'Libre Baskerville', serif;
             opacity: 0.9;
             padding-bottom: 15px;
-            border-bottom: 1px solid rgba(184, 149, 44, 0.2);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
         }
-        
+
         .force-declaration {
-            background: rgba(93, 138, 168, 0.08);
+            background: rgba(255, 215, 0, 0.08);
             padding: 18px;
             border-radius: 8px;
             font-size: 0.95em;
             line-height: 1.7;
-            border-left: 3px solid var(--water-accent);
+            border-left: 3px solid #FFD700;
             margin: 20px 0;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
         }
-        
+
         .content-grid {
             display: grid;
             grid-template-columns: 3fr 2fr;
             gap: 35px;
             margin: 60px 0;
         }
-        
-        .main-content {
-            background: var(--sovereign-dark);
-            padding: 35px;
-            border-radius: 10px;
-            border: 1px solid var(--border-royal);
-        }
-        
+
+        .main-content,
         .sidebar {
-            background: var(--sovereign-dark);
+            background: rgba(255,255,255,0.06);
             padding: 35px;
-            border-radius: 10px;
-            border: 1px solid var(--border-royal);
+            border-radius: 12px;
+            border: 1px solid #FFD700;
         }
-        
-        h2, h3 {
-            color: var(--light-text);
+
+        h3 {
+            color: #FFD700;
             margin-top: 0;
-            border-bottom: 1px solid var(--border-royal);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
             padding-bottom: 20px;
-            font-family: 'Cormorant Garamond', serif;
             font-size: 1.7em;
             font-weight: 600;
         }
-        
-        h2 {
-            font-size: 1.9em;
-        }
-        
+
         .back-link {
             display: inline-block;
-            background: transparent;
-            color: var(--royal-gold);
+            background: #330066;
+            color: #FFD700;
             padding: 16px 35px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 500;
             margin-top: 50px;
             transition: all 0.3s ease;
-            border: 1px solid var(--royal-gold);
-            font-family: 'Libre Baskerville', serif;
+            border: 2px solid #FFD700;
             font-size: 1.1em;
         }
-        
+
         .back-link:hover {
-            background: rgba(184, 149, 44, 0.1);
-            transform: translateY(-3px);
+            background: #4c0099;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
-        
+
         .sunrise-ritual {
-            background: rgba(93, 138, 168, 0.08);
+            background: rgba(255, 215, 0, 0.08);
             padding: 30px;
             border-radius: 10px;
             margin: 35px 0;
-            border: 1px solid rgba(93, 138, 168, 0.2);
-            position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.2);
         }
-        
+
         .access-note {
-            background: rgba(184, 149, 44, 0.1);
+            background: rgba(255, 215, 0, 0.1);
             padding: 30px;
             border-radius: 10px;
             text-align: center;
             margin: 40px 0;
-            border: 1px dashed var(--royal-gold);
+            border: 1px dashed #FFD700;
         }
-        
+
         .progress-container {
-            background: var(--sovereign-dark);
+            background: rgba(255,255,255,0.06);
             padding: 35px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin: 45px 0;
-            border: 1px solid var(--border-royal);
+            border: 1px solid #FFD700;
         }
-        
+
         .progress-bar {
             height: 18px;
             background: rgba(255, 255, 255, 0.08);
             border-radius: 9px;
             margin: 25px 0;
             overflow: hidden;
-            position: relative;
         }
-        
+
         .progress {
             height: 100%;
-            background: linear-gradient(90deg, var(--water-accent), var(--royal-gold));
+            background: linear-gradient(90deg, #FFD700, #FFD700);
             width: 71%;
             border-radius: 9px;
             transition: width 1s ease;
-            position: relative;
-            overflow: hidden;
         }
-        
+
         .day-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 12px;
             margin: 35px 0;
         }
-        
+
         .day-circle {
             width: 55px;
             height: 55px;
-            background: rgba(93, 138, 168, 0.1);
+            background: rgba(255, 215, 0, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -309,133 +280,110 @@
             font-weight: 600;
             font-size: 1.1em;
             margin: 0 auto;
-            border: 1px solid rgba(93, 138, 168, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.3);
             transition: all 0.3s ease;
-            font-family: 'Cormorant Garamond', serif;
         }
-        
+
         .day-circle.completed {
-            background: rgba(93, 138, 168, 0.25);
-            color: var(--light-text);
-            border-color: var(--water-accent);
+            background: rgba(255, 215, 0, 0.25);
+            color: #f7eaff;
+            border-color: #FFD700;
         }
-        
+
         .day-circle.active {
-            background: rgba(184, 149, 44, 0.3);
-            color: var(--light-text);
-            border-color: var(--royal-gold);
+            background: rgba(255, 215, 0, 0.3);
+            color: #f7eaff;
+            border-color: #FFD700;
         }
-        
+
         .practice-list {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255,255,255,0.03);
             padding: 25px;
             border-radius: 8px;
             margin: 25px 0;
-            border-left: 3px solid var(--water-accent);
+            border-left: 3px solid #FFD700;
         }
-        
+
         .practice-item {
             display: flex;
             align-items: center;
             gap: 15px;
             margin: 18px 0;
             padding: 16px;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255,255,255,0.02);
             border-radius: 8px;
             transition: all 0.3s ease;
         }
-        
+
         .practice-item:hover {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255,255,255,0.04);
             transform: translateX(5px);
         }
-        
+
         .practice-icon {
-            color: var(--water-accent);
+            color: #FFD700;
             font-size: 1.3em;
             min-width: 35px;
         }
-        
+
         .nav-links {
             display: flex;
             justify-content: center;
             gap: 30px;
             margin: 40px 0;
         }
-        
+
         .nav-button {
-            color: var(--royal-gold);
-            font-family: 'Libre Baskerville', serif;
+            color: #FFD700;
             font-size: 1.1em;
             text-decoration: none;
             padding: 14px 30px;
-            border: 1px solid var(--royal-gold);
+            border: 2px solid #FFD700;
             border-radius: 8px;
             transition: all 0.3s ease;
+            background: #330066;
         }
-        
+
         .nav-button:hover {
-            background: rgba(184, 149, 44, 0.1);
-            transform: translateY(-2px);
+            background: #4c0099;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
-        
+
         .elements-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
             margin: 40px 0;
         }
-        
+
         .element-card {
-            background: rgba(93, 138, 168, 0.08);
+            background: rgba(255,255,255,0.06);
             padding: 25px;
             border-radius: 10px;
             text-align: center;
-            border: 1px solid rgba(93, 138, 168, 0.2);
+            border: 1px solid #FFD700;
             transition: all 0.3s ease;
         }
-        
+
         .element-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--river-light);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.25);
         }
-        
+
         .element-icon {
             font-size: 2.2em;
             margin-bottom: 15px;
-            color: var(--river-light);
+            color: #FFD700;
         }
-        
-        .download-button {
-            display: block;
-            background: rgba(93, 138, 168, 0.1);
-            color: var(--water-accent);
-            padding: 16px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            margin: 15px 0;
-            transition: all 0.3s ease;
-            text-align: center;
-            border: 1px solid var(--water-accent);
-            font-family: 'Libre Baskerville', serif;
-        }
-        
-        .download-button:hover {
-            background: rgba(93, 138, 168, 0.2);
-            transform: translateY(-2px);
-        }
-        
+
         .water-disc {
             position: fixed;
             bottom: 20px;
             right: 20px;
             width: 55px;
             height: 55px;
-            background: rgba(93, 138, 168, 0.2);
+            background: rgba(255, 215, 0, 0.2);
             border-radius: 50%;
-            border: 1px solid var(--water-accent);
+            border: 1px solid #FFD700;
             z-index: 100;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -444,64 +392,28 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5em;
-            color: var(--water-accent);
+            color: #FFD700;
         }
-        
+
         .water-disc:hover {
-            background: rgba(93, 138, 168, 0.3);
+            background: rgba(255, 215, 0, 0.3);
             transform: scale(1.1);
         }
-        
+
         @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .container {
-                padding: 25px;
-            }
-            
-            h1 {
-                font-size: 2.5em;
-            }
-            
-            .forces-overview {
-                grid-template-columns: 1fr;
-            }
-            
-            .day-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 10px;
-            }
-            
-            .day-circle {
-                width: 50px;
-                height: 50px;
-                font-size: 1em;
-            }
-            
-            .elements-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .water-disc {
-                width: 45px;
-                height: 45px;
-                bottom: 15px;
-                right: 15px;
-                font-size: 1.3em;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
+            .content-grid { grid-template-columns: 1fr; gap: 30px; }
+            .container { padding: 25px; }
+            h1 { font-size: 2.5em; }
+            .forces-overview { grid-template-columns: 1fr; }
+            .day-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+            .day-circle { width: 50px; height: 50px; font-size: 1em; }
+            .elements-grid { grid-template-columns: 1fr; }
+            .water-disc { width: 45px; height: 45px; bottom: 15px; right: 15px; font-size: 1.3em; }
+            .nav-links { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
-<body>
+<body class="temple-page">
     <!-- Floating Water Disc -->
     <div class="water-disc" id="waterDisc" title="Sacred Waters Reminder">𓈗</div>
     
@@ -514,7 +426,7 @@
             </div>
             
             <div class="sunrise-ritual">
-                <h3 style="color: var(--river-light);">🌅 Week 5 Sunrise Practice</h3>
+                <h3 style="color: #FFD700;">🌅 Week 5 Sunrise Practice</h3>
                 <p><strong>Each sunrise this week:</strong> Face East with a vessel of water. Speak: "My flow mirrors the Nile's blessing. My depth reflects Nun's wisdom." Pour water as offering while focusing on Force 29-35 for that day.</p>
             </div>
         </div>
@@ -622,12 +534,12 @@
         
         <!-- Progress Tracker -->
         <div class="progress-container">
-            <h3 style="text-align: center; color: var(--light-text);">𓈗 Your Journey Through The Sacred Waters 𓈗</h3>
+            <h3 style="text-align: center;">𓈗 Your Journey Through The Sacred Waters 𓈗</h3>
             
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
-            <p style="text-align: center; font-size: 1.1em; color: var(--river-light);">
+            <p style="text-align: center; font-size: 1.1em;">
                 Journey Progress: Week 5 of 7 • Forces 29-35 of 42
             </p>
             
@@ -641,7 +553,7 @@
                 <div class="day-circle">7</div>
             </div>
             
-            <p style="text-align: center; margin-top: 20px; color: var(--muted-text);">
+            <p style="text-align: center; margin-top: 20px;">
                 <em>Complete each day's sunrise practice to activate the corresponding force</em>
             </p>
         </div>
@@ -680,7 +592,7 @@
                 <p>Welcome to the fifth gateway, where you learn to flow with <strong>The Sacred Waters</strong> of Nun—mastering controlled force, patient judgment, and community harmony. This week teaches the difference between disruptive flooding and nourishing flow.</p>
                 
                 <div class="sunrise-ritual">
-                    <h4 style="color: var(--river-light);">🌅 Week 5 Core Sunrise Ritual</h4>
+                    <h4 style="color: #FFD700;">🌅 Week 5 Core Sunrise Ritual</h4>
                     <p><strong>Each sunrise, perform this sacred practice:</strong></p>
                     <ol>
                         <li>At sunrise, face East with a vessel of clean water</li>
@@ -721,10 +633,10 @@
                 </div>
                 
                 <div class="access-note">
-                    <h4 style="color: var(--royal-gold);">🔐 Gateway Activation</h4>
+                    <h4 style="color: #FFD700;">🔐 Gateway Activation</h4>
                     <p>Your completion of <strong>Week 4: The Solar Path</strong> has opened this gateway.</p>
                     <p><em>Your mastery of righteous action prepares you for controlled flow.</em></p>
-                    <p style="margin-top: 20px; font-style: italic; color: var(--river-light);">
+                    <p style="margin-top: 20px; font-style: italic;">
                         "The Sacred Waters teach that true power flows, does not force. True wisdom reflects, does not react."
                     </p>
                 </div>
@@ -815,14 +727,14 @@
         <div style="margin: 50px 0;">
             <h2 style="text-align: center;">📥 Sacred Resources</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
-                <a href="#" class="download-button">📥 Download Sacred Waters Workbook</a>
-                <a href="#" class="download-button">🎧 Download River Flow Meditations</a>
-                <a href="#" class="download-button">📚 Download Community Harmony Guide</a>
+                <a href="#" class="download-button" style="background: #330066; color: #FFD700; border: 2px solid #FFD700; padding: 16px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">📥 Download Sacred Waters Workbook</a>
+                <a href="#" class="download-button" style="background: #330066; color: #FFD700; border: 2px solid #FFD700; padding: 16px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">🎧 Download River Flow Meditations</a>
+                <a href="#" class="download-button" style="background: #330066; color: #FFD700; border: 2px solid #FFD700; padding: 16px; border-radius: 8px; text-align: center; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">📚 Download Community Harmony Guide</a>
             </div>
         </div>
         
         <!-- Navigation -->
-        <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border-royal);">
+        <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 215, 0, 0.25);">
             <a href="../index.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
             
             <div class="nav-links">
@@ -834,8 +746,8 @@
                 </a>
             </div>
             
-            <div style="margin-top: 40px; padding: 25px; background: rgba(93, 138, 168, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(93, 138, 168, 0.2);">
-                <p style="color: var(--river-light); font-style: italic; font-family: 'Libre Baskerville', serif;">
+            <div style="margin-top: 40px; padding: 25px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(255, 215, 0, 0.2);">
+                <p style="font-style: italic;">
                     <strong>𓈗 Initiation Note:</strong> Complete all 7 sunrise practices and the Week 5 Weighing Ceremony to unlock Week 6. The Sacred Waters purify what they touch. Flow with the wisdom of Nun, not the chaos of flood.
                 </p>
             </div>
@@ -902,7 +814,6 @@
                 const now = new Date();
                 const hours = now.getHours();
                 
-                // Check if it's morning or afternoon
                 if ((hours === 9 || hours === 15) && !document.querySelector('.water-notification')) {
                     const notification = document.createElement('div');
                     notification.className = 'water-notification';
@@ -910,14 +821,14 @@
                         position: fixed;
                         bottom: 90px;
                         right: 20px;
-                        background: rgba(93, 138, 168, 0.15);
+                        background: rgba(255, 215, 0, 0.15);
                         backdrop-filter: blur(10px);
-                        color: var(--river-light);
+                        color: #FFD700;
                         padding: 15px 25px;
                         border-radius: 8px;
-                        font-family: 'Libre Baskerville', serif;
+                        font-family: "Georgia", serif;
                         z-index: 1000;
-                        border: 1px solid var(--water-accent);
+                        border: 1px solid #FFD700;
                         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
                         animation: slideIn 0.5s ease;
                     `;
@@ -945,7 +856,6 @@
             `;
             document.head.appendChild(style);
             
-            // Check every hour
             checkForWaterReminder();
             setInterval(checkForWaterReminder, 3600000); // 1 hour
         });
