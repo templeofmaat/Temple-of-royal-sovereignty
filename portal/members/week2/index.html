@@ -1,3 +1,18 @@
+<script>
+    // Simple password check
+    const memberPassword = localStorage.getItem('memberAccess');
+    
+    if (memberPassword !== 'YOUR_SECRET_PASSWORD') {
+        const enteredPassword = prompt('Enter member password:');
+        
+        if (enteredPassword === 'YOUR_SECRET_PASSWORD') {
+            localStorage.setItem('memberAccess', enteredPassword);
+        } else {
+            alert('Access denied. Please purchase access.');
+            window.location.href = '../../index.html';
+        }
+    }
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
