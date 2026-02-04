@@ -8,14 +8,15 @@
         @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&family=system-ui,-apple-system,Segoe+UI,Roboto,Ubuntu,sans-serif&display=swap');
 
         :root {
-            --bg: #0a0a0f;                  /* Deep cosmic dark background matching screenshot */
-            --text: #e0e0e0;                /* Light readable text */
-            --heading: #ffffff;             /* Bright for titles */
-            --gold-accent: #d4af37;         /* Gold for symbols, accents, numbers (common Kemetic gold) */
-            --gold-muted: #c9a96e;          /* Softer gold for hovers/subtle */
-            --muted: #a0a0a0;               /* Subdued text */
-            --link: #d4af37;                /* Gold links */
-            --divider: #333344;             /* Dark subtle divider */
+            --bg: #000008;                  /* Deeper cosmic black, closer to screenshot (less blue tint) */
+            --text: #f0f0f0;                /* Soft off-white for body text */
+            --heading: #f5e8c7;             /* Warm light gold for main headings */
+            --gold-accent: #d4af37;         /* Primary gold for symbols, borders, numbers, buttons */
+            --gold-muted: #c9a96e;          /* Softer gold for hovers/subtle text */
+            --muted: #c0c0c0;               /* Muted gray for secondary text */
+            --link: #d4af37;
+            --divider: #222233;
+            --box-bg: rgba(212, 175, 55, 0.05); /* Very faint gold overlay for ritual/download boxes */
         }
 
         body {
@@ -23,36 +24,40 @@
             color: var(--text);
             font-family: system-ui, -apple-system, sans-serif;
             margin: 0;
-            padding: 40px 20px;
+            padding: 50px 20px;
             line-height: 1.7;
-            max-width: 900px;
+            max-width: 920px;
             margin: 0 auto;
         }
 
         header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
 
         h1 {
             font-family: 'Georgia', serif;
-            font-size: 2.8em;
+            font-size: 2.9em;
             color: var(--heading);
-            margin: 0.4em 0;
+            margin: 0.3em 0;
             font-weight: 700;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); /* Subtle glow for mystical feel */
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
         }
 
         .title-symbol {
-            font-size: 1.4em;
+            font-size: 1.5em;
             color: var(--gold-accent);
-            opacity: 0.9;
+            opacity: 0.95;
+        }
+
+        nav {
+            margin-top: 20px;
         }
 
         nav a, .back-link {
             color: var(--link);
             text-decoration: none;
-            margin: 0 12px;
+            margin: 0 15px;
             font-weight: 500;
         }
 
@@ -62,9 +67,9 @@
         }
 
         .intro {
-            font-size: 1.15em;
-            max-width: 760px;
-            margin: 0 auto 40px;
+            font-size: 1.2em;
+            max-width: 780px;
+            margin: 20px auto 50px;
             text-align: center;
             color: var(--muted);
         }
@@ -72,28 +77,29 @@
         h2, h3, h4 {
             font-family: 'Georgia', serif;
             color: var(--heading);
-            margin-top: 2.2em;
+            margin-top: 2.5em;
         }
 
         h2 {
             text-align: center;
             border-bottom: 1px solid var(--divider);
-            padding-bottom: 10px;
+            padding-bottom: 12px;
+            font-size: 2.1em;
         }
 
         .force-item {
-            margin: 2em 0;
-            padding: 20px;
-            border-left: 4px solid var(--gold-accent);
-            background: rgba(212, 175, 55, 0.03); /* Very faint gold tint for cards */
-            border-radius: 6px;
+            margin: 2.2em 0;
+            padding: 22px;
+            border-left: 5px solid var(--gold-accent);
+            background: var(--box-bg);
+            border-radius: 8px;
         }
 
         .force-number {
             font-weight: bold;
             color: var(--gold-accent);
-            margin-right: 8px;
-            font-size: 1.4em;
+            margin-right: 10px;
+            font-size: 1.5em;
         }
 
         .kemetic-name {
@@ -103,56 +109,65 @@
 
         .declaration {
             font-style: italic;
-            margin: 0.8em 0;
-            color: #d0d0d0;
+            margin: 1em 0;
+            color: #e0d0b0; /* Slightly warmer for emphasis */
         }
 
         .ritual-box {
-            background: rgba(212, 175, 55, 0.08);
-            padding: 30px;
-            margin: 40px 0;
-            border-radius: 8px;
+            background: var(--box-bg);
+            padding: 35px;
+            margin: 45px auto;
+            max-width: 800px;
+            border-radius: 10px;
             text-align: center;
             border: 1px solid var(--gold-accent);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.18);
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
         }
 
         .download-btn, .back-link {
-            display: inline-block;
-            padding: 12px 28px;
-            border: 1px solid var(--gold-accent);
-            border-radius: 6px;
+            display: block;
+            width: 320px;
+            margin: 25px auto;
+            padding: 15px 35px;
+            border: 1.5px solid var(--gold-accent);
+            border-radius: 8px;
             color: var(--gold-accent);
             font-weight: 600;
             text-decoration: none;
-            margin: 20px 0;
-            transition: all 0.3s;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
         }
 
         .download-btn:hover, .back-link:hover {
-            background: rgba(212, 175, 55, 0.15);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.12);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
         }
 
         .symbol-cluster {
             text-align: center;
-            font-size: 2.5em;
+            font-size: 3em;
             color: var(--gold-accent);
-            opacity: 0.7;
-            margin: 30px 0;
-            letter-spacing: 12px;
+            opacity: 0.75;
+            margin: 40px 0;
+            letter-spacing: 15px;
         }
 
         .divider {
             border: 0;
             height: 1px;
             background: var(--divider);
-            margin: 50px 0;
+            margin: 60px 0;
         }
 
         @media (max-width: 768px) {
-            body { padding: 25px 15px; }
-            h1 { font-size: 2.3em; }
+            body { padding: 30px 15px; }
+            h1 { font-size: 2.4em; }
+            .download-btn { width: 90%; }
         }
     </style>
 </head>
@@ -192,7 +207,7 @@
         <p><strong>Practice:</strong> Boundary honoring meditation</p>
     </div>
 
-    <!-- Add remaining forces 3-6 here in same .force-item pattern -->
+    <!-- Forces 3-6 would go here with same styling -->
 
     <div class="force-item">
         <h3><span class="force-number">7</span> Arfi-em-khet</h3>
@@ -209,16 +224,18 @@
     <p>"The Extended Stride: Walking Within Divine Bounds" (52 min)</p>
     <p>Align your daily walk with cosmic rhythms of Ma'at and the Royal way.</p>
 
-    <h3>📜 Sacred Workbook</h3>
-    <p>Your guide to Forces 1-7. Includes rituals, templates, journal pages, and glossary.</p>
-    <a href="#" class="download-btn">Download Sacred Workbook (PDF)</a>
+    <div class="download-section">
+        <h3>📜 Sacred Workbook</h3>
+        <p>Your guide to Forces 1-7. Includes rituals, templates, journal pages, and glossary.</p>
+        <a href="#" class="download-btn">Download Sacred Workbook (PDF)</a>
+    </div>
 
     <hr class="divider">
 
     <h2>7-Day Sacred Practice Journey</h2>
-    <!-- Insert your daily exercise blocks here, using similar <div class="force-item"> or simple <h4> + <p> styled with gold accents -->
+    <!-- Add daily blocks here, e.g., as .force-item or simple gold-accented sections -->
 
-    <div style="text-align: center; margin: 60px 0;">
+    <div style="text-align: center; margin: 70px 0;">
         <a href="../index.html" class="back-link">Return to Hall of Truth Portal 𓃩</a>
     </div>
 
