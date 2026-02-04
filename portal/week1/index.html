@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 1: The Extended Stride - Forces 1-7 of Ma'at</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&family=system-ui,-apple-system,Segoe+UI,Roboto,Ubuntu,sans-serif&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
 
         :root {
-            --bg: #000008;                  /* Deeper cosmic black, closer to screenshot (less blue tint) */
-            --text: #f0f0f0;                /* Soft off-white for body text */
-            --heading: #f5e8c7;             /* Warm light gold for main headings */
-            --gold-accent: #d4af37;         /* Primary gold for symbols, borders, numbers, buttons */
-            --gold-muted: #c9a96e;          /* Softer gold for hovers/subtle text */
-            --muted: #c0c0c0;               /* Muted gray for secondary text */
-            --link: #d4af37;
-            --divider: #222233;
-            --box-bg: rgba(212, 175, 55, 0.05); /* Very faint gold overlay for ritual/download boxes */
+            --bg: #140025;                  /* Exact deep purple from tors.life temple-page */
+            --text: #f7eaff;                /* Soft lavender-white body text */
+            --heading: #FFD700;             /* Gold headings + accents */
+            --muted: #d4bfff;               /* Softer subtitle/muted */
+            --link: #8c78ff;                /* Purple links, hover gold */
+            --box-bg: rgba(255, 255, 255, 0.06); /* Faint overlay for boxes */
+            --border-gold: #FFD700;
+            --glow: rgba(255, 215, 0, 0.5);
         }
 
         body {
-            background-color: var(--bg);
+            background: var(--bg);          /* Or use gradient + image if you host 'hall-of-truth-bg.jpg':
+                                            linear-gradient(rgba(8, 0, 26, 0.92), rgba(20, 10, 40, 0.88)),
+                                            url('images/hall-of-truth-bg.jpg') center/cover no-repeat; */
             color: var(--text);
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: 'Georgia', serif;
             margin: 0;
             padding: 50px 20px;
             line-height: 1.7;
@@ -36,18 +37,16 @@
         }
 
         h1 {
-            font-family: 'Georgia', serif;
             font-size: 2.9em;
             color: var(--heading);
             margin: 0.3em 0;
             font-weight: 700;
-            text-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+            text-shadow: 0 0 10px var(--glow);
         }
 
         .title-symbol {
             font-size: 1.5em;
-            color: var(--gold-accent);
-            opacity: 0.95;
+            color: var(--heading);
         }
 
         nav {
@@ -62,7 +61,7 @@
         }
 
         nav a:hover, .back-link:hover {
-            color: var(--gold-muted);
+            color: var(--heading);
             text-decoration: underline;
         }
 
@@ -75,29 +74,29 @@
         }
 
         h2, h3, h4 {
-            font-family: 'Georgia', serif;
             color: var(--heading);
             margin-top: 2.5em;
         }
 
         h2 {
             text-align: center;
-            border-bottom: 1px solid var(--divider);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
             padding-bottom: 12px;
             font-size: 2.1em;
+            text-shadow: 0 0 8px var(--glow);
         }
 
         .force-item {
             margin: 2.2em 0;
             padding: 22px;
-            border-left: 5px solid var(--gold-accent);
+            border-left: 5px solid var(--border-gold);
             background: var(--box-bg);
             border-radius: 8px;
         }
 
         .force-number {
             font-weight: bold;
-            color: var(--gold-accent);
+            color: var(--heading);
             margin-right: 10px;
             font-size: 1.5em;
         }
@@ -110,7 +109,7 @@
         .declaration {
             font-style: italic;
             margin: 1em 0;
-            color: #e0d0b0; /* Slightly warmer for emphasis */
+            color: #e8dfff; /* Slightly brighter for emphasis */
         }
 
         .ritual-box {
@@ -120,8 +119,8 @@
             max-width: 800px;
             border-radius: 10px;
             text-align: center;
-            border: 1px solid var(--gold-accent);
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.18);
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
         }
 
         .download-section {
@@ -134,33 +133,35 @@
             width: 320px;
             margin: 25px auto;
             padding: 15px 35px;
-            border: 1.5px solid var(--gold-accent);
+            border: 2px solid var(--border-gold);
             border-radius: 8px;
-            color: var(--gold-accent);
-            font-weight: 600;
+            color: var(--heading);
+            font-weight: bold;
             text-decoration: none;
             font-size: 1.1em;
-            transition: all 0.3s ease;
+            background: rgba(51, 0, 102, 0.6); /* Dark purple tint like btn */
+            transition: all 0.25s ease;
         }
 
         .download-btn:hover, .back-link:hover {
-            background: rgba(212, 175, 55, 0.12);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+            background: rgba(76, 0, 153, 0.8);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
 
         .symbol-cluster {
             text-align: center;
             font-size: 3em;
-            color: var(--gold-accent);
-            opacity: 0.75;
+            color: var(--heading);
+            opacity: 0.8;
             margin: 40px 0;
             letter-spacing: 15px;
+            text-shadow: 0 0 10px var(--glow);
         }
 
         .divider {
             border: 0;
             height: 1px;
-            background: var(--divider);
+            background: rgba(255, 215, 0, 0.25);
             margin: 60px 0;
         }
 
@@ -207,7 +208,7 @@
         <p><strong>Practice:</strong> Boundary honoring meditation</p>
     </div>
 
-    <!-- Forces 3-6 would go here with same styling -->
+    <!-- Add Forces 3-6 here -->
 
     <div class="force-item">
         <h3><span class="force-number">7</span> Arfi-em-khet</h3>
@@ -233,7 +234,7 @@
     <hr class="divider">
 
     <h2>7-Day Sacred Practice Journey</h2>
-    <!-- Add daily blocks here, e.g., as .force-item or simple gold-accented sections -->
+    <!-- Add your daily practice blocks here -->
 
     <div style="text-align: center; margin: 70px 0;">
         <a href="../index.html" class="back-link">Return to Hall of Truth Portal 𓃩</a>
