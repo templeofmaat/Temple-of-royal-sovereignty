@@ -323,243 +323,12 @@
             0% { transform: translateY(100vh) rotate(0deg); }
             100% { transform: translateY(-100px) rotate(360deg); }
         }
-
-        /* NEW: Login Modal Styles - Matching Your Theme */
-        .login-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(8, 0, 26, 0.95);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .login-modal.active {
-            display: flex;
-        }
-
-        .login-container {
-            background: rgba(20, 0, 37, 0.9);
-            border: 2px solid #FFD700;
-            border-radius: 12px;
-            padding: 40px;
-            width: 90%;
-            max-width: 450px;
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
-            position: relative;
-        }
-
-        .login-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .login-header h2 {
-            color: #FFD700;
-            margin-bottom: 10px;
-            font-size: 2em;
-        }
-
-        .login-header p {
-            color: #d4bfff;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            color: #FFD700;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 8px;
-            color: #f7eaff;
-            font-size: 1em;
-            font-family: "Georgia", serif;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #FFD700;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-        }
-
-        .login-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(45deg, #330066, #4c0099);
-            color: #FFD700;
-            border: 2px solid #FFD700;
-            border-radius: 8px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .login-btn:hover {
-            background: linear-gradient(45deg, #4c0099, #6600cc);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: #FFD700;
-            font-size: 1.5em;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .modal-tabs {
-            display: flex;
-            margin-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
-        }
-
-        .tab-btn {
-            flex: 1;
-            padding: 15px;
-            background: none;
-            border: none;
-            color: #d4bfff;
-            font-size: 1.1em;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-        }
-
-        .tab-btn.active {
-            color: #FFD700;
-            border-bottom-color: #FFD700;
-        }
-
-        .login-message {
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            text-align: center;
-            display: none;
-        }
-
-        .login-message.success {
-            background: rgba(76, 175, 80, 0.1);
-            color: #4CAF50;
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            display: block;
-        }
-
-        .login-message.error {
-            background: rgba(244, 67, 54, 0.1);
-            color: #FF7043;
-            border: 1px solid rgba(244, 67, 54, 0.3);
-            display: block;
-        }
-
-        .week-status {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-
-        .status-free {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4CAF50;
-            border: 1px solid rgba(76, 175, 80, 0.3);
-        }
-
-        .status-locked {
-            background: rgba(255, 112, 67, 0.2);
-            color: #FF7043;
-            border: 1px solid rgba(255, 112, 67, 0.3);
-        }
-
-        .status-unlocked {
-            background: rgba(255, 215, 0, 0.2);
-            color: #FFD700;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
     </style>
 </head>
 <body class="temple-page">
 
     <!-- Animated hieroglyph background -->
     <div class="hieroglyph-bg" id="hieroglyph-bg"></div>
-
-    <!-- NEW: Login Modal -->
-    <div class="login-modal" id="loginModal">
-        <div class="login-container">
-            <button class="close-modal" onclick="closeLoginModal()">×</button>
-            
-            <div class="login-header">
-                <h2>𓁦 Sacred Access 𓁦</h2>
-                <p>Enter the Hall of Truth with your sacred credentials</p>
-            </div>
-
-            <div class="modal-tabs">
-                <button class="tab-btn active" onclick="switchTab('login')">Login</button>
-                <button class="tab-btn" onclick="switchTab('register')">Register</button>
-            </div>
-
-            <!-- Login Form -->
-            <form id="loginForm" style="display: block;">
-                <div id="loginMessage" class="login-message"></div>
-                
-                <div class="form-group">
-                    <label for="email">Sacred Email</label>
-                    <input type="email" id="loginEmail" placeholder="your@email.com" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">Secret Password</label>
-                    <input type="password" id="loginPassword" placeholder="Your password" required>
-                </div>
-                
-                <button type="submit" class="login-btn">Enter Sacred Portal</button>
-            </form>
-
-            <!-- Register Form -->
-            <form id="registerForm" style="display: none;">
-                <div id="registerMessage" class="login-message"></div>
-                
-                <div class="form-group">
-                    <label for="regEmail">Your Email</label>
-                    <input type="email" id="regEmail" placeholder="your@email.com" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="regPassword">Create Password</label>
-                    <input type="password" id="regPassword" placeholder="Min 6 characters" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="regConfirmPassword">Confirm Password</label>
-                    <input type="password" id="regConfirmPassword" placeholder="Re-enter password" required>
-                </div>
-                
-                <button type="submit" class="login-btn">Begin Sacred Journey</button>
-            </form>
-        </div>
-    </div>
 
     <div class="container">
         <div class="header">
@@ -609,7 +378,7 @@
                     <div class="week-number">1</div>
                     <div class="force-count">Forces 1-7</div>
                 </div>
-                <h3>The Extended Stride <span class="week-status status-free">FREE ACCESS</span></h3>
+                <h3>The Extended Stride</h3>
                 <div class="kemetic-name">Usekh-nemmt • Hept-khet • Fenti • Am-khaibit • Neha-her • Ruruti • Arfi-em-khet</div>
                 <div class="week-theme">
                     Foundation of cosmic alignment. Learn to walk within divine bounds, honor sacred vessels, and practice true ownership.
@@ -620,7 +389,7 @@
                     <div class="force-item">Force 3: True Energy Ownership</div>
                     <div class="force-item">Force 4: Divine Timing</div>
                 </div>
-                <a href="https://www.tors.life/portal/week1/index.html" class="week-link free">𓁦 Access Free Gateway 𓁦</a>
+                <a href="week1/index.html" class="week-link free">𓁦 Access Free Gateway 𓁦</a>
             </div>
 
             <!-- Week 2: The Sacred Flame -->
@@ -629,7 +398,7 @@
                     <div class="week-number">2</div>
                     <div class="force-count">Forces 8-14</div>
                 </div>
-                <h3>The Sacred Flame <span id="week2Status" class="week-status status-locked">LOGIN REQUIRED</span></h3>
+                <h3>The Sacred Flame</h3>
                 <div class="kemetic-name">Neba • Set-qesu • Utu-nesert • Qerrti • Her-f-ha-f • Basti • Ta-retiu</div>
                 <div class="week-theme">
                     Mastery of creative speech and divine trust. Learn truthful manifestation, protect the vulnerable, and be a source of peace.
@@ -640,7 +409,7 @@
                     <div class="force-item">Force 10: Ejecting Corruption</div>
                     <div class="force-item">Force 11: Clear Lineages</div>
                 </div>
-                <a href="javascript:void(0)" onclick="checkAccess(2)" class="week-link" id="week2Link">Enter Gateway →</a>
+                <a href="week2/index.html" class="week-link">Enter Gateway →</a>
             </div>
 
             <!-- Week 3: The Veil & The Voice -->
@@ -649,7 +418,7 @@
                     <div class="week-number">3</div>
                     <div class="force-count">Forces 15-21</div>
                 </div>
-                <h3>The Veil & The Voice <span id="week3Status" class="week-status status-locked">LOGIN REQUIRED</span></h3>
+                <h3>The Veil & The Voice</h3>
                 <div class="kemetic-name">Unem-snef • Unem-besek • Neb-Ma'at • Tenemiu • Sertiu • Tutu • Uamenti</div>
                 <div class="week-theme">
                     Integrity and sacred restraint. Walk straight paths, honor creation's work, and maintain personal purity.
@@ -660,7 +429,7 @@
                     <div class="force-item">Force 17: Respecting Privacy</div>
                     <div class="force-item">Force 18: Restrained Speech</div>
                 </div>
-                <a href="javascript:void(0)" onclick="checkAccess(3)" class="week-link" id="week3Link">Enter Gateway →</a>
+                <a href="week3/index.html" class="week-link">Enter Gateway →</a>
             </div>
 
             <!-- Week 4: The Solar Path -->
@@ -669,7 +438,7 @@
                     <div class="week-number">4</div>
                     <div class="force-count">Forces 22-28</div>
                 </div>
-                <h3>The Solar Path <span id="week4Status" class="week-status status-locked">LOGIN REQUIRED</span></h3>
+                <h3>The Solar Path</h3>
                 <div class="kemetic-name">Maa-antef • Khemi • Utu-nes • Khaui • Nekhen • Nekher • Ser-kheru</div>
                 <div class="week-theme">
                     Righteous action and discernment. Learn measured wrath, authentic being, earth stewardship, and constructive speech.
@@ -680,7 +449,7 @@
                     <div class="force-item">Force 24: Measured Wrath</div>
                     <div class="force-item">Force 25: Authentic Being</div>
                 </div>
-                <a href="javascript:void(0)" onclick="checkAccess(4)" class="week-link" id="week4Link">Enter Gateway →</a>
+                <a href="week4/index.html" class="week-link">Enter Gateway →</a>
             </div>
 
             <!-- Week 5: The Sacred Waters -->
@@ -689,7 +458,7 @@
                     <div class="week-number">5</div>
                     <div class="force-count">Forces 29-35</div>
                 </div>
-                <h3>The Sacred Waters <span id="week5Status" class="week-status status-locked">LOGIN REQUIRED</span></h3>
+                <h3>The Sacred Waters</h3>
                 <div class="kemetic-name">Shei • Rekhi • Heru-khenti-khas • Sef-kha • Khenti-khas • An-hetep • Serti</div>
                 <div class="week-theme">
                     Purity, flow, and community harmony. Master controlled force, patient judgment, concise truth, and peace-bringing.
@@ -700,7 +469,7 @@
                     <div class="force-item">Force 31: Patient Judgment</div>
                     <div class="force-item">Force 32: Respecting Privacy</div>
                 </div>
-                <a href="javascript:void(0)" onclick="checkAccess(5)" class="week-link" id="week5Link">Enter Gateway →</a>
+                <a href="week5/index.html" class="week-link">Enter Gateway →</a>
             </div>
 
             <!-- Week 6: The Eye of Judgment -->
@@ -709,7 +478,7 @@
                     <div class="week-number">6</div>
                     <div class="force-count">Forces 36-42</div>
                 </div>
-                <h3>The Eye of Judgment <span id="week6Status" class="week-status status-locked">LOGIN REQUIRED</span></h3>
+                <h3>The Eye of Judgment</h3>
                 <div class="kemetic-name">Neb-heru • Khenemti • Pa-heri • Serekhi • Ahi • Uatch-ner • Hetch-abhu</div>
                 <div class="week-theme">
                     Final discernment and stewardship. Practice pure expression, recognize divinity, maintain flow, and sacred stewardship.
@@ -720,7 +489,7 @@
                     <div class="force-item">Force 38: Divine Honor</div>
                     <div class="force-item">Force 39: Authentic Reputation</div>
                 </div>
-                <a href="javascript:void(0)" onclick="checkAccess(6)" class="week-link" id="week6Link">Enter Gateway →</a>
+                <a href="week6/index.html" class="week-link">Enter Gateway →</a>
             </div>
 
             <!-- Week 7: The Complete Garment -->
@@ -729,7 +498,7 @@
                     <div class="week-number">7</div>
                     <div class="force-count">Integration</div>
                 </div>
-                <h3>The Complete Garment <span id="week7Status" class="week-status status-locked">LOGIN REQUIRED</span></h3>
+                <h3>The Complete Garment</h3>
                 <div class="kemetic-name">Weaving All 42 Threads</div>
                 <div class="week-theme">
                     Synthesis and divine embodiment. Weave all forces into your life garment, receive your true name, and become a living pillar of Ma'at.
@@ -740,7 +509,7 @@
                     <div class="force-item">Initiation Ceremony</div>
                     <div class="force-item">Living Embodiment</div>
                 </div>
-                <a href="javascript:void(0)" onclick="checkAccess(7)" class="week-link" id="week7Link">𓀭 Final Initiation 𓀭</a>
+                <a href="week7/index.html" class="week-link">𓀭 Final Initiation 𓀭</a>
             </div>
         </div>
 
@@ -778,306 +547,6 @@
                 this.style.zIndex = '1';
             });
         });
-
-        // ========== AUTHENTICATION SYSTEM ========== //
-        
-        // Initialize user database
-        const TorsAuth = {
-            users: JSON.parse(localStorage.getItem('tors_sacred_users')) || {},
-            currentUser: JSON.parse(localStorage.getItem('tors_sacred_current')) || null,
-            
-            init: function() {
-                // Create test user if none exist
-                if (Object.keys(this.users).length === 0) {
-                    this.users['initiate@example.com'] = {
-                        password: this.hash('Sacred123!'),
-                        name: 'Sacred Initiate',
-                        weeks: [1, 2, 3, 4, 5, 6, 7], // Access to weeks 1-7
-                        joined: new Date().toISOString()
-                    };
-                    this.saveUsers();
-                }
-                
-                this.updateWeekStatus();
-            },
-            
-            hash: function(password) {
-                return btoa(password.split('').reverse().join('') + 'TORSSACRED2024');
-            },
-            
-            register: function(email, password) {
-                if (this.users[email]) {
-                    return { success: false, message: 'Email already registered' };
-                }
-                
-                if (password.length < 6) {
-                    return { success: false, message: 'Password must be at least 6 characters' };
-                }
-                
-                this.users[email] = {
-                    password: this.hash(password),
-                    name: email.split('@')[0],
-                    weeks: [1], // Start with free week 1
-                    joined: new Date().toISOString()
-                };
-                
-                this.saveUsers();
-                return { success: true, message: 'Account created successfully' };
-            },
-            
-            login: function(email, password) {
-                const user = this.users[email];
-                
-                if (!user) {
-                    return { success: false, message: 'Sacred email not found' };
-                }
-                
-                if (this.hash(password) !== user.password) {
-                    return { success: false, message: 'Incorrect sacred password' };
-                }
-                
-                this.currentUser = {
-                    email: email,
-                    name: user.name,
-                    weeks: user.weeks
-                };
-                
-                localStorage.setItem('tors_sacred_current', JSON.stringify(this.currentUser));
-                this.updateWeekStatus();
-                return { success: true, user: this.currentUser };
-            },
-            
-            logout: function() {
-                this.currentUser = null;
-                localStorage.removeItem('tors_sacred_current');
-                this.updateWeekStatus();
-            },
-            
-            isLoggedIn: function() {
-                return this.currentUser !== null;
-            },
-            
-            hasAccess: function(weekNumber) {
-                if (!this.isLoggedIn()) return false;
-                return this.currentUser.weeks.includes(weekNumber);
-            },
-            
-            updateWeekStatus: function() {
-                for (let week = 2; week <= 7; week++) {
-                    const statusElement = document.getElementById(`week${week}Status`);
-                    const linkElement = document.getElementById(`week${week}Link`);
-                    
-                    if (!statusElement) continue;
-                    
-                    if (this.isLoggedIn() && this.hasAccess(week)) {
-                        statusElement.textContent = 'ACCESS GRANTED';
-                        statusElement.className = 'week-status status-unlocked';
-                        linkElement.href = `https://www.tors.life/portal/week${week}/index.html`;
-                        linkElement.onclick = null;
-                        linkElement.style.cursor = 'pointer';
-                    } else if (this.isLoggedIn()) {
-                        statusElement.textContent = 'PURCHASE REQUIRED';
-                        statusElement.className = 'week-status status-locked';
-                        linkElement.href = 'javascript:void(0)';
-                        linkElement.onclick = () => {
-                            alert(`Week ${week} access requires purchase. Contact templeofmaat@proton.me`);
-                        };
-                    } else {
-                        statusElement.textContent = 'LOGIN REQUIRED';
-                        statusElement.className = 'week-status status-locked';
-                        linkElement.href = 'javascript:void(0)';
-                        linkElement.onclick = () => openLoginModal();
-                    }
-                }
-            },
-            
-            saveUsers: function() {
-                localStorage.setItem('tors_sacred_users', JSON.stringify(this.users));
-            },
-            
-            // Admin function to add paid users
-            addPaidUser: function(email, password, weeks = [1, 2, 3, 4, 5, 6, 7]) {
-                this.users[email] = {
-                    password: this.hash(password),
-                    name: email.split('@')[0],
-                    weeks: weeks,
-                    joined: new Date().toISOString()
-                };
-                this.saveUsers();
-            }
-        };
-        
-        // Initialize auth system
-        TorsAuth.init();
-        
-        // ========== MODAL FUNCTIONS ========== //
-        
-        function openLoginModal() {
-            document.getElementById('loginModal').classList.add('active');
-        }
-        
-        function closeLoginModal() {
-            document.getElementById('loginModal').classList.remove('active');
-            clearMessages();
-        }
-        
-        function switchTab(tab) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                if (tab === 'login' && btn.textContent === 'Login') btn.classList.add('active');
-                if (tab === 'register' && btn.textContent === 'Register') btn.classList.add('active');
-            });
-            
-            document.getElementById('loginForm').style.display = tab === 'login' ? 'block' : 'none';
-            document.getElementById('registerForm').style.display = tab === 'register' ? 'block' : 'none';
-            clearMessages();
-        }
-        
-        function clearMessages() {
-            document.getElementById('loginMessage').className = 'login-message';
-            document.getElementById('loginMessage').textContent = '';
-            document.getElementById('registerMessage').className = 'login-message';
-            document.getElementById('registerMessage').textContent = '';
-        }
-        
-        function showMessage(elementId, text, type) {
-            const element = document.getElementById(elementId);
-            element.textContent = text;
-            element.className = `login-message ${type}`;
-        }
-        
-        // ========== FORM HANDLERS ========== //
-        
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('loginEmail').value.trim();
-            const password = document.getElementById('loginPassword').value;
-            
-            if (!email || !password) {
-                showMessage('loginMessage', 'Please fill in all fields', 'error');
-                return;
-            }
-            
-            const result = TorsAuth.login(email, password);
-            
-            if (result.success) {
-                showMessage('loginMessage', 'Access granted! Welcome back, ' + result.user.name, 'success');
-                setTimeout(() => {
-                    closeLoginModal();
-                    TorsAuth.updateWeekStatus();
-                }, 1500);
-            } else {
-                showMessage('loginMessage', result.message, 'error');
-            }
-        });
-        
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('regEmail').value.trim();
-            const password = document.getElementById('regPassword').value;
-            const confirmPassword = document.getElementById('regConfirmPassword').value;
-            
-            if (!email || !password || !confirmPassword) {
-                showMessage('registerMessage', 'Please fill in all fields', 'error');
-                return;
-            }
-            
-            if (password !== confirmPassword) {
-                showMessage('registerMessage', 'Passwords do not match', 'error');
-                return;
-            }
-            
-            const result = TorsAuth.register(email, password);
-            
-            if (result.success) {
-                // Auto-login after registration
-                const loginResult = TorsAuth.login(email, password);
-                if (loginResult.success) {
-                    showMessage('registerMessage', 'Account created! Welcome to the sacred journey.', 'success');
-                    setTimeout(() => {
-                        closeLoginModal();
-                        TorsAuth.updateWeekStatus();
-                    }, 1500);
-                }
-            } else {
-                showMessage('registerMessage', result.message, 'error');
-            }
-        });
-        
-        // ========== ACCESS CHECK ========== //
-        
-        function checkAccess(weekNumber) {
-            if (!TorsAuth.isLoggedIn()) {
-                openLoginModal();
-                return;
-            }
-            
-            if (TorsAuth.hasAccess(weekNumber)) {
-                window.location.href = `https://www.tors.life/portal/week${weekNumber}/index.html`;
-            } else {
-                alert(`Week ${weekNumber} access requires purchase. Contact templeofmaat@proton.me to upgrade your access.`);
-            }
-        }
-        
-        // Close modal when clicking outside
-        document.getElementById('loginModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLoginModal();
-            }
-        });
-        
-        // Add user status indicator to page
-        document.addEventListener('DOMContentLoaded', function() {
-            if (TorsAuth.isLoggedIn()) {
-                const user = TorsAuth.currentUser;
-                const header = document.querySelector('.header');
-                
-                const userBadge = document.createElement('div');
-                userBadge.className = 'initiation-badge';
-                userBadge.style.margin = '20px auto';
-                userBadge.style.cursor = 'pointer';
-                userBadge.innerHTML = `Sacred Initiate: ${user.name} • <span style="color:#8c78ff; font-size:0.9em;">Click to logout</span>`;
-                userBadge.onclick = function() {
-                    if (confirm('Leave the sacred portal?')) {
-                        TorsAuth.logout();
-                        window.location.reload();
-                    }
-                };
-                
-                header.appendChild(userBadge);
-            }
-        });
-        
-        // Add test account button for easy testing
-        const testBtn = document.createElement('button');
-        testBtn.textContent = 'Test Account';
-        testBtn.style.cssText = `
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255,215,0,0.2);
-            color: #FFD700;
-            border: 1px solid #FFD700;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 100;
-            font-family: "Georgia", serif;
-            display: none; /* Hidden by default */
-        `;
-        testBtn.onclick = function() {
-            document.getElementById('loginEmail').value = 'initiate@example.com';
-            document.getElementById('loginPassword').value = 'Sacred123!';
-            showMessage('loginMessage', 'Test credentials filled. Click "Enter Sacred Portal"', 'success');
-        };
-        document.body.appendChild(testBtn);
-        
-        // Show test button only in development
-        if (window.location.hostname === 'localhost' || window.location.hostname.includes('127.0.0.1')) {
-            testBtn.style.display = 'block';
-        }
     </script>
 </body>
 </html>
