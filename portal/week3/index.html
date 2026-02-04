@@ -388,6 +388,110 @@
     </style>
 </head>
 <body class="temple-page">
+    <!-- ADD THIS RIGHT AFTER <body class="temple-page"> -->
+<script>
+    // Week 2 Protection Script
+    (function() {
+        // Get current user from localStorage
+        const currentUser = JSON.parse(localStorage.getItem('tors_sacred_current'));
+        const weekNumber = 2; // Change this for each week
+        
+        // If no user is logged in, redirect to Hall of Truth
+        if (!currentUser) {
+            alert('Sacred access required. Please login to access Week 2.');
+            window.location.href = 'https://www.tors.life/hall-of-truth.html';
+            return;
+        }
+        
+        // Check if user has access to this week
+        if (!currentUser.weeks || !currentUser.weeks.includes(weekNumber)) {
+            alert(`Week ${weekNumber} access requires purchase. You only have access to weeks: ${currentUser.weeks.join(', ')}`);
+            window.location.href = 'https://www.tors.life/hall-of-truth.html';
+            return;
+        }
+        
+        // User has access - add user interface
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add logout button to top right
+            const logoutBtn = document.createElement('button');
+            logoutBtn.innerHTML = 'Logout';
+            logoutBtn.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 215, 0, 0.2);
+                color: #FFD700;
+                border: 1px solid #FFD700;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                z-index: 10000;
+                font-family: "Georgia", serif;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            `;
+            logoutBtn.onmouseenter = function() {
+                this.style.background = 'rgba(255, 215, 0, 0.3)';
+                this.style.boxShadow = '0 0 10px rgba(255, 215, 0, 0.5)';
+            };
+            logoutBtn.onmouseleave = function() {
+                this.style.background = 'rgba(255, 215, 0, 0.2)';
+                this.style.boxShadow = 'none';
+            };
+            logoutBtn.onclick = function() {
+                if (confirm('Leave sacred space?')) {
+                    localStorage.removeItem('tors_sacred_current');
+                    window.location.href = 'https://www.tors.life/hall-of-truth.html';
+                }
+            };
+            document.body.appendChild(logoutBtn);
+            
+            // Add welcome message to top left
+            const welcomeMsg = document.createElement('div');
+            welcomeMsg.innerHTML = `Sacred Flame Initiate: ${currentUser.name}`;
+            welcomeMsg.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                color: #FFD700;
+                font-family: "Georgia", serif;
+                z-index: 10000;
+                background: rgba(0,0,0,0.5);
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-size: 14px;
+                border: 1px solid rgba(255, 215, 0, 0.3);
+            `;
+            document.body.appendChild(welcomeMsg);
+            
+            // Update the progress section to include user's name
+            const progressSection = document.querySelector('.progress-container');
+            if (progressSection) {
+                const title = progressSection.querySelector('h3');
+                if (title) {
+                    title.innerHTML = `𓆣 ${currentUser.name}'s Journey Through the Sacred Flame 𓆣`;
+                }
+            }
+            
+            // Update the "Access Note" section
+            const accessNote = document.querySelector('.access-note');
+            if (accessNote) {
+                const originalHTML = accessNote.innerHTML;
+                accessNote.innerHTML = `
+                    <h4 style="color: #FFD700;">🔐 Gateway Activated for ${currentUser.name}</h4>
+                    <p>Your completion of <strong>Week 1: The Extended Stride</strong> has opened this gateway.</p>
+                    <p><em>Welcome back, ${currentUser.name}. Your Week 1 Weighing Ceremony results have been recorded.</em></p>
+                    <p style="margin-top: 20px; font-style: italic;">
+                        "The Sacred Flame burns away deception, revealing the pure gold of truth beneath."
+                    </p>
+                    <div style="margin-top: 20px; padding: 10px; background: rgba(255,215,0,0.1); border-radius: 5px; font-size: 0.9em;">
+                        Access granted to weeks: ${currentUser.weeks.join(', ')}
+                    </div>
+                `;
+            }
+        });
+    })();
+</script>
     <div class="container">
         <div class="header">
             <div class="gateway-badge">𓆣 WEEK 3 - THE VEIL & THE VOICE - FORCES 15-21 𓆣</div>
