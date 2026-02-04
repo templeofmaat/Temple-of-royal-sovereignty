@@ -1,392 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 1: The Extended Stride - Forces 1-7 of Ma'at</title>
-   <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 1 — The Extended Stride</title>
 
-:root {
-  --bg-deep-purple: #1b0b2e;
-  --bg-royal-purple: #2a1242;
-  --bg-panel-purple: rgba(255,255,255,0.06);
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
-  --gold-primary: #e0b84f;
-  --gold-soft: #f1d88a;
+<style>
+:root{
+  --bg-main:#1e0f33;
+  --bg-panel:#2a1645;
+  --bg-soft:rgba(255,255,255,0.05);
 
-  --text-ivory: #f5efe6;
-  --text-muted: #d7cfbf;
+  --gold:#e0b84f;
+  --gold-soft:#f0d78a;
 
-  --border-gold: rgba(224,184,79,0.45);
+  --text-main:#f4efe6;
+  --text-muted:#d8cfbf;
+
+  --border:rgba(224,184,79,0.35);
 }
 
-body {
-  background: radial-gradient(circle at top, #3a1a5d 0%, var(--bg-deep-purple) 70%);
-  color: var(--text-muted);
-  font-family: 'Playfair Display', serif;
-  margin: 0;
-  padding: 24px;
-  line-height: 1.75;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  padding:32px;
+  background:radial-gradient(circle at top,#3a1c60 0%,var(--bg-main) 65%);
+  color:var(--text-muted);
+  font-family:'Playfair Display',serif;
+  line-height:1.75;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.05),
-    rgba(255,255,255,0.015)
-  );
-  padding: 46px;
-  border-radius: 14px;
-  border: 1px solid var(--border-gold);
-  box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+.container{
+  max-width:1100px;
+  margin:auto;
+  background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:48px;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 50px;
+/* ---------- HEADER ---------- */
+
+.header{
+  text-align:center;
+  margin-bottom:56px;
 }
 
-h1 {
-  font-family: 'Cinzel', serif;
-  color: var(--gold-primary);
-  font-size: 3rem;
-  letter-spacing: 1.5px;
-  margin: 18px 0;
+.badge{
+  display:inline-block;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  padding:10px 26px;
+  border-radius:8px;
+  font-family:'Cinzel',serif;
+  letter-spacing:1px;
+  margin-bottom:20px;
 }
 
-.gateway-badge {
-  color: var(--gold-primary);
-  border: 1px solid var(--gold-primary);
-  padding: 12px 30px;
-  border-radius: 8px;
-  font-family: 'Cinzel', serif;
-  letter-spacing: 1.2px;
+.header h1{
+  font-family:'Cinzel',serif;
+  color:var(--gold);
+  font-size:2.8rem;
+  margin:10px 0;
+  letter-spacing:1.4px;
 }
 
-.week-theme {
-  color: var(--text-ivory);
-  max-width: 820px;
-  margin: 22px auto;
+.header p{
+  max-width:760px;
+  margin:0 auto;
+  color:var(--text-main);
 }
 
-.force-card,
-.module,
-.daily-exercises,
-.progress-tracker,
-.ritual-card {
-  background: var(--bg-panel-purple);
-  border: 1px solid var(--border-gold);
-  border-radius: 14px;
+/* ---------- SECTION ---------- */
+
+.section{
+  background:var(--bg-panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:32px;
+  margin-bottom:40px;
 }
 
-.force-card {
-  padding: 22px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+.section-title{
+  font-family:'Cinzel',serif;
+  color:var(--gold-soft);
+  font-size:1.6rem;
+  margin-bottom:18px;
 }
 
-.force-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 50px rgba(0,0,0,0.45);
+/* ---------- FORCE GRID ---------- */
+
+.force-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
 }
 
-.force-number,
-.step-number {
-  background: rgba(224,184,79,0.18);
-  color: var(--gold-primary);
-  border: 1px solid var(--gold-primary);
-  font-family: 'Cinzel', serif;
+.force-card{
+  background:var(--bg-soft);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:22px;
 }
 
-.force-card h3,
-.module h3,
-.exercise-item h4 {
-  color: var(--gold-soft);
-  font-family: 'Cinzel', serif;
+.force-number{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:rgba(224,184,79,0.2);
+  color:var(--gold);
+  font-family:'Cinzel',serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px;
 }
 
-.kemetic-name {
-  color: var(--text-ivory);
-  font-style: italic;
+.force-card h3{
+  font-family:'Cinzel',serif;
+  color:var(--gold-soft);
+  margin:0 0 6px 0;
+  font-size:1.2rem;
 }
 
-.force-declaration {
-  background: rgba(255,255,255,0.04);
-  border-left: 4px solid var(--gold-primary);
-  padding: 14px;
-  border-radius: 6px;
+.force-card p{
+  font-size:0.95rem;
 }
 
-.video-placeholder {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--border-gold);
+/* ---------- PRACTICE LIST ---------- */
+
+.practice{
+  margin-bottom:22px;
 }
 
-.play-button {
-  background: rgba(224,184,79,0.25);
-  color: var(--gold-primary);
-  border: 1px solid var(--gold-primary);
+.practice h4{
+  font-family:'Cinzel',serif;
+  color:var(--gold-soft);
+  margin-bottom:6px;
 }
 
-.download-btn,
-.back-link {
-  color: var(--gold-primary);
-  border: 1px solid var(--gold-primary);
-  font-family: 'Cinzel', serif;
+/* ---------- PROGRESS ---------- */
+
+.progress{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:20px;
+  text-align:center;
 }
 
-.download-btn:hover,
-.back-link:hover {
-  background: rgba(224,184,79,0.15);
+.step{
+  background:var(--bg-soft);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:18px;
 }
 
-.exercise-item {
-  background: rgba(255,255,255,0.05);
-  border-left: 4px solid var(--gold-primary);
+.step span{
+  display:block;
+  font-family:'Cinzel',serif;
+  color:var(--gold);
+  font-size:1.3rem;
+  margin-bottom:6px;
 }
 
-@media (max-width: 768px) {
-  h1 { font-size: 2.2rem; }
-  .container { padding: 28px; }
+/* ---------- ACTIONS ---------- */
+
+.actions{
+  text-align:center;
+  margin-top:48px;
+}
+
+button,a.btn{
+  display:inline-block;
+  margin:10px;
+  padding:14px 28px;
+  background:transparent;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  border-radius:8px;
+  font-family:'Cinzel',serif;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+button:hover,a.btn:hover{
+  background:rgba(224,184,79,0.15);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:768px){
+  .container{padding:28px}
+  .header h1{font-size:2.2rem}
 }
 </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="gateway-badge">𓁦 WEEK 1 - THE EXTENDED STRIDE - FREE ACCESS 𓁦</div>
-            <h1>Forces 1-7 of Ma'at</h1>
-            <div class="week-theme">
-                Foundation of Cosmic Alignment • Walking Within Divine Bounds • Honoring Sacred Vessels
-            </div>
-            
-            <div class="ritual-card">
-                <h3>𓂀 The First Weighing 𓂀</h3>
-                <p><em>"My heart is not heavier than the Feather of Ma'at in these first seven forces."</em></p>
-                <p>Complete all 7 daily practices to participate in the Weekly Weighing Ceremony</p>
-            </div>
-        </div>
-        
-        <!-- 7 Forces Overview -->
-        <div class="forces-overview">
-            <!-- Force 1 -->
-            <div class="force-card">
-                <div class="force-number">1</div>
-                <h3>Usekh-nemmt</h3>
-                <div class="kemetic-name">"The One of Extended Stride" from Iunu</div>
-                <div class="force-declaration">
-                    "I have not transgressed the universal law."
-                </div>
-                <p><strong>Practice:</strong> Sunrise solar alignment ritual</p>
-            </div>
-            
-            <!-- Force 2 -->
-            <div class="force-card">
-                <div class="force-number">2</div>
-                <h3>Hept-khet</h3>
-                <div class="kemetic-name">"The Embrace of the Sacred Body" from Kher-aha</div>
-                <div class="force-declaration">
-                    "I have not violated the sanctity of another's being."
-                </div>
-                <p><strong>Practice:</strong> Boundary honoring meditation</p>
-            </div>
-            
-            <!-- Force 3 -->
-            <div class="force-card">
-                <div class="force-number">3</div>
-                <h3>Fenti</h3>
-                <div class="kemetic-name">"The Discerner of Breath" from Khemenu</div>
-                <div class="force-declaration">
-                    "I have not misappropriated what was not born of my own ka."
-                </div>
-                <p><strong>Practice:</strong> Energy exchange awareness</p>
-            </div>
-            
-            <!-- Force 4 -->
-            <div class="force-card">
-                <div class="force-number">4</div>
-                <h3>Am-khaibit</h3>
-                <div class="kemetic-name">"The Consuming Shadow" from the Cavern of Becoming</div>
-                <div class="force-declaration">
-                    "I have not extinguished the divine spark before its appointed time."
-                </div>
-                <p><strong>Practice:</strong> Divine timing meditation</p>
-            </div>
-            
-            <!-- Force 5 -->
-            <div class="force-card">
-                <div class="force-number">5</div>
-                <h3>Neha-her</h3>
-                <div class="kemetic-name">"He Who Turns Away from Decay" from the Place of the Mouth of Caves</div>
-                <div class="force-declaration">
-                    "I have not taken the life-force of the land without reciprocity."
-                </div>
-                <p><strong>Practice:</strong> Reciprocal offering ritual</p>
-            </div>
-            
-            <!-- Force 6 -->
-            <div class="force-card">
-                <div class="force-number">6</div>
-                <h3>Ruruti</h3>
-                <div class="kemetic-name">"The Twin Guardians of the Horizon"</div>
-                <div class="force-declaration">
-                    "I have not diverted sustenance meant for the akh of the divine or the dead."
-                </div>
-                <p><strong>Practice:</strong> Ancestral offering practice</p>
-            </div>
-            
-            <!-- Force 7 -->
-            <div class="force-card">
-                <div class="force-number">7</div>
-                <h3>Arfi-em-khet</h3>
-                <div class="kemetic-name">"He Whose Eyes are Flames of Judgment" from the Place of the Jackal</div>
-                <div class="force-declaration">
-                    "I have not violated the sacred trust of the temple."
-                </div>
-                <p><strong>Practice:</strong> Temple purification ritual</p>
-            </div>
-        </div>
-        
-        <!-- Progress Tracker -->
-        <div class="progress-tracker">
-            <div class="progress-step">
-                <div class="step-number">1</div>
-                <div>Daily Force Practice</div>
-            </div>
-            <div class="progress-step">
-                <div class="step-number">2</div>
-                <div>Workbook Completion</div>
-            </div>
-            <div class="progress-step">
-                <div class="step-number">3</div>
-                <div>Evening Reflection</div>
-            </div>
-            <div class="progress-step">
-                <div class="step-number">7</div>
-                <div>Weekly Weighing</div>
-            </div>
-        </div>
-        
-        <!-- Main Content -->
-        <div class="content-grid">
-            <div class="module">
-                <h3>𓂀 Teaching Video</h3>
-                <p><strong>"The Extended Stride: Walking Within Divine Bounds"</strong></p>
-                <div class="video-placeholder">
-                    <div class="play-button">▶</div>
-                </div>
-                <p><strong>Duration:</strong> 52 minutes</p>
-                <p>Learn to align your daily walk with the cosmic rhythms of Ma'at. Discover how to recognize when you're "in stride" with universal law and how to return when you've transgressed.</p>
-            </div>
-            
-            <div class="module">
-                <h3>📜 Sacred Workbook</h3>
-                <p><strong>"The Extended Stride: Forces 1-7 Integration Manual"</strong></p>
-                <p>Your complete guide to mastering the first 7 forces. Includes:</p>
-                <ul style="line-height: 2; margin-left: 0; padding-left: 20px;">
-                    <li>Daily Force Activation Rituals</li>
-                    <li>Alignment Practice Templates</li>
-                    <li>Weighing Journal Pages</li>
-                    <li>Integration Ceremonies</li>
-                    <li>Kemetic Term Glossary</li>
-                    <li>Progress Tracking Charts</li>
-                </ul>
-                <a href="#" class="download-btn">𓀭 Download Sacred Workbook (PDF)</a>
-            </div>
-        </div>
-        
-        <!-- Daily Exercises -->
-        <div class="daily-exercises">
-            <h3 style="color: var(--light-text); font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 30px; font-weight: 600;">
-                𓆣 7-Day Sacred Practice Journey 𓆣
-            </h3>
-            
-            <div class="exercise-item">
-                <h4>Day 1: Force 1 - The Extended Stride</h4>
-                <p><strong>Sunrise Ritual:</strong> Face East at sunrise. Visualize your path extending in perfect alignment with Ra's journey. Speak: "My stride is measured by Ma'at."</p>
-                <p><strong>Daily Practice:</strong> Before each decision, ask: "Does this keep me within divine bounds?"</p>
-            </div>
-            
-            <div class="exercise-item">
-                <h4>Day 2: Force 2 - Sacred Vessel Honor</h4>
-                <p><strong>Sunrise Ritual:</strong> Draw an energetic circle around yourself. State: "I honor all vessels as sacred temples."</p>
-                <p><strong>Daily Practice:</strong> Ask for permission before entering physical or emotional space.</p>
-            </div>
-            
-            <div class="exercise-item">
-                <h4>Day 3: Force 3 - True Ownership</h4>
-                <p><strong>Sunrise Ritual:</strong> Breath exchange meditation: Inhale - "I receive what my ka generated." Exhale - "I release what isn't mine."</p>
-                <p><strong>Daily Practice:</strong> Before acquiring anything, ask: "Did my essence create/earn this?"</p>
-            </div>
-            
-            <div class="exercise-item">
-                <h4>Day 7: Integration & Weighing</h4>
-                <p><strong>Weekly Ritual:</strong> Full Weighing Ceremony with all 7 forces. Place feather on left scale, your recorded truths on right. Speak declarations of alignment.</p>
-                <p><strong>Practice:</strong> Prepare your Heart Scroll (journal) for the weighing.</p>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin: 40px 0;">
-            <a href="../index.html" class="back-link">𓃩 Return to Hall of Truth Portal 𓃩</a>
-        </div>
-        
-        <!-- Completion Note -->
-        <div style="margin-top: 50px; padding: 25px; background: var(--tertiary-dark); border-radius: 8px; text-align: center; border: 1px solid var(--border-color);">
-            <h3 style="color: var(--accent-gold); font-family: 'Playfair Display', serif; font-weight: 600;">𓂀 Initiation Note 𓂀</h3>
-            <p><strong>Complete all 7 daily practices and the Weekly Weighing Ceremony to unlock Week 2.</strong></p>
-            <p>Your progress is recorded in the cosmic scales. When your heart is lighter than the feather in these 7 forces, the next gateway shall open.</p>
-            <p style="color: var(--accent-light); font-style: italic; margin-top: 15px;">
-                "To pass these first seven is to demonstrate that you walk within the ordained path of the gods."
-            </p>
-        </div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="badge">Week 1 — Free Access</div>
+    <h1>The Extended Stride</h1>
+    <p>
+      Foundations of alignment, rhythm, and measured action.  
+      Seven forces establishing the ground of practice.
+    </p>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <div class="section-title">Forces 1–7 Overview</div>
+
+    <div class="force-grid">
+      <div class="force-card">
+        <div class="force-number">1</div>
+        <h3>Usekh-nemmt</h3>
+        <p>Measured stride and alignment with natural rhythm.</p>
+      </div>
+      <div class="force-card">
+        <div class="force-number">2</div>
+        <h3>Hept-khet</h3>
+        <p>Respect for the integrity of beings and boundaries.</p>
+      </div>
+      <div class="force-card">
+        <div class="force-number">3</div>
+        <h3>Fenti</h3>
+        <p>Right relationship to ownership and exchange.</p>
+      </div>
+      <div class="force-card">
+        <div class="force-number">4</div>
+        <h3>Am-khaibit</h3>
+        <p>Understanding of timing and restraint.</p>
+      </div>
+      <div class="force-card">
+        <div class="force-number">5</div>
+        <h3>Neha-her</h3>
+        <p>Reciprocity with land, body, and resource.</p>
+      </div>
+      <div class="force-card">
+        <div class="force-number">6</div>
+        <h3>Ruruti</h3>
+        <p>Continuity and care across relationships.</p>
+      </div>
+      <div class="force-card">
+        <div class="force-number">7</div>
+        <h3>Arfi-em-khet</h3>
+        <p>Stewardship of trust and responsibility.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRACTICE FLOW -->
+  <div class="section">
+    <div class="section-title">Weekly Practice Flow</div>
+
+    <div class="practice">
+      <h4>Morning</h4>
+      <p>Brief alignment reflection and daily intention.</p>
     </div>
 
-    <script>
-        // Animate progress steps on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const progressSteps = document.querySelectorAll('.progress-step');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            progressSteps.forEach(step => {
-                step.style.opacity = '0';
-                step.style.transform = 'translateY(20px)';
-                step.style.transition = 'all 0.6s ease';
-                observer.observe(step);
-            });
-            
-            // Play button interaction
-            const playButton = document.querySelector('.play-button');
-            playButton.addEventListener('click', function() {
-                this.innerHTML = '⏸';
-                this.style.backgroundColor = 'rgba(201, 169, 110, 0.3)';
-                // In production, this would trigger video playback
-                setTimeout(() => {
-                    this.innerHTML = '▶';
-                    this.style.backgroundColor = 'rgba(201, 169, 110, 0.2)';
-                }, 3000);
-            });
-            
-            // Force cards hover enhancement
-            document.querySelectorAll('.force-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.zIndex = '10';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.zIndex = '1';
-                });
-            });
-        });
-    </script>
+    <div class="practice">
+      <h4>Midday</h4>
+      <p>Observe actions, choices, and timing.</p>
+    </div>
+
+    <div class="practice">
+      <h4>Evening</h4>
+      <p>Review alignment, correction, and learning.</p>
+    </div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="section">
+    <div class="section-title">Completion Path</div>
+
+    <div class="progress">
+      <div class="step"><span>1</span>Daily Practice</div>
+      <div class="step"><span>2</span>Workbook</div>
+      <div class="step"><span>3</span>Reflection</div>
+      <div class="step"><span>7</span>Weighing</div>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <a href="#" class="btn">Open Workbook</a>
+    <a href="../index.html" class="btn">Return to Portal</a>
+  </div>
+
+</div>
+
 </body>
 </html>
