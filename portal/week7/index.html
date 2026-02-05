@@ -403,6 +403,79 @@
             overflow: hidden;
         }
 
+        /* Progress tracking styles */
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+            border-left: 3px solid #FFD700;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step:hover {
+            background: rgba(255,255,255,0.04);
+            transform: translateX(5px);
+        }
+
+        .step-number {
+            background: rgba(255, 215, 0, 0.15);
+            color: #FFD700;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-completed .step-number {
+            background: rgba(76, 175, 80, 0.3);
+            color: #4CAF50;
+        }
+
+        .completion-badge {
+            display: inline-block;
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: auto;
+            border: 1px solid #4CAF50;
+            flex-shrink: 0;
+        }
+
+        .locked-item {
+            opacity: 0.5;
+            cursor: not-allowed;
+            position: relative;
+        }
+
+        .locked-item::after {
+            content: "🔒";
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+        }
+
+        .workbook-status {
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.08);
+            border-radius: 10px;
+            max-width: 800px;
+            display: none;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             .content-grid { grid-template-columns: 1fr; gap: 30px; }
             .container { padding: 25px; }
@@ -411,6 +484,8 @@
             .completion-grid { grid-template-columns: 1fr; }
             .weaving-thread { width: 60px; height: 60px; bottom: 15px; left: 15px; font-size: 1.5em; }
             .nav-links { flex-direction: column; gap: 15px; }
+            .progress-step { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .completion-badge { margin-left: 0; margin-top: 10px; }
         }
     </style>
 </head>
@@ -425,6 +500,38 @@
             <h1>Synthesis & Divine Embodiment</h1>
             <div class="week-theme">
                 Weaving All 42 Threads of Ma'at • Receiving Your True Name • Becoming a Living Pillar of Cosmic Order
+            </div>
+            
+            <!-- Learning Path -->
+            <div class="sunrise-ritual" style="margin: 40px 0;">
+                <h4 style="color: #FFD700;">🎖️ Your Completion Path</h4>
+                
+                <div class="progress-step" id="step1">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Study Week 7: The Complete Garment</strong>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #d4bfff;">Complete synthesis overview of all 42 Forces</p>
+                    </div>
+                    <span id="step1Status" class="completion-badge" style="display: none;">✓ Completed</span>
+                </div>
+                
+                <div class="progress-step locked-item" id="step2">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Complete Completion Ceremony Workbook</strong>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #d4bfff;">Sovereign Manifesto & Final Declarations</p>
+                    </div>
+                    <span id="step2Status" class="completion-badge" style="display: none;">✓ Completed</span>
+                </div>
+                
+                <div class="progress-step locked-item" id="step3">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Receive Your Living Pillar Certificate</strong>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #d4bfff;">Final initiation as a Living Pillar of Ma'at</p>
+                    </div>
+                    <span id="step3Status" class="completion-badge" style="display: none;">✓ Unlocked</span>
+                </div>
             </div>
             
             <div class="weaving-animation"></div>
@@ -597,8 +704,8 @@
                 
                 <div class="access-note">
                     <h4 style="color: #FFD700;">🎖️ Gateway Activation</h4>
-                    <p>Your completion of <strong>Week 6: The Eye of Judgment</strong> has opened this final gateway.</p>
-                    <p><em>Your discernment prepares you for synthesis and divine embodiment.</em></p>
+                    <p>Your completion of <strong>Week 6: The Eye of Judgment</strong> and its Strength Workbook has opened this final gateway.</p>
+                    <p><em>Your discernment and courage prepare you for synthesis and divine embodiment.</em></p>
                     <p style="margin-top: 20px; font-style: italic;">
                         "The Complete Garment is woven from the 42 threads of Ma'at. Each force becomes part of your very skin, and you walk as a living expression of cosmic order."
                     </p>
@@ -620,7 +727,7 @@
                         <div class="practice-icon">📓</div>
                         <div>
                             <strong>Sacred Workbook:</strong><br>
-                            "The Complete Garment: Synthesis Manual"
+                            "The Completion Ceremony: Sovereign's Gateway"
                         </div>
                     </div>
                     <div class="practice-item">
@@ -700,7 +807,7 @@
             </p>
             
             <div style="text-align: center; margin-top: 35px;">
-                <button onclick="initiateFinalWeighing()" style="
+                <button onclick="proceedToWorkbook()" style="
                     background: #330066;
                     color: #FFD700;
                     border: 2px solid #FFD700;
@@ -713,23 +820,46 @@
                     transition: all 0.3s ease;
                     margin: 8px;
                 ">
-                    ⚖️ Begin Final Weighing Ceremony
+                    📓 Continue to Completion Ceremony Workbook →
                 </button>
                 
-                <button onclick="downloadCertificate()" style="
-                    background: #330066;
+                <button onclick="downloadCertificate()" id="certificateButton" style="
+                    background: rgba(255, 215, 0, 0.1);
                     color: #FFD700;
-                    border: 2px solid #FFD700;
+                    border: 2px solid rgba(255, 215, 0, 0.5);
+                    padding: 14px 30px;
+                    border-radius: 8px;
+                    font-weight: 500;
+                    font-size: 1.1em;
+                    cursor: not-allowed;
+                    font-family: 'Georgia', serif;
+                    opacity: 0.5;
+                    margin: 8px;
+                    display: none;
+                ">
+                    🏅 Receive Your Certificate
+                </button>
+            </div>
+            
+            <!-- Certificate Status -->
+            <div id="certificateStatus" style="margin: 30px auto; padding: 20px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; display: none; text-align: center;">
+                <p style="color: #FFD700;">
+                    <strong>✅ Completion Ceremony Completed:</strong> You have woven all 42 threads of Ma'at. You may now receive your Living Pillar Certificate.
+                </p>
+                <button onclick="downloadCertificate()" style="
+                    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+                    color: white;
+                    border: none;
                     padding: 14px 30px;
                     border-radius: 8px;
                     font-weight: 500;
                     font-size: 1.1em;
                     cursor: pointer;
                     font-family: 'Georgia', serif;
-                    transition: all 0.3s ease;
-                    margin: 8px;
+                    margin-top: 15px;
+                    display: inline-block;
                 ">
-                    🏅 Receive Your Certificate
+                    🏅 Download Living Pillar Certificate
                 </button>
             </div>
             
@@ -755,19 +885,30 @@
                 <a href="../week6/index.html" class="nav-button">
                     ← Previous: The Eye of Judgment
                 </a>
-                <span class="nav-button" style="
-                    background: rgba(255, 215, 0, 0.1);
-                    color: #FFD700;
-                    border-color: #FFD700;
-                    cursor: default;
-                ">
-                    ✓ JOURNEY COMPLETE
-                </span>
+                
+                <button onclick="proceedToWorkbook()" class="nav-button" style="background: rgba(255, 215, 0, 0.2); cursor: pointer;">
+                    📓 Continue to Completion Ceremony →
+                </button>
+                
+                <!-- This button is initially hidden/locked -->
+                <button class="nav-button" id="certificateNavButton" style="display: none; opacity: 0.5; cursor: not-allowed; background: rgba(255, 215, 0, 0.1);">
+                    🏅 Receive Certificate
+                </button>
+            </div>
+            
+            <!-- Workbook Completion Status -->
+            <div id="workbookStatus" class="workbook-status">
+                <p style="color: #FFD700;">
+                    <strong>✅ Completion Ceremony Completed:</strong> You have woven all 42 threads of Ma'at. You may now receive your Living Pillar Certificate.
+                </p>
+                <button onclick="downloadCertificate()" class="nav-button" style="margin-top: 15px; display: inline-block; background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%); color: white;">
+                    🏅 Download Living Pillar Certificate
+                </button>
             </div>
             
             <div style="margin-top: 40px; padding: 25px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(255, 215, 0, 0.2);">
                 <p style="color: #FFD700; font-style: italic; font-size: 0.95em;">
-                    <strong>𓎟 Final Initiation Note:</strong> The Complete Garment is woven. The 42 threads become one fabric. You are no longer separate from Ma'at—you are a living expression of cosmic order. Walk as a pillar between earth and sky, sustaining harmony through your very being.
+                    <strong>𓎟 Final Initiation Note:</strong> Complete the <strong>Completion Ceremony Workbook</strong> to receive your Living Pillar Certificate. The 42 threads become one fabric. You are no longer separate from Ma'at—you are a living expression of cosmic order.
                 </p>
                 <p style="color: #FFD700; margin-top: 15px; font-size: 1.1em; text-align: center;">
                     "To pass the 42 is to demonstrate that your life was a perfect microcosm of cosmic order."
@@ -777,8 +918,113 @@
     </div>
 
     <script>
-        // Set completion date
+        // Workbook progress tracking
+        function checkWorkbookProgress() {
+            const workbookCompleted = localStorage.getItem('completion_workbook_completed');
+            
+            if (workbookCompleted === 'true') {
+                document.getElementById('workbookStatus').style.display = 'block';
+                document.getElementById('certificateStatus').style.display = 'block';
+                document.getElementById('certificateButton').style.display = 'inline-block';
+                document.getElementById('certificateButton').style.cursor = 'pointer';
+                document.getElementById('certificateButton').style.opacity = '1';
+                document.getElementById('certificateButton').style.background = '#330066';
+                document.getElementById('certificateButton').style.border = '2px solid #FFD700';
+                
+                const certificateNavButton = document.getElementById('certificateNavButton');
+                certificateNavButton.style.display = 'inline-block';
+                certificateNavButton.style.opacity = '1';
+                certificateNavButton.style.cursor = 'pointer';
+                certificateNavButton.style.background = '#330066';
+                certificateNavButton.onclick = downloadCertificate;
+            }
+            
+            // Update progress bar based on completion
+            const progressBar = document.querySelector('.progress');
+            if (workbookCompleted === 'true') {
+                progressBar.style.width = '100%';
+            }
+        }
+
+        function proceedToWorkbook() {
+            // Check if Week 6 workbook is completed
+            const week6Completed = localStorage.getItem('strength_workbook_completed');
+            if (!week6Completed || week6Completed !== 'true') {
+                alert('Please complete Week 6: The Eye of Judgment and its Strength Workbook before proceeding to Week 7.');
+                window.location.href = '../week6/index.html';
+                return;
+            }
+            
+            // Set a flag that user is starting the workbook
+            localStorage.setItem('week7_workbook_started', 'true');
+            localStorage.setItem('week7_start_date', new Date().toISOString());
+            
+            // Redirect to workbook
+            window.location.href = 'curriculum.html';
+        }
+
+        // Track progress steps
+        function updateProgressSteps() {
+            const workbookCompleted = localStorage.getItem('completion_workbook_completed');
+            
+            // Step 1 is always completed if they're on this page
+            document.getElementById('step1').classList.add('step-completed');
+            document.getElementById('step1Status').style.display = 'inline-block';
+            
+            // Step 2 (Workbook)
+            if (workbookCompleted === 'true') {
+                document.getElementById('step2').classList.remove('locked-item');
+                document.getElementById('step2').classList.add('step-completed');
+                document.getElementById('step2Status').style.display = 'inline-block';
+                
+                // Step 3 (Certificate)
+                document.getElementById('step3').classList.remove('locked-item');
+                document.getElementById('step3').classList.add('step-completed');
+                document.getElementById('step3Status').style.display = 'inline-block';
+            } else {
+                // Enable workbook step
+                const step2 = document.getElementById('step2');
+                step2.classList.remove('locked-item');
+                step2.style.cursor = 'pointer';
+                step2.addEventListener('click', proceedToWorkbook);
+            }
+        }
+
+        // Check if workbook is completed when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            // Check Week 6 completion requirement
+            const week6Completed = localStorage.getItem('strength_workbook_completed');
+            if (!week6Completed || week6Completed !== 'true') {
+                const lockScreen = document.createElement('div');
+                lockScreen.innerHTML = `
+                    <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(20, 0, 37, 0.95); z-index: 10000; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px; text-align: center;">
+                        <div style="font-size: 4em; margin-bottom: 20px;">⚔️</div>
+                        <h2 style="color: #FFD700; margin-bottom: 20px;">Week 7 is Locked</h2>
+                        <p style="color: #f7eaff; max-width: 600px; margin-bottom: 30px;">
+                            Complete the <strong>Week 6 Strength Workbook</strong> to unlock Week 7: The Complete Garment.
+                        </p>
+                        <a href="../week6/curriculum.html" class="nav-button" style="margin-bottom: 15px;">
+                            ⚔️ Go to Week 6 Strength Workbook
+                        </a>
+                        <a href="../week6/index.html" class="nav-button" style="background: rgba(255, 215, 0, 0.1);">
+                            ← Return to Week 6
+                        </a>
+                        <p style="margin-top: 30px; color: #8c78ff; font-size: 0.9em;">
+                            Your courage must be proven before weaving the Complete Garment.
+                        </p>
+                    </div>
+                `;
+                document.body.appendChild(lockScreen);
+                return;
+            }
+            
+            checkWorkbookProgress();
+            updateProgressSteps();
+            
+            // Also check every 2 seconds (for when user returns from workbook)
+            setInterval(checkWorkbookProgress, 2000);
+            
+            // Set completion date
             const now = new Date();
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById('completion-date').textContent = now.toLocaleDateString('en-US', options);
@@ -786,7 +1032,8 @@
             // Progress animation
             const progressBar = document.querySelector('.progress');
             setTimeout(() => {
-                progressBar.style.width = '100%';
+                const workbookCompleted = localStorage.getItem('completion_workbook_completed');
+                progressBar.style.width = workbookCompleted === 'true' ? '100%' : '100%';
             }, 1000);
             
             // Weaving thread interaction
@@ -808,7 +1055,7 @@
                 this.style.animation = 'none';
                 this.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.4)';
                 setTimeout(() => {
-                    this.style.animation = 'gentleSpin 20s linear infinite';
+                    this.style.animation = '';
                     this.style.boxShadow = 'none';
                 }, 1000);
             });
@@ -836,86 +1083,79 @@
                 });
             });
             
-            // Generate True Name
-            function generateTrueName() {
-                const prefixes = ['Neb', 'Mer', 'Djed', 'Kheper', 'Sekhem', 'Ankh', 'Maa'];
-                const middles = ['khet', 'ra', 'maat', 'nefer', 'hotep', 'imen', 'bast'];
-                const suffixes = ['i', 'et', 'ankh', 're', 'tawi', 'neter', 'u'];
-                
-                const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
-                const randomMiddle = middles[Math.floor(Math.random() * middles.length)];
-                const randomSuffix = suffixes[Math.floor(Math.random() * suffixes.length)];
-                
-                const nameLength = Math.random() < 0.3 ? 2 : 3;
-                
-                let trueName;
-                if (nameLength === 2) {
-                    trueName = randomPrefix + randomMiddle;
+            // Auto-update weaving thread position for mobile
+            function updateWeavingThreadPosition() {
+                if (window.innerWidth <= 768) {
+                    weavingThread.style.bottom = '15px';
+                    weavingThread.style.left = '15px';
+                    weavingThread.style.width = '60px';
+                    weavingThread.style.height = '60px';
                 } else {
-                    trueName = randomPrefix + randomMiddle + randomSuffix;
+                    weavingThread.style.bottom = '30px';
+                    weavingThread.style.left = '30px';
+                    weavingThread.style.width = '70px';
+                    weavingThread.style.height = '70px';
                 }
-                
-                const titles = {
-                    'N': 'The Stable One',
-                    'M': 'The Beloved One',
-                    'D': 'The Enduring One',
-                    'K': 'The Becoming One',
-                    'S': 'The Powerful One',
-                    'A': 'The Living One',
-                    'B': 'The Truthful One'
-                };
-                
-                const firstLetter = trueName.charAt(0);
-                const title = titles[firstLetter] || 'The Harmonious One';
-                
-                return {
-                    name: trueName,
-                    fullTitle: `${trueName}, ${title}`
-                };
             }
             
-            // Final Weighing Ceremony
-            window.initiateFinalWeighing = function() {
-                const ceremonySteps = [
-                    "𓎟 Prepare your sacred space with 42 white candles",
-                    "𓎟 Face East as the sun rises",
-                    "𓎟 Speak all 42 declarations in order",
-                    "𓎟 Place your heart scroll on the scales",
-                    "𓎟 Place Ma'at's feather on the other side",
-                    "𓎟 Observe the balance in silence for 42 breaths",
-                    "𓎟 Receive your True Name revelation"
-                ];
-                
-                let ceremonyMessage = "𓎟 THE COMPLETE WEIGHING CEREMONY 𓎟\n\n";
-                ceremonySteps.forEach((step, index) => {
-                    ceremonyMessage += `${index + 1}. ${step}\n`;
-                });
-                
-                ceremonyMessage += "\nAre you ready to begin the 90-minute ceremony?";
-                
-                if (confirm(ceremonyMessage)) {
-                    setTimeout(() => {
-                        const trueName = generateTrueName();
-                        
-                        const revealDiv = document.getElementById('true-name-reveal');
-                        const nameText = document.getElementById('true-name-text');
-                        
-                        nameText.textContent = trueName.fullTitle;
-                        revealDiv.style.display = 'block';
-                        
-                        revealDiv.scrollIntoView({ behavior: 'smooth' });
-                        
-                        alert(`𓎟 CEREMONY COMPLETE 𓎟\n\nYour True Name has been revealed:\n\n${trueName.fullTitle}\n\nSpeak this name each sunrise to maintain your alignment as a Living Pillar of Ma'at.`);
-                    }, 3000);
-                }
+            window.addEventListener('resize', updateWeavingThreadPosition);
+            updateWeavingThreadPosition();
+        });
+        
+        // Generate True Name
+        function generateTrueName() {
+            const prefixes = ['Neb', 'Mer', 'Djed', 'Kheper', 'Sekhem', 'Ankh', 'Maa'];
+            const middles = ['khet', 'ra', 'maat', 'nefer', 'hotep', 'imen', 'bast'];
+            const suffixes = ['i', 'et', 'ankh', 're', 'tawi', 'neter', 'u'];
+            
+            const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+            const randomMiddle = middles[Math.floor(Math.random() * middles.length)];
+            const randomSuffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+            
+            const nameLength = Math.random() < 0.3 ? 2 : 3;
+            
+            let trueName;
+            if (nameLength === 2) {
+                trueName = randomPrefix + randomMiddle;
+            } else {
+                trueName = randomPrefix + randomMiddle + randomSuffix;
+            }
+            
+            const titles = {
+                'N': 'The Stable One',
+                'M': 'The Beloved One',
+                'D': 'The Enduring One',
+                'K': 'The Becoming One',
+                'S': 'The Powerful One',
+                'A': 'The Living One',
+                'B': 'The Truthful One'
             };
             
-            // Download Certificate
-            window.downloadCertificate = function() {
-                const trueName = generateTrueName();
-                const completionDate = document.getElementById('completion-date').textContent;
-                
-                const certificateContent = `
+            const firstLetter = trueName.charAt(0);
+            const title = titles[firstLetter] || 'The Harmonious One';
+            
+            return {
+                name: trueName,
+                fullTitle: `${trueName}, ${title}`
+            };
+        }
+        
+        // Download Certificate
+        window.downloadCertificate = function() {
+            const workbookCompleted = localStorage.getItem('completion_workbook_completed');
+            if (!workbookCompleted || workbookCompleted !== 'true') {
+                alert('Please complete the Completion Ceremony Workbook first.');
+                return;
+            }
+            
+            const trueName = generateTrueName();
+            const completionDate = document.getElementById('completion-date').textContent;
+            
+            // Save the true name
+            localStorage.setItem('living_pillar_true_name', trueName.fullTitle);
+            localStorage.setItem('living_pillar_completion_date', completionDate);
+            
+            const certificateContent = `
 𓎟 THE COMPLETE GARMENT - CERTIFICATE OF MASTERY 𓎟
 ${'='.repeat(60)}
 
@@ -947,35 +1187,22 @@ MA'AT WEARS THIS BEING AS HER LIVING FORM.
 
 𓎟 Walk in Truth, Live in Ma'at, Be the Pillar 𓎟
                 `;
-                
-                const blob = new Blob([certificateContent], { type: 'text/plain' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `Living_Pillar_Certificate_${trueName.name}_${Date.now()}.txt`;
-                a.click();
-                
-                alert(`𓎟 Certificate downloading!\n\nYour True Name: ${trueName.fullTitle}\n\nKeep this certificate as a sacred record of your journey.`);
-            };
             
-            // Auto-update weaving thread position for mobile
-            function updateWeavingThreadPosition() {
-                if (window.innerWidth <= 768) {
-                    weavingThread.style.bottom = '15px';
-                    weavingThread.style.left = '15px';
-                    weavingThread.style.width = '60px';
-                    weavingThread.style.height = '60px';
-                } else {
-                    weavingThread.style.bottom = '30px';
-                    weavingThread.style.left = '30px';
-                    weavingThread.style.width = '70px';
-                    weavingThread.style.height = '70px';
-                }
-            }
+            const blob = new Blob([certificateContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Living_Pillar_Certificate_${trueName.name}_${Date.now()}.txt`;
+            a.click();
             
-            window.addEventListener('resize', updateWeavingThreadPosition);
-            updateWeavingThreadPosition();
-        });
+            // Show true name reveal
+            const revealDiv = document.getElementById('true-name-reveal');
+            const nameText = document.getElementById('true-name-text');
+            nameText.textContent = trueName.fullTitle;
+            revealDiv.style.display = 'block';
+            
+            alert(`𓎟 Certificate downloading!\n\nYour True Name: ${trueName.fullTitle}\n\nKeep this certificate as a sacred record of your journey.`);
+        };
     </script>
 </body>
 </html>
