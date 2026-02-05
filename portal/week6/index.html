@@ -400,6 +400,79 @@
             transform: scale(1.1);
         }
 
+        /* Progress tracking styles */
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+            border-left: 3px solid #FFD700;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step:hover {
+            background: rgba(255,255,255,0.04);
+            transform: translateX(5px);
+        }
+
+        .step-number {
+            background: rgba(255, 215, 0, 0.15);
+            color: #FFD700;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-completed .step-number {
+            background: rgba(76, 175, 80, 0.3);
+            color: #4CAF50;
+        }
+
+        .completion-badge {
+            display: inline-block;
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: auto;
+            border: 1px solid #4CAF50;
+            flex-shrink: 0;
+        }
+
+        .locked-item {
+            opacity: 0.5;
+            cursor: not-allowed;
+            position: relative;
+        }
+
+        .locked-item::after {
+            content: "🔒";
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+        }
+
+        .workbook-status {
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.08);
+            border-radius: 10px;
+            max-width: 800px;
+            display: none;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             .content-grid { grid-template-columns: 1fr; gap: 30px; }
             .container { padding: 25px; }
@@ -410,6 +483,8 @@
             .judgment-grid { grid-template-columns: 1fr; }
             .eye-of-judgment { width: 50px; height: 50px; top: 15px; right: 15px; font-size: 1.5em; }
             .nav-links { flex-direction: column; gap: 15px; }
+            .progress-step { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .completion-badge { margin-left: 0; margin-top: 10px; }
         }
     </style>
 </head>
@@ -424,6 +499,38 @@
             <h1>Final Discernment & Stewardship</h1>
             <div class="week-theme">
                 Pure expression • Divine recognition • Sacred flow • Authentic reputation • Rightful place • Life-force maintenance • Sacred stewardship
+            </div>
+            
+            <!-- Learning Path -->
+            <div class="sunrise-ritual" style="margin: 40px 0;">
+                <h4 style="color: #FFD700;">⚔️ Your Courage Path</h4>
+                
+                <div class="progress-step" id="step1">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Study Week 6: Eye of Judgment</strong>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #d4bfff;">Complete Forces 36-42 overview</p>
+                    </div>
+                    <span id="step1Status" class="completion-badge" style="display: none;">✓ Completed</span>
+                </div>
+                
+                <div class="progress-step locked-item" id="step2">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Complete Strength Workbook</strong>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #d4bfff;">7-Day Courage Challenge & Exercises</p>
+                    </div>
+                    <span id="step2Status" class="completion-badge" style="display: none;">✓ Completed</span>
+                </div>
+                
+                <div class="progress-step locked-item" id="step3">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Unlock Week 7: The Complete Garment</strong>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #d4bfff;">Final integration of all 42 Forces</p>
+                    </div>
+                    <span id="step3Status" class="completion-badge" style="display: none;">✓ Unlocked</span>
+                </div>
             </div>
             
             <div class="sunrise-ritual">
@@ -658,7 +765,7 @@
                         <div class="practice-icon">📓</div>
                         <div>
                             <strong>Sacred Workbook:</strong><br>
-                            "Forces 36-42 Integration Manual"
+                            "Strength Decree: 7-Day Courage Challenge"
                         </div>
                     </div>
                     <div class="practice-item">
@@ -732,25 +839,108 @@
                 <a href="../week5/index.html" class="nav-button">
                     ← Previous: The Sacred Waters
                 </a>
-                <a href="../week7/index.html" class="nav-button">
+                
+                <button onclick="proceedToWorkbook()" class="nav-button" style="background: rgba(255, 215, 0, 0.2); cursor: pointer;">
+                    ⚔️ Continue to Strength Workbook →
+                </button>
+                
+                <!-- This link is initially hidden/locked -->
+                <a href="../week7/index.html" class="nav-button" id="week7Link" style="display: none; opacity: 0.5; cursor: not-allowed; background: rgba(255, 215, 0, 0.1);">
                     Final: The Complete Garment →
+                </a>
+            </div>
+            
+            <!-- Workbook Completion Status -->
+            <div id="workbookStatus" class="workbook-status">
+                <p style="color: #FFD700;">
+                    <strong>✅ Strength Workbook Completed:</strong> You have proven your courage. You may now proceed to Week 7.
+                </p>
+                <a href="../week7/index.html" class="nav-button" style="margin-top: 15px; display: inline-block;">
+                    Unlock Week 7: The Complete Garment →
                 </a>
             </div>
             
             <div style="margin-top: 40px; padding: 25px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(255, 215, 0, 0.2);">
                 <p style="font-style: italic;">
-                    <strong>𓂀 Initiation Note:</strong> Complete all 7 sunrise practices and the Week 6 Weighing Ceremony to unlock the Final Gateway. The Eye sees all. Nothing is hidden. Prepare your heart for its true measure against the feather.
+                    <strong>𓂀 Courage Sequence:</strong> Complete the <strong>Strength Workbook</strong> to unlock Week 7. Your valor is recorded in the Hall of Truth.
                 </p>
             </div>
         </div>
     </div>
 
     <script>
-        // Progress animation
+        // Workbook progress tracking
+        function checkWorkbookProgress() {
+            const workbookCompleted = localStorage.getItem('strength_workbook_completed');
+            
+            if (workbookCompleted === 'true') {
+                document.getElementById('workbookStatus').style.display = 'block';
+                const week7Link = document.getElementById('week7Link');
+                week7Link.style.display = 'inline-block';
+                week7Link.style.opacity = '1';
+                week7Link.style.cursor = 'pointer';
+                week7Link.style.background = '#330066';
+                week7Link.classList.remove('locked-item');
+            }
+            
+            // Update progress bar based on completion
+            const progressBar = document.querySelector('.progress');
+            if (workbookCompleted === 'true') {
+                progressBar.style.width = '100%';
+            } else {
+                progressBar.style.width = '86%';
+            }
+        }
+
+        function proceedToWorkbook() {
+            // Set a flag that user is starting the workbook
+            localStorage.setItem('week6_workbook_started', 'true');
+            localStorage.setItem('week6_start_date', new Date().toISOString());
+            
+            // Redirect to workbook
+            window.location.href = 'curriculum.html';
+        }
+
+        // Track progress steps
+        function updateProgressSteps() {
+            const workbookCompleted = localStorage.getItem('strength_workbook_completed');
+            
+            // Step 1 is always completed if they're on this page
+            document.getElementById('step1').classList.add('step-completed');
+            document.getElementById('step1Status').style.display = 'inline-block';
+            
+            // Step 2 (Workbook)
+            if (workbookCompleted === 'true') {
+                document.getElementById('step2').classList.remove('locked-item');
+                document.getElementById('step2').classList.add('step-completed');
+                document.getElementById('step2Status').style.display = 'inline-block';
+                
+                // Step 3 (Week 7)
+                document.getElementById('step3').classList.remove('locked-item');
+                document.getElementById('step3').classList.add('step-completed');
+                document.getElementById('step3Status').style.display = 'inline-block';
+            } else {
+                // Enable workbook step
+                const step2 = document.getElementById('step2');
+                step2.classList.remove('locked-item');
+                step2.style.cursor = 'pointer';
+                step2.addEventListener('click', proceedToWorkbook);
+            }
+        }
+
+        // Check if workbook is completed when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            checkWorkbookProgress();
+            updateProgressSteps();
+            
+            // Also check every 2 seconds (for when user returns from workbook)
+            setInterval(checkWorkbookProgress, 2000);
+            
+            // Progress animation
             const progressBar = document.querySelector('.progress');
             setTimeout(() => {
-                progressBar.style.width = '86%';
+                const workbookCompleted = localStorage.getItem('strength_workbook_completed');
+                progressBar.style.width = workbookCompleted === 'true' ? '100%' : '86%';
             }, 500);
             
             // Day circles interaction
@@ -841,7 +1031,7 @@
                             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
                             animation: slideIn 0.5s ease;
                         `;
-                        notification.innerHTML = '𓂀 SUNRISE: The Eye Watches\nPerform Judgment Ritual';
+                        notification.innerHTML = '𓂀 SUNRISE: The Eye Watches<br>Perform Judgment Ritual';
                         document.body.appendChild(notification);
                         
                         setTimeout(() => {
