@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Token Generator - Admin Only</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 { color: #333; }
+        input, button, textarea {
+            padding: 12px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input {
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .token-box {
+            background: #333;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            word-break: break-all;
+            margin: 20px 0;
+        }
+        .instructions {
+            background: #fff8dc;
+            padding: 15px;
+            border-left: 4px solid #ffd700;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🔐 Generate Access Tokens</h2>
+        
+        <div class="instructions">
+            <strong>INSTRUCTIONS:</strong><br>
+            1. Enter customer email<br>
+            2. Click "Generate Token"<br>
+            3. Copy token and email to customer<br>
+            4. Customer enters token at tors.life/hall-of-truth.html
+        </div>
+        
+        <input type="email" id="email" placeholder="Customer Email Address">
+        <button onclick="generateToken()">Generate Token</button>
+        
+        <div id="result" style="display: none;">
+            <h3>✅ Token Generated!</h3>
+            <p>Email this to: <strong id="custEmail"></strong></p>
+            
+            <div class="token-box" id="tokenDisplay"></div>
+            
+            <button onclick="copyToken()">📋 Copy Token to Clipboard</button>
+            
+            <div class="instructions">
+                <strong>EMAIL TEMPLATE:</strong><br>
+                Subject: Your Sacred Access Token<br><br>
+                Dear Initiate,<br><br>
+                Your access token is:<br>
+                <code id="emailToken"></code><br><br>
+                Go to: https://tors.life/hall-of-truth.html<br>
+                Click any Week 2-7 → Enter token<br><br>
+                Walk in Balance,<br>
+                The Hall of Truth
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function generateToken() {
+            const email = document.getElementById('email').value.trim();
+            if (!email.includes('@')) {
+                alert('Enter valid email');
+                return;
+            }
+            
+            // Create token: email + timestamp + random string
+            const time = Date.now();
+            const rand = Math.random().toString(36).substring(2, 15);
+            const token = btoa(email + ':' + time + ':' + rand).replace(/=/g, '');
+            
+            // Display
+            document.getElementById('custEmail').textContent = email;
+            document.getElementById('tokenDisplay').textContent = token;
+            document.getElementById('emailToken').textContent = token;
+            
+            // Create email template
+            const emailText = `Subject: Your Sacred Access Token - The Hall of Truth
+
+Dear Initiate,
+
+Thank you for your sacred investment. Your access token is:
+
+${token}
+
+To access Weeks 2-7:
+
+1. Visit: https://tors.life/hall-of-truth.html
+2. Click any Week 2-7
+3. Enter this token when prompted
+
+Save this email. Your token provides lifetime access.
+
+For support: templeofmaat@proton.me
+
+Walk in Balance,
+The Hall of Truth`;
+            
+            document.getElementById('emailTemplate').value = emailText;
+            document.getElementById('result').style.display = 'block';
+        }
+        
+        function copyToken() {
+            const token = document.getElementById('tokenDisplay').textContent;
+            navigator.clipboard.writeText(token);
+            alert('Token copied!');
+        }
+    </script>
+</body>
+</html>
