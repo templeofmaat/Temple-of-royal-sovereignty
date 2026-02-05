@@ -9,6 +9,8 @@
             --primary-color: #6C8CD5;
             --primary-dark: #4A6CC7;
             --primary-light: #8CA8E6;
+            --success-green: #4CAF50;
+            --success-dark: #2E7D32;
         }
         
         body {
@@ -17,6 +19,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
+            min-height: 100vh;
         }
         
         .workbook-container {
@@ -26,6 +29,129 @@
             padding: 40px;
             border-radius: 20px;
             border: 3px solid var(--primary-color);
+            position: relative;
+        }
+        
+        .completion-section {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin: 50px 0;
+            border: 2px solid var(--success-green);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .completion-section::before {
+            content: "⚖️";
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4em;
+            opacity: 0.1;
+        }
+        
+        .btn-complete {
+            background: linear-gradient(135deg, var(--success-green) 0%, var(--success-dark) 100%);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 20px 10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-complete:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(76, 175, 80, 0.3);
+        }
+        
+        .progress-tracker {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            position: relative;
+            padding: 20px;
+            background: rgba(108, 140, 213, 0.05);
+            border-radius: 10px;
+        }
+        
+        .progress-tracker::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: rgba(108, 140, 213, 0.3);
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+        
+        .progress-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: rgba(108, 140, 213, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            border: 2px solid rgba(108, 140, 213, 0.3);
+            font-weight: 600;
+            color: var(--primary-light);
+        }
+        
+        .step-number.completed {
+            background: var(--success-green);
+            border-color: var(--success-green);
+            color: white;
+        }
+        
+        .step-number.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(108, 140, 213, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(108, 140, 213, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(108, 140, 213, 0); }
+        }
+        
+        .lock-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(20, 0, 37, 0.95);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .lock-screen.active {
+            display: flex;
         }
         
         .harmony-wheel {
@@ -92,6 +218,17 @@
             border: none;
             cursor: pointer;
             font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(108, 140, 213, 0.3);
+        }
+        
+        .btn-unlock {
+            background: linear-gradient(135deg, var(--success-green) 0%, var(--success-dark) 100%);
+            display: none;
         }
         
         textarea, input {
@@ -104,10 +241,74 @@
             border-radius: 5px;
             font-family: inherit;
         }
+        
+        .unlocked-badge {
+            display: inline-block;
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--success-green);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: 15px;
+            border: 1px solid var(--success-green);
+        }
     </style>
 </head>
 <body>
+    <!-- Lock Screen for Week 4 -->
+    <div class="lock-screen" id="lockScreen">
+        <div style="font-size: 4em; margin-bottom: 20px; color: var(--primary-color);">🔒</div>
+        <h2 style="color: var(--primary-color); margin-bottom: 20px; font-size: 2.2em;">Week 4 is Locked</h2>
+        <p style="color: #E6D3A7; max-width: 600px; margin-bottom: 30px; font-size: 1.1em;">
+            Complete the <strong>Week 3: Balance of Opposites Workbook</strong> to unlock Week 4: The Solar Path.
+        </p>
+        
+        <div class="progress-tracker" style="max-width: 500px; background: transparent;">
+            <div class="progress-step">
+                <div class="step-number completed">✓</div>
+                <div>Week 2<br>Sacred Flame</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number active">3</div>
+                <div>Week 3<br>Balance Workbook</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number">4</div>
+                <div>Week 4<br>Solar Path</div>
+            </div>
+        </div>
+        
+        <div style="margin: 40px 0; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+            <button class="btn" onclick="hideLockScreen()" style="padding: 18px 35px;">
+                Continue Week 3 Workbook
+            </button>
+            <a href="../week3/index.html" class="btn" style="background: rgba(108, 140, 213, 0.1);">
+                ← Return to Week 3
+            </a>
+        </div>
+        
+        <p style="margin-top: 30px; color: var(--primary-light); font-size: 0.9em; max-width: 500px;">
+            <em>Your progress saves automatically. Complete all Week 3 harmony exercises to unlock the Solar Path.</em>
+        </p>
+    </div>
+    
     <div class="workbook-container">
+        <!-- Progress Tracker -->
+        <div class="progress-tracker">
+            <div class="progress-step">
+                <div class="step-number completed">1</div>
+                <div>Week 2 Workbook</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number active">2</div>
+                <div>Complete Week 3</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number" id="step3">3</div>
+                <div>Unlock Week 4</div>
+            </div>
+        </div>
+        
         <div style="text-align:center;">
             <h1 style="color:var(--primary-color);">The Balance of Opposites</h1>
             <p style="color:var(--primary-light);">Week 3: Harmony-Keeper's Gateway</p>
@@ -123,13 +324,13 @@
         <div class="exercise">
             <h4>Exercise 3.1: Chaos to Order Assessment</h4>
             <p><strong>Step 1:</strong> Identify 3 areas of chaos in your life:</p>
-            <textarea placeholder="1. 2. 3." rows="3"></textarea>
+            <textarea placeholder="1. 2. 3." rows="3" id="chaos1"></textarea>
             
             <p><strong>Step 2:</strong> For each, what small action brings order?</p>
-            <textarea placeholder="Your plan for order..." rows="3"></textarea>
+            <textarea placeholder="Your plan for order..." rows="3" id="order1"></textarea>
             
             <p><strong>Step 3:</strong> Implement one order-bringing action today:</p>
-            <input type="text" placeholder="Today's order action">
+            <input type="text" placeholder="Today's order action" id="action1">
         </div>
         
         <!-- Day 2: Declaration 14 -->
@@ -143,16 +344,16 @@
             <div class="harmony-scale">
                 <div class="scale-point">
                     <h5>Where I Flow</h5>
-                    <textarea placeholder="Activities that feel effortless..." rows="3"></textarea>
+                    <textarea placeholder="Activities that feel effortless..." rows="3" id="flow1"></textarea>
                 </div>
                 <div class="scale-point">
                     <h5>Where I Force</h5>
-                    <textarea placeholder="Activities that feel forced..." rows="3"></textarea>
+                    <textarea placeholder="Activities that feel forced..." rows="3" id="force1"></textarea>
                 </div>
             </div>
             
             <p><strong>Daily Practice:</strong> Choose one "forcing" activity to approach with flow today:</p>
-            <input type="text" placeholder="Today's flow practice">
+            <input type="text" placeholder="Today's flow practice" id="flowPractice1">
         </div>
         
         <!-- Day 3: Declaration 15 -->
@@ -173,15 +374,15 @@
                 </tr>
                 <tr>
                     <td style="padding:10px;">Work/Rest</td>
-                    <td style="padding:10px;"><input type="text" placeholder="Overworking" style="width:100%;"></td>
-                    <td style="padding:10px;"><input type="text" placeholder="Laziness" style="width:100%;"></td>
-                    <td style="padding:10px;"><input type="text" placeholder="Balanced rhythm" style="width:100%;"></td>
+                    <td style="padding:10px;"><input type="text" placeholder="Overworking" style="width:100%;" id="extreme1"></td>
+                    <td style="padding:10px;"><input type="text" placeholder="Laziness" style="width:100%;" id="extreme2"></td>
+                    <td style="padding:10px;"><input type="text" placeholder="Balanced rhythm" style="width:100%;" id="middle1"></td>
                 </tr>
                 <tr>
                     <td style="padding:10px;">Social/Solitude</td>
-                    <td style="padding:10px;"><input type="text" placeholder="Always social" style="width:100%;"></td>
-                    <td style="padding:10px;"><input type="text" placeholder="Always alone" style="width:100%;"></td>
-                    <td style="padding:10px;"><input type="text" placeholder="Healthy balance" style="width:100%;"></td>
+                    <td style="padding:10px;"><input type="text" placeholder="Always social" style="width:100%;" id="extreme3"></td>
+                    <td style="padding:10px;"><input type="text" placeholder="Always alone" style="width:100%;" id="extreme4"></td>
+                    <td style="padding:10px;"><input type="text" placeholder="Healthy balance" style="width:100%;" id="middle2"></td>
                 </tr>
             </table>
         </div>
@@ -202,15 +403,15 @@
                 </thead>
                 <tbody>
                     <tr><td style="padding:10px;">Mon</td>
-                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;"></td>
-                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;"></td>
-                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;"></td>
-                        <td style="padding:10px;"><input type="text" style="width:100%;"></td></tr>
+                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;" id="harmony1"></td>
+                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;" id="harmony2"></td>
+                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;" id="harmony3"></td>
+                        <td style="padding:10px;"><input type="text" style="width:100%;" id="notes1"></td></tr>
                     <tr><td style="padding:10px;">Tue</td>
-                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;"></td>
-                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;"></td>
-                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;"></td>
-                        <td style="padding:10px;"><input type="text" style="width:100%;"></td></tr>
+                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;" id="harmony4"></td>
+                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;" id="harmony5"></td>
+                        <td style="padding:10px;"><input type="number" min="1" max="10" style="width:60px;" id="harmony6"></td>
+                        <td style="padding:10px;"><input type="text" style="width:100%;" id="notes2"></td></tr>
                 </tbody>
             </table>
         </div>
@@ -225,19 +426,53 @@
             <p><strong>Step 5:</strong> Chant "Om" or hum for 7 minutes</p>
             
             <p><strong>Ritual Reflection:</strong></p>
-            <textarea placeholder="How did you feel during the ritual? What shifted?" rows="4"></textarea>
+            <textarea placeholder="How did you feel during the ritual? What shifted?" rows="4" id="ritualReflection"></textarea>
+        </div>
+        
+        <!-- COMPLETION SECTION -->
+        <div class="completion-section" id="completionSection">
+            <h2 style="color: var(--success-green); margin-bottom: 20px;">⚖️ Week 3 Completion</h2>
+            <p style="max-width: 700px; margin: 20px auto; color: #E6D3A7;">
+                Complete all harmony exercises to unlock Week 4: The Solar Path.
+            </p>
+            
+            <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; max-width: 600px; margin: 30px auto;">
+                <p><strong>Completion Requirements:</strong></p>
+                <ul style="text-align: left; display: inline-block;">
+                    <li>✓ Complete all harmony declarations 13-15</li>
+                    <li>✓ Fill out at least 5 reflection fields</li>
+                    <li>✓ Complete the harmony tracker</li>
+                    <li>✓ Perform the Day 7 harmony ritual</li>
+                </ul>
+            </div>
+            
+            <button class="btn-complete" onclick="completeWorkbook()" id="completeButton">
+                ✅ Mark Week 3 Workbook as Complete
+            </button>
+            
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 10px; border: 1px solid rgba(108, 140, 213, 0.2); max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p style="color: var(--primary-light); font-size: 0.9em;">
+                    <strong>Note:</strong> Upon completion, Week 4: The Solar Path will unlock automatically.
+                </p>
+            </div>
         </div>
         
         <!-- Download Section -->
         <div style="text-align:center; padding:40px; margin:40px 0; background:rgba(108,140,213,0.1); border-radius:15px;">
-            <h3>📚 Download Week 3 Resources</h3>
+            <h3 style="color: var(--primary-color);">📚 Week 3 Resources</h3>
             <button class="btn" onclick="generatePDF(3)">📥 Download Complete PDF</button>
             <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
-            <a href="harmony-exercises.pdf" class="btn" download>📄 Printable Exercises</a>
-            <a href="../week4/index.html" class="btn">➡️ Continue to Week 4</a>
+            <a href="../week3/index.html" class="btn" onclick="return confirm('Return to Week 3 overview? Your progress is saved.')">
+                ← Return to Week 3
+            </a>
+            
+            <!-- Unlock Week 4 Button (hidden by default) -->
+            <a href="../week4/index.html" class="btn btn-unlock" id="unlockWeek4Link">
+                🔓 Unlock Week 4: The Solar Path →
+            </a>
             
             <div style="margin-top:30px;">
-                <h4>🎧 Harmony Meditations</h4>
+                <h4 style="color: var(--primary-light);">🎧 Harmony Meditations</h4>
                 <button class="btn" style="background:linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);">Inner Peace Meditation (15 min)</button>
                 <button class="btn" style="background:linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);">Balance Visualization (10 min)</button>
                 <button class="btn" style="background:linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);">Conflict Resolution Guide</button>
@@ -246,15 +481,133 @@
     </div>
 
     <script>
-        function generatePDF(week) {
-            // Collect all data for PDF
-            const data = [];
-            document.querySelectorAll('textarea, input[type="text"], input[type="number"]').forEach(el => {
-                if (el.value) data.push(el.value);
+        // Workbook completion function
+        function completeWorkbook() {
+            // Check if enough fields are filled
+            const requiredFields = document.querySelectorAll('textarea, input[type="text"], input[type="number"]');
+            let filledFields = 0;
+            
+            requiredFields.forEach(field => {
+                if (field.value.trim() !== '') {
+                    filledFields++;
+                }
             });
             
-            // Create downloadable content
-            const content = `Week ${week} Harmony Workbook\n${'='.repeat(40)}\n\nExercises Completed:\n${data.join('\n\n')}\n\nHarmony Mantra: "I am harmony. I create peace. I balance all things."`;
+            if (filledFields < 5) {
+                if (!confirm(`You have ${filledFields} filled fields (minimum 5 recommended). Mark as complete anyway?`)) {
+                    return;
+                }
+            }
+            
+            // Mark workbook as completed
+            localStorage.setItem('balance_of_opposites_completed', 'true');
+            localStorage.setItem('week3_completed_date', new Date().toISOString());
+            
+            // Update progress tracker
+            document.getElementById('step3').classList.add('completed');
+            
+            // Show success message
+            showNotification('✅ Week 3 Workbook Completed! Week 4 is now unlocked.', 'success');
+            
+            // Update completion section
+            document.getElementById('completeButton').style.display = 'none';
+            document.getElementById('unlockWeek4Link').style.display = 'inline-block';
+            
+            // Update completion section content
+            const completionSection = document.getElementById('completionSection');
+            completionSection.innerHTML = `
+                <h2 style="color: var(--success-green); margin-bottom: 20px; font-size: 2em;">✅ Week 3 Complete</h2>
+                
+                <div style="font-size: 3em; margin: 20px 0; color: var(--primary-color);">⚖️</div>
+                
+                <div style="background: rgba(76, 175, 80, 0.1); padding: 25px; border-radius: 10px; max-width: 500px; margin: 20px auto; border: 1px solid var(--success-green);">
+                    <p style="color: #E6D3A7; font-size: 1.1em; margin: 0;">
+                        <strong>Completion Date:</strong> ${new Date().toLocaleDateString()}<br>
+                        <strong>Forces Mastered:</strong> 15-21 of Ma'at<br>
+                        <strong>Harmony Achieved:</strong> Internal • Relational • Environmental
+                    </p>
+                </div>
+                
+                <div style="margin: 30px 0; max-width: 500px; margin-left: auto; margin-right: auto;">
+                    <p style="color: var(--primary-light); font-style: italic;">
+                        "You have achieved balance. The scales are even. The Solar Path awaits."
+                    </p>
+                </div>
+                
+                <a href="../week4/index.html" class="btn" style="background: linear-gradient(135deg, var(--success-green) 0%, var(--success-dark) 100%); padding: 18px 45px; font-size: 1.1em;">
+                    🔓 Proceed to Week 4: The Solar Path →
+                </a>
+                
+                <a href="../week3/index.html" class="btn" style="background: rgba(108, 140, 213, 0.1); margin-top: 20px;">
+                    ← Return to Week 3 Overview
+                </a>
+            `;
+            
+            // Auto-redirect after 5 seconds
+            setTimeout(() => {
+                if (confirm('Harmony achieved! Would you like to proceed to Week 4: The Solar Path?')) {
+                    window.location.href = '../week4/index.html';
+                }
+            }, 5000);
+        }
+        
+        // Check workbook completion status
+        function checkWorkbookStatus() {
+            const workbookCompleted = localStorage.getItem('balance_of_opposites_completed');
+            
+            if (workbookCompleted === 'true') {
+                // Update progress steps
+                document.getElementById('step3').classList.add('completed');
+                
+                // Show unlock link
+                document.getElementById('unlockWeek4Link').style.display = 'inline-block';
+                
+                // Hide complete button
+                document.getElementById('completeButton').style.display = 'none';
+                
+                // Update completion section
+                document.getElementById('completionSection').style.display = 'none';
+            }
+            
+            // Check if coming from Week 4 without completion
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('locked') === 'true') {
+                document.getElementById('lockScreen').classList.add('active');
+            }
+        }
+        
+        function hideLockScreen() {
+            document.getElementById('lockScreen').classList.remove('active');
+        }
+        
+        // Auto-save functionality
+        function saveAllReflections() {
+            const reflections = {};
+            document.querySelectorAll('textarea, input[type="text"], input[type="number"]').forEach((el, index) => {
+                reflections[`week3_reflection_${index}`] = el.value;
+                localStorage.setItem(`balance_workbook_${index}`, el.value);
+            });
+            return reflections;
+        }
+        
+        // Auto-save every 30 seconds
+        setInterval(saveAllReflections, 30000);
+        
+        // Save on input
+        document.querySelectorAll('textarea, input').forEach((el, index) => {
+            el.addEventListener('input', function() {
+                localStorage.setItem(`balance_workbook_${index}`, this.value);
+            });
+            
+            // Load saved reflections
+            const saved = localStorage.getItem(`balance_workbook_${index}`);
+            if (saved) {
+                el.value = saved;
+            }
+        });
+        
+        function generatePDF(week) {
+            const content = `Week ${week} Harmony Workbook\n\nExercises Completed. For full PDF, complete all fields and use print function.`;
             
             const blob = new Blob([content], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
@@ -263,16 +616,77 @@
             a.download = `Week${week}_Harmony_Workbook.txt`;
             a.click();
             
-            alert('Harmony Workbook saved! For full PDF, use jsPDF library.');
+            showNotification('Workbook content saved! For complete PDF, use print function.', 'success');
         }
         
-        // Auto-save
-        document.querySelectorAll('textarea, input').forEach((el, index) => {
-            el.addEventListener('input', () => {
-                localStorage.setItem(`harmony_${index}`, el.value);
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 30px;
+                right: 30px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, var(--success-green), var(--success-dark))' : 'linear-gradient(135deg, var(--primary-color), var(--primary-dark))'};
+                color: white;
+                padding: 20px 30px;
+                border-radius: 10px;
+                font-family: inherit;
+                z-index: 10000;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                animation: slideIn 0.3s ease;
+                max-width: 300px;
+                border: 2px solid ${type === 'success' ? 'var(--success-green)' : 'var(--primary-color)'};
+            `;
+            
+            notification.innerHTML = `
+                <strong>${type === 'success' ? '✓' : '⚠'}</strong>
+                <div style="margin-top: 10px; font-size: 0.9em;">${message}</div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+            
+            // Add CSS for animations
+            if (!document.querySelector('#notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notification-styles';
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+        
+        // Check completion on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkWorkbookStatus();
+            
+            // Show lock screen if trying to access Week 4 from navigation
+            const week4Links = document.querySelectorAll('a[href*="week4"]');
+            week4Links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const workbookCompleted = localStorage.getItem('balance_of_opposites_completed');
+                    
+                    if (workbookCompleted !== 'true' && !this.classList.contains('btn-unlock')) {
+                        e.preventDefault();
+                        document.getElementById('lockScreen').classList.add('active');
+                    }
+                });
             });
-            const saved = localStorage.getItem(`harmony_${index}`);
-            if (saved) el.value = saved;
+            
+            // Initial save
+            saveAllReflections();
         });
     </script>
 </body>
