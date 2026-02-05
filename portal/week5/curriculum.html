@@ -5,44 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 5 Workbook: The Sacred Respect Ritual</title>
     <style>
-        :root {
-            --primary-color: #E74C3C;
-            --primary-dark: #C0392B;
-            --primary-light: #F1948A;
-            --success-green: #4CAF50;
-            --success-dark: #2E7D32;
-        }
-        
+        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
+
         body {
-            background: linear-gradient(135deg, #0A1931 0%, #3D1A2D 100%);
-            color: #E6D3A7;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #140025;
+            color: #f7eaff;
+            font-family: "Georgia", serif;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
+            line-height: 1.7;
             min-height: 100vh;
         }
-        
+
+        h1, h2, h3, h4 {
+            color: #FFD700;
+            margin-top: 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
         .workbook-container {
             max-width: 1000px;
             margin: 0 auto;
-            background: rgba(61, 26, 45, 0.95);
+            background: rgba(255,255,255,0.06);
             padding: 40px;
             border-radius: 20px;
-            border: 3px solid var(--primary-color);
+            border: 2px solid #FFD700;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             position: relative;
         }
-        
+
+        .completion-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(20, 0, 37, 0.95);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .completion-box {
+            background: linear-gradient(135deg, #1A3D3D 0%, #0A2929 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 3px solid #1ABC9C;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 0 50px rgba(26,188,156,0.3);
+        }
+
+        .progress-indicator {
+            background: rgba(26,188,156,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid rgba(26,188,156,0.3);
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1ABC9C, #76D7C4);
+            width: 0%;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
         .completion-section {
-            background: rgba(76, 175, 80, 0.1);
+            background: rgba(76, 175, 80, 0.08);
             padding: 50px 40px;
             border-radius: 15px;
             margin: 50px 0;
-            border: 2px solid var(--success-green);
+            border: 2px solid #4CAF50;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        
+
         .completion-section::before {
             content: "🙏";
             position: absolute;
@@ -51,37 +102,39 @@
             transform: translateX(-50%);
             font-size: 4em;
             opacity: 0.1;
+            color: #FFD700;
         }
-        
+
         .btn-complete {
-            background: linear-gradient(135deg, var(--success-green) 0%, var(--success-dark) 100%);
-            color: white;
+            background: #330066;
+            color: #4CAF50;
             padding: 18px 45px;
             border-radius: 10px;
-            border: none;
+            border: 2px solid #4CAF50;
             cursor: pointer;
             font-weight: bold;
             font-size: 1.1em;
             margin: 20px 10px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
-        
+
         .btn-complete:hover {
+            background: #4c0099;
             transform: translateY(-3px);
             box-shadow: 0 15px 30px rgba(76, 175, 80, 0.3);
         }
-        
+
         .progress-tracker {
             display: flex;
             justify-content: space-between;
             margin: 40px 0;
             position: relative;
             padding: 20px;
-            background: rgba(231, 76, 60, 0.05);
+            background: rgba(255,255,255,0.06);
             border-radius: 10px;
+            border: 1px solid #FFD700;
         }
-        
+
         .progress-tracker::before {
             content: '';
             position: absolute;
@@ -89,51 +142,51 @@
             left: 10%;
             right: 10%;
             height: 2px;
-            background: rgba(231, 76, 60, 0.3);
+            background: rgba(255, 215, 0, 0.3);
             z-index: 1;
             transform: translateY(-50%);
         }
-        
+
         .progress-step {
             text-align: center;
             position: relative;
             z-index: 2;
             flex: 1;
         }
-        
+
         .step-number {
             width: 50px;
             height: 50px;
-            background: rgba(231, 76, 60, 0.1);
+            background: rgba(255, 215, 0, 0.15);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 10px;
-            border: 2px solid rgba(231, 76, 60, 0.3);
+            border: 2px solid rgba(255, 215, 0, 0.3);
             font-weight: 600;
-            color: var(--primary-light);
+            color: #FFD700;
         }
-        
+
         .step-number.completed {
-            background: var(--success-green);
-            border-color: var(--success-green);
+            background: #4CAF50;
+            border-color: #4CAF50;
             color: white;
         }
-        
+
         .step-number.active {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
+            background: #FFD700;
+            border-color: #FFD700;
+            color: #140025;
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
         }
-        
+
         .lock-screen {
             position: fixed;
             top: 0;
@@ -149,20 +202,20 @@
             padding: 20px;
             text-align: center;
         }
-        
+
         .lock-screen.active {
             display: flex;
         }
-        
+
         .sacred-circle {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             margin: 30px 0;
         }
-        
+
         .circle-item {
-            background: rgba(231, 76, 60, 0.1);
+            background: rgba(255,255,255,0.06);
             padding: 30px;
             border-radius: 50%;
             width: 150px;
@@ -173,69 +226,88 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            border: 2px solid var(--primary-color);
+            border: 2px solid #FFD700;
         }
-        
+
         .reverence-tracker {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin: 30px 0;
         }
-        
+
         .tracker-card {
-            background: rgba(231, 76, 60, 0.05);
+            background: rgba(255,255,255,0.06);
             padding: 20px;
             border-radius: 10px;
-            border: 1px solid rgba(231, 76, 60, 0.2);
+            border: 1px solid #FFD700;
         }
-        
+
         .btn {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-            color: white;
+            background: #330066;
+            color: #FFD700;
             padding: 15px 30px;
             border-radius: 8px;
             text-decoration: none;
             display: inline-block;
             margin: 10px;
-            border: none;
+            border: 2px solid #FFD700;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
         }
-        
+
         .btn:hover {
+            background: #4c0099;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
         }
-        
+
         .btn-unlock {
-            background: linear-gradient(135deg, var(--success-green) 0%, var(--success-dark) 100%);
+            background: #330066;
+            border-color: #4CAF50;
+            color: #4CAF50;
             display: none;
         }
-        
+
+        .btn-success {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            font-size: 1.1em;
+            padding: 18px 40px;
+        }
+
         textarea, input {
             width: 100%;
             padding: 12px;
             margin: 10px 0;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(231, 76, 60, 0.3);
-            color: inherit;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid #FFD700;
+            color: #f7eaff;
             border-radius: 5px;
             font-family: inherit;
+            transition: all 0.3s ease;
         }
-        
-        .unlocked-badge {
-            display: inline-block;
-            background: rgba(76, 175, 80, 0.2);
-            color: var(--success-green);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin-left: 15px;
-            border: 1px solid var(--success-green);
+
+        textarea:focus, input:focus {
+            outline: none;
+            border-color: #1ABC9C;
+            box-shadow: 0 0 10px rgba(26,188,156,0.2);
         }
-        
+
+        .save-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(26,188,156,0.9);
+            color: #08001A;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none;
+            z-index: 1000;
+        }
+
         @media (max-width: 768px) {
             .sacred-circle {
                 grid-template-columns: 1fr;
@@ -253,26 +325,33 @@
             .progress-tracker::before {
                 display: none;
             }
+            
+            .workbook-container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Save Indicator -->
+    <div class="save-indicator" id="saveIndicator">✓ Progress Saved</div>
+    
     <!-- Lock Screen for Week 6 -->
     <div class="lock-screen" id="lockScreen">
-        <div style="font-size: 4em; margin-bottom: 20px; color: var(--primary-color);">🔒</div>
-        <h2 style="color: var(--primary-color); margin-bottom: 20px; font-size: 2.2em;">Week 6 is Locked</h2>
-        <p style="color: #E6D3A7; max-width: 600px; margin-bottom: 30px; font-size: 1.1em;">
+        <div style="font-size: 4em; margin-bottom: 20px; color: #FFD700;">🔒</div>
+        <h2 style="color: #FFD700; margin-bottom: 20px; font-size: 2.2em;">Week 6 is Locked</h2>
+        <p style="color: #f7eaff; max-width: 600px; margin-bottom: 30px; font-size: 1.1em;">
             Complete the <strong>Week 5: Sacred Respect Ritual Workbook</strong> to unlock Week 6: The Eye of Judgment.
         </p>
         
         <div class="progress-tracker" style="max-width: 500px; background: transparent;">
             <div class="progress-step">
                 <div class="step-number completed">✓</div>
-                <div>Week 4<br>Discernment Temple</div>
+                <div>Week 4<br>Solar Path</div>
             </div>
             <div class="progress-step">
                 <div class="step-number active">5</div>
-                <div>Week 5<br>Sacred Respect</div>
+                <div>Week 5<br>Sacred Waters</div>
             </div>
             <div class="progress-step">
                 <div class="step-number">6</div>
@@ -284,17 +363,48 @@
             <button class="btn" onclick="hideLockScreen()" style="padding: 18px 35px;">
                 Continue Week 5 Workbook
             </button>
-            <a href="../week5/index.html" class="btn" style="background: rgba(231, 76, 60, 0.1);">
+            <a href="index.html" class="btn" style="background: rgba(255, 215, 0, 0.1);">
                 ← Return to Week 5
             </a>
         </div>
         
-        <p style="margin-top: 30px; color: var(--primary-light); font-size: 0.9em; max-width: 500px;">
+        <p style="margin-top: 30px; color: #FFD700; font-size: 0.9em; max-width: 500px;">
             <em>Your progress saves automatically. Complete all Week 5 reverence exercises to unlock the Eye of Judgment.</em>
         </p>
     </div>
     
+    <!-- Completion Overlay -->
+    <div class="completion-overlay" id="completionOverlay">
+        <div class="completion-box">
+            <div style="font-size: 4em; margin-bottom: 20px;">🙏</div>
+            <h2 style="color: #1ABC9C; margin-bottom: 20px;">Sacred Respect Workbook Completed!</h2>
+            <p style="color: #E6D3A7; margin-bottom: 30px; line-height: 1.6;">
+                You have successfully cultivated reverence through the Sacred Waters. Your purification journey is complete. Week 6: The Eye of Judgment is now unlocked.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                <button class="btn" onclick="window.location.href='index.html'" style="background: linear-gradient(135deg, #1ABC9C 0%, #16A085 100%); color: white; width: 100%; max-width: 300px;">
+                    Return to Week 5
+                </button>
+                <button class="btn btn-success" onclick="window.location.href='../week6/index.html'" style="width: 100%; max-width: 300px;">
+                    🔓 Proceed to Week 6: The Eye of Judgment →
+                </button>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #76D7C4;">
+                Your reverence has been recorded in the flowing waters.
+            </p>
+        </div>
+    </div>
+    
     <div class="workbook-container">
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <h3 style="color: #1ABC9C; margin-bottom: 10px;">Your Reverence Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="workbookProgress"></div>
+            </div>
+            <p id="progressText" style="color: #76D7C4;">Complete all sections to unlock Week 6</p>
+        </div>
+        
         <!-- Progress Tracker -->
         <div class="progress-tracker">
             <div class="progress-step">
@@ -312,8 +422,8 @@
         </div>
         
         <div style="text-align:center;">
-            <h1 style="color:var(--primary-color);">The Sacred Respect Ritual</h1>
-            <p style="color:var(--primary-light);">Week 5: Reverence-Embracer's Gateway</p>
+            <h1 style="color:#FFD700;">The Sacred Respect Ritual</h1>
+            <p style="color:#FFD700;">Week 5: Reverence-Embracer's Gateway</p>
         </div>
         
         <!-- Sacred Circle -->
@@ -337,12 +447,12 @@
         </div>
         
         <!-- Declaration 25 -->
-        <div style="background:rgba(231,76,60,0.1); padding:25px; border-radius:10px; margin:25px 0; border-left:5px solid var(--primary-color);">
-            <h3 style="color:var(--primary-color);">🙏 Declaration 25: "I have not blasphemed"</h3>
+        <div style="background:rgba(255, 215, 0, 0.08); padding:25px; border-radius:10px; margin:25px 0; border-left:5px solid #FFD700;">
+            <h3 style="color:#FFD700;">🙏 Declaration 25: "I have not blasphemed"</h3>
             <p><em>My words honor the divine in all</em></p>
         </div>
         
-        <div style="background:rgba(255,255,255,0.05); padding:25px; border-radius:10px; margin:20px 0;">
+        <div style="background:rgba(255,255,255,0.06); padding:25px; border-radius:10px; margin:20px 0; border:1px solid #FFD700;">
             <h4>Exercise 5.1: Sacred Speech Practice</h4>
             <p><strong>For one day, practice speaking only what:</strong></p>
             <ul>
@@ -351,23 +461,23 @@
                 <li>Comes from love, not judgment</li>
             </ul>
             <p><strong>Challenges faced:</strong></p>
-            <textarea id="challenges" style="width:100%; height:80px; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(231,76,60,0.3);" placeholder="What was difficult?"></textarea>
+            <textarea id="challenges" placeholder="What was difficult?"></textarea>
             
             <p><strong>Moments of sacred connection:</strong></p>
-            <textarea id="connections" style="width:100%; height:80px; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(231,76,60,0.3);" placeholder="When did speech feel sacred?"></textarea>
+            <textarea id="connections" placeholder="When did speech feel sacred?"></textarea>
         </div>
         
         <!-- Ancestor Connection -->
-        <div style="background:rgba(231,76,60,0.15); padding:25px; border-radius:10px; margin:30px 0;">
+        <div style="background:rgba(255, 215, 0, 0.08); padding:25px; border-radius:10px; margin:30px 0; border:1px solid #FFD700;">
             <h4>👥 Ancestor Reverence Exercise</h4>
             <p><strong>Step 1:</strong> Name 3 ancestors you wish to honor:</p>
-            <input type="text" id="ancestors" style="width:100%; padding:10px; margin:10px 0; background:rgba(255,255,255,0.05); border:1px solid rgba(231,76,60,0.3);" placeholder="1. 2. 3.">
+            <input type="text" id="ancestors" placeholder="1. 2. 3.">
             
             <p><strong>Step 2:</strong> What wisdom do you believe they offer you?</p>
-            <textarea id="ancestralWisdom" style="width:100%; height:100px; padding:10px;" placeholder="Ancestral wisdom..."></textarea>
+            <textarea id="ancestralWisdom" placeholder="Ancestral wisdom..."></textarea>
             
             <p><strong>Step 3:</strong> Create a simple ancestor altar (photo, object, candle):</p>
-            <input type="text" id="altar" style="width:100%; padding:10px;" placeholder="What will be on your altar?">
+            <input type="text" id="altar" placeholder="What will be on your altar?">
         </div>
         
         <!-- Daily Reverence Tracker -->
@@ -375,28 +485,28 @@
             <div class="tracker-card">
                 <h5>🌅 Morning Practice</h5>
                 <p>Speak gratitude for:</p>
-                <textarea id="morningGratitude" style="width:100%; height:60px;" placeholder="3 things today..."></textarea>
+                <textarea id="morningGratitude" placeholder="3 things today..."></textarea>
             </div>
             <div class="tracker-card">
                 <h5>🌇 Evening Practice</h5>
                 <p>Honor one being you interacted with:</p>
-                <textarea id="eveningHonor" style="width:100%; height:60px;" placeholder="Who and how?"></textarea>
+                <textarea id="eveningHonor" placeholder="Who and how?"></textarea>
             </div>
             <div class="tracker-card">
                 <h5>🌿 Nature Connection</h5>
                 <p>One act of nature reverence:</p>
-                <textarea id="natureAct" style="width:100%; height:60px;" placeholder="Today's nature act..."></textarea>
+                <textarea id="natureAct" placeholder="Today's nature act..."></textarea>
             </div>
         </div>
         
         <!-- COMPLETION SECTION -->
         <div class="completion-section" id="completionSection">
-            <h2 style="color: var(--success-green); margin-bottom: 20px;">🙏 Week 5 Sacred Respect Completed</h2>
-            <p style="max-width: 700px; margin: 20px auto; color: #E6D3A7;">
+            <h2 style="color: #4CAF50; margin-bottom: 20px;">🙏 Week 5 Sacred Respect Completed</h2>
+            <p style="max-width: 700px; margin: 20px auto; color: #f7eaff;">
                 Complete all reverence exercises to unlock Week 6: The Eye of Judgment.
             </p>
             
-            <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; max-width: 600px; margin: 30px auto;">
+            <div style="background: rgba(255,255,255,0.06); padding: 20px; border-radius: 10px; max-width: 600px; margin: 30px auto; border: 1px solid #4CAF50;">
                 <p><strong>Completion Requirements:</strong></p>
                 <ul style="text-align: left; display: inline-block;">
                     <li>✓ Complete Sacred Speech Practice</li>
@@ -410,110 +520,169 @@
                 ✅ Mark Week 5 Workbook as Complete
             </button>
             
-            <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 10px; border: 1px solid rgba(231, 76, 60, 0.2); max-width: 600px; margin-left: auto; margin-right: auto;">
-                <p style="color: var(--primary-light); font-size: 0.9em;">
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.06); border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.2); max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p style="color: #FFD700; font-size: 0.9em;">
                     <strong>Note:</strong> Upon completion, Week 6: The Eye of Judgment will unlock automatically.
                 </p>
             </div>
         </div>
         
         <!-- Download Section -->
-        <div style="text-align:center; padding:40px; margin:40px 0; background:rgba(231,76,60,0.1); border-radius:15px;">
-            <h3 style="color: var(--primary-color);">📚 Week 5 Resources</h3>
+        <div style="text-align:center; padding:40px; margin:40px 0; background:rgba(255,255,255,0.06); border-radius:15px; border:1px solid #FFD700;">
+            <h3 style="color: #FFD700;">📚 Week 5 Resources</h3>
             <button class="btn" onclick="generatePDF(5)">📥 Download Reverence PDF</button>
             <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
-            <a href="../week5/index.html" class="btn" onclick="return confirm('Return to Week 5 overview? Your progress is saved.')">
+            <a href="index.html" class="btn" onclick="return confirm('Return to Week 5 overview? Your progress is saved.')">
                 ← Return to Week 5
             </a>
             
             <!-- Unlock Week 6 Button (hidden by default) -->
-            <a href="../week6/index.html" class="btn btn-unlock" id="unlockWeek6Link">
+            <a href="../week6/index.html" class="btn btn-unlock" id="unlockWeek6Link" style="display: none;">
                 🔓 Unlock Week 6: The Eye of Judgment →
             </a>
             
             <div style="margin-top:30px;">
-                <h4 style="color: var(--primary-light);">🎧 Reverence Meditations</h4>
-                <button class="btn" style="background:linear-gradient(135deg, #F39C12 0%, #D68910 100%);">Ancestor Connection (25 min)</button>
-                <button class="btn" style="background:linear-gradient(135deg, #F39C12 0%, #D68910 100%);">Earth Gratitude (15 min)</button>
-                <button class="btn" style="background:linear-gradient(135deg, #F39C12 0%, #D68910 100%);">Sacred Space Creation</button>
+                <h4 style="color: #FFD700;">🎧 Reverence Meditations</h4>
+                <button class="btn" onclick="downloadText('Ancestor Connection Meditation (25 min)\nEarth Gratitude Meditation (15 min)\nSacred Space Creation Practice', 'Reverence_Meditations.txt')">Ancestor Connection (25 min)</button>
+                <button class="btn" onclick="downloadText('Earth Gratitude Meditation (15 min)\nPractice daily to cultivate reverence for the planet', 'Earth_Gratitude.txt')">Earth Gratitude (15 min)</button>
+                <button class="btn" onclick="downloadText('Sacred Space Creation Guide\nCreate your personal sanctuary for reverence practice', 'Sacred_Space_Guide.txt')">Sacred Space Creation</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Workbook completion function
-        function completeWorkbook() {
-            // Check if enough fields are filled
-            const requiredFields = document.querySelectorAll('textarea, input[type="text"]');
-            let filledFields = 0;
+        // Auto-save functionality
+        function saveProgress() {
+            const progress = {
+                challenges: document.getElementById('challenges').value,
+                connections: document.getElementById('connections').value,
+                ancestors: document.getElementById('ancestors').value,
+                ancestralWisdom: document.getElementById('ancestralWisdom').value,
+                altar: document.getElementById('altar').value,
+                morningGratitude: document.getElementById('morningGratitude').value,
+                eveningHonor: document.getElementById('eveningHonor').value,
+                natureAct: document.getElementById('natureAct').value
+            };
             
-            requiredFields.forEach(field => {
-                if (field.value.trim() !== '') {
-                    filledFields++;
-                }
+            localStorage.setItem('sacred_respect_workbook_progress', JSON.stringify(progress));
+            
+            // Show save indicator
+            const indicator = document.getElementById('saveIndicator');
+            indicator.style.display = 'block';
+            setTimeout(() => {
+                indicator.style.display = 'none';
+            }, 2000);
+            
+            // Update progress bar
+            updateProgressBar();
+        }
+        
+        // Load saved progress
+        function loadProgress() {
+            const saved = localStorage.getItem('sacred_respect_workbook_progress');
+            if (saved) {
+                const progress = JSON.parse(saved);
+                
+                document.getElementById('challenges').value = progress.challenges || '';
+                document.getElementById('connections').value = progress.connections || '';
+                document.getElementById('ancestors').value = progress.ancestors || '';
+                document.getElementById('ancestralWisdom').value = progress.ancestralWisdom || '';
+                document.getElementById('altar').value = progress.altar || '';
+                document.getElementById('morningGratitude').value = progress.morningGratitude || '';
+                document.getElementById('eveningHonor').value = progress.eveningHonor || '';
+                document.getElementById('natureAct').value = progress.natureAct || '';
+            }
+            
+            updateProgressBar();
+        }
+        
+        // Update progress bar
+        function updateProgressBar() {
+            let completed = 0;
+            const total = 8; // Total number of fields to complete
+            
+            // Check text fields
+            const textFields = [
+                'challenges',
+                'connections', 
+                'ancestors',
+                'ancestralWisdom',
+                'altar',
+                'morningGratitude',
+                'eveningHonor',
+                'natureAct'
+            ];
+            
+            textFields.forEach(id => {
+                if (document.getElementById(id).value.trim()) completed++;
             });
             
-            if (filledFields < 4) {
-                if (!confirm(`You have ${filledFields} filled fields (minimum 4 recommended). Mark as complete anyway?`)) {
-                    return;
-                }
+            // Calculate percentage
+            const percentage = Math.min((completed / total) * 100, 100);
+            document.getElementById('workbookProgress').style.width = percentage + '%';
+            
+            // Update progress text
+            const progressText = document.getElementById('progressText');
+            if (percentage >= 80) {
+                progressText.innerHTML = `Almost there! ${Math.round(percentage)}% complete - Ready to mark as complete`;
+                progressText.style.color = '#4CAF50';
+            } else if (percentage >= 50) {
+                progressText.innerHTML = `Good progress! ${Math.round(percentage)}% complete`;
+                progressText.style.color = '#1ABC9C';
+            } else {
+                progressText.innerHTML = `${Math.round(percentage)}% complete - Keep going!`;
+                progressText.style.color = '#76D7C4';
+            }
+            
+            return percentage;
+        }
+        
+        // Workbook completion function
+        function completeWorkbook() {
+            const percentage = updateProgressBar();
+            
+            if (percentage < 80) {
+                alert('Please complete at least 80% of the workbook before marking it as complete.\n\nFocus on:\n• Sacred Speech Practice\n• Ancestor Reverence\n• Daily Reverence Tracker\n• Nature Connection');
+                return;
             }
             
             // Mark workbook as completed
-            localStorage.setItem('sacred_respect_completed', 'true');
+            localStorage.setItem('sacred_respect_workbook_completed', 'true');
             localStorage.setItem('week5_completed_date', new Date().toISOString());
+            
+            // Also set a shorter key for Week 6 to check
+            localStorage.setItem('sacred_waters_completed', 'true');
+            
+            // Record completion data
+            const completionData = {
+                completed: true,
+                date: new Date().toISOString(),
+                challenges: document.getElementById('challenges').value,
+                ancestors: document.getElementById('ancestors').value,
+                morningGratitude: document.getElementById('morningGratitude').value,
+                natureAct: document.getElementById('natureAct').value
+            };
+            
+            localStorage.setItem('sacred_respect_completion_data', JSON.stringify(completionData));
             
             // Update progress tracker
             document.getElementById('step3').classList.add('completed');
             
-            // Show success message
-            showNotification('✅ Week 5 Workbook Completed! Week 6 is now unlocked.', 'success');
+            // Show completion overlay
+            document.getElementById('completionOverlay').style.display = 'flex';
             
-            // Update completion section
-            document.getElementById('completeButton').style.display = 'none';
+            // Disable the complete button
+            document.getElementById('completeButton').disabled = true;
+            document.getElementById('completeButton').innerHTML = '✅ Workbook Completed';
+            document.getElementById('completeButton').style.opacity = '0.7';
+            
+            // Show unlock link
             document.getElementById('unlockWeek6Link').style.display = 'inline-block';
-            
-            // Update completion section content
-            const completionSection = document.getElementById('completionSection');
-            completionSection.innerHTML = `
-                <h2 style="color: var(--success-green); margin-bottom: 20px; font-size: 2em;">✅ Sacred Respect Complete</h2>
-                
-                <div style="font-size: 3em; margin: 20px 0; color: var(--primary-color);">🙏</div>
-                
-                <div style="background: rgba(76, 175, 80, 0.1); padding: 25px; border-radius: 10px; max-width: 500px; margin: 20px auto; border: 1px solid var(--success-green);">
-                    <p style="color: #E6D3A7; font-size: 1.1em; margin: 0;">
-                        <strong>Completion Date:</strong> ${new Date().toLocaleDateString()}<br>
-                        <strong>Forces Mastered:</strong> 29-35 of Ma'at<br>
-                        <strong>Reverence Cultivated:</strong> Earth • Ancestors • Community • Divine
-                    </p>
-                </div>
-                
-                <div style="margin: 30px 0; max-width: 500px; margin-left: auto; margin-right: auto;">
-                    <p style="color: var(--primary-light); font-style: italic;">
-                        "You have learned to walk with reverence. The Eye of Judgment now sees with compassion."
-                    </p>
-                </div>
-                
-                <a href="../week6/index.html" class="btn" style="background: linear-gradient(135deg, var(--success-green) 0%, var(--success-dark) 100%); padding: 18px 45px; font-size: 1.1em;">
-                    🔓 Proceed to Week 6: The Eye of Judgment →
-                </a>
-                
-                <a href="../week5/index.html" class="btn" style="background: rgba(231, 76, 60, 0.1); margin-top: 20px;">
-                    ← Return to Week 5 Overview
-                </a>
-            `;
-            
-            // Auto-redirect after 5 seconds
-            setTimeout(() => {
-                if (confirm('Reverence achieved! Would you like to proceed to Week 6: The Eye of Judgment?')) {
-                    window.location.href = '../week6/index.html';
-                }
-            }, 5000);
         }
         
         // Check workbook completion status
         function checkWorkbookStatus() {
-            const workbookCompleted = localStorage.getItem('sacred_respect_completed');
+            const workbookCompleted = localStorage.getItem('sacred_respect_workbook_completed');
             
             if (workbookCompleted === 'true') {
                 // Update progress steps
@@ -528,115 +697,69 @@
                 // Update completion section
                 document.getElementById('completionSection').style.display = 'none';
             }
-            
-            // Check if coming from Week 6 without completion
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('locked') === 'true') {
-                document.getElementById('lockScreen').classList.add('active');
-            }
         }
         
         function hideLockScreen() {
             document.getElementById('lockScreen').classList.remove('active');
         }
         
-        // Auto-save functionality
-        function saveAllReflections() {
-            const reflections = {};
-            document.querySelectorAll('textarea, input[type="text"]').forEach((el, index) => {
-                reflections[`week5_reflection_${index}`] = el.value;
-                localStorage.setItem(`sacred_respect_workbook_${index}`, el.value);
-            });
-            return reflections;
+        function generatePDF(week) {
+            const content = `Week ${week} Sacred Respect Workbook\n\nSacred Speech Practice:\n${document.getElementById('challenges').value}\n\nAncestor Reverence:\n${document.getElementById('ancestors').value}\n\nAncestral Wisdom:\n${document.getElementById('ancestralWisdom').value}\n\nDaily Reverence:\nMorning: ${document.getElementById('morningGratitude').value}\nEvening: ${document.getElementById('eveningHonor').value}\nNature: ${document.getElementById('natureAct').value}`;
+            downloadText(content, `Sacred_Respect_Week${week}.txt`);
         }
         
-        // Auto-save every 30 seconds
-        setInterval(saveAllReflections, 30000);
-        
-        // Save on input
-        document.querySelectorAll('textarea, input').forEach((el, index) => {
-            el.addEventListener('input', function() {
-                localStorage.setItem(`sacred_respect_workbook_${index}`, this.value);
-            });
-            
-            // Load saved reflections
-            const saved = localStorage.getItem(`sacred_respect_workbook_${index}`);
-            if (saved) {
-                el.value = saved;
-            }
-        });
-        
-        function generatePDF(week) {
-            const content = `Week ${week} Sacred Respect Workbook\n\nExercises Completed. For full PDF, complete all fields and use print function.`;
-            
-            const blob = new Blob([content], { type: 'text/plain' });
+        function downloadText(text, filename) {
+            const blob = new Blob([text], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `Week${week}_Sacred_Respect_Workbook.txt`;
+            a.download = filename;
             a.click();
             
-            showNotification('Workbook content saved! For complete PDF, use print function.', 'success');
-        }
-        
-        function showNotification(message, type) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 30px;
-                right: 30px;
-                background: ${type === 'success' ? 'linear-gradient(135deg, var(--success-green), var(--success-dark))' : 'linear-gradient(135deg, var(--primary-color), var(--primary-dark))'};
-                color: white;
-                padding: 20px 30px;
-                border-radius: 10px;
-                font-family: inherit;
-                z-index: 10000;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-                animation: slideIn 0.3s ease;
-                max-width: 300px;
-                border: 2px solid ${type === 'success' ? 'var(--success-green)' : 'var(--primary-color)'};
-            `;
-            
-            notification.innerHTML = `
-                <strong>${type === 'success' ? '✓' : '⚠'}</strong>
-                <div style="margin-top: 10px; font-size: 0.9em;">${message}</div>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            // Remove after 3 seconds
+            // Show notification
+            const indicator = document.getElementById('saveIndicator');
+            indicator.textContent = '✓ Resource Downloaded';
+            indicator.style.display = 'block';
             setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
-            
-            // Add CSS for animations
-            if (!document.querySelector('#notification-styles')) {
-                const style = document.createElement('style');
-                style.id = 'notification-styles';
-                style.textContent = `
-                    @keyframes slideIn {
-                        from { transform: translateX(100%); opacity: 0; }
-                        to { transform: translateX(0); opacity: 1; }
-                    }
-                    @keyframes slideOut {
-                        from { transform: translateX(0); opacity: 1; }
-                        to { transform: translateX(100%); opacity: 0; }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
+                indicator.style.display = 'none';
+            }, 2000);
         }
         
-        // Check completion on page load
+        // Set up auto-save events
         document.addEventListener('DOMContentLoaded', function() {
+            // Check for Week 4 completion requirement
+            const week4Completed = localStorage.getItem('solar_path_completed');
+            if (!week4Completed || week4Completed !== 'true') {
+                alert('Please complete Week 4: The Solar Path before starting the Sacred Respect Workbook.');
+                window.location.href = '../week4/index.html';
+                return;
+            }
+            
+            loadProgress();
             checkWorkbookStatus();
+            
+            // Add event listeners to all inputs
+            const inputs = document.querySelectorAll('textarea, input[type="text"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', saveProgress);
+            });
+            
+            // Check if already completed
+            const alreadyCompleted = localStorage.getItem('sacred_respect_workbook_completed');
+            if (alreadyCompleted === 'true') {
+                document.getElementById('completeButton').disabled = true;
+                document.getElementById('completeButton').innerHTML = '✅ Workbook Already Completed';
+                document.getElementById('completeButton').style.opacity = '0.7';
+                document.getElementById('progressText').innerHTML = 'Workbook completed! Return to Week 5 page to unlock Week 6.';
+                document.getElementById('progressText').style.color = '#4CAF50';
+                document.getElementById('workbookProgress').style.width = '100%';
+            }
             
             // Show lock screen if trying to access Week 6 from navigation
             const week6Links = document.querySelectorAll('a[href*="week6"]');
             week6Links.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    const workbookCompleted = localStorage.getItem('sacred_respect_completed');
+                    const workbookCompleted = localStorage.getItem('sacred_respect_workbook_completed');
                     
                     if (workbookCompleted !== 'true' && !this.classList.contains('btn-unlock')) {
                         e.preventDefault();
@@ -644,9 +767,11 @@
                     }
                 });
             });
-            
-            // Initial save
-            saveAllReflections();
+        });
+        
+        // Save on page unload
+        window.addEventListener('beforeunload', function(e) {
+            saveProgress();
         });
     </script>
 </body>
