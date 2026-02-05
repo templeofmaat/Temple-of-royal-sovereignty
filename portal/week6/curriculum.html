@@ -15,6 +15,9 @@
             background: linear-gradient(135deg, #0A1931 0%, #3D2D1A 100%);
             color: #E6D3A7;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
         }
         
         .workbook-container {
@@ -24,6 +27,31 @@
             padding: 40px;
             border-radius: 20px;
             border: 3px solid var(--primary-color);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .completion-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(61, 45, 26, 0.95);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .completion-box {
+            background: linear-gradient(135deg, #3D2D1A 0%, #1A1208 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 3px solid var(--primary-color);
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 0 50px rgba(243,156,18,0.3);
         }
         
         .shield {
@@ -57,6 +85,12 @@
             padding: 20px;
             border-radius: 10px;
             border: 1px solid rgba(243,156,18,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .courage-card:hover {
+            background: rgba(243,156,18,0.1);
+            transform: translateY(-5px);
         }
         
         .fear-transformation {
@@ -78,152 +112,447 @@
             border: none;
             cursor: pointer;
             font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(243,156,18,0.3);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            font-size: 1.1em;
+            padding: 18px 40px;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);
+            color: white;
+        }
+        
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(243,156,18,0.3);
+            border-radius: 6px;
+            color: #E6D3A7;
+            font-family: inherit;
+            margin: 8px 0;
+            transition: all 0.3s ease;
+        }
+        
+        textarea:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(243,156,18,0.2);
+        }
+        
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(243,156,18,0.2);
+        }
+        
+        th {
+            background: rgba(243,156,18,0.1);
+            color: var(--primary-light);
+        }
+        
+        input[type="checkbox"] {
+            transform: scale(1.3);
+            accent-color: var(--primary-color);
+        }
+        
+        .progress-indicator {
+            background: rgba(243,156,18,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid rgba(243,156,18,0.3);
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            width: 0%;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+        
+        .save-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(243,156,18,0.9);
+            color: #08001A;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none;
+            z-index: 1000;
+        }
+        
+        @media (max-width: 768px) {
+            .workbook-container { padding: 20px; }
+            .courage-types { grid-template-columns: 1fr; }
+            .btn { display: block; width: 100%; margin: 10px 0; }
+            table { font-size: 0.9em; }
+            th, td { padding: 8px; }
         }
     </style>
 </head>
 <body>
+    <!-- Save Indicator -->
+    <div class="save-indicator" id="saveIndicator">✓ Progress Saved</div>
+    
+    <!-- Completion Overlay -->
+    <div class="completion-overlay" id="completionOverlay">
+        <div class="completion-box">
+            <div style="font-size: 4em; margin-bottom: 20px;">⚔️</div>
+            <h2 style="color: var(--primary-color); margin-bottom: 20px;">Strength Workbook Completed!</h2>
+            <p style="color: #E6D3A7; margin-bottom: 30px; line-height: 1.6;">
+                You have proven your courage. Your journey through the Eye of Judgment is complete. Your valor has been recorded in the Hall of Truth.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                <button class="btn" onclick="window.location.href='index.html'" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); width: 100%; max-width: 300px;">
+                    Return to Week 6
+                </button>
+                <button class="btn btn-secondary" onclick="window.location.href='../week7/index.html'" style="width: 100%; max-width: 300px;">
+                    Proceed to Week 7: The Complete Garment →
+                </button>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; color: var(--primary-light);">
+                Your courage challenges have been saved to your spiritual record.
+            </p>
+        </div>
+    </div>
+    
     <div class="workbook-container">
         <div style="text-align:center;">
-            <h1 style="color:var(--primary-color);">The Strength Decree</h1>
-            <p style="color:var(--primary-light);">Week 6: Courage-Warrior's Gateway</p>
+            <h1 style="color:var(--primary-color); font-size: 2.5em; margin-bottom: 10px;">The Strength Decree</h1>
+            <p style="color:var(--primary-light); font-size: 1.2em; margin-bottom: 20px;">Week 6: Courage-Warrior's Gateway</p>
             <div class="shield"></div>
+        </div>
+        
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <h3 style="color: var(--primary-color); margin-bottom: 10px;">Your Courage Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="workbookProgress"></div>
+            </div>
+            <p id="progressText" style="color: var(--primary-light);">Complete all sections to unlock Week 7</p>
         </div>
         
         <!-- Courage Types -->
         <div class="courage-types">
             <div class="courage-card">
-                <h5>💬 Verbal Courage</h5>
+                <h5 style="color: var(--primary-color); margin-top: 0;">💬 Verbal Courage</h5>
                 <p>Speaking truth when silent is safer</p>
             </div>
             <div class="courage-card">
-                <h5>⚖️ Moral Courage</h5>
+                <h5 style="color: var(--primary-color); margin-top: 0;">⚖️ Moral Courage</h5>
                 <p>Standing for right when standing alone</p>
             </div>
             <div class="courage-card">
-                <h5>🎨 Creative Courage</h5>
+                <h5 style="color: var(--primary-color); margin-top: 0;">🎨 Creative Courage</h5>
                 <p>Expressing self when judgment looms</p>
             </div>
             <div class="courage-card">
-                <h5>❤️ Emotional Courage</h5>
+                <h5 style="color: var(--primary-color); margin-top: 0;">❤️ Emotional Courage</h5>
                 <p>Feeling deeply when numbness calls</p>
             </div>
         </div>
         
         <!-- Declaration 31 -->
         <div style="background:rgba(243,156,18,0.1); padding:25px; border-radius:10px; margin:25px 0; border-left:5px solid var(--primary-color);">
-            <h3 style="color:var(--primary-color);">⚔️ Declaration 31: "I have not been cowardly"</h3>
-            <p><em>I act from love, not from fear</em></p>
+            <h3 style="color:var(--primary-color); margin-top: 0;">⚔️ Declaration 31: "I have not been cowardly"</h3>
+            <p style="font-style: italic; font-size: 1.1em;"><em>I act from love, not from fear</em></p>
         </div>
         
         <div style="background:rgba(255,255,255,0.05); padding:25px; border-radius:10px; margin:20px 0;">
-            <h4>Exercise 6.1: Fear Inventory</h4>
-            <p><strong>List 3 fears currently holding you back:</strong></p>
-            <textarea style="width:100%; height:80px; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(243,156,18,0.3);" placeholder="1. 2. 3."></textarea>
+            <h4 style="color: var(--primary-light);">Exercise 6.1: Fear Inventory</h4>
+            <p><strong style="color: var(--primary-light);">List 3 fears currently holding you back:</strong></p>
+            <textarea id="fearInventory" placeholder="1. 
+2. 
+3." rows="4"></textarea>
             
-            <p><strong>For each fear, what's one small courageous action?</strong></p>
-            <textarea style="width:100%; height:80px; padding:10px;" placeholder="Courageous responses..."></textarea>
+            <p style="margin-top: 20px;"><strong style="color: var(--primary-light);">For each fear, what's one small courageous action?</strong></p>
+            <textarea id="courageResponses" placeholder="Fear 1: [Your courageous response]
+Fear 2: [Your courageous response]
+Fear 3: [Your courageous response]" rows="4"></textarea>
             
-            <p><strong>Choose ONE to act on this week:</strong></p>
-            <input type="text" style="width:100%; padding:10px;" placeholder="Your courage commitment">
+            <p style="margin-top: 20px;"><strong style="color: var(--primary-light);">Choose ONE to act on this week:</strong></p>
+            <input type="text" id="courageCommitment" placeholder="Your courage commitment for this week">
         </div>
         
         <!-- Fear Transformation -->
         <div class="fear-transformation">
-            <h4>🔥 Fear Transformation Practice</h4>
+            <h4 style="color: var(--primary-color); margin-top: 0;">🔥 Fear Transformation Practice</h4>
             <p><strong>When fear arises, practice this 4-step process:</strong></p>
-            <ol>
+            <ol style="line-height: 1.8;">
                 <li><strong>Notice:</strong> "I feel fear about..."</li>
                 <li><strong>Breathe:</strong> 3 deep breaths into the fear</li>
                 <li><strong>Ask:</strong> "What truth wants expression here?"</li>
                 <li><strong>Act:</strong> Take one small action toward that truth</li>
             </ol>
             
-            <p><strong>Record a fear transformation experience:</strong></p>
-            <textarea style="width:100%; height:100px; padding:10px;" placeholder="Fear → Action → Result"></textarea>
+            <p style="margin-top: 20px;"><strong>Record a fear transformation experience:</strong></p>
+            <textarea id="fearTransformation" placeholder="Describe a recent fear → Your courageous action → The result" rows="4"></textarea>
         </div>
         
         <!-- 7-Day Courage Challenge -->
         <div style="background:rgba(243,156,18,0.15); padding:25px; border-radius:10px; margin:30px 0;">
-            <h4>📅 7-Day Courage Challenge</h4>
-            <table style="width:100%; margin:20px 0;">
-                <tr>
-                    <th style="padding:10px; text-align:left;">Day</th>
-                    <th style="padding:10px; text-align:left;">Challenge</th>
-                    <th style="padding:10px; text-align:left;">Completed</th>
-                    <th style="padding:10px; text-align:left;">Notes</th>
-                </tr>
-                <tr>
-                    <td style="padding:10px;">1</td>
-                    <td style="padding:10px;">Speak a difficult truth</td>
-                    <td style="padding:10px;"><input type="checkbox"></td>
-                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
-                </tr>
-                <tr>
-                    <td style="padding:10px;">2</td>
-                    <td style="padding:10px;">Set a clear boundary</td>
-                    <td style="padding:10px;"><input type="checkbox"></td>
-                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
-                </tr>
-                <tr>
-                    <td style="padding:10px;">3</td>
-                    <td style="padding:10px;">Ask for something you want</td>
-                    <td style="padding:10px;"><input type="checkbox"></td>
-                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
-                </tr>
-                <tr>
-                    <td style="padding:10px;">4</td>
-                    <td style="padding:10px;">Express appreciation to someone</td>
-                    <td style="padding:10px;"><input type="checkbox"></td>
-                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
-                </tr>
-                <tr>
-                    <td style="padding:10px;">5</td>
-                    <td style="padding:10px;">Share creative work</td>
-                    <td style="padding:10px;"><input type="checkbox"></td>
-                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
-                </tr>
-                <tr>
-                    <td style="padding:10px;">6</td>
-                    <td style="padding:10px;">Apologize for something</td>
-                    <td style="padding:10px;"><input type="checkbox"></td>
-                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
-                </tr>
-                <tr>
-                    <td style="padding:10px;">7</td>
-                    <td style="padding:10px;">Do something purely for joy</td>
-                    <td style="padding:10px;"><input type="checkbox"></td>
-                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
-                </tr>
+            <h4 style="color: var(--primary-color); text-align: center; margin-top: 0;">📅 7-Day Courage Challenge</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Challenge</th>
+                        <th>Completed</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Speak a difficult truth</td>
+                        <td><input type="checkbox" id="day1"></td>
+                        <td><input type="text" id="notes1" placeholder="What happened?"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Set a clear boundary</td>
+                        <td><input type="checkbox" id="day2"></td>
+                        <td><input type="text" id="notes2" placeholder="How did it feel?"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Ask for something you want</td>
+                        <td><input type="checkbox" id="day3"></td>
+                        <td><input type="text" id="notes3" placeholder="What was the outcome?"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Express appreciation to someone</td>
+                        <td><input type="checkbox" id="day4"></td>
+                        <td><input type="text" id="notes4" placeholder="Their reaction?"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Share creative work</td>
+                        <td><input type="checkbox" id="day5"></td>
+                        <td><input type="text" id="notes5" placeholder="What did you share?"></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Apologize for something</td>
+                        <td><input type="checkbox" id="day6"></td>
+                        <td><input type="text" id="notes6" placeholder="How was it received?"></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Do something purely for joy</td>
+                        <td><input type="checkbox" id="day7"></td>
+                        <td><input type="text" id="notes7" placeholder="What brought you joy?"></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         
         <!-- Download Section -->
         <div style="text-align:center; padding:40px; margin:40px 0; background:rgba(243,156,18,0.1); border-radius:15px;">
-            <h3>📚 Download Week 6 Resources</h3>
-            <button class="btn" onclick="generatePDF(6)">📥 Download Courage PDF</button>
-            <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
-            <a href="courage-challenge.pdf" class="btn" download>⚔️ 30-Day Courage Guide</a>
-            <a href="../week7/index.html" class="btn">➡️ Final Gateway: Week 7</a>
+            <h3 style="color: var(--primary-color);">📚 Download Week 6 Resources</h3>
+            <div style="margin: 20px 0;">
+                <button class="btn" onclick="generatePDF(6)">📥 Download Courage PDF</button>
+                <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
+                <button class="btn" onclick="downloadText('Courage Meditations: Heart-Centered Courage (20 min), Fear Transformation (15 min), Boundary-Setting Practice', 'Courage_Meditations.txt')">🎧 Courage Meditations</button>
+            </div>
             
-            <div style="margin-top:30px;">
-                <h4>🎧 Courage Meditations</h4>
-                <button class="btn" style="background:linear-gradient(135deg, #1ABC9C 0%, #16A085 100%); color:white;">Heart-Centered Courage (20 min)</button>
-                <button class="btn" style="background:linear-gradient(135deg, #1ABC9C 0%, #16A085 100%); color:white;">Fear Transformation (15 min)</button>
-                <button class="btn" style="background:linear-gradient(135deg, #1ABC9C 0%, #16A085 100%); color:white;">Boundary-Setting Practice</button>
+            <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(243,156,18,0.3);">
+                <h4 style="color: var(--primary-light);">Complete Your Strength Journey</h4>
+                <button class="btn btn-success" onclick="completeWorkbook()" id="completeButton">
+                    ✅ Mark Strength Workbook as Complete
+                </button>
+                <p style="color: #E6D3A7; margin-top: 15px; font-size: 0.9em;">
+                    Complete all sections above before marking as complete
+                </p>
             </div>
         </div>
     </div>
 
     <script>
-        function generatePDF(week) {
-            const challenges = [];
-            document.querySelectorAll('input[type="text"]').forEach(input => {
-                if (input.value) challenges.push(input.value);
+        // Auto-save functionality
+        function saveProgress() {
+            const progress = {
+                fearInventory: document.getElementById('fearInventory').value,
+                courageResponses: document.getElementById('courageResponses').value,
+                courageCommitment: document.getElementById('courageCommitment').value,
+                fearTransformation: document.getElementById('fearTransformation').value,
+                challenges: {}
+            };
+            
+            // Save checkbox states and notes
+            for (let i = 1; i <= 7; i++) {
+                progress.challenges[`day${i}`] = {
+                    completed: document.getElementById(`day${i}`).checked,
+                    notes: document.getElementById(`notes${i}`).value
+                };
+            }
+            
+            localStorage.setItem('strength_workbook_progress', JSON.stringify(progress));
+            
+            // Show save indicator
+            const indicator = document.getElementById('saveIndicator');
+            indicator.style.display = 'block';
+            setTimeout(() => {
+                indicator.style.display = 'none';
+            }, 2000);
+            
+            // Update progress bar
+            updateProgressBar();
+        }
+        
+        // Load saved progress
+        function loadProgress() {
+            const saved = localStorage.getItem('strength_workbook_progress');
+            if (saved) {
+                const progress = JSON.parse(saved);
+                
+                document.getElementById('fearInventory').value = progress.fearInventory || '';
+                document.getElementById('courageResponses').value = progress.courageResponses || '';
+                document.getElementById('courageCommitment').value = progress.courageCommitment || '';
+                document.getElementById('fearTransformation').value = progress.fearTransformation || '';
+                
+                // Load challenges
+                for (let i = 1; i <= 7; i++) {
+                    const day = progress.challenges[`day${i}`];
+                    if (day) {
+                        document.getElementById(`day${i}`).checked = day.completed;
+                        document.getElementById(`notes${i}`).value = day.notes || '';
+                    }
+                }
+            }
+            
+            updateProgressBar();
+        }
+        
+        // Update progress bar
+        function updateProgressBar() {
+            let completed = 0;
+            const total = 11; // Total number of fields to complete
+            
+            // Check text fields
+            const textFields = [
+                'fearInventory',
+                'courageResponses', 
+                'courageCommitment',
+                'fearTransformation'
+            ];
+            
+            textFields.forEach(id => {
+                if (document.getElementById(id).value.trim()) completed++;
             });
             
-            const content = `Week ${week} Courage Workbook\n\nCourage Challenges Completed:\n${challenges.join('\n')}\n\nRemember: Courage is acting despite fear, not without fear.`;
-            downloadText(content, `Courage_Week${week}.txt`);
-            alert('Courage journey recorded!');
+            // Check challenge notes (at least 3 completed)
+            let challengeNotes = 0;
+            for (let i = 1; i <= 7; i++) {
+                if (document.getElementById(`notes${i}`).value.trim()) challengeNotes++;
+            }
+            if (challengeNotes >= 3) completed += 3;
+            
+            // Calculate percentage
+            const percentage = Math.min((completed / total) * 100, 100);
+            document.getElementById('workbookProgress').style.width = percentage + '%';
+            
+            // Update progress text
+            const progressText = document.getElementById('progressText');
+            if (percentage >= 80) {
+                progressText.innerHTML = `Almost there! ${Math.round(percentage)}% complete - Ready to mark as complete`;
+                progressText.style.color = '#4CAF50';
+            } else if (percentage >= 50) {
+                progressText.innerHTML = `Good progress! ${Math.round(percentage)}% complete`;
+                progressText.style.color = '#F39C12';
+            } else {
+                progressText.innerHTML = `${Math.round(percentage)}% complete - Keep going!`;
+                progressText.style.color = '#F8C471';
+            }
+            
+            return percentage;
+        }
+        
+        // Workbook completion function
+        function completeWorkbook() {
+            const percentage = updateProgressBar();
+            
+            if (percentage < 80) {
+                alert('Please complete at least 80% of the workbook before marking it as complete.\n\nFocus on:\n• Fear Inventory\n• Courage Responses\n• Courage Commitment\n• At least 3 completed courage challenges');
+                return;
+            }
+            
+            // Mark workbook as completed
+            localStorage.setItem('strength_workbook_completed', 'true');
+            localStorage.setItem('week6_completed_date', new Date().toISOString());
+            
+            // Record completion data
+            const completionData = {
+                completed: true,
+                date: new Date().toISOString(),
+                fearInventory: document.getElementById('fearInventory').value,
+                courageCommitment: document.getElementById('courageCommitment').value,
+                challengesCompleted: 0
+            };
+            
+            // Count completed challenges
+            for (let i = 1; i <= 7; i++) {
+                if (document.getElementById(`day${i}`).checked) {
+                    completionData.challengesCompleted++;
+                }
+            }
+            
+            localStorage.setItem('strength_completion_data', JSON.stringify(completionData));
+            
+            // Show completion overlay
+            document.getElementById('completionOverlay').style.display = 'flex';
+            
+            // Disable the complete button
+            document.getElementById('completeButton').disabled = true;
+            document.getElementById('completeButton').innerHTML = '✅ Workbook Completed';
+            document.getElementById('completeButton').style.opacity = '0.7';
+        }
+        
+        // Generate PDF function
+        function generatePDF(week) {
+            const challenges = [];
+            for (let i = 1; i <= 7; i++) {
+                const checkbox = document.getElementById(`day${i}`);
+                const notes = document.getElementById(`notes${i}`).value;
+                if (checkbox.checked && notes) {
+                    challenges.push(`Day ${i}: ${notes}`);
+                }
+            }
+            
+            const content = `Week ${week} Strength Workbook\n\nFear Inventory:\n${document.getElementById('fearInventory').value}\n\nCourage Commitment:\n${document.getElementById('courageCommitment').value}\n\nCompleted Challenges:\n${challenges.join('\n')}\n\nRemember: Courage is acting despite fear, not without fear.`;
+            downloadText(content, `Strength_Week${week}.txt`);
+            alert('Strength journey recorded! PDF downloaded.');
         }
         
         function downloadText(text, filename) {
@@ -235,13 +564,43 @@
             a.click();
         }
         
-        // Auto-save
-        document.querySelectorAll('textarea, input[type="text"]').forEach((el, idx) => {
-            el.addEventListener('input', () => {
-                localStorage.setItem(`courage_${idx}`, el.value);
+        // Set up auto-save events
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProgress();
+            
+            // Add event listeners to all inputs
+            const inputs = document.querySelectorAll('textarea, input[type="text"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', saveProgress);
             });
-            const saved = localStorage.getItem(`courage_${idx}`);
-            if (saved) el.value = saved;
+            
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', saveProgress);
+            });
+            
+            // Check if already completed
+            const alreadyCompleted = localStorage.getItem('strength_workbook_completed');
+            if (alreadyCompleted === 'true') {
+                document.getElementById('completeButton').disabled = true;
+                document.getElementById('completeButton').innerHTML = '✅ Workbook Already Completed';
+                document.getElementById('completeButton').style.opacity = '0.7';
+                document.getElementById('progressText').innerHTML = 'Workbook completed! Return to Week 6 page to unlock Week 7.';
+                document.getElementById('progressText').style.color = '#4CAF50';
+                document.getElementById('workbookProgress').style.width = '100%';
+            }
+            
+            // Check for Week 6 completion requirement
+            const week5Completed = localStorage.getItem('sacred_waters_completed');
+            if (!week5Completed || week5Completed !== 'true') {
+                alert('Please complete Week 5: The Sacred Waters before starting the Strength Workbook.');
+                window.location.href = '../week5/index.html';
+            }
+        });
+        
+        // Save on page unload
+        window.addEventListener('beforeunload', function(e) {
+            saveProgress();
         });
     </script>
 </body>
