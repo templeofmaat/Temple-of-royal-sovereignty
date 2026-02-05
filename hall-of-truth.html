@@ -240,6 +240,8 @@
             border: 2px solid #FFD700;
             transition: all 0.3s ease;
             margin-top: 20px;
+            cursor: pointer;
+            font-family: "Georgia", serif;
         }
 
         .week-link:hover {
@@ -323,6 +325,92 @@
             0% { transform: translateY(100vh) rotate(0deg); }
             100% { transform: translateY(-100px) rotate(360deg); }
         }
+
+        /* Payment Modal Styles */
+        #paymentModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #140025, #330066);
+            border: 3px solid #FFD700;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            color: white;
+            font-family: "Georgia", serif;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+        }
+
+        .modal-content h2 {
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .modal-button {
+            background: linear-gradient(135deg, #FFD700, #B8860B);
+            color: #140025;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            font-family: "Georgia", serif;
+            transition: all 0.3s ease;
+        }
+
+        .modal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .token-input {
+            padding: 15px;
+            width: 80%;
+            border: 2px solid #FFD700;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 8px;
+            font-size: 1.1em;
+            text-align: center;
+            margin: 15px 0;
+            font-family: "Georgia", serif;
+        }
+
+        .secondary-button {
+            background: #330066;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            font-family: "Georgia", serif;
+        }
+
+        .cancel-button {
+            background: transparent;
+            color: #999;
+            border: 1px solid #666;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            font-family: "Georgia", serif;
+        }
     </style>
 </head>
 <body class="temple-page">
@@ -389,7 +477,7 @@
                     <div class="force-item">Force 3: True Energy Ownership</div>
                     <div class="force-item">Force 4: Divine Timing</div>
                 </div>
-                <a href="week1/index.html" class="week-link free">𓁦 Access Free Gateway 𓁦</a>
+                <a href="portal/week1/index.html" class="week-link free">𓁦 Access Free Gateway 𓁦</a>
             </div>
 
             <!-- Week 2: The Sacred Flame -->
@@ -409,7 +497,7 @@
                     <div class="force-item">Force 10: Ejecting Corruption</div>
                     <div class="force-item">Force 11: Clear Lineages</div>
                 </div>
-                <a href="week2/index.html" class="week-link">Enter Gateway →</a>
+                <button onclick="checkAccess(2)" class="week-link">Enter Gateway →</button>
             </div>
 
             <!-- Week 3: The Veil & The Voice -->
@@ -429,7 +517,7 @@
                     <div class="force-item">Force 17: Respecting Privacy</div>
                     <div class="force-item">Force 18: Restrained Speech</div>
                 </div>
-                <a href="week3/index.html" class="week-link">Enter Gateway →</a>
+                <button onclick="checkAccess(3)" class="week-link">Enter Gateway →</button>
             </div>
 
             <!-- Week 4: The Solar Path -->
@@ -449,7 +537,7 @@
                     <div class="force-item">Force 24: Measured Wrath</div>
                     <div class="force-item">Force 25: Authentic Being</div>
                 </div>
-                <a href="week4/index.html" class="week-link">Enter Gateway →</a>
+                <button onclick="checkAccess(4)" class="week-link">Enter Gateway →</button>
             </div>
 
             <!-- Week 5: The Sacred Waters -->
@@ -469,7 +557,7 @@
                     <div class="force-item">Force 31: Patient Judgment</div>
                     <div class="force-item">Force 32: Respecting Privacy</div>
                 </div>
-                <a href="week5/index.html" class="week-link">Enter Gateway →</a>
+                <button onclick="checkAccess(5)" class="week-link">Enter Gateway →</button>
             </div>
 
             <!-- Week 6: The Eye of Judgment -->
@@ -489,7 +577,7 @@
                     <div class="force-item">Force 38: Divine Honor</div>
                     <div class="force-item">Force 39: Authentic Reputation</div>
                 </div>
-                <a href="week6/index.html" class="week-link">Enter Gateway →</a>
+                <button onclick="checkAccess(6)" class="week-link">Enter Gateway →</button>
             </div>
 
             <!-- Week 7: The Complete Garment -->
@@ -509,7 +597,7 @@
                     <div class="force-item">Initiation Ceremony</div>
                     <div class="force-item">Living Embodiment</div>
                 </div>
-                <a href="week7/index.html" class="week-link">𓀭 Final Initiation 𓀭</a>
+                <button onclick="checkAccess(7)" class="week-link">𓀭 Final Initiation 𓀭</button>
             </div>
         </div>
 
@@ -518,6 +606,31 @@
             <p>© The Hall of Truth • Walk in Balance, Speak in Truth, Live in Ma'at</p>
             <p style="font-size:0.9em; margin-top:20px; color:#d4bfff; font-style: italic;">
                 "To pass the 42 is to demonstrate that your life was a perfect microcosm of cosmic order."
+            </p>
+        </div>
+    </div>
+
+    <!-- Payment/Token Modal -->
+    <div id="paymentModal">
+        <div class="modal-content">
+            <h2>Sacred Investment Required</h2>
+            <p>One-time payment of $911 grants lifetime access to Weeks 2-7 of the 42 Forces of Ma'at.</p>
+            
+            <button onclick="goToPayment()" class="modal-button">
+                🏛️ Make Sacred Investment ($911)
+            </button>
+            
+            <p style="margin: 25px 0 15px; color: #d4bfff;">Already paid? Enter your access token:</p>
+            
+            <input type="text" id="tokenInput" class="token-input" placeholder="Paste token here">
+            
+            <div>
+                <button onclick="enterToken()" class="secondary-button">Validate Token</button>
+                <button onclick="closeModal()" class="cancel-button">Cancel</button>
+            </div>
+            
+            <p style="font-size: 0.9em; margin-top: 25px; color: #999;">
+                After payment, you will receive a token via email.
             </p>
         </div>
     </div>
@@ -546,6 +659,138 @@
             card.addEventListener('mouseleave', function() {
                 this.style.zIndex = '1';
             });
+        });
+    </script>
+
+    <!-- Load Authentication System -->
+    <script src="js/stripe-auth.js"></script>
+    
+    <script>
+        // Check access for specific week
+        function checkAccess(weekNum) {
+            if (weekNum === 1) {
+                window.location.href = 'portal/week1/index.html';
+                return;
+            }
+            
+            if (window.maatAuth && window.maatAuth.checkWeek(weekNum)) {
+                // Has access - redirect to week page
+                window.location.href = 'portal/week' + weekNum + '/index.html';
+            } else {
+                // No access - show payment modal
+                document.getElementById('paymentModal').style.display = 'flex';
+                // Store which week they tried to access
+                window.currentWeek = weekNum;
+            }
+        }
+        
+        // Go to Stripe payment
+        function goToPayment() {
+            window.location.href = 'https://buy.stripe.com/5kQcN55xt2EY8ycbZF77O0w';
+        }
+        
+        // Enter and validate token
+        function enterToken() {
+            const token = document.getElementById('tokenInput').value.trim();
+            if (!token) {
+                alert('Please enter your access token');
+                return;
+            }
+            
+            if (window.maatAuth) {
+                window.maatAuth.saveToken(token);
+                alert('Access granted! You now have access to all paid weeks.');
+                closeModal();
+                
+                // If they were trying to access a specific week, go there
+                if (window.currentWeek) {
+                    window.location.href = 'portal/week' + window.currentWeek + '/index.html';
+                } else {
+                    location.reload(); // Refresh to update buttons
+                }
+            } else {
+                alert('Authentication system not loaded. Please refresh page.');
+            }
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+            document.getElementById('tokenInput').value = '';
+            window.currentWeek = null;
+        }
+        
+        // On page load, check if user already has access
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait a moment for auth to load
+            setTimeout(function() {
+                if (window.maatAuth && window.maatAuth.hasAccess()) {
+                    // User has paid access - update all buttons to links
+                    const buttons = document.querySelectorAll('button.week-link');
+                    buttons.forEach(btn => {
+                        const onclickAttr = btn.getAttribute('onclick');
+                        if (onclickAttr) {
+                            const match = onclickAttr.match(/checkAccess\((\d+)\)/);
+                            if (match) {
+                                const weekNum = match[1];
+                                // Create new link
+                                const link = document.createElement('a');
+                                link.href = 'portal/week' + weekNum + '/index.html';
+                                link.className = 'week-link';
+                                link.innerHTML = btn.innerHTML;
+                                link.style.cursor = 'pointer';
+                                // Replace button with link
+                                btn.parentNode.replaceChild(link, btn);
+                            }
+                        }
+                    });
+                    
+                    // Add logout button
+                    const logoutBtn = document.createElement('button');
+                    logoutBtn.innerHTML = '𓄂 Logout';
+                    logoutBtn.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: rgba(255, 215, 0, 0.2);
+                        color: #FFD700;
+                        border: 1px solid #FFD700;
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        z-index: 10000;
+                        font-family: 'Georgia', serif;
+                    `;
+                    logoutBtn.onclick = function() {
+                        if (confirm('Logout from sacred portal?')) {
+                            window.maatAuth.clearAccess();
+                            location.reload();
+                        }
+                    };
+                    document.body.appendChild(logoutBtn);
+                    
+                    // Show access badge
+                    const accessBadge = document.createElement('div');
+                    accessBadge.className = 'initiation-badge';
+                    accessBadge.innerHTML = '𓂀 Full Access Granted 𓂀';
+                    accessBadge.style.marginTop = '20px';
+                    document.querySelector('.portal-description').appendChild(accessBadge);
+                }
+            }, 500);
+        });
+        
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        // Close modal when clicking outside
+        document.getElementById('paymentModal').addEventListener('click', function(e) {
+            if (e.target.id === 'paymentModal') {
+                closeModal();
+            }
         });
     </script>
 </body>
