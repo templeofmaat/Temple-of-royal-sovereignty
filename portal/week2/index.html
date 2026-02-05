@@ -342,11 +342,68 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             background: #330066;
+            cursor: pointer;
+            font-family: "Georgia", serif;
         }
 
         .nav-button:hover {
             background: #4c0099;
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        /* NEW STYLES FOR WORKBOOK TRACKING */
+        .completion-badge {
+            display: inline-block;
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: 15px;
+            border: 1px solid #4CAF50;
+        }
+
+        .locked-item {
+            opacity: 0.5;
+            cursor: not-allowed;
+            position: relative;
+        }
+
+        .locked-item::after {
+            content: "🔒";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+            border-left: 3px solid #FFD700;
+            position: relative;
+        }
+
+        .step-number {
+            background: rgba(255, 215, 0, 0.15);
+            color: #FFD700;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .step-completed .step-number {
+            background: rgba(76, 175, 80, 0.3);
+            color: #4CAF50;
         }
 
         @media (max-width: 768px) {
@@ -503,6 +560,38 @@
                 <em>Complete each day's sunrise practice to activate the corresponding force</em>
             </p>
         </div>
+
+        <!-- Learning Path -->
+        <div class="sunrise-ritual" style="margin: 40px 0;">
+            <h4 style="color: #FFD700;">📚 Your Learning Path</h4>
+            
+            <div class="progress-step" id="step1">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Study Week 2 Teachings</strong>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #d4bfff;">Complete this overview page</p>
+                </div>
+                <span id="step1Status" class="completion-badge" style="display: none;">✓ Completed</span>
+            </div>
+            
+            <div class="progress-step locked-item" id="step2">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Complete Sacred Flame Workbook</strong>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #d4bfff;">Interactive exercises for Forces 8-14</p>
+                </div>
+                <span id="step2Status" class="completion-badge" style="display: none;">✓ Completed</span>
+            </div>
+            
+            <div class="progress-step locked-item" id="step3">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Unlock Week 3: The Veil & Voice</strong>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #d4bfff;">Forces 15-21 of Ma'at</p>
+                </div>
+                <span id="step3Status" class="completion-badge" style="display: none;">✓ Unlocked</span>
+            </div>
+        </div>
         
         <!-- Main Content -->
         <div class="content-grid">
@@ -575,8 +664,10 @@
                     <div class="practice-item">
                         <div class="practice-icon">📓</div>
                         <div>
-                            <strong>Sacred Workbook:</strong><br>
-                            "Forces 8-14 Integration Manual"
+                            <strong>Interactive Workbook:</strong><br>
+                            <a href="curriculum.html" onclick="proceedToWorkbook(); return false;" style="color: #FFD700; text-decoration: underline; font-weight: 600;">
+                                Forces 8-14 Sacred Workbook
+                            </a>
                         </div>
                     </div>
                     <div class="practice-item">
@@ -642,7 +733,7 @@
             </div>
         </div>
         
-        <!-- Navigation - CORRECTED LINKS -->
+        <!-- Navigation -->
         <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 215, 0, 0.25);">
             <a href="/hall-of-truth.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
             
@@ -650,14 +741,30 @@
                 <a href="../week1/index.html" class="nav-button">
                     ← Previous: The Extended Stride
                 </a>
-                <a href="../week3/index.html" class="nav-button">
+                
+                <button onclick="proceedToWorkbook()" class="nav-button" style="background: rgba(255, 215, 0, 0.2); cursor: pointer;">
+                    📓 Continue to Sacred Flame Workbook →
+                </button>
+                
+                <!-- This link is initially hidden/locked -->
+                <a href="../week3/index.html" class="nav-button" id="week3Link" style="display: none; opacity: 0.5; cursor: not-allowed; background: rgba(255, 215, 0, 0.1);">
                     Next: The Veil & Voice →
+                </a>
+            </div>
+            
+            <!-- Workbook Completion Status -->
+            <div id="workbookStatus" style="margin: 30px auto; padding: 20px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; display: none;">
+                <p style="color: #FFD700;">
+                    <strong>✅ Workbook Completed:</strong> You have completed the Sacred Flame Workbook. You may now proceed to Week 3.
+                </p>
+                <a href="../week3/index.html" class="nav-button" style="margin-top: 15px; display: inline-block;">
+                    Unlock Week 3: The Veil & Voice →
                 </a>
             </div>
             
             <div style="margin-top: 40px; padding: 25px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(255, 215, 0, 0.2);">
                 <p style="font-style: italic;">
-                    <strong>𓂀 Initiation Note:</strong> Complete all 7 sunrise practices and the Week 2 Weighing Ceremony to unlock Week 3. Your words become flames that either illuminate truth or consume with deception. Choose wisely.
+                    <strong>𓂀 Initiation Sequence:</strong> Complete the <strong>Sacred Flame Workbook</strong> to unlock Week 3. Your progress is recorded in the cosmic scales.
                 </p>
             </div>
         </div>
@@ -704,6 +811,13 @@
                 });
             });
             
+            // Workbook progress tracking
+            checkWorkbookProgress();
+            updateProgressSteps();
+            
+            // Check every 2 seconds for updates
+            setInterval(checkWorkbookProgress, 2000);
+            
             // Sunrise reminder
             function checkForSunrise() {
                 const now = new Date();
@@ -737,23 +851,74 @@
                 }
             }
             
-            // Add CSS for animations
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideIn {
-                    from { transform: translateX(100%); opacity: 0; }
-                    to { transform: translateX(0); opacity: 1; }
-                }
-                @keyframes slideOut {
-                    from { transform: translateX(0); opacity: 1; }
-                    to { transform: translateX(100%); opacity: 0; }
-                }
-            `;
-            document.head.appendChild(style);
-            
             checkForSunrise();
             setInterval(checkForSunrise, 1800000); // 30 minutes
         });
+        
+        // Workbook progress tracking
+        function checkWorkbookProgress() {
+            const workbookCompleted = localStorage.getItem('sacred_flame_workbook_completed');
+            
+            if (workbookCompleted === 'true') {
+                document.getElementById('workbookStatus').style.display = 'block';
+                document.getElementById('week3Link').style.display = 'inline-block';
+                document.getElementById('week3Link').style.opacity = '1';
+                document.getElementById('week3Link').style.cursor = 'pointer';
+                document.getElementById('week3Link').style.background = '#330066';
+                
+                // Update progress bar
+                document.querySelector('.progress').style.width = '50%';
+            }
+        }
+        
+        function proceedToWorkbook() {
+            // Set a flag that user is starting the workbook
+            localStorage.setItem('week2_workbook_started', 'true');
+            localStorage.setItem('week2_workbook_started_date', new Date().toISOString());
+            
+            // Redirect to workbook
+            window.location.href = 'curriculum.html';
+        }
+        
+        // Track progress steps
+        function updateProgressSteps() {
+            const workbookCompleted = localStorage.getItem('sacred_flame_workbook_completed');
+            
+            // Step 1 is always completed if they're on this page
+            document.getElementById('step1').classList.add('step-completed');
+            document.getElementById('step1Status').style.display = 'inline-block';
+            
+            // Step 2 (Workbook)
+            if (workbookCompleted === 'true') {
+                document.getElementById('step2').classList.remove('locked-item');
+                document.getElementById('step2').classList.add('step-completed');
+                document.getElementById('step2Status').style.display = 'inline-block';
+                
+                // Step 3 (Week 3)
+                document.getElementById('step3').classList.remove('locked-item');
+                document.getElementById('step3').classList.add('step-completed');
+                document.getElementById('step3Status').style.display = 'inline-block';
+            } else {
+                // Enable workbook step
+                document.getElementById('step2').classList.remove('locked-item');
+                document.getElementById('step2').style.cursor = 'pointer';
+                document.getElementById('step2').addEventListener('click', proceedToWorkbook);
+            }
+        }
+        
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
