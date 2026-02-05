@@ -75,6 +75,10 @@
             <div class="token-box" id="tokenDisplay"></div>
             
             <button onclick="copyToken()">📋 Copy Token to Clipboard</button>
+            <button onclick="testTokenNow()">🧪 Test This Token Now</button>
+            
+            <!-- Add this textarea for email template -->
+            <textarea id="emailTemplate" style="width:100%; height:200px; margin-top:20px;" placeholder="Email template will appear here..."></textarea>
             
             <div class="instructions">
                 <strong>EMAIL TEMPLATE:</strong><br>
@@ -98,12 +102,20 @@
                 return;
             }
             
-            // Create token: email + timestamp + random string
-            const time = Date.now();
-            const rand = Math.random().toString(36).substring(2, 15);
-            const token = btoa(email + ':' + time + ':' + rand).replace(/=/g, '');
+            // Create a simple token
+            const randomPart = Math.random().toString(36).substring(2, 15);
+            const timestamp = Date.now();
+            const token = `MAAT-${timestamp}-${randomPart}`.toUpperCase();
             
-            // Display
+            // Create the token data structure that protect.js expects
+            const tokenData = {
+                token: token,
+                expires: Date.now() + (365 * 24 * 60 * 60 * 1000), // 1 year from now
+                email: email,
+                name: email.split('@')[0] + ' (Initiate)'
+            };
+            
+            // Display results
             document.getElementById('custEmail').textContent = email;
             document.getElementById('tokenDisplay').textContent = token;
             document.getElementById('emailToken').textContent = token;
@@ -123,22 +135,76 @@ To access Weeks 2-7:
 2. Click any Week 2-7
 3. Enter this token when prompted
 
-Save this email. Your token provides lifetime access.
+Save this email. Your token provides access until ${new Date(tokenData.expires).toLocaleDateString()}.
 
 For support: templeofmaat@proton.me
 
 Walk in Balance,
 The Hall of Truth`;
             
+            // Set the email template
             document.getElementById('emailTemplate').value = emailText;
+            
+            // Store token data for testing
+            localStorage.setItem('adminGeneratedToken', JSON.stringify({
+                token: token,
+                data: tokenData
+            }));
+            
             document.getElementById('result').style.display = 'block';
         }
         
         function copyToken() {
             const token = document.getElementById('tokenDisplay').textContent;
-            navigator.clipboard.writeText(token);
-            alert('Token copied!');
+            navigator.clipboard.writeText(token).then(() => {
+                alert('Token copied to clipboard!');
+            }).catch(err => {
+                // Fallback for browsers that don't support clipboard API
+                const textArea = document.createElement('textarea');
+                textArea.value = token;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Token copied!');
+            });
         }
+        
+        function testTokenNow() {
+            const token = document.getElementById('tokenDisplay').textContent;
+            const stored = JSON.parse(localStorage.getItem('adminGeneratedToken'));
+            
+            if (stored && stored.data) {
+                // Set the token directly
+                localStorage.setItem('maatToken', JSON.stringify(stored.data));
+                
+                // Create test message
+                const testPage = 'https://tors.life/portal/week2/';
+                const message = `Token activated! Now you can:
+                
+1. Go to: ${testPage}
+2. Refresh the page
+3. You should have access!
+
+Token details:
+• Email: ${stored.data.email}
+• Expires: ${new Date(stored.data.expires).toLocaleString()}
+
+Click OK to continue.`;
+                
+                if (confirm(message)) {
+                    // Optionally redirect to a test page
+                    window.open(testPage, '_blank');
+                }
+            } else {
+                alert('Please generate a token first.');
+            }
+        }
+        
+        // Auto-fill test email for convenience
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('email').value = 'test@example.com';
+        });
     </script>
 </body>
 </html>
