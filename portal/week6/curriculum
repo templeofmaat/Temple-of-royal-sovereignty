@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6 Workbook: The Strength Decree</title>
+    <style>
+        :root {
+            --primary-color: #F39C12;
+            --primary-dark: #D68910;
+            --primary-light: #F8C471;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0A1931 0%, #3D2D1A 100%);
+            color: #E6D3A7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .workbook-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(61, 45, 26, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .shield {
+            width: 200px;
+            height: 240px;
+            background: rgba(243,156,18,0.1);
+            border: 3px solid var(--primary-color);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            margin: 30px auto;
+            position: relative;
+        }
+        
+        .shield::before {
+            content: '⚔️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3em;
+        }
+        
+        .courage-types {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .courage-card {
+            background: rgba(243,156,18,0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(243,156,18,0.2);
+        }
+        
+        .fear-transformation {
+            background: rgba(243,156,18,0.1);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #08001A;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="workbook-container">
+        <div style="text-align:center;">
+            <h1 style="color:var(--primary-color);">The Strength Decree</h1>
+            <p style="color:var(--primary-light);">Week 6: Courage-Warrior's Gateway</p>
+            <div class="shield"></div>
+        </div>
+        
+        <!-- Courage Types -->
+        <div class="courage-types">
+            <div class="courage-card">
+                <h5>💬 Verbal Courage</h5>
+                <p>Speaking truth when silent is safer</p>
+            </div>
+            <div class="courage-card">
+                <h5>⚖️ Moral Courage</h5>
+                <p>Standing for right when standing alone</p>
+            </div>
+            <div class="courage-card">
+                <h5>🎨 Creative Courage</h5>
+                <p>Expressing self when judgment looms</p>
+            </div>
+            <div class="courage-card">
+                <h5>❤️ Emotional Courage</h5>
+                <p>Feeling deeply when numbness calls</p>
+            </div>
+        </div>
+        
+        <!-- Declaration 31 -->
+        <div style="background:rgba(243,156,18,0.1); padding:25px; border-radius:10px; margin:25px 0; border-left:5px solid var(--primary-color);">
+            <h3 style="color:var(--primary-color);">⚔️ Declaration 31: "I have not been cowardly"</h3>
+            <p><em>I act from love, not from fear</em></p>
+        </div>
+        
+        <div style="background:rgba(255,255,255,0.05); padding:25px; border-radius:10px; margin:20px 0;">
+            <h4>Exercise 6.1: Fear Inventory</h4>
+            <p><strong>List 3 fears currently holding you back:</strong></p>
+            <textarea style="width:100%; height:80px; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(243,156,18,0.3);" placeholder="1. 2. 3."></textarea>
+            
+            <p><strong>For each fear, what's one small courageous action?</strong></p>
+            <textarea style="width:100%; height:80px; padding:10px;" placeholder="Courageous responses..."></textarea>
+            
+            <p><strong>Choose ONE to act on this week:</strong></p>
+            <input type="text" style="width:100%; padding:10px;" placeholder="Your courage commitment">
+        </div>
+        
+        <!-- Fear Transformation -->
+        <div class="fear-transformation">
+            <h4>🔥 Fear Transformation Practice</h4>
+            <p><strong>When fear arises, practice this 4-step process:</strong></p>
+            <ol>
+                <li><strong>Notice:</strong> "I feel fear about..."</li>
+                <li><strong>Breathe:</strong> 3 deep breaths into the fear</li>
+                <li><strong>Ask:</strong> "What truth wants expression here?"</li>
+                <li><strong>Act:</strong> Take one small action toward that truth</li>
+            </ol>
+            
+            <p><strong>Record a fear transformation experience:</strong></p>
+            <textarea style="width:100%; height:100px; padding:10px;" placeholder="Fear → Action → Result"></textarea>
+        </div>
+        
+        <!-- 7-Day Courage Challenge -->
+        <div style="background:rgba(243,156,18,0.15); padding:25px; border-radius:10px; margin:30px 0;">
+            <h4>📅 7-Day Courage Challenge</h4>
+            <table style="width:100%; margin:20px 0;">
+                <tr>
+                    <th style="padding:10px; text-align:left;">Day</th>
+                    <th style="padding:10px; text-align:left;">Challenge</th>
+                    <th style="padding:10px; text-align:left;">Completed</th>
+                    <th style="padding:10px; text-align:left;">Notes</th>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">1</td>
+                    <td style="padding:10px;">Speak a difficult truth</td>
+                    <td style="padding:10px;"><input type="checkbox"></td>
+                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">2</td>
+                    <td style="padding:10px;">Set a clear boundary</td>
+                    <td style="padding:10px;"><input type="checkbox"></td>
+                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">3</td>
+                    <td style="padding:10px;">Ask for something you want</td>
+                    <td style="padding:10px;"><input type="checkbox"></td>
+                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">4</td>
+                    <td style="padding:10px;">Express appreciation to someone</td>
+                    <td style="padding:10px;"><input type="checkbox"></td>
+                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">5</td>
+                    <td style="padding:10px;">Share creative work</td>
+                    <td style="padding:10px;"><input type="checkbox"></td>
+                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">6</td>
+                    <td style="padding:10px;">Apologize for something</td>
+                    <td style="padding:10px;"><input type="checkbox"></td>
+                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td style="padding:10px;">7</td>
+                    <td style="padding:10px;">Do something purely for joy</td>
+                    <td style="padding:10px;"><input type="checkbox"></td>
+                    <td style="padding:10px;"><input type="text" style="width:100%;"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Download Section -->
+        <div style="text-align:center; padding:40px; margin:40px 0; background:rgba(243,156,18,0.1); border-radius:15px;">
+            <h3>📚 Download Week 6 Resources</h3>
+            <button class="btn" onclick="generatePDF(6)">📥 Download Courage PDF</button>
+            <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
+            <a href="courage-challenge.pdf" class="btn" download>⚔️ 30-Day Courage Guide</a>
+            <a href="../week7/index.html" class="btn">➡️ Final Gateway: Week 7</a>
+            
+            <div style="margin-top:30px;">
+                <h4>🎧 Courage Meditations</h4>
+                <button class="btn" style="background:linear-gradient(135deg, #1ABC9C 0%, #16A085 100%); color:white;">Heart-Centered Courage (20 min)</button>
+                <button class="btn" style="background:linear-gradient(135deg, #1ABC9C 0%, #16A085 100%); color:white;">Fear Transformation (15 min)</button>
+                <button class="btn" style="background:linear-gradient(135deg, #1ABC9C 0%, #16A085 100%); color:white;">Boundary-Setting Practice</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generatePDF(week) {
+            const challenges = [];
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                if (input.value) challenges.push(input.value);
+            });
+            
+            const content = `Week ${week} Courage Workbook\n\nCourage Challenges Completed:\n${challenges.join('\n')}\n\nRemember: Courage is acting despite fear, not without fear.`;
+            downloadText(content, `Courage_Week${week}.txt`);
+            alert('Courage journey recorded!');
+        }
+        
+        function downloadText(text, filename) {
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+        }
+        
+        // Auto-save
+        document.querySelectorAll('textarea, input[type="text"]').forEach((el, idx) => {
+            el.addEventListener('input', () => {
+                localStorage.setItem(`courage_${idx}`, el.value);
+            });
+            const saved = localStorage.getItem(`courage_${idx}`);
+            if (saved) el.value = saved;
+        });
+    </script>
+</body>
+</html>
