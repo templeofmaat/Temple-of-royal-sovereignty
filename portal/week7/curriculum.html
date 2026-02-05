@@ -7,7 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
 
-        body.temple-page {
+        body {
             background: #140025;
             color: #f7eaff;
             font-family: "Georgia", serif;
@@ -214,7 +214,7 @@
         }
     </style>
 </head>
-<body class="temple-page">
+<body>
     <!-- Save Indicator -->
     <div class="save-indicator" id="saveIndicator">✓ Progress Saved</div>
     
@@ -420,10 +420,14 @@
             
             localStorage.setItem('completion_workbook_progress', JSON.stringify(progress));
             
+            // Show save indicator
             const indicator = document.getElementById('saveIndicator');
             indicator.style.display = 'block';
-            setTimeout(() => indicator.style.display = 'none', 2000);
+            setTimeout(() => {
+                indicator.style.display = 'none';
+            }, 2000);
             
+            // Update progress bar
             updateProgressBar();
         }
         
@@ -432,28 +436,40 @@
             const saved = localStorage.getItem('completion_workbook_progress');
             if (saved) {
                 const progress = JSON.parse(saved);
+                
                 document.getElementById('sovereignManifesto').value = progress.sovereignManifesto || '';
                 document.getElementById('declaration37').value = progress.declaration37 || '';
                 document.getElementById('declaration38').value = progress.declaration38 || '';
                 document.getElementById('declaration42').value = progress.declaration42 || '';
                 document.getElementById('ceremonyReflection').value = progress.ceremonyReflection || '';
             }
+            
             updateProgressBar();
         }
         
         // Update progress bar
         function updateProgressBar() {
             let completed = 0;
-            const total = 5;
+            const total = 5; // Total number of fields to complete
             
-            const textFields = ['sovereignManifesto','declaration37','declaration38','declaration42','ceremonyReflection'];
+            // Check text fields
+            const textFields = [
+                'sovereignManifesto',
+                'declaration37', 
+                'declaration38',
+                'declaration42',
+                'ceremonyReflection'
+            ];
+            
             textFields.forEach(id => {
                 if (document.getElementById(id).value.trim()) completed++;
             });
             
+            // Calculate percentage
             const percentage = Math.min((completed / total) * 100, 100);
             document.getElementById('workbookProgress').style.width = percentage + '%';
             
+            // Update progress text
             const progressText = document.getElementById('progressText');
             if (percentage >= 80) {
                 progressText.innerHTML = `Almost there! ${Math.round(percentage)}% complete - Ready to mark as complete`;
@@ -478,59 +494,92 @@
                 return;
             }
             
+            // Mark workbook as completed
             localStorage.setItem('completion_workbook_completed', 'true');
             localStorage.setItem('week7_completed_date', new Date().toISOString());
             
+            // Mark entire journey as complete
+            localStorage.setItem('hall_of_truth_journey_completed', 'true');
+            
+            // Record completion data
+            const completionData = {
+                completed: true,
+                date: new Date().toISOString(),
+                sovereignManifesto: document.getElementById('sovereignManifesto').value,
+                ceremonyReflection: document.getElementById('ceremonyReflection').value,
+                allWeeksCompleted: {
+                    week1: localStorage.getItem('sacred_flame_workbook_completed') === 'true',
+                    week2: localStorage.getItem('sacred_flame_workbook_completed') === 'true',
+                    week3: localStorage.getItem('sacred_flame_workbook_completed') === 'true',
+                    week4: localStorage.getItem('sacred_flame_workbook_completed') === 'true',
+                    week5: localStorage.getItem('sacred_waters_completed') === 'true',
+                    week6: localStorage.getItem('strength_workbook_completed') === 'true',
+                    week7: true
+                }
+            };
+            
+            localStorage.setItem('journey_completion_data', JSON.stringify(completionData));
+            
+            // Show completion overlay
             document.getElementById('completionOverlay').style.display = 'flex';
             
+            // Disable the complete button
             document.getElementById('completeButton').disabled = true;
             document.getElementById('completeButton').innerHTML = '✅ Journey Complete';
             document.getElementById('completeButton').style.opacity = '0.7';
         }
         
-        // Generate PDF simulation (txt download)
+        // Generate PDF function
         function generatePDF() {
             const completionDate = document.getElementById('completion-date').textContent;
             const content = `THE COMPLETE JOURNEY - HALL OF TRUTH\n\nCompletion Date: ${completionDate}\n\nSovereign Manifesto:\n${document.getElementById('sovereignManifesto').value}\n\nFinal Declaration Reflections:\n37: ${document.getElementById('declaration37').value}\n38: ${document.getElementById('declaration38').value}\n42: ${document.getElementById('declaration42').value}\n\nCeremony Reflection:\n${document.getElementById('ceremonyReflection').value}\n\nMay you walk as a Living Pillar of Ma'at.`;
-            
-            const blob = new Blob([content], { type: 'text/plain' });
+            downloadText(content, `Complete_Journey_${Date.now()}.txt`);
+            alert('Complete journey recorded! PDF downloaded.');
+        }
+        
+        function downloadText(text, filename) {
+            const blob = new Blob([text], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `Complete_Journey_${Date.now()}.txt`;
+            a.download = filename;
             a.click();
-            
-            alert('Complete journey recorded! File downloaded.');
         }
         
-        // Event listeners
+        // Set up auto-save events
         document.addEventListener('DOMContentLoaded', function() {
+            // Check for Week 6 completion requirement
+            const week6Completed = localStorage.getItem('strength_workbook_completed');
+            if (!week6Completed || week6Completed !== 'true') {
+                alert('Please complete Week 6: The Eye of Judgment and its Strength Workbook before starting the Completion Ceremony.');
+                window.location.href = '../week6/index.html';
+                return;
+            }
+            
             loadProgress();
             
+            // Add event listeners to all inputs
             const inputs = document.querySelectorAll('textarea');
             inputs.forEach(input => {
                 input.addEventListener('input', saveProgress);
             });
             
-            // Optional: check previous week (comment out if not needed)
-            // const week6Completed = localStorage.getItem('strength_workbook_completed');
-            // if (!week6Completed || week6Completed !== 'true') {
-            //     alert('Please complete Week 6 before starting the Completion Ceremony.');
-            //     window.location.href = '../week6/index.html';
-            // }
-            
+            // Check if already completed
             const alreadyCompleted = localStorage.getItem('completion_workbook_completed');
             if (alreadyCompleted === 'true') {
                 document.getElementById('completeButton').disabled = true;
                 document.getElementById('completeButton').innerHTML = '✅ Journey Already Complete';
                 document.getElementById('completeButton').style.opacity = '0.7';
-                document.getElementById('progressText').innerHTML = 'Journey complete!';
+                document.getElementById('progressText').innerHTML = 'Journey complete! Return to Week 7 page to receive your certificate.';
                 document.getElementById('progressText').style.color = '#FFD700';
                 document.getElementById('workbookProgress').style.width = '100%';
             }
         });
         
-        window.addEventListener('beforeunload', saveProgress);
+        // Save on page unload
+        window.addEventListener('beforeunload', function(e) {
+            saveProgress();
+        });
     </script>
 </body>
 </html>
