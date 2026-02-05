@@ -5,44 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 4 Workbook: The Discernment Temple</title>
     <style>
-        :root {
-            --primary-color: #9B59B6;
-            --primary-dark: #8E44AD;
-            --primary-light: #BB8FCE;
-            --success-green: #4CAF50;
-            --success-dark: #2E7D32;
-        }
-        
+        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
+
         body {
-            background: linear-gradient(135deg, #0A1931 0%, #2D1A3D 100%);
-            color: #E6D3A7;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #140025;
+            color: #f7eaff;
+            font-family: "Georgia", serif;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
+            line-height: 1.7;
             min-height: 100vh;
         }
-        
+
+        h1, h2, h3, h4 {
+            color: #FFD700;
+            margin-top: 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
         .workbook-container {
             max-width: 1000px;
             margin: 0 auto;
-            background: rgba(45, 26, 61, 0.95);
+            background: rgba(255,255,255,0.06);
             padding: 40px;
             border-radius: 20px;
-            border: 3px solid var(--primary-color);
+            border: 2px solid #FFD700;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             position: relative;
         }
-        
+
         .completion-section {
-            background: rgba(76, 175, 80, 0.1);
+            background: rgba(76, 175, 80, 0.08);
             padding: 50px 40px;
             border-radius: 15px;
             margin: 50px 0;
-            border: 2px solid var(--success-green);
+            border: 2px solid #4CAF50;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        
+
         .completion-section::before {
             content: "👁️";
             position: absolute;
@@ -51,37 +53,39 @@
             transform: translateX(-50%);
             font-size: 4em;
             opacity: 0.1;
+            color: #FFD700;
         }
-        
+
         .btn-complete {
-            background: linear-gradient(135deg, var(--success-green) 0%, var(--success-dark) 100%);
-            color: white;
+            background: #330066;
+            color: #4CAF50;
             padding: 18px 45px;
             border-radius: 10px;
-            border: none;
+            border: 2px solid #4CAF50;
             cursor: pointer;
             font-weight: bold;
             font-size: 1.1em;
             margin: 20px 10px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
-        
+
         .btn-complete:hover {
+            background: #4c0099;
             transform: translateY(-3px);
             box-shadow: 0 15px 30px rgba(76, 175, 80, 0.3);
         }
-        
+
         .progress-tracker {
             display: flex;
             justify-content: space-between;
             margin: 40px 0;
             position: relative;
             padding: 20px;
-            background: rgba(155, 89, 182, 0.05);
+            background: rgba(255,255,255,0.06);
             border-radius: 10px;
+            border: 1px solid #FFD700;
         }
-        
+
         .progress-tracker::before {
             content: '';
             position: absolute;
@@ -89,51 +93,51 @@
             left: 10%;
             right: 10%;
             height: 2px;
-            background: rgba(155, 89, 182, 0.3);
+            background: rgba(255, 215, 0, 0.3);
             z-index: 1;
             transform: translateY(-50%);
         }
-        
+
         .progress-step {
             text-align: center;
             position: relative;
             z-index: 2;
             flex: 1;
         }
-        
+
         .step-number {
             width: 50px;
             height: 50px;
-            background: rgba(155, 89, 182, 0.1);
+            background: rgba(255, 215, 0, 0.15);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 10px;
-            border: 2px solid rgba(155, 89, 182, 0.3);
+            border: 2px solid rgba(255, 215, 0, 0.3);
             font-weight: 600;
-            color: var(--primary-light);
+            color: #FFD700;
         }
-        
+
         .step-number.completed {
-            background: var(--success-green);
-            border-color: var(--success-green);
+            background: #4CAF50;
+            border-color: #4CAF50;
             color: white;
         }
-        
+
         .step-number.active {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
+            background: #FFD700;
+            border-color: #FFD700;
+            color: #140025;
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(155, 89, 182, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(155, 89, 182, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(155, 89, 182, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
         }
-        
+
         .lock-screen {
             position: fixed;
             top: 0;
@@ -149,21 +153,21 @@
             padding: 20px;
             text-align: center;
         }
-        
+
         .lock-screen.active {
             display: flex;
         }
-        
+
         .wisdom-pyramid {
             width: 0;
             height: 0;
             border-left: 75px solid transparent;
             border-right: 75px solid transparent;
-            border-bottom: 130px solid rgba(155, 89, 182, 0.3);
+            border-bottom: 130px solid rgba(255, 215, 0, 0.3);
             margin: 30px auto;
             position: relative;
         }
-        
+
         .wisdom-pyramid::before {
             content: '';
             position: absolute;
@@ -171,71 +175,74 @@
             left: -53px;
             width: 106px;
             height: 106px;
-            background: rgba(187, 143, 206, 0.2);
+            background: rgba(255, 215, 0, 0.2);
             transform: rotate(45deg);
         }
-        
+
         .wisdom-level {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             margin: 30px 0;
         }
-        
+
         .level-card {
-            background: rgba(155, 89, 182, 0.1);
+            background: rgba(255,255,255,0.06);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            border: 1px solid rgba(155, 89, 182, 0.3);
+            border: 1px solid #FFD700;
         }
-        
+
         .btn {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-            color: white;
+            background: #330066;
+            color: #FFD700;
             padding: 15px 30px;
             border-radius: 8px;
             text-decoration: none;
             display: inline-block;
             margin: 10px;
-            border: none;
+            border: 2px solid #FFD700;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s ease;
         }
-        
+
         .btn:hover {
+            background: #4c0099;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(155, 89, 182, 0.3);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
         }
-        
+
         .btn-unlock {
-            background: linear-gradient(135deg, var(--success-green) 0%, var(--success-dark) 100%);
+            background: #330066;
+            border-color: #4CAF50;
+            color: #4CAF50;
             display: none;
         }
-        
+
         textarea, input {
             width: 100%;
             padding: 12px;
             margin: 10px 0;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(155, 89, 182, 0.3);
-            color: inherit;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid #FFD700;
+            color: #f7eaff;
             border-radius: 5px;
             font-family: inherit;
         }
-        
+
         .unlocked-badge {
             display: inline-block;
             background: rgba(76, 175, 80, 0.2);
-            color: var(--success-green);
+            color: #4CAF50;
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9em;
             margin-left: 15px;
-            border: 1px solid var(--success-green);
+            border: 1px solid #4CAF50;
         }
-        
+
         @media (max-width: 768px) {
             .wisdom-level {
                 grid-template-columns: repeat(2, 1fr);
@@ -255,9 +262,9 @@
 <body>
     <!-- Lock Screen for Week 5 -->
     <div class="lock-screen" id="lockScreen">
-        <div style="font-size: 4em; margin-bottom: 20px; color: var(--primary-color);">🔒</div>
-        <h2 style="color: var(--primary-color); margin-bottom: 20px; font-size: 2.2em;">Week 5 is Locked</h2>
-        <p style="color: #E6D3A7; max-width: 600px; margin-bottom: 30px; font-size: 1.1em;">
+        <div style="font-size: 4em; margin-bottom: 20px; color: #FFD700;">🔒</div>
+        <h2 style="color: #FFD700; margin-bottom: 20px; font-size: 2.2em;">Week 5 is Locked</h2>
+        <p style="color: #f7eaff; max-width: 600px; margin-bottom: 30px; font-size: 1.1em;">
             Complete the <strong>Week 4: Discernment Temple Workbook</strong> to unlock Week 5: The Sacred Waters.
         </p>
         
@@ -280,12 +287,12 @@
             <button class="btn" onclick="hideLockScreen()" style="padding: 18px 35px;">
                 Continue Week 4 Workbook
             </button>
-            <a href="../week4/index.html" class="btn" style="background: rgba(155, 89, 182, 0.1);">
+            <a href="../week4/index.html" class="btn" style="background: rgba(255, 215, 0, 0.1);">
                 ← Return to Week 4
             </a>
         </div>
         
-        <p style="margin-top: 30px; color: var(--primary-light); font-size: 0.9em; max-width: 500px;">
+        <p style="margin-top: 30px; color: #FFD700; font-size: 0.9em; max-width: 500px;">
             <em>Your progress saves automatically. Complete all Week 4 discernment exercises to unlock the Sacred Waters.</em>
         </p>
     </div>
@@ -308,8 +315,8 @@
         </div>
         
         <div style="text-align:center;">
-            <h1 style="color:var(--primary-color);">The Discernment Temple</h1>
-            <p style="color:var(--primary-light);">Week 4: Wisdom-Holder's Gateway</p>
+            <h1 style="color:#FFD700;">The Discernment Temple</h1>
+            <p style="color:#FFD700;">Week 4: Wisdom-Holder's Gateway</p>
             <div class="wisdom-pyramid"></div>
         </div>
         
@@ -334,12 +341,12 @@
         </div>
         
         <!-- Declaration 19 -->
-        <div style="background:rgba(155,89,182,0.1); padding:25px; border-radius:10px; margin:25px 0; border-left:5px solid var(--primary-color);">
-            <h3 style="color:var(--primary-color);">📖 Declaration 19: "I have not acted in ignorance"</h3>
+        <div style="background:rgba(255, 215, 0, 0.08); padding:25px; border-radius:10px; margin:25px 0; border-left:5px solid #FFD700;">
+            <h3 style="color:#FFD700;">📖 Declaration 19: "I have not acted in ignorance"</h3>
             <p><em>I seek understanding before action</em></p>
         </div>
         
-        <div style="background:rgba(255,255,255,0.05); padding:25px; border-radius:10px; margin:20px 0;">
+        <div style="background:rgba(255,255,255,0.06); padding:25px; border-radius:10px; margin:20px 0; border:1px solid #FFD700;">
             <h4>Exercise 4.1: The Pause Practice</h4>
             <p><strong>Before any significant action today, pause and ask:</strong></p>
             <ol>
@@ -348,11 +355,11 @@
                 <li>What more do I need to understand?</li>
             </ol>
             <p><strong>Record 3 instances where you applied The Pause:</strong></p>
-            <textarea id="pauseInstances" style="width:100%; height:100px; padding:10px; background:rgba(255,255,255,0.05); border:1px solid rgba(155,89,182,0.3);" placeholder="1. 2. 3."></textarea>
+            <textarea id="pauseInstances" placeholder="1. 2. 3."></textarea>
         </div>
         
         <!-- Decision Matrix -->
-        <div style="background:rgba(155,89,182,0.15); padding:25px; border-radius:10px; margin:30px 0;">
+        <div style="background:rgba(255, 215, 0, 0.08); padding:25px; border-radius:10px; margin:30px 0; border:1px solid #FFD700;">
             <h4>🧠 Decision Discernment Matrix</h4>
             <p>Apply to one current decision:</p>
             <table style="width:100%; margin:20px 0;">
@@ -380,27 +387,27 @@
         </div>
         
         <!-- Wisdom Journal -->
-        <div style="background:rgba(255,255,255,0.05); padding:25px; border-radius:10px;">
+        <div style="background:rgba(255,255,255,0.06); padding:25px; border-radius:10px;">
             <h4>📓 Daily Wisdom Journal</h4>
             <p><strong>Each evening, reflect:</strong></p>
             <p>1. What wise choice did I make today?</p>
-            <textarea id="wiseChoice" style="width:100%; height:60px; margin:10px 0;" placeholder="Today's wise choice..."></textarea>
+            <textarea id="wiseChoice" placeholder="Today's wise choice..."></textarea>
             
             <p>2. What could I have decided more wisely?</p>
-            <textarea id="learningOpportunity" style="width:100%; height:60px; margin:10px 0;" placeholder="Learning opportunity..."></textarea>
+            <textarea id="learningOpportunity" placeholder="Learning opportunity..."></textarea>
             
             <p>3. What inner wisdom wants to be heard?</p>
-            <textarea id="innerGuidance" style="width:100%; height:60px; margin:10px 0;" placeholder="Inner guidance..."></textarea>
+            <textarea id="innerGuidance" placeholder="Inner guidance..."></textarea>
         </div>
         
         <!-- COMPLETION SECTION -->
         <div class="completion-section" id="completionSection">
-            <h2 style="color: var(--success-green); margin-bottom: 20px;">👁️ Week 4 Discernment Completed</h2>
-            <p style="max-width: 700px; margin: 20px auto; color: #E6D3A7;">
+            <h2 style="color: #4CAF50; margin-bottom: 20px;">👁️ Week 4 Discernment Completed</h2>
+            <p style="max-width: 700px; margin: 20px auto; color: #f7eaff;">
                 Complete all discernment exercises to unlock Week 5: The Sacred Waters.
             </p>
             
-            <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; max-width: 600px; margin: 30px auto;">
+            <div style="background: rgba(255,255,255,0.06); padding: 20px; border-radius: 10px; max-width: 600px; margin: 30px auto; border: 1px solid #4CAF50;">
                 <p><strong>Completion Requirements:</strong></p>
                 <ul style="text-align: left; display: inline-block;">
                     <li>✓ Complete the Pause Practice exercise</li>
@@ -414,16 +421,16 @@
                 ✅ Mark Week 4 Workbook as Complete
             </button>
             
-            <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 10px; border: 1px solid rgba(155, 89, 182, 0.2); max-width: 600px; margin-left: auto; margin-right: auto;">
-                <p style="color: var(--primary-light); font-size: 0.9em;">
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.06); border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.2); max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p style="color: #FFD700; font-size: 0.9em;">
                     <strong>Note:</strong> Upon completion, Week 5: The Sacred Waters will unlock automatically.
                 </p>
             </div>
         </div>
         
         <!-- Download Section -->
-        <div style="text-align:center; padding:40px; margin:40px 0; background:rgba(155,89,182,0.1); border-radius:15px;">
-            <h3 style="color: var(--primary-color);">📚 Week 4 Resources</h3>
+        <div style="text-align:center; padding:40px; margin:40px 0; background:rgba(255,255,255,0.06); border-radius:15px; border:1px solid #FFD700;">
+            <h3 style="color: #FFD700;">📚 Week 4 Resources</h3>
             <button class="btn" onclick="generatePDF(4)">📥 Download Wisdom PDF</button>
             <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
             <a href="../week4/index.html" class="btn" onclick="return confirm('Return to Week 4 overview? Your progress is saved.')">
@@ -436,9 +443,9 @@
             </a>
             
             <div style="margin-top:30px;">
-                <h4 style="color: var(--primary-light);">🎧 Wisdom Meditations</h4>
-                <button class="btn" style="background:linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);">Intuition Development (20 min)</button>
-                <button class="btn" style="background:linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);">Discernment Practice (15 min)</button>
+                <h4 style="color: #FFD700;">🎧 Wisdom Meditations</h4>
+                <button class="btn" style="background:#330066;">Intuition Development (20 min)</button>
+                <button class="btn" style="background:#330066;">Discernment Practice (15 min)</button>
             </div>
         </div>
     </div>
@@ -479,12 +486,12 @@
             // Update completion section content
             const completionSection = document.getElementById('completionSection');
             completionSection.innerHTML = `
-                <h2 style="color: var(--success-green); margin-bottom: 20px; font-size: 2em;">✅ Discernment Temple Complete</h2>
+                <h2 style="color: #4CAF50; margin-bottom: 20px; font-size: 2em;">✅ Discernment Temple Complete</h2>
                 
-                <div style="font-size: 3em; margin: 20px 0; color: var(--primary-color);">👁️</div>
+                <div style="font-size: 3em; margin: 20px 0; color: #FFD700;">👁️</div>
                 
-                <div style="background: rgba(76, 175, 80, 0.1); padding: 25px; border-radius: 10px; max-width: 500px; margin: 20px auto; border: 1px solid var(--success-green);">
-                    <p style="color: #E6D3A7; font-size: 1.1em; margin: 0;">
+                <div style="background: rgba(76, 175, 80, 0.08); padding: 25px; border-radius: 10px; max-width: 500px; margin: 20px auto; border: 1px solid #4CAF50;">
+                    <p style="color: #f7eaff; font-size: 1.1em; margin: 0;">
                         <strong>Completion Date:</strong> ${new Date().toLocaleDateString()}<br>
                         <strong>Forces Mastered:</strong> 22-28 of Ma'at<br>
                         <strong>Wisdom Level Achieved:</strong> Discernment
@@ -492,16 +499,16 @@
                 </div>
                 
                 <div style="margin: 30px 0; max-width: 500px; margin-left: auto; margin-right: auto;">
-                    <p style="color: var(--primary-light); font-style: italic;">
+                    <p style="color: #FFD700; font-style: italic;">
                         "You have awakened the Eye of Horus. The Sacred Waters await your purified vision."
                     </p>
                 </div>
                 
-                <a href="../week5/index.html" class="btn" style="background: linear-gradient(135deg, var(--success-green) 0%, var(--success-dark) 100%); padding: 18px 45px; font-size: 1.1em;">
+                <a href="../week5/index.html" class="btn" style="background: linear-gradient(135deg, #4CAF50, #2E7D32); padding: 18px 45px; font-size: 1.1em;">
                     🔓 Proceed to Week 5: The Sacred Waters →
                 </a>
                 
-                <a href="../week4/index.html" class="btn" style="background: rgba(155, 89, 182, 0.1); margin-top: 20px;">
+                <a href="../week4/index.html" class="btn" style="background: rgba(255, 215, 0, 0.1); margin-top: 20px;">
                     ← Return to Week 4 Overview
                 </a>
             `;
@@ -588,8 +595,8 @@
                 position: fixed;
                 top: 30px;
                 right: 30px;
-                background: ${type === 'success' ? 'linear-gradient(135deg, var(--success-green), var(--success-dark))' : 'linear-gradient(135deg, var(--primary-color), var(--primary-dark))'};
-                color: white;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #4CAF50, #2E7D32)' : 'linear-gradient(135deg, #FFD700, #f7eaff)'};
+                color: ${type === 'success' ? 'white' : '#140025'};
                 padding: 20px 30px;
                 border-radius: 10px;
                 font-family: inherit;
@@ -597,7 +604,7 @@
                 box-shadow: 0 10px 30px rgba(0,0,0,0.3);
                 animation: slideIn 0.3s ease;
                 max-width: 300px;
-                border: 2px solid ${type === 'success' ? 'var(--success-green)' : 'var(--primary-color)'};
+                border: 2px solid ${type === 'success' ? '#4CAF50' : '#FFD700'};
             `;
             
             notification.innerHTML = `
