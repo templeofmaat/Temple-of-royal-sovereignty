@@ -15,6 +15,9 @@
             background: linear-gradient(135deg, #0A1931 0%, #1A3D3D 100%);
             color: #E6D3A7;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
         }
         
         .workbook-container {
@@ -24,6 +27,31 @@
             padding: 40px;
             border-radius: 20px;
             border: 3px solid var(--primary-color);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .completion-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 61, 61, 0.95);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .completion-box {
+            background: linear-gradient(135deg, #1A3D3D 0%, #0A2929 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 3px solid var(--primary-color);
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 0 50px rgba(26,188,156,0.3);
         }
         
         .crown {
@@ -64,6 +92,12 @@
             border-radius: 10px;
             text-align: center;
             border: 1px solid rgba(26,188,156,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .integration-point:hover {
+            background: rgba(26,188,156,0.15);
+            transform: translateY(-5px);
         }
         
         .sovereign-manifesto {
@@ -85,6 +119,25 @@
             border: none;
             cursor: pointer;
             font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(26,188,156,0.3);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            font-size: 1.1em;
+            padding: 18px 40px;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);
+            color: white;
         }
         
         .completion-certificate {
@@ -95,15 +148,111 @@
             text-align: center;
             border: 3px solid var(--primary-color);
         }
+        
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(26,188,156,0.3);
+            border-radius: 6px;
+            color: #E6D3A7;
+            font-family: inherit;
+            margin: 8px 0;
+            transition: all 0.3s ease;
+        }
+        
+        textarea:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(26,188,156,0.2);
+        }
+        
+        .progress-indicator {
+            background: rgba(26,188,156,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid rgba(26,188,156,0.3);
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            width: 0%;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+        
+        .save-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(26,188,156,0.9);
+            color: #08001A;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none;
+            z-index: 1000;
+        }
+        
+        @media (max-width: 768px) {
+            .workbook-container { padding: 20px; }
+            .integration-circle { grid-template-columns: 1fr; }
+            .btn { display: block; width: 100%; margin: 10px 0; }
+        }
     </style>
 </head>
 <body>
+    <!-- Save Indicator -->
+    <div class="save-indicator" id="saveIndicator">✓ Progress Saved</div>
+    
+    <!-- Completion Overlay -->
+    <div class="completion-overlay" id="completionOverlay">
+        <div class="completion-box">
+            <div style="font-size: 4em; margin-bottom: 20px;">🎉</div>
+            <h2 style="color: var(--primary-color); margin-bottom: 20px;">Completion Ceremony Finished!</h2>
+            <p style="color: #E6D3A7; margin-bottom: 30px; line-height: 1.6;">
+                You have successfully woven all 42 threads of Ma'at into your Complete Garment. You are now a Living Pillar of cosmic order.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                <button class="btn" onclick="window.location.href='index.html'" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); width: 100%; max-width: 300px;">
+                    Return to Week 7
+                </button>
+                <button class="btn btn-success" onclick="window.location.href='index.html'" style="width: 100%; max-width: 300px;">
+                    🏅 Receive Your Certificate
+                </button>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; color: var(--primary-light);">
+                Your journey through the 42 Forces of Ma'at is complete.
+            </p>
+        </div>
+    </div>
+    
     <div class="workbook-container">
         <div style="text-align:center;">
             <h1 style="color:var(--primary-color); font-size:2.5em;">The Completion Ceremony</h1>
             <p style="color:var(--primary-light); font-size:1.2em;">Week 7: Sovereign's Gateway</p>
             <div class="crown"></div>
             <p><em>Integration of All 42 Declarations</em></p>
+        </div>
+        
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <h3 style="color: var(--primary-color); margin-bottom: 10px;">Your Completion Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="workbookProgress"></div>
+            </div>
+            <p id="progressText" style="color: var(--primary-light);">Complete all sections to finish your journey</p>
         </div>
         
         <!-- Completion Certificate -->
@@ -115,10 +264,6 @@
                 <p><strong>Initiation Complete:</strong> You now embody the 7 Core Ways of Life as one sovereign being.</p>
                 <p><strong>Completion Date:</strong> <span id="completion-date"></span></p>
             </div>
-            
-            <button class="btn" onclick="generateCertificate()" style="font-size:1.2em; padding:20px 40px;">
-                🏅 Download Sovereign Certificate
-            </button>
         </div>
         
         <!-- Integration Circle -->
@@ -157,7 +302,7 @@
         
         <!-- Sovereign Manifesto -->
         <div class="sovereign-manifesto">
-            <h3>📜 The Sovereign Manifesto</h3>
+            <h3 style="color: #D4AF37; margin-top: 0;">📜 The Sovereign Manifesto</h3>
             <p><strong>I now declare my sovereignty:</strong></p>
             <p>I speak truth from purity of heart.<br>
             I act with justice in all exchanges.<br>
@@ -168,37 +313,37 @@
             I embody all 42 Declarations as one sovereign being.</p>
             
             <p><strong>Your Personal Additions:</strong></p>
-            <textarea style="width:100%; height:100px; padding:15px; background:rgba(255,255,255,0.05); border:1px solid rgba(212,175,55,0.3);" placeholder="Add your personal sovereignty declarations..."></textarea>
+            <textarea id="sovereignManifesto" placeholder="Add your personal sovereignty declarations..." rows="4"></textarea>
             
             <p style="text-align:center; margin-top:20px;"><em>This is my sovereign decree.</em></p>
         </div>
         
         <!-- Final Declarations -->
         <div style="background:rgba(26,188,156,0.1); padding:30px; border-radius:15px; margin:30px 0;">
-            <h3 style="color:var(--primary-color);">👑 The Final 6 Declarations</h3>
+            <h3 style="color:var(--primary-color); margin-top: 0;">👑 The Final 6 Declarations</h3>
             
             <div style="margin:20px 0;">
                 <h5>Declaration 37: "I am not fragmented"</h5>
                 <p><em>I embody all aspects as one</em></p>
-                <textarea style="width:100%; height:60px; margin:10px 0; padding:10px;" placeholder="How do you experience wholeness?"></textarea>
+                <textarea id="declaration37" placeholder="How do you experience wholeness?" rows="3"></textarea>
             </div>
             
             <div style="margin:20px 0;">
                 <h5>Declaration 38: "I rule myself"</h5>
                 <p><em>I am master of my thoughts and actions</em></p>
-                <textarea style="width:100%; height:60px; margin:10px 0; padding:10px;" placeholder="How do you practice self-governance?"></textarea>
+                <textarea id="declaration38" placeholder="How do you practice self-governance?" rows="3"></textarea>
             </div>
             
             <div style="margin:20px 0;">
                 <h5>Declaration 42: "The journey is complete"</h5>
                 <p><em>I am the living embodiment</em></p>
-                <textarea style="width:100%; height:80px; margin:10px 0; padding:10px;" placeholder="What does completion feel like for you?"></textarea>
+                <textarea id="declaration42" placeholder="What does completion feel like for you?" rows="3"></textarea>
             </div>
         </div>
         
         <!-- The Completion Ceremony -->
         <div style="background:rgba(26,188,156,0.15); padding:30px; border-radius:15px; margin:40px 0; border:2px solid var(--primary-color);">
-            <h3 style="color:var(--primary-color); text-align:center;">🕊️ The Completion Ceremony</h3>
+            <h3 style="color:var(--primary-color); text-align:center; margin-top: 0;">🕊️ The Completion Ceremony</h3>
             
             <p><strong>Step 1:</strong> Create sacred space with representations of all 7 gateways</p>
             <p><strong>Step 2:</strong> Light 7 candles (one for each gateway color)</p>
@@ -208,19 +353,19 @@
             <p><strong>Step 6:</strong> Sit in silent integration for 42 minutes</p>
             
             <p style="margin-top:20px;"><strong>Ceremony Reflection:</strong></p>
-            <textarea style="width:100%; height:120px; padding:15px; background:rgba(255,255,255,0.05); border:1px solid var(--primary-color);" placeholder="Record your completion ceremony experience..."></textarea>
+            <textarea id="ceremonyReflection" placeholder="Record your completion ceremony experience..." rows="4"></textarea>
         </div>
         
         <!-- Download Section -->
         <div style="text-align:center; padding:40px; margin:40px 0; background:rgba(26,188,156,0.1); border-radius:15px;">
-            <h3>📚 Final Resources & Next Steps</h3>
-            <button class="btn" onclick="generatePDF(7)">📥 Download Complete Journey PDF</button>
-            <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
-            <button class="btn" onclick="generateCertificate()">🏅 Download Certificate</button>
-            <a href="../../index.html" class="btn">🏠 Return to Portal</a>
+            <h3 style="color: var(--primary-color);">📚 Final Resources & Next Steps</h3>
+            <div style="margin: 20px 0;">
+                <button class="btn" onclick="generatePDF()">📥 Download Complete Journey PDF</button>
+                <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
+            </div>
             
             <div style="margin-top:40px;">
-                <h4>🌱 Continuing Your Sovereign Journey</h4>
+                <h4 style="color: var(--primary-light);">🌱 Continuing Your Sovereign Journey</h4>
                 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:15px; margin-top:20px;">
                     <div style="background:rgba(255,255,255,0.05); padding:20px; border-radius:10px;">
                         <h5>Daily Practice</h5>
@@ -242,10 +387,13 @@
             </div>
             
             <div style="margin-top:40px; padding-top:20px; border-top:2px dashed rgba(26,188,156,0.3);">
-                <h4>🎧 Sovereign Meditations</h4>
-                <button class="btn" style="background:linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%); color:white;">Sovereign Integration (30 min)</button>
-                <button class="btn" style="background:linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%); color:white;">Legacy Meditation (20 min)</button>
-                <button class="btn" style="background:linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%); color:white;">Daily Sovereign Practice</button>
+                <h4 style="color: var(--primary-light);">Complete Your Journey</h4>
+                <button class="btn btn-success" onclick="completeWorkbook()" id="completeButton">
+                    ✅ Mark Completion Ceremony as Complete
+                </button>
+                <p style="color: #E6D3A7; margin-top: 15px; font-size: 0.9em;">
+                    Complete all sections above before marking as complete
+                </p>
             </div>
         </div>
     </div>
@@ -258,40 +406,133 @@
             day: 'numeric'
         });
         
-        function generatePDF(week) {
-            const content = `SOVEREIGN COMPLETION CERTIFICATE\n\nYou have completed all 7 weeks of The Hall of Truth Initiation.\n\n42 Declarations mastered.\n7 Gateways traversed.\n1 Sovereign being awakened.\n\nDate: ${new Date().toLocaleDateString()}\n\nWalk in Truth, Live in Ma'at`;
-            downloadText(content, `Sovereign_Completion_Certificate.txt`);
+        // Auto-save functionality
+        function saveProgress() {
+            const progress = {
+                sovereignManifesto: document.getElementById('sovereignManifesto').value,
+                declaration37: document.getElementById('declaration37').value,
+                declaration38: document.getElementById('declaration38').value,
+                declaration42: document.getElementById('declaration42').value,
+                ceremonyReflection: document.getElementById('ceremonyReflection').value
+            };
+            
+            localStorage.setItem('completion_workbook_progress', JSON.stringify(progress));
+            
+            // Show save indicator
+            const indicator = document.getElementById('saveIndicator');
+            indicator.style.display = 'block';
+            setTimeout(() => {
+                indicator.style.display = 'none';
+            }, 2000);
+            
+            // Update progress bar
+            updateProgressBar();
         }
         
-        function generateCertificate() {
-            const name = prompt('Enter your name for the certificate:', 'Sovereign Being');
-            const certificate = `
-╔════════════════════════════════════════════════════════════╗
-║                    THE HALL OF TRUTH                       ║
-║                  Certificate of Completion                 ║
-║                                                            ║
-║  This certifies that                                       ║
-║                                                            ║
-║                ${name ? name.toUpperCase() : 'SOVEREIGN BEING'}                 ║
-║                                                            ║
-║  has successfully completed the 42 Declarations of Ma'at   ║
-║  through all 7 Gateways of The Hall of Truth Initiation.   ║
-║                                                            ║
-║  Completion Date: ${new Date().toLocaleDateString()}                ║
-║                                                            ║
-║  May you walk in Truth, speak in Justice,                  ║
-║  live in Harmony, act in Wisdom,                           ║
-║  honor with Reverence, move with Courage,                  ║
-║  and embody your Sovereign nature.                         ║
-║                                                            ║
-║  "The journey is complete.                                 ║
-║   I am the living embodiment."                             ║
-║                                                            ║
-╚════════════════════════════════════════════════════════════╝
-            `;
+        // Load saved progress
+        function loadProgress() {
+            const saved = localStorage.getItem('completion_workbook_progress');
+            if (saved) {
+                const progress = JSON.parse(saved);
+                
+                document.getElementById('sovereignManifesto').value = progress.sovereignManifesto || '';
+                document.getElementById('declaration37').value = progress.declaration37 || '';
+                document.getElementById('declaration38').value = progress.declaration38 || '';
+                document.getElementById('declaration42').value = progress.declaration42 || '';
+                document.getElementById('ceremonyReflection').value = progress.ceremonyReflection || '';
+            }
             
-            downloadText(certificate, `Sovereign_Certificate_${Date.now()}.txt`);
-            alert('🏆 Certificate generated! For formal PDF, use professional certificate template.');
+            updateProgressBar();
+        }
+        
+        // Update progress bar
+        function updateProgressBar() {
+            let completed = 0;
+            const total = 5; // Total number of fields to complete
+            
+            // Check text fields
+            const textFields = [
+                'sovereignManifesto',
+                'declaration37', 
+                'declaration38',
+                'declaration42',
+                'ceremonyReflection'
+            ];
+            
+            textFields.forEach(id => {
+                if (document.getElementById(id).value.trim()) completed++;
+            });
+            
+            // Calculate percentage
+            const percentage = Math.min((completed / total) * 100, 100);
+            document.getElementById('workbookProgress').style.width = percentage + '%';
+            
+            // Update progress text
+            const progressText = document.getElementById('progressText');
+            if (percentage >= 80) {
+                progressText.innerHTML = `Almost there! ${Math.round(percentage)}% complete - Ready to mark as complete`;
+                progressText.style.color = '#4CAF50';
+            } else if (percentage >= 50) {
+                progressText.innerHTML = `Good progress! ${Math.round(percentage)}% complete`;
+                progressText.style.color = '#1ABC9C';
+            } else {
+                progressText.innerHTML = `${Math.round(percentage)}% complete - Keep going!`;
+                progressText.style.color = '#76D7C4';
+            }
+            
+            return percentage;
+        }
+        
+        // Workbook completion function
+        function completeWorkbook() {
+            const percentage = updateProgressBar();
+            
+            if (percentage < 80) {
+                alert('Please complete at least 80% of the workbook before marking it as complete.\n\nFocus on:\n• Sovereign Manifesto\n• Final Declarations reflections\n• Ceremony Reflection');
+                return;
+            }
+            
+            // Mark workbook as completed
+            localStorage.setItem('completion_workbook_completed', 'true');
+            localStorage.setItem('week7_completed_date', new Date().toISOString());
+            
+            // Mark entire journey as complete
+            localStorage.setItem('hall_of_truth_journey_completed', 'true');
+            
+            // Record completion data
+            const completionData = {
+                completed: true,
+                date: new Date().toISOString(),
+                sovereignManifesto: document.getElementById('sovereignManifesto').value,
+                ceremonyReflection: document.getElementById('ceremonyReflection').value,
+                allWeeksCompleted: {
+                    week1: localStorage.getItem('sacred_flame_workbook_completed') === 'true',
+                    week2: localStorage.getItem('sacred_flame_workbook_completed') === 'true',
+                    week3: localStorage.getItem('sacred_flame_workbook_completed') === 'true',
+                    week4: localStorage.getItem('sacred_flame_workbook_completed') === 'true',
+                    week5: localStorage.getItem('sacred_waters_completed') === 'true',
+                    week6: localStorage.getItem('strength_workbook_completed') === 'true',
+                    week7: true
+                }
+            };
+            
+            localStorage.setItem('journey_completion_data', JSON.stringify(completionData));
+            
+            // Show completion overlay
+            document.getElementById('completionOverlay').style.display = 'flex';
+            
+            // Disable the complete button
+            document.getElementById('completeButton').disabled = true;
+            document.getElementById('completeButton').innerHTML = '✅ Journey Complete';
+            document.getElementById('completeButton').style.opacity = '0.7';
+        }
+        
+        // Generate PDF function
+        function generatePDF() {
+            const completionDate = document.getElementById('completion-date').textContent;
+            const content = `THE COMPLETE JOURNEY - HALL OF TRUTH\n\nCompletion Date: ${completionDate}\n\nSovereign Manifesto:\n${document.getElementById('sovereignManifesto').value}\n\nFinal Declaration Reflections:\n37: ${document.getElementById('declaration37').value}\n38: ${document.getElementById('declaration38').value}\n42: ${document.getElementById('declaration42').value}\n\nCeremony Reflection:\n${document.getElementById('ceremonyReflection').value}\n\nMay you walk as a Living Pillar of Ma'at.`;
+            downloadText(content, `Complete_Journey_${Date.now()}.txt`);
+            alert('Complete journey recorded! PDF downloaded.');
         }
         
         function downloadText(text, filename) {
@@ -303,13 +544,39 @@
             a.click();
         }
         
-        // Auto-save final reflections
-        document.querySelectorAll('textarea').forEach((el, idx) => {
-            el.addEventListener('input', () => {
-                localStorage.setItem(`sovereign_${idx}`, el.value);
+        // Set up auto-save events
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for Week 6 completion requirement
+            const week6Completed = localStorage.getItem('strength_workbook_completed');
+            if (!week6Completed || week6Completed !== 'true') {
+                alert('Please complete Week 6: The Eye of Judgment and its Strength Workbook before starting the Completion Ceremony.');
+                window.location.href = '../week6/index.html';
+                return;
+            }
+            
+            loadProgress();
+            
+            // Add event listeners to all inputs
+            const inputs = document.querySelectorAll('textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', saveProgress);
             });
-            const saved = localStorage.getItem(`sovereign_${idx}`);
-            if (saved) el.value = saved;
+            
+            // Check if already completed
+            const alreadyCompleted = localStorage.getItem('completion_workbook_completed');
+            if (alreadyCompleted === 'true') {
+                document.getElementById('completeButton').disabled = true;
+                document.getElementById('completeButton').innerHTML = '✅ Journey Already Complete';
+                document.getElementById('completeButton').style.opacity = '0.7';
+                document.getElementById('progressText').innerHTML = 'Journey complete! Return to Week 7 page to receive your certificate.';
+                document.getElementById('progressText').style.color = '#4CAF50';
+                document.getElementById('workbookProgress').style.width = '100%';
+            }
+        });
+        
+        // Save on page unload
+        window.addEventListener('beforeunload', function(e) {
+            saveProgress();
         });
     </script>
 </body>
