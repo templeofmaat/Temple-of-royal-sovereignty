@@ -1,1041 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 4: The Solar Path - Forces 22-28 of Ma'at</title>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 4: The Solar Path - Forces 22–28 of Ma'at</title>
 
-        body.temple-page {
-            background: #140025;
-            color: #f7eaff;
-            font-family: "Georgia", serif;
-            margin: 0;
-            padding: 40px 20px;
-            line-height: 1.7;
-            min-height: 100vh;
-        }
+<!-- ================= AUTH + TOKEN GATE ================= -->
+<script>
+(function () {
+    const LOGIN_URL = "https://www.tors.life/hall-of-truth.html";
+    const WEEK_REQUIRED = 4;
 
-        h1, h2, h3, h4 {
-            color: #FFD700;
-            margin-top: 0;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
+    function deny(msg) {
+        alert(msg);
+        window.location.replace(LOGIN_URL);
+    }
 
-        a {
-            color: #8c78ff;
-            text-decoration: none;
-        }
-        a:hover {
-            color: #FFD700;
-        }
+    let user = null;
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.06);
-            padding: 50px;
-            border-radius: 12px;
-            border: 1px solid #FFD700;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
+    try {
+        const raw = localStorage.getItem("tors_sacred_current");
+        if (!raw) return deny("Sacred access required. Login first.");
+        user = JSON.parse(raw);
+    } catch (e) {
+        localStorage.removeItem("tors_sacred_current");
+        return deny("Session corrupted. Please login again.");
+    }
 
-        .container::before {
-            content: "𓇳 𓀭 𓃩 𓂀 𓎟";
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            font-size: 2em;
-            opacity: 0.08;
-            color: #FFD700;
-            z-index: 0;
-        }
+    if (!user.token) return deny("Invalid session token.");
+    if (user.expires && Date.now() > user.expires) {
+        localStorage.removeItem("tors_sacred_current");
+        return deny("Session expired. Please login again.");
+    }
+    if (!Array.isArray(user.weeks) || !user.weeks.includes(WEEK_REQUIRED)) {
+        return deny("Week 4 access not authorized.");
+    }
 
-        .header {
-            text-align: center;
-            padding-bottom: 40px;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
-            margin-bottom: 50px;
-            position: relative;
-            z-index: 1;
-        }
+    window.TORS_USER = user;
+})();
+</script>
+<!-- ==================================================== -->
 
-        h1 {
-            font-size: 3.5em;
-            margin: 30px 0 20px;
-            font-weight: 700;
-        }
-
-        .gateway-badge {
-            display: inline-block;
-            background: rgba(255, 215, 0, 0.1);
-            color: #FFD700;
-            padding: 14px 30px;
-            border-radius: 8px;
-            font-weight: 500;
-            margin: 20px 0;
-            border: 1px solid #FFD700;
-            font-size: 1.1em;
-            letter-spacing: 0.5px;
-        }
-
-        .week-theme {
-            color: #f7eaff;
-            font-size: 1.3em;
-            margin: 25px 0 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-            font-weight: 400;
-            padding: 25px;
-            background: rgba(255, 215, 0, 0.08);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-        }
-
-        .forces-overview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 50px 0;
-        }
-
-        .force-card {
-            background: rgba(255,255,255,0.06);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #FFD700;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .force-card:hover {
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.25);
-        }
-
-        .force-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .force-number {
-            background: rgba(255, 215, 0, 0.15);
-            color: #FFD700;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 1.3em;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-
-        .force-range {
-            background: rgba(255, 215, 0, 0.15);
-            color: #FFD700;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-
-        .force-card h3 {
-            color: #FFD700;
-            margin: 0 0 15px 0;
-            font-size: 1.4em;
-            min-height: 70px;
-            line-height: 1.3;
-            font-weight: 700;
-            text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
-        }
-
-        .kemetic-name {
-            color: #FFD700;
-            font-style: italic;
-            font-size: 1.05em;
-            margin-bottom: 20px;
-            opacity: 0.9;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-        }
-
-        .force-declaration {
-            background: rgba(255, 215, 0, 0.08);
-            padding: 18px;
-            border-radius: 8px;
-            font-size: 0.95em;
-            line-height: 1.7;
-            border-left: 3px solid #FFD700;
-            margin: 20px 0;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 35px;
-            margin: 60px 0;
-        }
-
-        .main-content,
-        .sidebar {
-            background: rgba(255,255,255,0.06);
-            padding: 35px;
-            border-radius: 12px;
-            border: 1px solid #FFD700;
-        }
-
-        h3 {
-            color: #FFD700;
-            margin-top: 0;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
-            padding-bottom: 20px;
-            font-size: 1.7em;
-            font-weight: 600;
-        }
-
-        .back-link {
-            display: inline-block;
-            background: #330066;
-            color: #FFD700;
-            padding: 16px 35px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            margin-top: 50px;
-            transition: all 0.3s ease;
-            border: 2px solid #FFD700;
-            font-size: 1.1em;
-        }
-
-        .back-link:hover {
-            background: #4c0099;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-        }
-
-        .sunrise-ritual {
-            background: rgba(255, 215, 0, 0.08);
-            padding: 30px;
-            border-radius: 10px;
-            margin: 35px 0;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-        }
-
-        .access-note {
-            background: rgba(255, 215, 0, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            margin: 40px 0;
-            border: 1px dashed #FFD700;
-        }
-
-        .progress-container {
-            background: rgba(255,255,255,0.06);
-            padding: 35px;
-            border-radius: 12px;
-            margin: 45px 0;
-            border: 1px solid #FFD700;
-        }
-
-        .progress-bar {
-            height: 18px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 9px;
-            margin: 25px 0;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background: linear-gradient(90deg, #FFD700, #FFD700);
-            width: 57%;
-            border-radius: 9px;
-            transition: width 1s ease;
-        }
-
-        .day-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 12px;
-            margin: 35px 0;
-        }
-
-        .day-circle {
-            width: 55px;
-            height: 55px;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 1.1em;
-            margin: 0 auto;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .day-circle.completed {
-            background: rgba(255, 215, 0, 0.25);
-            color: #f7eaff;
-            border-color: #FFD700;
-        }
-
-        .day-circle.active {
-            background: rgba(255, 215, 0, 0.3);
-            color: #f7eaff;
-            border-color: #FFD700;
-        }
-
-        .practice-list {
-            background: rgba(255,255,255,0.03);
-            padding: 25px;
-            border-radius: 8px;
-            margin: 25px 0;
-            border-left: 3px solid #FFD700;
-        }
-
-        .practice-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin: 18px 0;
-            padding: 16px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .practice-item:hover {
-            background: rgba(255,255,255,0.04);
-            transform: translateX(5px);
-        }
-
-        .practice-icon {
-            color: #FFD700;
-            font-size: 1.3em;
-            min-width: 35px;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .nav-button {
-            color: #FFD700;
-            font-size: 1.1em;
-            text-decoration: none;
-            padding: 14px 30px;
-            border: 2px solid #FFD700;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            background: #330066;
-        }
-
-        .nav-button:hover {
-            background: #4c0099;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-        }
-
-        .wisdom-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .wisdom-card {
-            background: rgba(255,255,255,0.06);
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #FFD700;
-            transition: all 0.3s ease;
-        }
-
-        .wisdom-card:hover {
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.25);
-        }
-
-        .wisdom-icon {
-            font-size: 2.2em;
-            margin-bottom: 15px;
-            color: #FFD700;
-        }
-
-        .sun-disc {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 55px;
-            height: 55px;
-            background: rgba(255, 215, 0, 0.2);
-            border-radius: 50%;
-            border: 1px solid #FFD700;
-            z-index: 100;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            color: #FFD700;
-        }
-
-        .sun-disc:hover {
-            background: rgba(255, 215, 0, 0.3);
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .content-grid { grid-template-columns: 1fr; gap: 30px; }
-            .container { padding: 25px; }
-            h1 { font-size: 2.5em; }
-            .forces-overview { grid-template-columns: 1fr; }
-            .day-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
-            .day-circle { width: 50px; height: 50px; font-size: 1em; }
-            .wisdom-grid { grid-template-columns: 1fr; }
-            .sun-disc { width: 45px; height: 45px; bottom: 15px; right: 15px; font-size: 1.3em; }
-            .nav-links { flex-direction: column; gap: 15px; }
-        }
-
-        /* Error display styles */
-        #errorDisplay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 0, 0, 0.9);
-            color: white;
-            padding: 10px;
-            text-align: center;
-            z-index: 9999;
-            display: none;
-        }
-    </style>
+<style>
+body.temple-page{
+    background:#140025;
+    color:#f7eaff;
+    font-family:Georgia,serif;
+    margin:0;
+    padding:40px 20px;
+    min-height:100vh
+}
+h1,h2,h3,h4{color:#FFD700}
+.container{
+    max-width:1200px;
+    margin:auto;
+    background:rgba(255,255,255,.06);
+    padding:50px;
+    border-radius:12px;
+    border:1px solid #FFD700
+}
+.sun-disc{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:rgba(255,215,0,.25);
+    border:1px solid #FFD700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:1.4em;
+    color:#FFD700;
+    z-index:999
+}
+</style>
 </head>
+
 <body class="temple-page">
-    <!-- Error Display -->
-    <div id="errorDisplay"></div>
-    
-    <!-- Content Placeholder (will be replaced or enhanced by JS) -->
-    <div id="contentPlaceholder">
-        <!-- Floating Sun Disc -->
-        <div class="sun-disc" id="sunDisc" title="Solar Path Reminder">☀️</div>
-        
-        <div class="container">
-            <div class="header">
-                <div class="gateway-badge">𓇳 WEEK 4 - THE SOLAR PATH - FORCES 22-28 𓇳</div>
-                <h1>Righteous Action & Discernment</h1>
-                <div class="week-theme">
-                    Non-terrorizing • Pattern integrity • Measured wrath • Authentic being • Earth stewardship • Divine respect • Constructive speech
-                </div>
-                
-                <div class="sunrise-ritual">
-                    <h3 style="color: #FFD700;">☀️ Week 4 Sunrise Practice</h3>
-                    <p><strong>Each sunrise this week:</strong> Face East at exact sunrise with a solar disc (coin or round object). Speak: "My actions mirror Ra's journey. My discernment reflects divine sight." Hold the disc to catch the first light while focusing on Force 22-28 for that day.</p>
-                </div>
-            </div>
-            
-            <!-- 7 Forces Overview -->
-            <div class="forces-overview">
-                <!-- Force 22 -->
-                <div class="force-card">
-                    <div class="force-header">
-                        <div class="force-number">22</div>
-                        <div class="force-range">Force 22</div>
-                    </div>
-                    <h3>Maa-antef</h3>
-                    <div class="kemetic-name">"He Who Sees His Father" from the Double City of Witness</div>
-                    <div class="force-declaration">
-                        "I have not cast the shadow of chaos (khas) upon the hearts of others."
-                    </div>
-                    <p><strong>Sunrise Focus:</strong> Non-terrorizing, bringing light not shadow</p>
-                </div>
-                
-                <!-- Force 23 -->
-                <div class="force-card">
-                    <div class="force-header">
-                        <div class="force-number">23</div>
-                        <div class="force-range">Force 23</div>
-                    </div>
-                    <h3>Khemi</h3>
-                    <div class="kemetic-name">"The Alchemist" from the Lake of the Vital Essence (Ka)</div>
-                    <div class="force-declaration">
-                        "I have not broken the fixed pattern (sha) that holds the world together."
-                    </div>
-                    <p><strong>Sunrise Focus:</strong> Pattern integrity and cosmic order</p>
-                </div>
-                
-                <!-- Force 24 -->
-                <div class="force-card">
-                    <div class="force-header">
-                        <div class="force-number">24</div>
-                        <div class="force-range">Force 24</div>
-                    </div>
-                    <h3>Utu-nes</h3>
-                    <div class="kemetic-name">"The Sacred Flame of Judgment" from the City of the Flame</div>
-                    <div class="force-declaration">
-                        "My bau (manifested power/rage) has never been unleashed without cause."
-                    </div>
-                    <p><strong>Sunrise Focus:</strong> Measured, justified wrath</p>
-                </div>
-                
-                <!-- Force 25 -->
-                <div class="force-card">
-                    <div class="force-header">
-                        <div class="force-number">25</div>
-                        <div class="force-range">Force 25</div>
-                    </div>
-                    <h3>Khaui</h3>
-                    <div class="kemetic-name">"The Cutter of the Sky" from the City of Cutting Clarity</div>
-                    <div class="force-declaration">
-                        "I have not been a walking isfet, a living deception."
-                    </div>
-                    <p><strong>Sunrise Focus:</strong> Authentic being, no false masks</p>
-                </div>
-                
-                <!-- Force 26 -->
-                <div class="force-card">
-                    <div class="force-header">
-                        <div class="force-number">26</div>
-                        <div class="force-range">Force 26</div>
-                    </div>
-                    <h3>Nekhen</h3>
-                    <div class="kemetic-name">"From Nekhen" (City of the Falcon)</div>
-                    <div class="force-declaration">
-                        "I have not stolen the living skin of the earth-god (Geb)."
-                    </div>
-                    <p><strong>Sunrise Focus:</strong> Earth stewardship and respect</p>
-                </div>
-                
-                <!-- Force 27 -->
-                <div class="force-card">
-                    <div class="force-header">
-                        <div class="force-number">27</div>
-                        <div class="force-range">Force 27</div>
-                    </div>
-                    <h3>Nekher</h3>
-                    <div class="kemetic-name">"From the City of the Vulture Goddess"</div>
-                    <div class="force-declaration">
-                        "I have not spoken against the neter (divine force/principle)."
-                    </div>
-                    <p><strong>Sunrise Focus:</strong> Divine respect and recognition</p>
-                </div>
-                
-                <!-- Force 28 -->
-                <div class="force-card">
-                    <div class="force-header">
-                        <div class="force-number">28</div>
-                        <div class="force-range">Force 28</div>
-                    </div>
-                    <h3>Ser-kheru</h3>
-                    <div class="kemetic-name">"He Who Commands the Voice" from the Gateway of Utterance</div>
-                    <div class="force-declaration">
-                        "I have not corrupted the heka of my speech into a storm that strips the dignity from another."
-                    </div>
-                    <p><strong>Sunrise Focus:</strong> Constructive, dignity-preserving speech</p>
-                </div>
-            </div>
-            
-            <!-- Progress Tracker -->
-            <div class="progress-container">
-                <h3 style="text-align: center;">𓇳 Your Journey Along The Solar Path 𓇳</h3>
-                
-                <div class="progress-bar">
-                    <div class="progress"></div>
-                </div>
-                <p style="text-align: center; font-size: 1.1em;">
-                    Journey Progress: Week 4 of 7 • Forces 22-28 of 42
-                </p>
-                
-                <div class="day-grid">
-                    <div class="day-circle completed">1</div>
-                    <div class="day-circle completed">2</div>
-                    <div class="day-circle completed">3</div>
-                    <div class="day-circle active">4</div>
-                    <div class="day-circle">5</div>
-                    <div class="day-circle">6</div>
-                    <div class="day-circle">7</div>
-                </div>
-                
-                <p style="text-align: center; margin-top: 20px;">
-                    <em>Complete each day's sunrise practice to activate the corresponding force</em>
-                </p>
-            </div>
-            
-            <!-- Solar Wisdom Grid -->
-            <div class="wisdom-grid">
-                <div class="wisdom-card">
-                    <div class="wisdom-icon">👁️</div>
-                    <h4>Divine Sight</h4>
-                    <p>Seeing with Horus's clarity, not casting shadows of fear</p>
-                </div>
-                
-                <div class="wisdom-card">
-                    <div class="wisdom-icon">🧩</div>
-                    <h4>Pattern Integrity</h4>
-                    <p>Honoring the cosmic sha that structures reality</p>
-                </div>
-                
-                <div class="wisdom-card">
-                    <div class="wisdom-icon">⚔️</div>
-                    <h4>Just Wrath</h4>
-                    <p>Bau unleashed only in service to Ma'at's order</p>
-                </div>
-                
-                <div class="wisdom-card">
-                    <div class="wisdom-icon">🎭</div>
-                    <h4>Authentic Being</h4>
-                    <p>Living without deception, your true ren (name) revealed</p>
-                </div>
-            </div>
-            
-            <!-- Main Content -->
-            <div class="content-grid">
-                <div class="main-content">
-                    <h3>𓇳 The Solar Path Teachings</h3>
-                    <p>Welcome to the fourth gateway, where you learn to walk <strong>The Solar Path</strong> of Ra—acting with divine discernment, righteous power, and authentic presence. This week illuminates the difference between destructive shadow-casting and illuminating truth-telling.</p>
-                    
-                    <div class="sunrise-ritual">
-                        <h4 style="color: #FFD700;">☀️ Week 4 Core Sunrise Ritual</h4>
-                        <p><strong>Each sunrise, perform this sacred practice:</strong></p>
-                        <ol>
-                            <li>At exact sunrise, face East holding a solar disc</li>
-                            <li>Raise the disc to catch the first light</li>
-                            <li>Breathe deeply 22 times (for Force 22)</li>
-                            <li>Speak today's force declaration as light touches disc</li>
-                            <li>Visualize your actions aligned with Ra's journey</li>
-                            <li>Carry the disc throughout the day as a reminder</li>
-                        </ol>
-                    </div>
-                    
-                    <h4>This Week's Sacred Focus:</h4>
-                    <div class="practice-list">
-                        <div class="practice-item">
-                            <div class="practice-icon">🌅</div>
-                            <div>
-                                <strong>Non-Terrorizing (Force 22):</strong> Become a source of light, not shadow. Never cast chaos (khas) upon others' hearts.
-                            </div>
-                        </div>
-                        <div class="practice-item">
-                            <div class="practice-icon">🔮</div>
-                            <div>
-                                <strong>Pattern Integrity (Force 23):</strong> Honor the cosmic sha. Your actions should maintain, not break, the world's sacred patterns.
-                            </div>
-                        </div>
-                        <div class="practice-item">
-                            <div class="practice-icon">🔥</div>
-                            <div>
-                                <strong>Measured Wrath (Force 24):</strong> Wield bau (divine rage) like a priest—precise, justified, and in service to Ma'at.
-                            </div>
-                        </div>
-                        <div class="practice-item">
-                            <div class="practice-icon">👤</div>
-                            <div>
-                                <strong>Authentic Being (Force 25):</strong> Eliminate all deception. Your outer presentation must match your inner truth.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="access-note">
-                        <h4 style="color: #FFD700;">🔐 Gateway Activation</h4>
-                        <p>Your completion of <strong>Week 3: The Veil & Voice</strong> has opened this gateway.</p>
-                        <p><em>Your mastery of restraint prepares you for righteous action.</em></p>
-                        <p style="margin-top: 20px; font-style: italic;">
-                            "The Solar Path requires both the heat to burn away falsehood and the light to reveal truth."
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="sidebar">
-                    <h3>📜 Week 4 Resources</h3>
-                    
-                    <div class="practice-list">
-                        <div class="practice-item">
-                            <div class="practice-icon">🎬</div>
-                            <div>
-                                <strong>Video Teaching:</strong><br>
-                                "Walking the Solar Path: Ra's Journey in Human Form"
-                            </div>
-                        </div>
-                        <div class="practice-item">
-                            <div class="practice-icon">📓</div>
-                            <div>
-                                <strong>Sacred Workbook:</strong><br>
-                                "Forces 22-28 Integration Manual"
-                            </div>
-                        </div>
-                        <div class="practice-item">
-                            <div class="practice-icon">☀️</div>
-                            <div>
-                                <strong>Sunrise Meditation:</strong><br>
-                                "Solar Disc Alignment Practice"
-                            </div>
-                        </div>
-                        <div class="practice-item">
-                            <div class="practice-icon">✍️</div>
-                            <div>
-                                <strong>Daily Practices:</strong><br>
-                                7 Specific Force Activations
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3>⏳ Sacred Time Commitment</h3>
-                    <div class="practice-list">
-                        <div class="practice-item">
-                            <div class="practice-icon">☀️</div>
-                            <div>
-                                <strong>Sunrise Ritual:</strong><br>
-                                25 minutes daily (timed with actual sunrise)
-                            </div>
-                        </div>
-                        <div class="practice-item">
-                            <div class="practice-icon">📝</div>
-                            <div>
-                                <strong>Daily Reflection:</strong><br>
-                                30 minutes integration
-                            </div>
-                        </div>
-                        <div class="practice-item">
-                            <div class="practice-icon">⚖️</div>
-                            <div>
-                                <strong>Weekly Weighing:</strong><br>
-                                60 minutes ceremony
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3>🎯 Expected Transformations</h3>
-                    <div class="practice-list">
-                        <div class="practice-item">
-                            <div class="practice-icon">✨</div>
-                            <div>Master righteous discernment</div>
-                        </div>
-                        <div class="practice-item">
-                            <div class="practice-icon">🗣️</div>
-                            <div>Develop constructive speech patterns</div>
-                        </div>
-                        <div class="practice-item">
-                            <div class="practice-icon">🌍</div>
-                            <div>Become an earth steward</div>
-                        </div>
-                        <div class="practice-item">
-                            <div class="practice-icon">⚔️</div>
-                            <div>Wield justified power wisely</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Navigation -->
-            <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 215, 0, 0.25);">
-                <a href="../index.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
-                
-                <div class="nav-links">
-                    <a href="../week3/index.html" class="nav-button">
-                        ← Previous: The Veil & Voice
-                    </a>
-                    <a href="../week5/index.html" class="nav-button">
-                        Next: The Sacred Waters →
-                    </a>
-                </div>
-                
-                <div style="margin-top: 40px; padding: 25px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; border: 1px solid rgba(255, 215, 0, 0.2);">
-                    <p style="font-style: italic;">
-                        <strong>𓇳 Initiation Note:</strong> Complete all 7 sunrise practices and the Week 4 Weighing Ceremony to unlock Week 5. The Solar Path burns away all that is not truth. Walk it with the precision of Ra's journey across the sky.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- JavaScript at the bottom to prevent blocking render -->
-    <script>
-        // Simple error handler
-        function showError(message) {
-            const errorDiv = document.getElementById('errorDisplay');
-            errorDiv.textContent = message;
-            errorDiv.style.display = 'block';
-            console.error('Week 4 Error:', message);
-        }
+<div class="sun-disc" id="sunDisc">☀️</div>
 
-        // Main function - runs after DOM is loaded
-        function initializeWeek4() {
-            try {
-                console.log('Week 4 Initializing...');
-                
-                // Check if running locally (for testing)
-                const isLocal = window.location.protocol === 'file:';
-                
-                if (isLocal) {
-                    console.log('Local file detected - bypassing auth for testing');
-                    // Create test user data for local testing
-                    if (!localStorage.getItem('tors_sacred_current')) {
-                        localStorage.setItem('tors_sacred_current', JSON.stringify({
-                            name: "Test Initiate",
-                            weeks: [1, 2, 3, 4, 5, 6, 7]
-                        }));
-                    }
-                }
-                
-                // Get current user
-                const userData = localStorage.getItem('tors_sacred_current');
-                console.log('User data found:', !!userData);
-                
-                if (!userData) {
-                    showError('No user session found. Redirecting to login...');
-                    setTimeout(() => {
-                        window.location.href = 'https://www.tors.life/hall-of-truth.html';
-                    }, 2000);
-                    return;
-                }
-                
-                // Parse user data
-                let currentUser;
-                try {
-                    currentUser = JSON.parse(userData);
-                } catch (e) {
-                    showError('Invalid user data. Please login again.');
-                    setTimeout(() => {
-                        localStorage.removeItem('tors_sacred_current');
-                        window.location.href = 'https://www.tors.life/hall-of-truth.html';
-                    }, 3000);
-                    return;
-                }
-                
-                // Check week access
-                const weekNumber = 4;
-                const hasAccess = currentUser.weeks && currentUser.weeks.includes(weekNumber);
-                
-                if (!hasAccess && !isLocal) {
-                    showError(`Week ${weekNumber} access requires purchase.`);
-                    setTimeout(() => {
-                        window.location.href = 'https://www.tors.life/hall-of-truth.html';
-                    }, 3000);
-                    return;
-                }
-                
-                // User has access - add UI elements
-                console.log('User has access to Week 4');
-                
-                // Add logout button
-                const logoutBtn = document.createElement('button');
-                logoutBtn.innerHTML = 'Logout';
-                logoutBtn.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: rgba(255, 215, 0, 0.2);
-                    color: #FFD700;
-                    border: 1px solid #FFD700;
-                    padding: 10px 20px;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    z-index: 10000;
-                    font-family: "Georgia", serif;
-                    font-size: 14px;
-                    transition: all 0.3s ease;
-                `;
-                logoutBtn.onmouseenter = function() {
-                    this.style.background = 'rgba(255, 215, 0, 0.3)';
-                    this.style.boxShadow = '0 0 10px rgba(255, 215, 0, 0.5)';
-                };
-                logoutBtn.onmouseleave = function() {
-                    this.style.background = 'rgba(255, 215, 0, 0.2)';
-                    this.style.boxShadow = 'none';
-                };
-                logoutBtn.onclick = function() {
-                    if (confirm('Leave sacred space?')) {
-                        localStorage.removeItem('tors_sacred_current');
-                        window.location.href = 'https://www.tors.life/hall-of-truth.html';
-                    }
-                };
-                document.body.appendChild(logoutBtn);
-                
-                // Add welcome message
-                const welcomeMsg = document.createElement('div');
-                welcomeMsg.innerHTML = `Solar Path Initiate: ${currentUser.name}`;
-                welcomeMsg.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    left: 20px;
-                    color: #FFD700;
-                    font-family: "Georgia", serif;
-                    z-index: 10000;
-                    background: rgba(0,0,0,0.5);
-                    padding: 10px 20px;
-                    border-radius: 5px;
-                    font-size: 14px;
-                    border: 1px solid rgba(255, 215, 0, 0.3);
-                `;
-                document.body.appendChild(welcomeMsg);
-                
-                // Initialize page functionality
-                initializePageFeatures();
-                
-            } catch (error) {
-                showError('Error loading Week 4: ' + error.message);
-                console.error('Initialization error:', error);
-            }
-        }
-        
-        // Page features and interactions
-        function initializePageFeatures() {
-            // Progress animation
-            const progressBar = document.querySelector('.progress');
-            if (progressBar) {
-                setTimeout(() => {
-                    progressBar.style.width = '57%';
-                }, 500);
-            }
-            
-            // Day circles interaction
-            const dayCircles = document.querySelectorAll('.day-circle');
-            const currentDay = 4; // Week 4, Day 4
-            
-            dayCircles.forEach((circle, index) => {
-                const dayNumber = parseInt(circle.textContent);
-                
-                if (dayNumber < currentDay) {
-                    circle.classList.add('completed');
-                } else if (dayNumber === currentDay) {
-                    circle.classList.add('active');
-                }
-                
-                circle.addEventListener('click', function() {
-                    if (dayNumber <= currentDay) {
-                        alert(`Accessing Day ${dayNumber} of The Solar Path practice. Today's focus: Force ${21 + dayNumber}`);
-                    } else {
-                        alert(`Day ${dayNumber} unlocks after completing previous days. Focus on today's sunrise practice.`);
-                    }
-                });
-            });
-            
-            // Sun disc interaction
-            const sunDisc = document.getElementById('sunDisc');
-            if (sunDisc) {
-                sunDisc.addEventListener('click', function() {
-                    const now = new Date();
-                    const sunriseWindow = isSunriseTime();
-                    
-                    if (sunriseWindow) {
-                        alert('𓇳 Perfect! It is sunrise time. Perform your Solar Path ritual now.\n\nFace East, hold your solar disc, and speak: "My actions mirror Ra\'s journey."');
-                    } else {
-                        const hours = now.getHours();
-                        const nextSunrise = hours < 6 ? 'in the morning' : 'tomorrow morning';
-                        alert(`𓇳 Prepare for your next sunrise practice ${nextSunrise}.\n\nRemember: Exact sunrise timing is essential for Solar Path alignment.`);
-                    }
-                });
-            }
-            
-            // Force cards hover enhancement
-            document.querySelectorAll('.force-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.zIndex = '10';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.zIndex = '1';
-                });
-            });
-            
-            // Wisdom cards interaction
-            document.querySelectorAll('.wisdom-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const title = this.querySelector('h4').textContent;
-                    alert(`Exploring ${title}: This Solar Path wisdom will illuminate your week's practice.`);
-                });
-            });
-            
-            // Check for sunrise time periodically
-            checkForSunrise();
-            setInterval(checkForSunrise, 900000); // 15 minutes
-        }
-        
-        // Helper functions
-        function isSunriseTime() {
-            const now = new Date();
-            const hours = now.getHours();
-            const minutes = now.getMinutes();
-            
-            // Approximate sunrise window (adjust as needed)
-            return (hours === 5 && minutes >= 30) || 
-                   (hours === 6) || 
-                   (hours === 7 && minutes <= 30);
-        }
-        
-        function checkForSunrise() {
-            if (isSunriseTime()) {
-                const sunDisc = document.getElementById('sunDisc');
-                if (sunDisc && !document.querySelector('.sunrise-notification')) {
-                    const notification = document.createElement('div');
-                    notification.className = 'sunrise-notification';
-                    notification.style.cssText = `
-                        position: fixed;
-                        bottom: 90px;
-                        right: 20px;
-                        background: rgba(255, 215, 0, 0.15);
-                        backdrop-filter: blur(10px);
-                        color: #FFD700;
-                        padding: 15px 25px;
-                        border-radius: 8px;
-                        font-family: "Georgia", serif;
-                        z-index: 1000;
-                        border: 1px solid #FFD700;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                        animation: slideIn 0.5s ease;
-                    `;
-                    notification.innerHTML = '☀️ SUNRISE NOW: Perform Solar Ritual!';
-                    document.body.appendChild(notification);
-                    
-                    // Highlight sun disc
-                    sunDisc.style.background = 'rgba(255, 215, 0, 0.3)';
-                    
-                    setTimeout(() => {
-                        notification.style.animation = 'slideOut 0.5s ease';
-                        setTimeout(() => notification.remove(), 500);
-                        sunDisc.style.background = 'rgba(255, 215, 0, 0.2)';
-                    }, 10000);
-                }
-            }
-        }
-        
-        // Add CSS animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Start initialization when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeWeek4);
-        } else {
-            initializeWeek4();
-        }
-    </script>
+<div class="container">
+    <h1>Week 4 — The Solar Path</h1>
+    <p><strong>Authenticated Initiate:</strong> <span id="userName"></span></p>
+    <p>Forces 22–28 • Righteous Action • Discernment</p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const user = window.TORS_USER;
+
+    document.getElementById("userName").textContent = user.name || "Initiate";
+
+    // Logout control
+    const logout = document.createElement("button");
+    logout.textContent = "Logout";
+    logout.style.cssText = `
+        position:fixed;top:20px;right:20px;
+        background:rgba(255,215,0,.2);
+        color:#FFD700;
+        border:1px solid #FFD700;
+        padding:10px 20px;
+        cursor:pointer;
+        z-index:1000
+    `;
+    logout.onclick = () => {
+        localStorage.removeItem("tors_sacred_current");
+        window.location.replace("https://www.tors.life/hall-of-truth.html");
+    };
+    document.body.appendChild(logout);
+
+    // Sun Disc interaction
+    document.getElementById("sunDisc").onclick = () => {
+        alert("Solar Path active. Perform sunrise alignment with discernment.");
+    };
+});
+</script>
+
 </body>
 </html>
