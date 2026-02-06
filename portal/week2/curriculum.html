@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 2 Workbook: Forces 8-14 - The Sacred Flame</title>
+    <title>Week 2 Workbook:The Sacred Flame Forces 8-14</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
 
@@ -30,28 +30,6 @@
                 radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.03) 0%, transparent 40%);
             pointer-events: none;
             z-index: -1;
-        }
-
-        /* LOCK SCREEN */
-        .lock-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(20, 0, 37, 0.95);
-            z-index: 10000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 20px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .lock-screen.active {
-            display: flex;
         }
 
         .sacred-container {
@@ -96,98 +74,6 @@
                 transparent
             );
             z-index: 1;
-        }
-
-        /* PROGRESS STEPS */
-        .progress-steps {
-            display: flex;
-            justify-content: space-between;
-            margin: 40px 0;
-            position: relative;
-        }
-        
-        .progress-steps::before {
-            content: '';
-            position: absolute;
-            top: 25px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: rgba(212, 175, 55, 0.3);
-            z-index: 1;
-        }
-        
-        .step {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            flex: 1;
-        }
-        
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            font-weight: 600;
-        }
-        
-        .step.active .step-number {
-            background: #FFD700;
-            color: #140025;
-            border-color: #FFD700;
-        }
-        
-        .step.completed .step-number {
-            background: #4CAF50;
-            color: white;
-            border-color: #4CAF50;
-        }
-
-        /* COMPLETION CERTIFICATE */
-        .completion-certificate {
-            background: rgba(212, 175, 55, 0.1);
-            padding: 50px 40px;
-            border-radius: 20px;
-            margin: 60px 0;
-            border: 2px solid #FFD700;
-            text-align: center;
-            position: relative;
-        }
-        
-        .completion-certificate::before {
-            content: '𓂀';
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 4em;
-            opacity: 0.1;
-            color: #FFD700;
-        }
-        
-        .btn-complete {
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-            color: white;
-            padding: 20px 45px;
-            border-radius: 10px;
-            border: none;
-            font-size: 1.2em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 20px 10px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .btn-complete:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(76, 175, 80, 0.3);
         }
 
         .hieroglyph-header {
@@ -981,13 +867,6 @@
                 margin: 10px;
                 font-size: 1em;
             }
-            .progress-steps {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .progress-steps::before {
-                display: none;
-            }
         }
 
         /* Print Styles */
@@ -1011,44 +890,10 @@
     </style>
 </head>
 <body>
-    <!-- LOCK SCREEN (for Week 3 navigation attempts) -->
-    <div class="lock-screen" id="lockScreen">
-        <div style="font-size: 4em; margin-bottom: 20px; color: #FFD700;">🔒</div>
-        <h2 style="color: #FFD700; margin-bottom: 20px;">Week 3 is Locked</h2>
-        <p style="color: #f7eaff; max-width: 600px; margin-bottom: 30px; font-size: 1.1em;">
-            Complete the <strong>Week 2 Sacred Flame Workbook</strong> to unlock Week 3: The Veil & Voice.
-        </p>
-        <button class="sacred-btn" onclick="hideLockScreen()" style="margin-bottom: 15px;">
-            Continue Workbook
-        </button>
-        <a href="index.html" class="sacred-btn" style="background: rgba(255, 215, 0, 0.1);">
-            ← Return to Week 2
-        </a>
-        <p style="margin-top: 30px; color: #8c78ff; font-size: 0.9em;">
-            Your progress is automatically saved. Complete the workbook exercises to proceed.
-        </p>
-    </div>
-
     <div class="sacred-container">
         <div class="hieroglyph-header">
             <h1 class="sacred-title">𓂀 THE SACRED FLAME 𓂀</h1>
             <div class="kemetic-subtitle">Week 2: Forces 8-14 of Ma'at - The Fire of Creation</div>
-            
-            <!-- PROGRESS STEPS -->
-            <div class="progress-steps">
-                <div class="step completed">
-                    <div class="step-number">1</div>
-                    <div>Study Forces 8-14</div>
-                </div>
-                <div class="step active">
-                    <div class="step-number">2</div>
-                    <div>Complete Exercises</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div>Unlock Week 3</div>
-                </div>
-            </div>
             
             <div class="progress-tracker">
                 <div style="color: #FFD700; font-weight: bold; font-size: 1.2em;">Your Journey:</div>
@@ -1956,37 +1801,6 @@ Sanctuary (How you access inner peace):"></textarea>
             </div>
         </div>
 
-        <!-- COMPLETION CERTIFICATE SECTION -->
-        <div class="completion-certificate" id="completionSection">
-            <h2 style="color:#FFD700; margin-bottom:30px; font-size:2.5em;">
-                𓂀 Sacred Flame Completion 𓂀
-            </h2>
-            
-            <p style="max-width:700px; margin:30px auto; color:#f7eaff; font-size:1.1em;">
-                By completing this workbook, you demonstrate mastery over Forces 8-14 of Ma'at and unlock access to Week 3: The Veil & Voice.
-            </p>
-            
-            <div class="ritual-instruction" style="text-align:left; margin:40px auto; max-width:600px;">
-                <p><strong>Completion Requirements:</strong></p>
-                <ul>
-                    <li>✓ Complete all 7 Force exercises</li>
-                    <li>✓ Fill out all reflection fields</li>
-                    <li>✓ Perform the Week 2 sunrise practices</li>
-                    <li>✓ Participate in the completion ceremony</li>
-                </ul>
-            </div>
-            
-            <button class="btn-complete" onclick="completeWorkbook()" id="completeButton">
-                ✅ Mark Workbook as Complete
-            </button>
-            
-            <div style="margin-top:40px; padding:20px; background:rgba(255,255,255,0.03); border-radius:10px; border:1px solid rgba(255, 215, 0, 0.2); max-width:600px; margin-left:auto; margin-right:auto;">
-                <p style="color:#f7eaff; font-size:0.9em;">
-                    <strong>Note:</strong> Upon completion, you'll be able to access Week 3: The Veil & Voice. Your progress is permanently recorded.
-                </p>
-            </div>
-        </div>
-
         <!-- WEEK COMPLETION CEREMONY -->
         <div class="completion-box">
             <h2 style="color:#FFD700; margin-bottom:30px; font-size:2.5em;">
@@ -2054,12 +1868,7 @@ Sanctuary (How you access inner peace):"></textarea>
                 </button>
                 
                 <a href="index.html" class="sacred-btn" style="background:rgba(255,255,255,0.1);">
-                    <span class="hieroglyph">🏛️</span> Return to Week 2
-                </a>
-                
-                <!-- This link only appears when workbook is completed -->
-                <a href="../week3/index.html" class="sacred-btn" id="unlockWeek3Link" style="display: none; background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);">
-                    <span class="hieroglyph">🔓</span> Unlock Week 3
+                    <span class="hieroglyph">🏛️</span> Hall of Truth Portal
                 </a>
             </div>
             
@@ -2084,8 +1893,11 @@ Sanctuary (How you access inner peace):"></textarea>
             </div>
             
             <div style="margin-top:50px; padding:40px; background:rgba(255,255,255,0.05); border-radius:20px; border:1px solid #FFD700;">
-                <h3 style="color:#FFD700;">𓍹 WEEK 3 PREVIEW: The Veil & Voice (Forces 15-21) 𓍹</h3>
-                <p style="margin:20px 0;">Prepare for the journey inward with Forces 15-21: The guardians of integrity, sacred restraint, and measured speech.</p>
+                <h3 style="color:#FFD700;">𓍹 WEEK 3 PREVIEW: The Silent Watchers (Forces 15-21) 𓍹</h3>
+                <p style="margin:20px 0;">Prepare for the journey inward with Forces 15-21: The guardians of inner space, sacred silence, and divine listening.</p>
+                <button class="sacred-btn" style="background:transparent; border:2px solid #FFD700;">
+                    <span class="hieroglyph">🔜</span> Continue to Week 3
+                </button>
             </div>
         </div>
     </div>
@@ -2152,7 +1964,7 @@ Sanctuary (How you access inner peace):"></textarea>
         // Auto-save textareas
         document.querySelectorAll('textarea').forEach(textarea => {
             textarea.addEventListener('input', function() {
-                const key = `week2-${this.closest('.force-section')?.id}-${this.closest('.sacred-practice, .sunrise-ritual, .journal-prompt').querySelector('.practice-title, h3')?.textContent || 'note'}`;
+                const key = `week2-${this.closest('.force-section').id}-${this.closest('.sacred-practice, .sunrise-ritual, .journal-prompt').querySelector('.practice-title, h3')?.textContent || 'note'}`;
                 localStorage.setItem(key, this.value);
             });
             
@@ -2164,143 +1976,8 @@ Sanctuary (How you access inner peace):"></textarea>
             }
         });
 
-        // WORKBOOK COMPLETION SYSTEM
-        function completeWorkbook() {
-            // Check if all required fields are filled
-            const requiredFields = document.querySelectorAll('textarea');
-            let emptyFields = 0;
-            
-            requiredFields.forEach(field => {
-                if (field.value.trim() === '' && !field.placeholder.includes('optional')) {
-                    emptyFields++;
-                }
-            });
-            
-            if (emptyFields > 0) {
-                if (!confirm(`You have ${emptyFields} empty reflection fields. Mark as complete anyway?`)) {
-                    return;
-                }
-            }
-            
-            // Mark workbook as completed
-            localStorage.setItem('week2_workbook_completed', 'true');
-            localStorage.setItem('week2_completed_date', new Date().toISOString());
-            
-            // Update progress steps
-            document.querySelectorAll('.step')[2].classList.add('completed');
-            
-            // Show success message
-            showNotification('🎉 Sacred Flame Workbook Completed! Week 3 is now unlocked.', 'success');
-            
-            // Update completion section
-            document.getElementById('completeButton').style.display = 'none';
-            document.getElementById('unlockWeek3Link').style.display = 'inline-flex';
-            
-            // Update completion certificate
-            const completionSection = document.getElementById('completionSection');
-            completionSection.innerHTML = `
-                <h2 style="color:#4CAF50; margin-bottom:30px; font-size:2.5em;">
-                    ✅ Sacred Flame Completed
-                </h2>
-                
-                <div style="font-size: 4em; margin: 30px 0; color: #FFD700;">𓂀</div>
-                
-                <p style="max-width:700px; margin:30px auto; color:#f7eaff; font-size:1.1em;">
-                    <strong>Completion Date:</strong> ${new Date().toLocaleDateString()}<br>
-                    <strong>Forces Mastered:</strong> 8-14 of Ma'at<br>
-                    <strong>Next Gateway:</strong> Week 3 - The Veil & Voice
-                </p>
-                
-                <div style="margin:40px auto; max-width:600px; background:rgba(76, 175, 80, 0.1); padding:25px; border-radius:10px; border:1px solid #4CAF50;">
-                    <p style="color:#f7eaff; font-family:'Georgia', serif; font-style:italic;">
-                        "The flame that consumed deception now illuminates truth. You walk as living heka."
-                    </p>
-                </div>
-                
-                <a href="../week3/index.html" class="sacred-btn" style="margin:20px; background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);">
-                    <span class="hieroglyph">🔓</span> Proceed to Week 3: The Veil & Voice →
-                </a>
-                
-                <a href="index.html" class="sacred-btn" style="background:rgba(255,255,255,0.1);">
-                    ← Return to Week 2 Overview
-                </a>
-            `;
-            
-            // Auto-redirect after 5 seconds
-            setTimeout(() => {
-                if (confirm('Workbook completed! Would you like to proceed to Week 3 now?')) {
-                    window.location.href = '../week3/index.html';
-                }
-            }, 5000);
-        }
-        
-        // Check workbook completion status
-        function checkWorkbookStatus() {
-            const workbookCompleted = localStorage.getItem('week2_workbook_completed');
-            
-            if (workbookCompleted === 'true') {
-                // Update progress steps
-                document.querySelectorAll('.step')[2].classList.add('completed');
-                
-                // Show unlock link
-                document.getElementById('unlockWeek3Link').style.display = 'inline-flex';
-                
-                // Hide complete button
-                document.getElementById('completeButton').style.display = 'none';
-            }
-        }
-        
-        function hideLockScreen() {
-            document.getElementById('lockScreen').classList.remove('active');
-        }
-        
-        function showNotification(message, type) {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: ${type === 'success' ? 'rgba(76, 175, 80, 0.9)' : 'rgba(255, 87, 87, 0.9)'};
-                color: white;
-                padding: 15px 25px;
-                border-radius: 8px;
-                z-index: 10000;
-                font-family: 'Georgia', serif;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-                animation: slideIn 0.3s ease;
-            `;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
-            }, 5000);
-        }
-        
         // Initialize first force as active
         document.addEventListener('DOMContentLoaded', function() {
-            checkWorkbookStatus();
-            
-            // Check if coming from Week 3 without completion
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('locked') === 'true') {
-                document.getElementById('lockScreen').classList.add('active');
-            }
-            
-            // Intercept Week 3 navigation attempts
-            document.querySelectorAll('a[href*="week3"]').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const workbookCompleted = localStorage.getItem('week2_workbook_completed');
-                    
-                    if (workbookCompleted !== 'true') {
-                        e.preventDefault();
-                        document.getElementById('lockScreen').classList.add('active');
-                    }
-                });
-            });
-            
             document.querySelector('.tracker-dot').classList.add('active');
             
             // Add subtle animation to force numbers on scroll
