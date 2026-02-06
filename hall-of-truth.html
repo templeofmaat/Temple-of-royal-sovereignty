@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Hall of Truth Portal - 42 Forces of Ma'at - $911</title>
+    <title>The Hall of Truth Portal - 42 Forces of Ma'at</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
 
@@ -120,28 +120,133 @@
             letter-spacing: 1px;
         }
 
-        .price-display {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(128, 0, 128, 0.2));
+        /* Sacred Investment Section */
+        .sacred-investment-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(51, 0, 102, 0.2) 100%);
             border: 2px solid #FFD700;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px auto;
-            max-width: 600px;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 50px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .price-tag {
+        .sacred-investment-section::before {
+            content: "𓀭 𓆣 𓁦";
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 1.5em;
+            opacity: 0.1;
+            color: #FFD700;
+        }
+
+        .investment-title {
+            color: #FFD700;
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .investment-amount {
             font-size: 3.5em;
             color: #FFD700;
             font-weight: bold;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
-            margin: 10px 0;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            margin: 20px 0;
+            letter-spacing: 2px;
         }
 
-        .price-label {
-            font-size: 1.2em;
+        .investment-subtitle {
             color: #d4bfff;
-            margin-bottom: 15px;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .investment-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .investment-button {
+            background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+            color: #140025;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: "Georgia", serif;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .investment-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .karma-button {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: "Georgia", serif;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .karma-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.5);
+        }
+
+        .investment-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .detail-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .detail-item h4 {
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+
+        .karma-explanation {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid #4CAF50;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .karma-explanation h4 {
+            color: #4CAF50;
+            margin-top: 0;
         }
 
         .weeks-grid {
@@ -169,11 +274,6 @@
         .week-card.free {
             border-color: #FFD700;
             background: rgba(255, 215, 0, 0.08);
-        }
-
-        .week-card.paid {
-            border-color: #8c78ff;
-            background: rgba(140, 120, 255, 0.08);
         }
 
         .week-header {
@@ -282,17 +382,6 @@
             background: rgba(255, 215, 0, 0.15);
         }
 
-        .week-link.paid {
-            background: linear-gradient(135deg, #8c78ff, #6600cc);
-            color: white;
-            border-color: #8c78ff;
-        }
-
-        .week-link.paid:hover {
-            background: linear-gradient(135deg, #a394ff, #7a3dff);
-            box-shadow: 0 0 20px rgba(140, 120, 255, 0.4);
-        }
-
         .portal-description {
             text-align: center;
             padding: 40px;
@@ -313,6 +402,15 @@
             text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
         }
 
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 215, 0, 0.25);
+            color: #d4bfff;
+            font-size: 0.95em;
+        }
+
         .initiation-badge {
             display: inline-block;
             background: rgba(255, 215, 0, 0.1);
@@ -325,37 +423,18 @@
             letter-spacing: 1px;
         }
 
-        .payment-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #8c78ff, #6600cc);
-            padding: 15px 30px;
-            border-radius: 8px;
-            color: white;
-            font-weight: bold;
-            margin: 25px 0;
-            border: 1px solid #FFD700;
-            letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(140, 120, 255, 0.3);
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 215, 0, 0.25);
-            color: #d4bfff;
-            font-size: 0.95em;
-        }
-
         @media (max-width: 768px) {
             .container { padding: 25px; }
             h1 { font-size: 2.5em; }
             .weeks-grid { grid-template-columns: 1fr; }
             .course-stats { gap: 15px; }
             .stat-box { min-width: 120px; }
-            .price-tag { font-size: 2.5em; }
+            .investment-amount { font-size: 2.5em; }
+            .investment-buttons { flex-direction: column; }
+            .investment-button, .karma-button { width: 100%; }
         }
 
+        /* Animated hieroglyph background */
         .hieroglyph-bg {
             position: fixed;
             top: 0;
@@ -465,33 +544,35 @@
             font-family: "Georgia", serif;
         }
 
-        .purchase-cta {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(140, 120, 255, 0.15));
-            border: 2px solid #FFD700;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
+        #karmaModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .karma-content {
+            background: linear-gradient(135deg, #1A3021, #2E7D32);
+            border: 3px solid #4CAF50;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
             text-align: center;
+            color: white;
+            font-family: "Georgia", serif;
+            box-shadow: 0 0 50px rgba(76, 175, 80, 0.3);
         }
 
-        .purchase-cta h3 {
-            color: #FFD700;
-            margin-bottom: 15px;
-        }
-
-        .benefits-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-            text-align: left;
-        }
-
-        .benefit-item {
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 3px solid #FFD700;
+        .karma-content h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -520,15 +601,9 @@
                     <span class="stat-label">Days of Initiation</span>
                 </div>
                 <div class="stat-box">
-                    <span class="stat-number">911</span>
-                    <span class="stat-label">Sacred Investment</span>
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Transformed Life</span>
                 </div>
-            </div>
-
-            <div class="price-display">
-                <div class="price-label">Full Lifetime Access to Complete Curriculum</div>
-                <div class="price-tag">$911</div>
-                <div class="price-label">One-time payment • Complete Weeks 2-7</div>
             </div>
         </div>
 
@@ -540,38 +615,67 @@
             </div>
 
             <p>Each gateway represents an active force of cosmic order. To pass through is to demonstrate that your life is a perfect microcosm of divine law.</p>
-            
+            <p><strong>Begin with The Extended Stride</strong> – your free initiation into Force 1-7. Walk the path that the gods ordained.</p>
+
             <div class="initiation-badge">
-                𓂀 Week 1: FREELY GIVEN 𓂀
-            </div>
-            <div class="payment-badge">
-                𓂀 Weeks 2-7: SACRED INVESTMENT ($911) 𓂀
+                𓂀 First Gateway: FREELY GIVEN 𓂀
             </div>
         </div>
 
-        <div class="purchase-cta">
-            <h3>What Your Sacred Investment Grants:</h3>
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <strong>6 Complete Gateways</strong>
-                    <p>Full access to Weeks 2-7 of the journey</p>
+        <!-- Sacred Investment Section -->
+        <div class="sacred-investment-section">
+            <h2 class="investment-title">Sacred Investment in Your Spiritual Evolution</h2>
+            
+            <div class="investment-amount">$911</div>
+            
+            <p class="investment-subtitle">
+                One-time payment for lifetime access to all 7 gateways of the 42 Forces of Ma'at.
+                This investment supports the temple, ongoing research, and makes this sacred knowledge accessible to all sincere seekers.
+            </p>
+            
+            <div class="investment-details">
+                <div class="detail-item">
+                    <h4>𓁦 What You Receive</h4>
+                    <p>Complete access to Weeks 2-7 (Forces 8-42)</p>
+                    <p>Digital workbooks & meditations</p>
+                    <p>Lifetime updates to the curriculum</p>
+                    <p>Community access (coming soon)</p>
                 </div>
-                <div class="benefit-item">
-                    <strong>35 Divine Forces</strong>
-                    <p>In-depth study of Judges 8-42</p>
+                
+                <div class="detail-item">
+                    <h4>𓀭 Sacred Exchange</h4>
+                    <p>Your investment maintains the temple's independence</p>
+                    <p>Supports translation of ancient texts</p>
+                    <p>Funds scholarships for sincere seekers</p>
+                    <p>Honors the energy exchange principle</p>
                 </div>
-                <div class="benefit-item">
-                    <strong>Lifetime Access</strong>
-                    <p>Return to the teachings anytime, forever</p>
-                </div>
-                <div class="benefit-item">
-                    <strong>All Workbooks & Meditations</strong>
-                    <p>Downloadable PDFs and audio guides</p>
+                
+                <div class="detail-item">
+                    <h4>𓆣 Energy Commitment</h4>
+                    <p>This amount ensures serious commitment</p>
+                    <p>Filters casual from dedicated seekers</p>
+                    <p>Vibrational match for transformation</p>
+                    <p>Sacred number of initiation</p>
                 </div>
             </div>
-            <button onclick="goToPayment()" class="week-link paid" style="display: inline-block; width: auto;">
-                🏛️ Make Sacred Investment ($911)
-            </button>
+            
+            <div class="investment-buttons">
+                <button onclick="goToPayment()" class="investment-button">
+                    🏛️ Make Sacred Investment ($911)
+                </button>
+                
+                <button onclick="openKarmaModal()" class="karma-button">
+                    🌿 Choose Karma Option
+                </button>
+            </div>
+            
+            <div class="karma-explanation">
+                <h4>🌿 The Karma Path: Sacred Flexibility</h4>
+                <p>The Karma Option exists for those who feel called to this path but face financial barriers. 
+                It represents the principle of Ma'at that all sincere seekers should have access to sacred knowledge.</p>
+                <p>Choose an amount that honors both your circumstances and the sacred exchange of energy. 
+                No proof required - we trust in your integrity and the laws of Ma'at.</p>
+            </div>
         </div>
 
         <div class="weeks-grid">
@@ -579,124 +683,124 @@
             <div class="week-card free">
                 <div class="week-header">
                     <div class="week-number">1</div>
-                    <div class="force-count">FREE ACCESS</div>
+                    <div class="force-count">Forces 1-7</div>
                 </div>
                 <h3>The Extended Stride</h3>
-                <div class="kemetic-name">Judges 1-7</div>
+                <div class="kemetic-name">Usekh-nemmt • Hept-khet • Fenti • Am-khaibit • Neha-her • Ruruti • Arfi-em-khet</div>
                 <div class="week-theme">
                     Foundation of cosmic alignment. Learn to walk within divine bounds, honor sacred vessels, and practice true ownership.
                 </div>
                 <div class="forces-preview">
-                    <div class="force-item">Judge 1: Staying Within Divine Bounds</div>
-                    <div class="force-item">Judge 2: Honoring Sacred Vessels</div>
-                    <div class="force-item">Judge 3: True Energy Ownership</div>
-                    <div class="force-item">Judge 4: Divine Timing</div>
+                    <div class="force-item">Force 1: Staying Within Divine Bounds</div>
+                    <div class="force-item">Force 2: Honoring Sacred Vessels</div>
+                    <div class="force-item">Force 3: True Energy Ownership</div>
+                    <div class="force-item">Force 4: Divine Timing</div>
                 </div>
                 <a href="portal/week1/index.html" class="week-link free">𓁦 Access Free Gateway 𓁦</a>
             </div>
 
-            <!-- Week 2: The Sacred Flame (PAID) -->
-            <div class="week-card paid">
+            <!-- Week 2: The Sacred Flame -->
+            <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">2</div>
-                    <div class="force-count">Judges 8-14</div>
+                    <div class="force-count">Forces 8-14</div>
                 </div>
                 <h3>The Sacred Flame</h3>
-                <div class="kemetic-name">Sacred Speech & Divine Trust</div>
+                <div class="kemetic-name">Neba • Set-qesu • Utu-nesert • Qerrti • Her-f-ha-f • Basti • Ta-retiu</div>
                 <div class="week-theme">
                     Mastery of creative speech and divine trust. Learn truthful manifestation, protect the vulnerable, and be a source of peace.
                 </div>
                 <div class="forces-preview">
-                    <div class="force-item">Judge 8: Truthful Creative Speech</div>
-                    <div class="force-item">Judge 9: Protecting Foundations</div>
-                    <div class="force-item">Judge 10: Ejecting Corruption</div>
-                    <div class="force-item">Judge 11: Clear Lineages</div>
+                    <div class="force-item">Force 8: Truthful Creative Speech</div>
+                    <div class="force-item">Force 9: Protecting Foundations</div>
+                    <div class="force-item">Force 10: Ejecting Corruption</div>
+                    <div class="force-item">Force 11: Clear Lineages</div>
                 </div>
-                <button onclick="checkAccess(2)" class="week-link paid">Enter Sacred Gateway →</button>
+                <button onclick="checkAccess(2)" class="week-link">Enter Gateway →</button>
             </div>
 
-            <!-- Week 3: The Veil & The Voice (PAID) -->
-            <div class="week-card paid">
+            <!-- Week 3: The Veil & The Voice -->
+            <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">3</div>
-                    <div class="force-count">Judges 15-21</div>
+                    <div class="force-count">Forces 15-21</div>
                 </div>
                 <h3>The Veil & The Voice</h3>
-                <div class="kemetic-name">Integrity & Sacred Restraint</div>
+                <div class="kemetic-name">Unem-snef • Unem-besek • Neb-Ma'at • Tenemiu • Sertiu • Tutu • Uamenti</div>
                 <div class="week-theme">
                     Integrity and sacred restraint. Walk straight paths, honor creation's work, and maintain personal purity.
                 </div>
                 <div class="forces-preview">
-                    <div class="force-item">Judge 15: The Straight Path</div>
-                    <div class="force-item">Judge 16: Honoring Creation</div>
-                    <div class="force-item">Judge 17: Respecting Privacy</div>
-                    <div class="force-item">Judge 18: Restrained Speech</div>
+                    <div class="force-item">Force 15: The Straight Path</div>
+                    <div class="force-item">Force 16: Honoring Creation</div>
+                    <div class="force-item">Force 17: Respecting Privacy</div>
+                    <div class="force-item">Force 18: Restrained Speech</div>
                 </div>
-                <button onclick="checkAccess(3)" class="week-link paid">Enter Sacred Gateway →</button>
+                <button onclick="checkAccess(3)" class="week-link">Enter Gateway →</button>
             </div>
 
-            <!-- Week 4: The Solar Path (PAID) -->
-            <div class="week-card paid">
+            <!-- Week 4: The Solar Path -->
+            <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">4</div>
-                    <div class="force-count">Judges 22-28</div>
+                    <div class="force-count">Forces 22-28</div>
                 </div>
                 <h3>The Solar Path</h3>
-                <div class="kemetic-name">Righteous Action & Discernment</div>
+                <div class="kemetic-name">Maa-antef • Khemi • Utu-nes • Khaui • Nekhen • Nekher • Ser-kheru</div>
                 <div class="week-theme">
                     Righteous action and discernment. Learn measured wrath, authentic being, earth stewardship, and constructive speech.
                 </div>
                 <div class="forces-preview">
-                    <div class="force-item">Judge 22: Non-Terrorizing</div>
-                    <div class="force-item">Judge 23: Pattern Integrity</div>
-                    <div class="force-item">Judge 24: Measured Wrath</div>
-                    <div class="force-item">Judge 25: Authentic Being</div>
+                    <div class="force-item">Force 22: Non-Terrorizing</div>
+                    <div class="force-item">Force 23: Pattern Integrity</div>
+                    <div class="force-item">Force 24: Measured Wrath</div>
+                    <div class="force-item">Force 25: Authentic Being</div>
                 </div>
-                <button onclick="checkAccess(4)" class="week-link paid">Enter Sacred Gateway →</button>
+                <button onclick="checkAccess(4)" class="week-link">Enter Gateway →</button>
             </div>
 
-            <!-- Week 5: The Divine Honor (PAID) -->
-            <div class="week-card paid">
+            <!-- Week 5: The Sacred Waters -->
+            <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">5</div>
-                    <div class="force-count">Judges 29-35</div>
+                    <div class="force-count">Forces 29-35</div>
                 </div>
-                <h3>The Divine Honor</h3>
-                <div class="kemetic-name">Temple Guardians & Reverence</div>
+                <h3>The Sacred Waters</h3>
+                <div class="kemetic-name">Shei • Rekhi • Heru-khenti-khas • Sef-kha • Khenti-khas • An-hetep • Serti</div>
                 <div class="week-theme">
-                    Sacred respect, divine honor, and temple integrity. Become a living sanctuary where reverence informs every action.
+                    Purity, flow, and community harmony. Master controlled force, patient judgment, concise truth, and peace-bringing.
                 </div>
                 <div class="forces-preview">
-                    <div class="force-item">Judge 29: Anti-Blasphemy</div>
-                    <div class="force-item">Judge 30: Temple Integrity</div>
-                    <div class="force-item">Judge 31: Environmental Reverence</div>
-                    <div class="force-item">Judge 32: Peace in Sacred Spaces</div>
+                    <div class="force-item">Force 29: Controlled Force</div>
+                    <div class="force-item">Force 30: Community Harmony</div>
+                    <div class="force-item">Force 31: Patient Judgment</div>
+                    <div class="force-item">Force 32: Respecting Privacy</div>
                 </div>
-                <button onclick="checkAccess(5)" class="week-link paid">Enter Sacred Gateway →</button>
+                <button onclick="checkAccess(5)" class="week-link">Enter Gateway →</button>
             </div>
 
-            <!-- Week 6: The Right Action (PAID) -->
-            <div class="week-card paid">
+            <!-- Week 6: The Eye of Judgment -->
+            <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">6</div>
-                    <div class="force-count">Judges 36-42</div>
+                    <div class="force-count">Forces 36-42</div>
                 </div>
-                <h3>The Right Action</h3>
-                <div class="kemetic-name">Balanced Heart & Final Discernment</div>
+                <h3>The Eye of Judgment</h3>
+                <div class="kemetic-name">Neb-heru • Khenemti • Pa-heri • Serekhi • Ahi • Uatch-ner • Hetch-abhu</div>
                 <div class="week-theme">
                     Final discernment and stewardship. Practice pure expression, recognize divinity, maintain flow, and sacred stewardship.
                 </div>
                 <div class="forces-preview">
-                    <div class="force-item">Judge 36: Pure Expression</div>
-                    <div class="force-item">Judge 37: Recognizing Divinity</div>
-                    <div class="force-item">Judge 38: Divine Honor</div>
-                    <div class="force-item">Judge 39: Authentic Reputation</div>
+                    <div class="force-item">Force 36: Pure Expression</div>
+                    <div class="force-item">Force 37: Recognizing Divinity</div>
+                    <div class="force-item">Force 38: Divine Honor</div>
+                    <div class="force-item">Force 39: Authentic Reputation</div>
                 </div>
-                <button onclick="checkAccess(6)" class="week-link paid">Enter Sacred Gateway →</button>
+                <button onclick="checkAccess(6)" class="week-link">Enter Gateway →</button>
             </div>
 
-            <!-- Week 7: The Complete Garment (PAID) -->
-            <div class="week-card paid">
+            <!-- Week 7: The Complete Garment -->
+            <div class="week-card">
                 <div class="week-header">
                     <div class="week-number">7</div>
                     <div class="force-count">Integration</div>
@@ -712,19 +816,8 @@
                     <div class="force-item">Initiation Ceremony</div>
                     <div class="force-item">Living Embodiment</div>
                 </div>
-                <button onclick="checkAccess(7)" class="week-link paid">𓀭 Final Initiation 𓀭</button>
+                <button onclick="checkAccess(7)" class="week-link">𓀭 Final Initiation 𓀭</button>
             </div>
-        </div>
-
-        <div class="purchase-cta">
-            <h3>Ready for Full Initiation?</h3>
-            <p>Invest $911 once for lifetime access to the complete 42 Forces of Ma'at journey.</p>
-            <button onclick="goToPayment()" class="week-link paid" style="display: inline-block; width: auto; font-size: 1.3em; padding: 20px 40px;">
-                🏛️ INVEST $911 FOR FULL ACCESS 🏛️
-            </button>
-            <p style="margin-top: 20px; font-size: 0.9em; color: #d4bfff;">
-                Includes Weeks 2-7 • All workbooks and meditations • Lifetime access • Free updates forever
-            </p>
         </div>
 
         <div class="footer">
@@ -736,16 +829,11 @@
         </div>
     </div>
 
-    <!-- Payment/Token Modal -->
+    <!-- Payment Modal -->
     <div id="paymentModal">
         <div class="modal-content">
             <h2>Sacred Investment Required</h2>
             <p>One-time payment of $911 grants lifetime access to Weeks 2-7 of the 42 Forces of Ma'at.</p>
-            
-            <div style="margin: 25px 0; padding: 20px; background: rgba(255, 215, 0, 0.1); border-radius: 10px;">
-                <div style="font-size: 2.5em; color: #FFD700; font-weight: bold;">$911</div>
-                <div style="color: #d4bfff;">One-time payment • Lifetime access</div>
-            </div>
             
             <button onclick="goToPayment()" class="modal-button">
                 🏛️ Make Sacred Investment ($911)
@@ -766,8 +854,37 @@
         </div>
     </div>
 
+    <!-- Karma Modal -->
+    <div id="karmaModal">
+        <div class="karma-content">
+            <h2>🌿 The Karma Path</h2>
+            <p>This path honors the principle of Ma'at that sacred knowledge should be accessible to all sincere seekers.</p>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h4>How the Karma Option Works:</h4>
+                <ol style="text-align: left; margin: 20px; padding-left: 20px;">
+                    <li>Choose an amount that feels right for your current circumstances</li>
+                    <li>No proof of income or situation required - we trust in Ma'at</li>
+                    <li>Make your payment through the link below</li>
+                    <li>Receive immediate access to all content</li>
+                </ol>
+            </div>
+            
+            <div style="margin: 30px 0;">
+                <button onclick="goToKarmaPayment()" class="modal-button" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);">
+                    🌿 Continue with Karma Option
+                </button>
+                <button onclick="closeKarmaModal()" class="cancel-button">Return to Portal</button>
+            </div>
+            
+            <p style="font-size: 0.9em; color: #d4bfff;">
+                Suggested amounts: $111, $222, $333, or any amount that honors both your situation and the sacred exchange.
+            </p>
+        </div>
+    </div>
+
     <script>
-        // Animated hieroglyph background (gold-colored glyphs)
+        // Animated hieroglyph background
         const bg = document.getElementById('hieroglyph-bg');
         const glyphs = ["𓀭", "𓁦", "𓃩", "𓆣", "𓂀", "𓃒", "𓅓"];
 
@@ -782,7 +899,7 @@
             bg.appendChild(glyph);
         }
 
-        // Subtle hover interaction on week cards
+        // Hover interaction on week cards
         document.querySelectorAll('.week-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.zIndex = '10';
@@ -792,7 +909,7 @@
             });
         });
 
-        // Check access for specific week
+        // Modal functions
         function checkAccess(weekNum) {
             if (weekNum === 1) {
                 window.location.href = 'portal/week1/index.html';
@@ -800,22 +917,29 @@
             }
             
             if (window.maatAuth && window.maatAuth.checkWeek(weekNum)) {
-                // Has access - redirect to week page
                 window.location.href = 'portal/week' + weekNum + '/index.html';
             } else {
-                // No access - show payment modal
                 document.getElementById('paymentModal').style.display = 'flex';
-                // Store which week they tried to access
                 window.currentWeek = weekNum;
             }
         }
         
-        // Go to Stripe payment
         function goToPayment() {
             window.location.href = 'https://buy.stripe.com/5kQcN55xt2EY8ycbZF77O0w';
         }
         
-        // Enter and validate token
+        function goToKarmaPayment() {
+            window.location.href = 'https://buy.stripe.com/eVa4hXeK91UYdwc8wq77O0w';
+        }
+        
+        function openKarmaModal() {
+            document.getElementById('karmaModal').style.display = 'flex';
+        }
+        
+        function closeKarmaModal() {
+            document.getElementById('karmaModal').style.display = 'none';
+        }
+        
         function enterToken() {
             const token = document.getElementById('tokenInput').value.trim();
             if (!token) {
@@ -828,44 +952,39 @@
                 alert('Access granted! You now have access to all paid weeks.');
                 closeModal();
                 
-                // If they were trying to access a specific week, go there
                 if (window.currentWeek) {
                     window.location.href = 'portal/week' + window.currentWeek + '/index.html';
                 } else {
-                    location.reload(); // Refresh to update buttons
+                    location.reload();
                 }
             } else {
                 alert('Authentication system not loaded. Please refresh page.');
             }
         }
         
-        // Close modal
         function closeModal() {
             document.getElementById('paymentModal').style.display = 'none';
             document.getElementById('tokenInput').value = '';
             window.currentWeek = null;
         }
         
-        // On page load, check if user already has access
+        // Initialize access on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Wait a moment for auth to load
             setTimeout(function() {
                 if (window.maatAuth && window.maatAuth.hasAccess()) {
-                    // User has paid access - update all buttons to links
-                    const buttons = document.querySelectorAll('button.week-link.paid');
+                    // Convert buttons to links for users with access
+                    const buttons = document.querySelectorAll('button.week-link');
                     buttons.forEach(btn => {
                         const onclickAttr = btn.getAttribute('onclick');
                         if (onclickAttr) {
                             const match = onclickAttr.match(/checkAccess\((\d+)\)/);
                             if (match) {
                                 const weekNum = match[1];
-                                // Create new link
                                 const link = document.createElement('a');
                                 link.href = 'portal/week' + weekNum + '/index.html';
-                                link.className = 'week-link paid';
+                                link.className = 'week-link';
                                 link.innerHTML = btn.innerHTML;
                                 link.style.cursor = 'pointer';
-                                // Replace button with link
                                 btn.parentNode.replaceChild(link, btn);
                             }
                         }
@@ -897,30 +1016,32 @@
                     
                     // Show access badge
                     const accessBadge = document.createElement('div');
-                    accessBadge.className = 'payment-badge';
+                    accessBadge.className = 'initiation-badge';
                     accessBadge.innerHTML = '𓂀 Full Access Granted 𓂀';
                     accessBadge.style.marginTop = '20px';
                     document.querySelector('.portal-description').appendChild(accessBadge);
-                    
-                    // Remove purchase CTAs
-                    document.querySelectorAll('.purchase-cta').forEach(cta => {
-                        cta.style.display = 'none';
-                    });
                 }
             }, 500);
         });
         
-        // Close modal on ESC key
+        // Close modals on ESC key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
+                closeModal();
+                closeKarmaModal();
+            }
+        });
+        
+        // Close modals when clicking outside
+        document.getElementById('paymentModal').addEventListener('click', function(e) {
+            if (e.target.id === 'paymentModal') {
                 closeModal();
             }
         });
         
-        // Close modal when clicking outside
-        document.getElementById('paymentModal').addEventListener('click', function(e) {
-            if (e.target.id === 'paymentModal') {
-                closeModal();
+        document.getElementById('karmaModal').addEventListener('click', function(e) {
+            if (e.target.id === 'karmaModal') {
+                closeKarmaModal();
             }
         });
     </script>
