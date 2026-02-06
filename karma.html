@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ishfet-Maat Path - Sacred Balance Gateway</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body.karma-page {
+            background: linear-gradient(rgba(26, 48, 33, 0.92), rgba(20, 40, 25, 0.88)),
+                        url('images/karma-path-bg.jpg') center/cover no-repeat fixed;
+            background-color: #142819;
+            color: #f7fffa;
+            font-family: "Georgia", serif;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(26, 48, 33, 0.85);
+            border-radius: 12px;
+            border: 3px solid #4CAF50;
+            box-shadow: 0 0 40px rgba(76, 175, 80, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "𓃒 → 𓁦";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
+            opacity: 0.08;
+            color: #4CAF50;
+            z-index: 0;
+        }
+
+        .header {
+            text-align: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(76, 175, 80, 0.3);
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 3em;
+            margin: 30px 0 20px;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+
+        .hieroglyph-title {
+            font-size: 2em;
+            margin-bottom: 15px;
+            opacity: 0.6;
+            color: #4CAF50;
+        }
+
+        .subtitle {
+            color: #c8ffd4;
+            font-size: 1.4em;
+            margin: 20px 0 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .warning-banner {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.2) 0%, rgba(192, 57, 43, 0.2) 100%);
+            border: 2px solid #E74C3C;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .warning-banner h3 {
+            color: #E74C3C;
+            margin-top: 0;
+        }
+
+        .tiers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .tier-card {
+            background: rgba(255,255,255,0.06);
+            border: 2px solid #4CAF50;
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border: 1px solid #4CAF50;
+        }
+
+        .tier-price {
+            font-size: 2.5em;
+            color: #4CAF50;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+
+        .tier-timeline {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .includes-list, .excludes-list {
+            margin: 25px 0;
+        }
+
+        .includes-list h4, .excludes-list h4 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .includes-list ul, .excludes-list ul {
+            padding-left: 20px;
+        }
+
+        .includes-list li {
+            color: #c8ffd4;
+            margin: 8px 0;
+            list-style-type: "✓ ";
+        }
+
+        .excludes-list li {
+            color: #ffb8b8;
+            margin: 8px 0;
+            list-style-type: "✗ ";
+        }
+
+        .purchase-button {
+            display: block;
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            padding: 18px 30px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: "Georgia", serif;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .purchase-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.5);
+        }
+
+        .sacred-contract {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .sacred-contract h3 {
+            color: #FFD700;
+            margin-top: 0;
+        }
+
+        .contract-terms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .contract-term {
+            background: rgba(255, 215, 0, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid #FFD700;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            color: #FFD700;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 40px;
+            transition: all 0.3s ease;
+            border: 1px solid #FFD700;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(76, 175, 80, 0.3);
+            color: #c8ffd4;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 25px; }
+            h1 { font-size: 2.5em; }
+            .tiers-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="karma-page">
+    <div class="container">
+        <div class="header">
+            <div class="hieroglyph-title">𓃒 → 𓁦</div>
+            <h1>THE ISHFET-MAAT PATH</h1>
+            <div class="subtitle">Sacred Balance Through Energetic Commitment • Self-Guided Transformation</div>
+            
+            <div class="warning-banner">
+                <h3>⚠️ IMPORTANT WARNING: THIS IS A SELF-TAUGHT PATH</h3>
+                <p>The Ishfet-Maat Path provides <strong>only the curriculum materials</strong>. 
+                You receive <strong>NO instructor guidance, NO one-on-one help, and NO group chat access</strong>.</p>
+                <p>This path requires <strong>complete self-discipline and personal responsibility</strong>.</p>
+            </div>
+        </div>
+
+        <div class="sacred-contract">
+            <h3>𓂀 THE SACRED CONTRACT</h3>
+            <p>By choosing this path, you enter a binding spiritual agreement monitored by cosmic law:</p>
+            
+            <div class="contract-terms">
+                <div class="contract-term">
+                    <h4>📜 Completion Required</h4>
+                    <p>You must complete all 7 weeks within your chosen timeframe or lose access permanently.</p>
+                </div>
+                
+                <div class="contract-term">
+                    <h4>👁️ Temple Monitoring</h4>
+                    <p>Your progress will be tracked through weekly reflection submissions.</p>
+                </div>
+                
+                <div class="contract-term">
+                    <h4>⚖️ No Extensions</h4>
+                    <p>If you fail to complete in time, you must purchase the full $911 course to continue.</p>
+                </div>
+            </div>
+            
+            <p><strong>This path is ONLY for those with strong self-discipline and commitment.</strong></p>
+        </div>
+
+        <div class="tiers-container">
+            <!-- Beginner's Commitment -->
+            <div class="tier-card">
+                <div class="tier-badge">BEGINNER'S COMMITMENT</div>
+                <h2>The First Step</h2>
+                <div class="tier-price">$111</div>
+                
+                <div class="tier-timeline">
+                    <h4>⏳ 55-DAY COMPLETION WINDOW</h4>
+                    <p>You have <strong>55 days</strong> to complete all 7 gateways.</p>
+                    <p>That's about 8 days per gateway.</p>
+                </div>
+                
+                <div class="includes-list">
+                    <h4>✅ INCLUDES:</h4>
+                    <ul>
+                        <li>Access to Weeks 2-7 course materials</li>
+                        <li>Digital workbooks & meditations</li>
+                        <li>Lifetime access after completion</li>
+                        <li>Basic progress tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="excludes-list">
+                    <h4>❌ NOT INCLUDED:</h4>
+                    <ul>
+                        <li>No instructor guidance</li>
+                        <li>No one-on-one help</li>
+                        <li>No group chat access</li>
+                        <li>No community support</li>
+                        <li>No email support</li>
+                    </ul>
+                </div>
+                
+                <a href="https://buy.stripe.com/aFadR95xtdjCaGk7Jp77O0z" class="purchase-button">
+                    🌿 Choose Beginner's Commitment ($111)
+                </a>
+            </div>
+
+            <!-- Seeker's Pledge -->
+            <div class="tier-card">
+                <div class="tier-badge">SEEKER'S PLEDGE</div>
+                <h2>The Dedicated Journey</h2>
+                <div class="tier-price">$222</div>
+                
+                <div class="tier-timeline">
+                    <h4>⏳ 70-DAY COMPLETION WINDOW</h4>
+                    <p>You have <strong>70 days</strong> to complete all 7 gateways.</p>
+                    <p>That's 10 days per gateway.</p>
+                </div>
+                
+                <div class="includes-list">
+                    <h4>✅ INCLUDES:</h4>
+                    <ul>
+                        <li>Access to Weeks 2-7 course materials</li>
+                        <li>Digital workbooks & meditations</li>
+                        <li>Lifetime access after completion</li>
+                        <li>Enhanced progress tracking</li>
+                        <li>Weekly reminder emails</li>
+                    </ul>
+                </div>
+                
+                <div class="excludes-list">
+                    <h4>❌ NOT INCLUDED:</h4>
+                    <ul>
+                        <li>No instructor guidance</li>
+                        <li>No one-on-one help</li>
+                        <li>No group chat access</li>
+                        <li>No community support</li>
+                        <li>No email support</li>
+                    </ul>
+                </div>
+                
+                <a href="https://buy.stripe.com/cNidR90d90wQ4hW5Bh77O0y" class="purchase-button">
+                    🌿 Choose Seeker's Pledge ($222)
+                </a>
+            </div>
+
+            <!-- Initiate's Vow -->
+            <div class="tier-card">
+                <div class="tier-badge">INITIATE'S VOW</div>
+                <h2>The Serious Transformation</h2>
+                <div class="tier-price">$333</div>
+                
+                <div class="tier-timeline">
+                    <h4>⏳ 90-DAY COMPLETION WINDOW</h4>
+                    <p>You have <strong>90 days</strong> to complete all 7 gateways.</p>
+                    <p>That's about 13 days per gateway.</p>
+                </div>
+                
+                <div class="includes-list">
+                    <h4>✅ INCLUDES:</h4>
+                    <ul>
+                        <li>Access to Weeks 2-7 course materials</li>
+                        <li>Digital workbooks & meditations</li>
+                        <li>Lifetime access after completion</li>
+                        <li>Intensive progress tracking</li>
+                        <li>Weekly reminder emails</li>
+                        <li>Bi-weekly progress check-ins</li>
+                    </ul>
+                </div>
+                
+                <div class="excludes-list">
+                    <h4>❌ NOT INCLUDED:</h4>
+                    <ul>
+                        <li>No instructor guidance</li>
+                        <li>No one-on-one help</li>
+                        <li>No group chat access</li>
+                        <li>No community support</li>
+                        <li>No email support</li>
+                    </ul>
+                </div>
+                
+                <a href="https://buy.stripe.com/4gM8wP9NJdjC9Cg7Jp77O0x" class="purchase-button">
+                    🌿 Choose Initiate's Vow ($333)
+                </a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="hall-of-truth.html" class="back-link">← Return to Main Portal</a>
+            
+            <div style="margin-top: 40px; padding: 25px; background: rgba(0,0,0,0.2); border-radius: 10px;">
+                <h4>⚖️ Before You Choose:</h4>
+                <p><strong>Full Course ($911) includes:</strong> Instructor guidance, group chat, one-on-one help, community support, email support, no time limit.</p>
+                <p><strong>Ishfet-Maat Path includes:</strong> Only the curriculum materials. You are completely on your own.</p>
+                <p><strong>Choose wisely based on your self-discipline level.</strong></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>For questions about the Ishfet-Maat Path: <strong>karmapath@templeofmaat.com</strong></p>
+            <p>© The Temple of Ma'at • Walk the Path of Self-Discipline</p>
+            <p style="font-size:0.9em; margin-top:20px; color:#c8ffd4; font-style: italic;">
+                "The Ishfet-Maat Path separates those who need guidance from those who can guide themselves."
+            </p>
+        </div>
+    </div>
+</body>
+</html>
