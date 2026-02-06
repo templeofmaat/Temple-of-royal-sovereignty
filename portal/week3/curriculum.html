@@ -547,7 +547,17 @@
                     <li>✓ Complete the harmony tracker</li>
                     <li>✓ Perform the Day 7 harmony ritual</li>
                 </ul>
-           
+            </div>
+            
+            <button class="btn-complete" onclick="completeWorkbook()" id="completeButton">
+                ✅ Mark Week 3 Workbook as Complete
+            </button>
+            
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.06); border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.2); max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p style="color: #FFD700; font-size: 0.9em;">
+                    <strong>Note:</strong> Upon completion, Week 4: The Solar Path will unlock automatically.
+                </p>
+            </div>
         </div>
         
         <!-- FINAL NAVIGATION SECTION - AT THE VERY BOTTOM -->
@@ -560,22 +570,13 @@
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
                     <button class="btn" onclick="generatePDF(3)">📥 Download Complete PDF</button>
                     <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
+                    <a href="../week3/index.html" class="btn">
+                        ← Return to Week 3 Review
+                    </a>
                 </div>
             </div>
             
             <!-- Completion Navigation -->
- </div>
-            
-            <button class="btn-complete" onclick="completeWorkbook()" id="completeButton">
-                ✅ Mark Week 3 Workbook as Complete
-            </button>
-            
-            <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.06); border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.2); max-width: 600px; margin-left: auto; margin-right: auto;">
-                <p style="color: #FFD700; font-size: 0.9em;">
-                    <strong>Note:</strong> Upon completion, Week 4: The Solar Path will unlock automatically.
-                </p>
-            </div>
-            
             <div style="background: rgba(76, 175, 80, 0.08); padding: 30px; border-radius: 12px; margin: 30px 0; border: 1px solid #4CAF50;">
                 <h4 style="color: #4CAF50; margin-bottom: 15px;">⚡ Continue Your Journey</h4>
                 <p style="color: #f7eaff; margin-bottom: 20px; font-size: 1.1em;">
@@ -599,6 +600,7 @@
                     <a href="../hall-of-truth.html" class="nav-btn">
                         <span style="font-size: 1.3em;">🏛️</span><br>
                         Return to Hall of Truth<br>
+                        <small>Main Portal</small>
                     </a>
                 </div>
                 
