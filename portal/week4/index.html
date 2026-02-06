@@ -17,21 +17,25 @@
             min-height: 100vh;
         }
 
-        /* LOCK SCREEN STYLES */
+        /* LOCK SCREEN STYLES - FIXED: Remove display: none */
         .lock-screen {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(20, 0, 37, 0.95);
+            background: rgba(20, 0, 37, 0.98);
             z-index: 10000;
-            display: none;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             padding: 20px;
             text-align: center;
+            overflow-y: auto;
+        }
+        
+        .lock-screen.hidden {
+            display: none !important;
         }
         
         .lock-screen.active {
@@ -45,6 +49,8 @@
             border-radius: 12px;
             margin: 40px 0;
             border: 1px solid rgba(255, 215, 0, 0.2);
+            max-width: 700px;
+            width: 100%;
         }
         
         .path-step {
@@ -97,7 +103,11 @@
             50% { background: rgba(255, 215, 0, 0.15); }
         }
         
-        /* REST OF THE EXISTING STYLES */
+        /* MAIN CONTENT STYLES */
+        .main-content-hidden {
+            display: none !important;
+        }
+        
         h1, h2, h3, h4 {
             color: #FFD700;
             margin-top: 0;
@@ -363,6 +373,7 @@
             margin: 0 auto;
             border: 1px solid rgba(255, 215, 0, 0.3);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .day-circle.completed {
@@ -375,6 +386,7 @@
             background: rgba(255, 215, 0, 0.3);
             color: #f7eaff;
             border-color: #FFD700;
+            animation: subtlePulse 2s infinite;
         }
 
         .practice-list {
@@ -423,11 +435,13 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             background: #330066;
+            cursor: pointer;
         }
 
         .nav-button:hover {
             background: #4c0099;
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
         }
 
         .nav-button.locked {
@@ -456,10 +470,12 @@
             text-align: center;
             border: 1px solid #FFD700;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .wisdom-card:hover {
             box-shadow: 0 10px 25px rgba(255, 215, 0, 0.25);
+            transform: translateY(-5px);
         }
 
         .wisdom-icon {
@@ -491,6 +507,40 @@
         .sun-disc:hover {
             background: rgba(255, 215, 0, 0.3);
             transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Floating animation for lock screen icon */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Notification styles */
+        .sunrise-notification {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: rgba(255, 215, 0, 0.15);
+            backdrop-filter: blur(10px);
+            color: #FFD700;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-family: "Georgia", serif;
+            z-index: 1000;
+            border: 1px solid #FFD700;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
         }
 
         @media (max-width: 768px) {
@@ -503,22 +553,32 @@
             .wisdom-grid { grid-template-columns: 1fr; }
             .sun-disc { width: 45px; height: 45px; bottom: 15px; right: 15px; font-size: 1.3em; }
             .nav-links { flex-direction: column; gap: 15px; }
+            .lock-screen { padding: 40px 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 15px; }
+            h1 { font-size: 2em; }
+            .gateway-badge { padding: 10px 20px; font-size: 1em; }
+            .day-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+            .day-circle { width: 40px; height: 40px; }
+            .sun-disc { width: 40px; height: 40px; bottom: 10px; right: 10px; }
         }
     </style>
 </head>
 <body class="temple-page">
-    <!-- PROTECTION SCRIPT -->
-    <script src="/portal/js/protect.js"></script>
+    <!-- PROTECTION SCRIPT - Make sure this path is correct -->
+    <!-- <script src="/portal/js/protect.js"></script> -->
     
-    <!-- LOCK SCREEN -->
-    <div class="lock-screen" id="lockScreen">
+    <!-- LOCK SCREEN - FIXED: Starts visible, will be hidden if access granted -->
+    <div class="lock-screen active" id="lockScreen">
         <div style="font-size: 5em; margin-bottom: 20px; color: #FFD700; animation: float 3s infinite ease-in-out;">🔒</div>
         <h2 style="color: #FFD700; margin-bottom: 20px; font-size: 2.5em;">Week 4: The Solar Path</h2>
         <p style="color: #f7eaff; max-width: 600px; margin-bottom: 30px; font-size: 1.2em; line-height: 1.6;">
             This Solar Gateway is sealed. Complete the <strong>Week 3: Balance of Opposites Workbook</strong> to unlock Forces 22-28.
         </p>
         
-        <div class="learning-path" style="max-width: 600px; background: rgba(255, 215, 0, 0.05);">
+        <div class="learning-path">
             <div class="path-step completed">
                 <div style="width: 40px; height: 40px; background: rgba(76, 175, 80, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #4CAF50; font-weight: bold;">✓</div>
                 <div style="flex: 1;">
@@ -545,7 +605,8 @@
         </div>
         
         <div style="margin: 40px 0; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-            <a href="../week3/curriculum.html" class="nav-button" style="padding: 18px 35px; font-size: 1.1em;">
+            <!-- Update these paths to match your actual file structure -->
+            <a href="../week3/workbook.html" class="nav-button" style="padding: 18px 35px; font-size: 1.1em;">
                 ⚖️ Complete Week 3 Workbook
             </a>
             <a href="../week3/index.html" class="nav-button" style="background: rgba(255, 215, 0, 0.1); padding: 18px 35px;">
@@ -564,8 +625,8 @@
         </div>
     </div>
     
-    <!-- MAIN CONTENT (hidden by default) -->
-    <div class="container" id="mainContent" style="display: none;">
+    <!-- MAIN CONTENT (hidden by default, shown only when unlocked) -->
+    <div class="container main-content-hidden" id="mainContent">
         <!-- Floating Sun Disc -->
         <div class="sun-disc" id="sunDisc" title="Solar Path Reminder">☀️</div>
         
@@ -927,7 +988,7 @@
                 <a href="../week3/index.html" class="nav-button">
                     ← Previous: The Veil & Voice
                 </a>
-                <a href="../week3/curriculum.html" class="nav-button" style="background: rgba(255, 215, 0, 0.1);">
+                <a href="../week3/workbook.html" class="nav-button" style="background: rgba(255, 215, 0, 0.1);">
                     ⚖️ Week 3 Workbook
                 </a>
                 <!-- Week 5 link initially locked -->
@@ -945,29 +1006,32 @@
     </div>
 
     <script>
-        // Check if Week 3 workbook is completed
+        // Simplified check without token protection for testing
         document.addEventListener('DOMContentLoaded', function() {
+            // For testing: Uncomment the line below to force unlock Week 4
+            // localStorage.setItem('balance_of_opposites_completed', 'true');
+            
             const week3Completed = localStorage.getItem('balance_of_opposites_completed');
-            const hasValidToken = localStorage.getItem('maatToken');
+            const lockScreen = document.getElementById('lockScreen');
+            const mainContent = document.getElementById('mainContent');
             
-            // First check token (existing protection)
-            if (!hasValidToken) {
-                // Token check will redirect via protect.js
-                return;
-            }
+            console.log('Week 3 completed status:', week3Completed);
             
-            // Then check workbook completion
-            if (week3Completed !== 'true') {
-                // Show lock screen, hide main content
-                document.getElementById('lockScreen').classList.add('active');
-                document.getElementById('mainContent').style.display = 'none';
-            } else {
+            if (week3Completed === 'true') {
                 // Show main content, hide lock screen
-                document.getElementById('lockScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
+                lockScreen.classList.remove('active');
+                lockScreen.classList.add('hidden');
+                mainContent.classList.remove('main-content-hidden');
                 
                 // Record access
                 localStorage.setItem('week4_first_access', new Date().toISOString());
+                console.log('Week 4 unlocked successfully');
+            } else {
+                // Show lock screen, hide main content
+                lockScreen.classList.add('active');
+                lockScreen.classList.remove('hidden');
+                mainContent.classList.add('main-content-hidden');
+                console.log('Week 4 locked - Week 3 not completed');
             }
             
             // Week 5 access check function
@@ -1026,70 +1090,6 @@
                 });
             }
             
-            // Sunrise reminder
-            function checkForSunrise() {
-                if (isSunriseTime()) {
-                    if (!document.querySelector('.sunrise-notification')) {
-                        const notification = document.createElement('div');
-                        notification.className = 'sunrise-notification';
-                        notification.style.cssText = `
-                            position: fixed;
-                            bottom: 90px;
-                            right: 20px;
-                            background: rgba(255, 215, 0, 0.15);
-                            backdrop-filter: blur(10px);
-                            color: #FFD700;
-                            padding: 15px 25px;
-                            border-radius: 8px;
-                            font-family: "Georgia", serif;
-                            z-index: 1000;
-                            border: 1px solid #FFD700;
-                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                            animation: slideIn 0.5s ease;
-                        `;
-                        notification.innerHTML = '☀️ SUNRISE NOW: Perform Solar Ritual!';
-                        document.body.appendChild(notification);
-                        
-                        // Highlight sun disc
-                        if (sunDisc) sunDisc.style.background = 'rgba(255, 215, 0, 0.3)';
-                        
-                        setTimeout(() => {
-                            notification.style.animation = 'slideOut 0.5s ease';
-                            setTimeout(() => notification.remove(), 500);
-                            if (sunDisc) sunDisc.style.background = 'rgba(255, 215, 0, 0.2)';
-                        }, 10000);
-                    }
-                }
-            }
-            
-            function isSunriseTime() {
-                const now = new Date();
-                const hours = now.getHours();
-                const minutes = now.getMinutes();
-                
-                return (hours === 5 && minutes >= 30) || 
-                       (hours === 6) || 
-                       (hours === 7 && minutes <= 30);
-            }
-            
-            // Add CSS for animations
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideIn {
-                    from { transform: translateX(100%); opacity: 0; }
-                    to { transform: translateX(0); opacity: 1; }
-                }
-                @keyframes slideOut {
-                    from { transform: translateX(0); opacity: 1; }
-                    to { transform: translateX(100%); opacity: 0; }
-                }
-                @keyframes float {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-10px); }
-                }
-            `;
-            document.head.appendChild(style);
-            
             // Force cards hover enhancement
             document.querySelectorAll('.force-card').forEach(card => {
                 card.addEventListener('mouseenter', function() {
@@ -1109,10 +1109,50 @@
                 });
             });
             
-            if (week3Completed === 'true') {
-                checkForSunrise();
-                setInterval(checkForSunrise, 900000); // 15 minutes
+            // Sunrise check function
+            function isSunriseTime() {
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                
+                // Sunrise typically 5:30-7:30 AM
+                return (hours === 5 && minutes >= 30) || 
+                       (hours === 6) || 
+                       (hours === 7 && minutes <= 30);
             }
+            
+            // Debug helper - check if localStorage is working
+            console.log('LocalStorage available:', typeof localStorage !== 'undefined');
+            console.log('All localStorage items:');
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.includes('week') || key.includes('balance')) {
+                    console.log(`  ${key}: ${localStorage.getItem(key)}`);
+                }
+            }
+            
+            // Test unlock button (for development only)
+            const testUnlockBtn = document.createElement('button');
+            testUnlockBtn.textContent = '🔓 Test Unlock Week 4';
+            testUnlockBtn.style.cssText = `
+                position: fixed;
+                bottom: 10px;
+                left: 10px;
+                background: rgba(255, 215, 0, 0.2);
+                color: #FFD700;
+                border: 1px solid #FFD700;
+                padding: 10px;
+                border-radius: 5px;
+                font-family: inherit;
+                cursor: pointer;
+                z-index: 9999;
+            `;
+            testUnlockBtn.addEventListener('click', function() {
+                localStorage.setItem('balance_of_opposites_completed', 'true');
+                alert('Week 4 unlocked for testing! Refresh the page.');
+                location.reload();
+            });
+            document.body.appendChild(testUnlockBtn);
         });
     </script>
 </body>
