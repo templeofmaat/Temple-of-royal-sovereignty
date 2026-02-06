@@ -3,139 +3,868 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 4 Workbook: The Discernment Temple</title>
+    <title>Week 4 Workbook: The Solar Path - Forces 22-28</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             background: #140025;
             color: #f7eaff;
             font-family: "Georgia", serif;
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
             line-height: 1.7;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
-            color: #FFD700;
-            margin-top: 0;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
 
-        .workbook-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.06);
+        .sacred-workbook {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: rgba(20, 0, 40, 0.9);
             padding: 40px;
             border-radius: 20px;
-            border: 2px solid #FFD700;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 3px solid #FFD700;
+            box-shadow: 
+                0 30px 90px rgba(0, 0, 0, 0.7),
+                inset 0 0 100px rgba(255, 215, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sacred-workbook::before {
+            content: "𓇳 𓀭 𓃩 𓂀 𓎟";
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 3em;
+            opacity: 0.07;
+            color: #FFD700;
+            z-index: 0;
+        }
+
+        .sacred-workbook::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                #FFD700, 
+                #f7eaff, 
+                #FFD700, 
+                transparent
+            );
+            z-index: 1;
+        }
+
+        .workbook-header {
+            text-align: center;
+            padding: 40px 0 30px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .workbook-header::before,
+        .workbook-header::after {
+            content: '𓇳';
+            position: absolute;
+            top: 20px;
+            font-size: 4em;
+            opacity: 0.3;
+            color: #FFD700;
+            animation: pulse 4s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.2; }
+            100% { opacity: 0.4; }
+        }
+
+        .workbook-header::before { 
+            left: 20px; 
+            animation-delay: 1s;
+        }
+        .workbook-header::after { 
+            right: 20px; 
+            transform: scaleX(-1); 
+            animation-delay: 2s;
+        }
+
+        .sacred-title {
+            color: #FFD700;
+            font-size: 4em;
+            margin: 20px 0 15px;
+            letter-spacing: 2px;
+            text-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.5),
+                0 0 40px rgba(255, 215, 0, 0.2);
             position: relative;
         }
 
-        .completion-section {
-            background: rgba(76, 175, 80, 0.08);
-            padding: 50px 40px;
+        .sacred-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+        }
+
+        .kemetic-subtitle {
+            color: #FFD700;
+            font-size: 1.8em;
+            margin: 15px 0 30px;
+            padding: 20px 0;
+            border-top: 2px solid rgba(255,215,0,0.3);
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+            font-style: italic;
+        }
+
+        .flame-decoration {
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg,
+                transparent,
+                #FFD700,
+                #f7eaff,
+                #FFD700,
+                transparent);
+            margin: 40px 0;
+            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flame-decoration::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent);
+            animation: flameFlow 3s infinite linear;
+        }
+
+        @keyframes flameFlow {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .progress-tracker {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #FFD700;
             border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            position: relative;
+        }
+
+        .force-tracker {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .tracker-dot {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+            position: relative;
+        }
+
+        .tracker-dot.active {
+            background: #FFD700;
+            color: #140025;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .tracker-dot.completed {
+            background: rgba(76, 175, 80, 0.2);
+            border-color: #4CAF50;
+            color: #4CAF50;
+        }
+
+        .tracker-dot:hover {
+            transform: scale(1.2);
+            background: rgba(255, 215, 0, 0.3);
+        }
+
+        .tracker-dot:hover::after {
+            content: attr(data-force);
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #FFD700;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            white-space: nowrap;
+            border: 1px solid #FFD700;
+        }
+
+        .force-section {
+            background: linear-gradient(135deg,
+                rgba(40, 0, 80, 0.8) 0%,
+                rgba(30, 0, 60, 0.9) 100%);
+            padding: 40px;
+            border-radius: 20px;
             margin: 50px 0;
-            border: 2px solid #4CAF50;
+            border: 2px solid #FFD700;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.5),
+                inset 0 0 50px rgba(255, 215, 0, 0.05);
+        }
+
+        .force-section:hover {
+            border-color: #f7eaff;
+            box-shadow: 
+                0 20px 60px rgba(255, 215, 0, 0.3),
+                inset 0 0 60px rgba(255, 215, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .force-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(to bottom, 
+                #FFD700 0%, 
+                #f7eaff 30%, 
+                #FFD700 70%, 
+                transparent 100%);
+        }
+
+        .force-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+            position: relative;
+        }
+
+        .force-number {
+            background: linear-gradient(135deg, #FFD700, #f7eaff);
+            color: #140025;
+            min-width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 2.2em;
+            box-shadow: 
+                0 8px 25px rgba(255,215,0,0.5),
+                inset 0 2px 4px rgba(255,255,255,0.8);
+            border: 4px solid #f7eaff;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .force-number:hover {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 
+                0 12px 35px rgba(255,215,0,0.7),
+                inset 0 2px 4px rgba(255,255,255,0.8);
+        }
+
+        .force-name-container {
+            flex: 1;
+        }
+
+        .kemetic-name {
+            color: #FFD700;
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .force-origin {
+            color: #f7eaff;
+            font-size: 1.2em;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .declaration-box {
+            background: linear-gradient(135deg, 
+                rgba(255, 215, 0, 0.15) 0%,
+                rgba(255, 215, 0, 0.08) 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 35px 0;
+            border: 2px solid #FFD700;
+            font-style: italic;
+            font-size: 1.6em;
+            line-height: 1.6;
+            position: relative;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 0 30px rgba(255, 215, 0, 0.1);
+        }
+
+        .declaration-box::before {
+            content: '𓀀';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5em;
+            opacity: 0.5;
+            color: #FFD700;
+        }
+
+        .declaration-box::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .innerstanding-box {
+            background: linear-gradient(135deg,
+                rgba(255, 215, 0, 0.08) 0%,
+                rgba(255, 215, 0, 0.03) 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 5px solid #FFD700;
+            border-right: 2px solid rgba(255,215,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .innerstanding-box::before {
+            content: '𓋹';
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 4em;
+            opacity: 0.1;
+            color: #FFD700;
+        }
+
+        .innerstanding-title {
+            color: #FFD700;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hieroglyph {
+            font-family: 'Segoe UI Historic', 'Noto Sans Egyptian Hieroglyphs', sans-serif;
+            font-size: 2em;
+            color: #FFD700;
+            display: inline-block;
+            transform-origin: center;
+        }
+
+        .hieroglyph:hover {
+            animation: wiggle 0.5s ease;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        .practice-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .practice-level {
+            background: linear-gradient(135deg,
+                rgba(50, 0, 100, 0.8) 0%,
+                rgba(40, 0, 80, 0.9) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #FFD700;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .practice-level:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .practice-level::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                #FFD700, 
+                transparent);
+        }
+
+        .level-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+        }
+
+        .level-icon {
+            background: linear-gradient(135deg, #FFD700, #f7eaff);
+            color: #140025;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            border: 2px solid #f7eaff;
+            flex-shrink: 0;
+        }
+
+        .level-title {
+            color: #FFD700;
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .sacred-practice {
+            background: rgba(255, 215, 0, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid rgba(255,215,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sacred-practice:hover {
+            background: rgba(255, 215, 0, 0.08);
+            transform: translateX(5px);
+            border-color: #FFD700;
+        }
+
+        .practice-title {
+            color: #FFD700;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ritual-instruction {
+            background: rgba(255, 215, 0, 0.08);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #FFD700;
+            position: relative;
+        }
+
+        .ritual-instruction::before {
+            content: '𓏞';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            opacity: 0.5;
+            color: #FFD700;
+        }
+
+        textarea, input[type="text"], input[type="date"], select {
+            width: 100%;
+            padding: 20px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid #FFD700;
+            color: #f7eaff;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1.1em;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        textarea:focus, input:focus, select:focus {
+            outline: none;
+            border-color: #f7eaff;
+            box-shadow: 
+                0 0 0 3px rgba(255, 215, 0, 0.3),
+                inset 0 0 20px rgba(255, 215, 0, 0.1);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .sunrise-ritual {
+            background: linear-gradient(135deg,
+                rgba(255, 215, 0, 0.1) 0%,
+                rgba(255, 215, 0, 0.05) 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border: 2px solid #FFD700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sunrise-ritual::before {
+            content: '☀️';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 3em;
+            opacity: 0.2;
+            color: #FFD700;
+        }
+
+        .interactive-exercise {
+            background: rgba(255, 215, 0, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px dashed #FFD700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-exercise:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-style: solid;
+            transform: scale(1.02);
+        }
+
+        .exercise-toggle {
+            background: none;
+            border: none;
+            color: #FFD700;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            text-align: left;
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .exercise-toggle:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .exercise-content {
+            display: none;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 10px;
+            margin-top: 15px;
+            border-top: 2px solid #FFD700;
+        }
+
+        .exercise-content.active {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .journal-section {
+            background: rgba(255, 215, 0, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 2px solid #FFD700;
+        }
+
+        .journal-prompt {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #FFD700;
+        }
+
+        .completion-section {
+            background: linear-gradient(135deg,
+                rgba(255, 215, 0, 0.1) 0%,
+                rgba(255, 215, 0, 0.05) 100%);
+            padding: 50px;
+            border-radius: 25px;
+            margin: 60px 0;
+            border: 3px solid #FFD700;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
         .completion-section::before {
-            content: "👁️";
+            content: '𓎟 𓂀 𓎟';
             position: absolute;
-            top: 20px;
+            top: 30px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 4em;
+            font-size: 3em;
+            opacity: 0.15;
+            color: #FFD700;
+        }
+
+        .completion-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg,
+                transparent,
+                #FFD700,
+                #f7eaff,
+                #FFD700,
+                transparent);
+        }
+
+        .sacred-btn {
+            background: linear-gradient(135deg, 
+                #330066 0%,
+                #4c0099 50%,
+                #330066 100%);
+            color: #FFD700;
+            padding: 20px 40px;
+            border-radius: 15px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 15px;
+            border: 2px solid #FFD700;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.4),
+                0 5px 15px rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sacred-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 215, 0, 0.2),
+                transparent);
+            transition: 0.5s;
+        }
+
+        .sacred-btn:hover {
+            background: linear-gradient(135deg,
+                #4c0099 0%,
+                #6600cc 50%,
+                #4c0099 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.5),
+                0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .sacred-btn:hover::before {
+            left: 100%;
+        }
+
+        .gold-btn {
+            background: linear-gradient(135deg, 
+                #FFD700 0%,
+                #f7eaff 50%,
+                #FFD700 100%);
+            color: #140025;
+        }
+
+        .gold-btn:hover {
+            background: linear-gradient(135deg,
+                #f7eaff 0%,
+                #FFD700 50%,
+                #f7eaff 100%);
+        }
+
+        .completion-badge {
+            display: inline-block;
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1em;
+            margin: 10px;
+            border: 1px solid #4CAF50;
+            font-weight: bold;
+        }
+
+        .navigation-section {
+            text-align: center;
+            padding: 60px 40px;
+            margin: 60px 0;
+            background: linear-gradient(135deg,
+                rgba(40, 0, 80, 0.8) 0%,
+                rgba(30, 0, 60, 0.9) 100%);
+            border-radius: 25px;
+            border: 2px solid #FFD700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navigation-section::before {
+            content: '𓏙 𓊹 𓎟';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 3em;
             opacity: 0.1;
             color: #FFD700;
         }
 
-        .btn-complete {
-            background: #330066;
-            color: #4CAF50;
-            padding: 18px 45px;
-            border-radius: 10px;
-            border: 2px solid #4CAF50;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin: 20px 10px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-complete:hover {
-            background: #4c0099;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(76, 175, 80, 0.3);
-        }
-
-        .progress-tracker {
-            display: flex;
-            justify-content: space-between;
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin: 40px 0;
-            position: relative;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, 
+                #330066 0%,
+                #4c0099 100%);
+            color: #FFD700;
             padding: 20px;
-            background: rgba(255,255,255,0.06);
-            border-radius: 10px;
-            border: 1px solid #FFD700;
-        }
-
-        .progress-tracker::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 10%;
-            right: 10%;
-            height: 2px;
-            background: rgba(255, 215, 0, 0.3);
-            z-index: 1;
-            transform: translateY(-50%);
-        }
-
-        .progress-step {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            flex: 1;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 215, 0, 0.15);
-            border-radius: 50%;
+            border-radius: 15px;
+            text-decoration: none;
+            border: 2px solid #FFD700;
+            font-weight: bold;
+            transition: all 0.3s ease;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 10px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            font-weight: 600;
-            color: #FFD700;
+            gap: 10px;
         }
 
-        .step-number.completed {
-            background: #4CAF50;
-            border-color: #4CAF50;
-            color: white;
+        .nav-btn:hover {
+            background: linear-gradient(135deg,
+                #4c0099 0%,
+                #6600cc 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
         }
 
-        .step-number.active {
-            background: #FFD700;
-            border-color: #FFD700;
-            color: #140025;
-            animation: pulse 2s infinite;
+        .nav-btn.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: rgba(51, 0, 102, 0.5);
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        .nav-btn.disabled:hover {
+            transform: none;
+            box-shadow: none;
+            background: rgba(51, 0, 102, 0.5);
         }
 
         .lock-screen {
@@ -144,600 +873,1537 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(20, 0, 37, 0.95);
+            background: rgba(20, 0, 37, 0.98);
             z-index: 10000;
             display: none;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            padding: 20px;
+            padding: 40px;
             text-align: center;
+            overflow-y: auto;
         }
 
         .lock-screen.active {
             display: flex;
+            animation: fadeIn 0.5s ease;
         }
 
-        .wisdom-pyramid {
-            width: 0;
-            height: 0;
-            border-left: 75px solid transparent;
-            border-right: 75px solid transparent;
-            border-bottom: 130px solid rgba(255, 215, 0, 0.3);
-            margin: 30px auto;
-            position: relative;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .wisdom-pyramid::before {
-            content: '';
-            position: absolute;
-            top: 43px;
-            left: -53px;
-            width: 106px;
-            height: 106px;
-            background: rgba(255, 215, 0, 0.2);
-            transform: rotate(45deg);
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
-        .wisdom-level {
+        .wisdom-pillar {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
         }
 
-        .level-card {
-            background: rgba(255,255,255,0.06);
-            padding: 20px;
-            border-radius: 10px;
+        .pillar-card {
+            background: rgba(255, 215, 0, 0.05);
+            padding: 25px;
+            border-radius: 15px;
             text-align: center;
             border: 1px solid #FFD700;
-        }
-
-        .btn {
-            background: #330066;
-            color: #FFD700;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-block;
-            margin: 10px;
-            border: 2px solid #FFD700;
+            transition: all 0.3s ease;
             cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
         }
 
-        .btn:hover {
-            background: #4c0099;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .btn-unlock {
-            background: #330066;
-            border-color: #4CAF50;
-            color: #4CAF50;
-            display: none;
-        }
-        
-        .nav-section {
-            margin-top: 50px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 215, 0, 0.25);
-            text-align: center;
-        }
-        
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-        
-        .nav-btn {
-            background: #330066;
-            color: #FFD700;
-            padding: 18px 35px;
-            border-radius: 8px;
-            text-decoration: none;
-            border: 2px solid #FFD700;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            min-width: 200px;
-            text-align: center;
-        }
-        
-        .nav-btn:hover {
-            background: #4c0099;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
-        }
-        
-        .nav-btn.back {
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
             background: rgba(255, 215, 0, 0.1);
         }
-        
-        .nav-btn.forward {
-            background: linear-gradient(135deg, #330066, #4c0099);
-        }
 
-        textarea, input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid #FFD700;
-            color: #f7eaff;
-            border-radius: 5px;
-            font-family: inherit;
-        }
-
-        .unlocked-badge {
-            display: inline-block;
-            background: rgba(76, 175, 80, 0.2);
-            color: #4CAF50;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin-left: 15px;
-            border: 1px solid #4CAF50;
+        .pillar-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #FFD700;
         }
 
         @media (max-width: 768px) {
-            .wisdom-level {
-                grid-template-columns: repeat(2, 1fr);
+            .sacred-workbook { 
+                padding: 20px;
+                margin: 20px;
             }
-            
-            .progress-tracker {
-                flex-direction: column;
+            .sacred-title { 
+                font-size: 2.5em; 
+            }
+            .force-header { 
+                flex-direction: column; 
+                text-align: center; 
                 gap: 20px;
             }
-            
-            .progress-tracker::before {
+            .force-number { 
+                width: 70px; 
+                height: 70px; 
+                font-size: 1.8em;
+            }
+            .practice-levels {
+                grid-template-columns: 1fr;
+            }
+            .force-tracker {
+                justify-content: center;
+            }
+            .tracker-dot {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8em;
+            }
+            .nav-buttons {
+                grid-template-columns: 1fr;
+            }
+            .declaration-box {
+                font-size: 1.3em;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sacred-workbook { padding: 15px; }
+            .sacred-title { font-size: 2em; }
+            .kemetic-subtitle { font-size: 1.4em; }
+            .force-number { width: 60px; height: 60px; font-size: 1.5em; }
+            .kemetic-name { font-size: 1.8em; }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .sacred-workbook {
+                border: 2px solid black;
+                box-shadow: none;
+            }
+            .sacred-btn, .nav-btn, .exercise-toggle {
                 display: none;
             }
-            
-            .nav-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-btn {
-                min-width: auto;
-                width: 100%;
-                max-width: 300px;
+            textarea, input, select {
+                border: 1px solid #ccc;
+                background: white;
+                color: black;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Lock Screen for Week 5 -->
+    <!-- LOCK SCREEN -->
     <div class="lock-screen" id="lockScreen">
-        <div style="font-size: 4em; margin-bottom: 20px; color: #FFD700;">🔒</div>
-        <h2 style="color: #FFD700; margin-bottom: 20px; font-size: 2.2em;">Week 5 is Locked</h2>
-        <p style="color: #f7eaff; max-width: 600px; margin-bottom: 30px; font-size: 1.1em;">
-            Complete the <strong>Week 4: Discernment Temple Workbook</strong> to unlock Week 5: The Sacred Waters.
+        <div style="font-size: 5em; margin-bottom: 20px; color: #FFD700; animation: float 3s infinite ease-in-out;">🔒</div>
+        <h2 style="color: #FFD700; margin-bottom: 20px; font-size: 2.5em;">Week 4: The Solar Path</h2>
+        <p style="color: #f7eaff; max-width: 600px; margin-bottom: 30px; font-size: 1.2em; line-height: 1.6;">
+            This Solar Gateway is sealed. Complete the <strong>Week 3: Balance of Opposites Workbook</strong> to unlock Forces 22-28.
         </p>
         
-        <div class="progress-tracker" style="max-width: 500px; background: transparent;">
+        <div class="progress-tracker" style="max-width: 600px; background: transparent; border: 1px solid rgba(255, 215, 0, 0.3);">
             <div class="progress-step">
-                <div class="step-number completed">✓</div>
-                <div>Week 3<br>Balance Workbook</div>
+                <div style="width: 50px; height: 50px; background: rgba(76, 175, 80, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #4CAF50; font-weight: bold; margin: 0 auto 10px; border: 2px solid #4CAF50;">✓</div>
+                <div style="color: #f7eaff; font-size: 0.9em;">Week 3<br>Balance</div>
             </div>
             <div class="progress-step">
-                <div class="step-number active">4</div>
-                <div>Week 4<br>Discernment Temple</div>
+                <div style="width: 50px; height: 50px; background: rgba(255, 215, 0, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFD700; font-weight: bold; margin: 0 auto 10px; border: 2px solid #FFD700; animation: pulse 2s infinite;">4</div>
+                <div style="color: #FFD700; font-size: 0.9em;">Week 4<br>Solar Path</div>
             </div>
             <div class="progress-step">
-                <div class="step-number">5</div>
-                <div>Week 5<br>Sacred Waters</div>
+                <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, 0.3); font-weight: bold; margin: 0 auto 10px; border: 2px solid rgba(255, 255, 255, 0.1);">5</div>
+                <div style="color: rgba(255, 255, 255, 0.3); font-size: 0.9em;">Week 5<br>Sacred Waters</div>
             </div>
         </div>
         
         <div style="margin: 40px 0; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-            <button class="btn" onclick="hideLockScreen()" style="padding: 18px 35px;">
-                Continue Week 4 Workbook
-            </button>
-            <a href="../week4/index.html" class="btn" style="background: rgba(255, 215, 0, 0.1);">
-                ← Return to Week 4
+            <a href="../week3/workbook.html" class="sacred-btn" style="padding: 18px 35px; font-size: 1.1em;">
+                ⚖️ Complete Week 3 Workbook
+            </a>
+            <a href="../week3/index.html" class="sacred-btn" style="background: rgba(255, 215, 0, 0.1); padding: 18px 35px;">
+                ← Return to Week 3
             </a>
         </div>
         
-        <p style="margin-top: 30px; color: #FFD700; font-size: 0.9em; max-width: 500px;">
-            <em>Your progress saves automatically. Complete all Week 4 discernment exercises to unlock the Sacred Waters.</em>
-        </p>
-    </div>
-    
-    <div class="workbook-container">
-        <!-- Progress Tracker -->
-        <div class="progress-tracker">
-            <div class="progress-step">
-                <div class="step-number completed">✓</div>
-                <div>Week 3 Workbook</div>
-            </div>
-            <div class="progress-step">
-                <div class="step-number active">2</div>
-                <div>Complete Week 4</div>
-            </div>
-            <div class="progress-step">
-                <div class="step-number" id="step3">3</div>
-                <div>Unlock Week 5</div>
-            </div>
-        </div>
-        
-        <div style="text-align:center;">
-            <h1 style="color:#FFD700;">The Discernment Temple</h1>
-            <p style="color:#FFD700;">Week 4: Wisdom-Holder's Gateway</p>
-            <div class="wisdom-pyramid"></div>
-        </div>
-        
-        <!-- Wisdom Levels -->
-        <div class="wisdom-level">
-            <div class="level-card">
-                <h5>📖 Knowledge</h5>
-                <p>Accumulating facts</p>
-            </div>
-            <div class="level-card">
-                <h5>💡 Understanding</h5>
-                <p>Comprehending meaning</p>
-            </div>
-            <div class="level-card">
-                <h5>🎯 Discernment</h5>
-                <p>Choosing wisely</p>
-            </div>
-            <div class="level-card">
-                <h5>👁️ Wisdom</h5>
-                <p>Living truth</p>
-            </div>
-        </div>
-        
-        <!-- Declaration 19 -->
-        <div style="background:rgba(255, 215, 0, 0.08); padding:25px; border-radius:10px; margin:25px 0; border-left:5px solid #FFD700;">
-            <h3 style="color:#FFD700;">📖 Declaration 19: "I have not acted in ignorance"</h3>
-            <p><em>I seek understanding before action</em></p>
-        </div>
-        
-        <div style="background:rgba(255,255,255,0.06); padding:25px; border-radius:10px; margin:20px 0; border:1px solid #FFD700;">
-            <h4>Exercise 4.1: The Pause Practice</h4>
-            <p><strong>Before any significant action today, pause and ask:</strong></p>
-            <ol>
-                <li>What do I really know about this situation?</li>
-                <li>What am I assuming?</li>
-                <li>What more do I need to understand?</li>
-            </ol>
-            <p><strong>Record 3 instances where you applied The Pause:</strong></p>
-            <textarea id="pauseInstances" placeholder="1. 2. 3."></textarea>
-        </div>
-        
-        <!-- Decision Matrix -->
-        <div style="background:rgba(255, 215, 0, 0.08); padding:25px; border-radius:10px; margin:30px 0; border:1px solid #FFD700;">
-            <h4>🧠 Decision Discernment Matrix</h4>
-            <p>Apply to one current decision:</p>
-            <table style="width:100%; margin:20px 0;">
-                <tr>
-                    <th style="padding:10px; text-align:left;">Factor</th>
-                    <th style="padding:10px; text-align:left;">Score (1-5)</th>
-                    <th style="padding:10px; text-align:left;">Notes</th>
-                </tr>
-                <tr>
-                    <td style="padding:10px;">Alignment with Truth</td>
-                    <td style="padding:10px;"><input type="number" min="1" max="5" style="width:60px;" id="truthScore"></td>
-                    <td style="padding:10px;"><input type="text" style="width:100%;" id="truthNotes"></td>
-                </tr>
-                <tr>
-                    <td style="padding:10px;">Long-term Benefit</td>
-                    <td style="padding:10px;"><input type="number" min="1" max="5" style="width:60px;" id="benefitScore"></td>
-                    <td style="padding:10px;"><input type="text" style="width:100%;" id="benefitNotes"></td>
-                </tr>
-                <tr>
-                    <td style="padding:10px;">Harm Prevention</td>
-                    <td style="padding:10px;"><input type="number" min="1" max="5" style="width:60px;" id="harmScore"></td>
-                    <td style="padding:10px;"><input type="text" style="width:100%;" id="harmNotes"></td>
-                </tr>
-            </table>
-        </div>
-        
-        <!-- Wisdom Journal -->
-        <div style="background:rgba(255,255,255,0.06); padding:25px; border-radius:10px;">
-            <h4>📓 Daily Wisdom Journal</h4>
-            <p><strong>Each evening, reflect:</strong></p>
-            <p>1. What wise choice did I make today?</p>
-            <textarea id="wiseChoice" placeholder="Today's wise choice..."></textarea>
-            
-            <p>2. What could I have decided more wisely?</p>
-            <textarea id="learningOpportunity" placeholder="Learning opportunity..."></textarea>
-            
-            <p>3. What inner wisdom wants to be heard?</p>
-            <textarea id="innerGuidance" placeholder="Inner guidance..."></textarea>
-        </div>
-        
-        <!-- COMPLETION SECTION -->
-        <div class="completion-section" id="completionSection">
-            <h2 style="color: #4CAF50; margin-bottom: 20px;">👁️ Week 4 Discernment Completed</h2>
-            <p style="max-width: 700px; margin: 20px auto; color: #f7eaff;">
-                Complete all discernment exercises to unlock Week 5: The Sacred Waters.
+        <div style="margin-top: 40px; padding: 20px; background: rgba(255, 215, 0, 0.05); border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.1); max-width: 500px;">
+            <p style="color: #FFD700; font-size: 0.9em; margin: 0;">
+                <strong>Forces 22-28 of Ma'at await:</strong> Righteous Action • Divine Discernment • Pattern Integrity
             </p>
+        </div>
+    </div>
+
+    <!-- MAIN WORKBOOK -->
+    <div class="sacred-workbook" id="workbookContent" style="display: none;">
+        <div class="workbook-header">
+            <h1 class="sacred-title">𓇳 THE SOLAR PATH 𓇳</h1>
+            <div class="kemetic-subtitle">Week 4 Sacred Workbook: Forces 22-28 of Ma'at</div>
             
-            <div style="background: rgba(255,255,255,0.06); padding: 20px; border-radius: 10px; max-width: 600px; margin: 30px auto; border: 1px solid #4CAF50;">
-                <p><strong>Completion Requirements:</strong></p>
-                <ul style="text-align: left; display: inline-block;">
-                    <li>✓ Complete the Pause Practice exercise</li>
-                    <li>✓ Fill out the Decision Discernment Matrix</li>
-                    <li>✓ Maintain the Wisdom Journal for 3 days</li>
-                    <li>✓ Apply discernment to at least one major decision</li>
-                </ul>
+            <div class="progress-tracker">
+                <div style="color: #FFD700; font-weight: bold; font-size: 1.2em;">Your Solar Journey:</div>
+                <div class="force-tracker">
+                    <span class="tracker-dot active" data-force="Maa-antef" onclick="scrollToForce(22)">22</span>
+                    <span class="tracker-dot" data-force="Khemi" onclick="scrollToForce(23)">23</span>
+                    <span class="tracker-dot" data-force="Utu-nes" onclick="scrollToForce(24)">24</span>
+                    <span class="tracker-dot" data-force="Khaui" onclick="scrollToForce(25)">25</span>
+                    <span class="tracker-dot" data-force="Nekhen" onclick="scrollToForce(26)">26</span>
+                    <span class="tracker-dot" data-force="Nekher" onclick="scrollToForce(27)">27</span>
+                    <span class="tracker-dot" data-force="Ser-kheru" onclick="scrollToForce(28)">28</span>
+                </div>
+                <div style="color: #f7eaff; font-style: italic; font-size: 0.9em;">Click force numbers to navigate</div>
             </div>
             
-            <button class="btn-complete" onclick="completeWorkbook()" id="completeButton">
-                ✅ Mark Week 4 Workbook as Complete
-            </button>
+            <div class="flame-decoration"></div>
             
-            <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.06); border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.2); max-width: 600px; margin-left: auto; margin-right: auto;">
-                <p style="color: #FFD700; font-size: 0.9em;">
-                    <strong>Note:</strong> Upon completion, Week 5: The Sacred Waters will unlock automatically.
-                </p>
+            <div class="wisdom-pillar">
+                <div class="pillar-card">
+                    <div class="pillar-icon">👁️</div>
+                    <h4>Divine Sight</h4>
+                    <p>Seeing truth, casting light</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🧩</div>
+                    <h4>Pattern Integrity</h4>
+                    <p>Honoring cosmic order</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">⚔️</div>
+                    <h4>Just Wrath</h4>
+                    <p>Measured divine fire</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🏛️</div>
+                    <h4>Authentic Being</h4>
+                    <p>Living your true ren</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORCE 22: MAA-ANTEF -->
+        <div class="force-section" id="force-22">
+            <div class="force-header">
+                <div class="force-number">22</div>
+                <div class="force-name-container">
+                    <div class="kemetic-name">Maa-antef</div>
+                    <div class="force-origin">"He Who Sees His Father" from the Double City of Witness</div>
+                </div>
+            </div>
+            
+            <div class="declaration-box">
+                𓀀 "I have not cast the shadow of chaos (khas) upon the hearts of others."
+            </div>
+            
+            <div class="innerstanding-box">
+                <div class="innerstanding-title">
+                    <span class="hieroglyph">𓋹</span> SACRED INNERSTANDING
+                </div>
+                <p><strong>Maa-antef</strong> embodies the power of divine sight that brings illumination, not terror. This force understands that true vision sees the father-source in all things, never casting shadows of fear or chaos upon other hearts.</p>
+                <div class="ritual-instruction">
+                    <p><strong>𓏞 KEY TEACHING:</strong> Your presence should illuminate, never terrorize. To "see your father" is to recognize the divine source in others, acting as a witness who brings light, not shadow.</p>
+                </div>
+            </div>
+
+            <div class="sunrise-ritual">
+                <div class="practice-title">
+                    <span class="hieroglyph">☀️</span> Day 22: Sunrise Illumination Practice
+                </div>
+                <div class="ritual-instruction">
+                    <p><strong>AT SUNRISE:</strong></p>
+                    <ol>
+                        <li>Face East holding a mirror or reflective surface</li>
+                        <li>Breathe deeply 22 times (for Force 22)</li>
+                        <li>Watch the sunrise reflected in the mirror</li>
+                        <li>Speak: "I cast light, not shadow. I illuminate, never terrorize."</li>
+                        <li>Carry the mirror throughout the day as reminder</li>
+                    </ol>
+                </div>
+                <p><strong>Illumination Experience:</strong></p>
+                <textarea placeholder="How did the reflected sunrise feel? What shadows have you cast that need transforming to light?"></textarea>
+            </div>
+
+            <div class="practice-levels">
+                <!-- Level 1: Recognition -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓏞</div>
+                        <h3 class="level-title">Level 1: Recognition</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">👁️</span> Shadow Casting Audit
+                        </div>
+                        <p><strong>Identify where you might cast shadows of chaos:</strong></p>
+                        <textarea placeholder="1. Words that create fear rather than clarity...
+2. Actions that generate anxiety rather than peace...
+3. Energy that feels threatening rather than safe..."></textarea>
+                        
+                        <div class="interactive-exercise">
+                            <button class="exercise-toggle" onclick="toggleExercise(this)">
+                                <span>💡</span> The Witness Practice
+                            </button>
+                            <div class="exercise-content">
+                                <p><strong>Practice:</strong> For the next three interactions, act as a pure witness. See without judging. Observe without casting shadows. Notice how this changes the energy.</p>
+                                <textarea placeholder="Describe your witnessing experiences and insights..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2: Alignment -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓋴</div>
+                        <h3 class="level-title">Level 2: Alignment</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">✨</span> Light-Bringing Practice
+                        </div>
+                        <p><strong>Choose one situation to practice light-bringing:</strong></p>
+                        <div class="ritual-instruction">
+                            <p>Before engaging, ask:</p>
+                            <ul>
+                                <li>How can I illuminate this situation?</li>
+                                <li>What shadow might I be tempted to cast?</li>
+                                <li>How do I "see the father" in this person/situation?</li>
+                            </ul>
+                        </div>
+                        <textarea placeholder="Describe your light-bringing action and its impact..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Level 3: Integration -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓎛</div>
+                        <h3 class="level-title">Level 3: Integration</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🏛️</span> The Witness Vow
+                        </div>
+                        <p>Create your vow as a witness who illuminates:</p>
+                        <div class="ritual-instruction">
+                            <p><em>Template: "As Maa-antef, I vow to see the divine source in all. I will illuminate with my presence, never cast shadows of chaos. Specifically, I commit to [your practice]."</em></p>
+                        </div>
+                        <textarea placeholder="Write your illumination vow...
+
+Example: 
+'I vow to pause before speaking in tense situations, ensuring my words bring clarity, not fear. I will illuminate misunderstandings with patience.'"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORCE 23: KHEMI -->
+        <div class="force-section" id="force-23">
+            <div class="force-header">
+                <div class="force-number">23</div>
+                <div class="force-name-container">
+                    <div class="kemetic-name">Khemi</div>
+                    <div class="force-origin">"The Alchemist" from the Lake of the Vital Essence (Ka)</div>
+                </div>
+            </div>
+            
+            <div class="declaration-box">
+                𓀁 "I have not broken the fixed pattern (sha) that holds the world together."
+            </div>
+            
+            <div class="innerstanding-box">
+                <div class="innerstanding-title">
+                    <span class="hieroglyph">𓋹</span> SACRED INNERSTANDING
+                </div>
+                <p><strong>Khemi</strong> is the master alchemist who understands the sacred patterns (sha) structuring reality. This force governs the transformation of base elements while preserving cosmic order—never breaking the divine architecture that makes existence possible.</p>
+                <div class="ritual-instruction">
+                    <p><strong>𓏞 KEY TEACHING:</strong> True alchemy transforms within the sacred patterns. Innovation must honor the underlying order. Change what can be changed, preserve what must be preserved.</p>
+                </div>
+            </div>
+
+            <div class="sunrise-ritual">
+                <div class="practice-title">
+                    <span class="hieroglyph">☀️</span> Day 23: Sunrise Pattern Practice
+                </div>
+                <div class="ritual-instruction">
+                    <p><strong>AT SUNRISE:</strong></p>
+                    <ol>
+                        <li>Face East tracing geometric patterns in the air</li>
+                        <li>Breathe deeply 23 times (for Force 23)</li>
+                        <li>Visualize the sacred patterns in your life</li>
+                        <li>Speak: "I honor the cosmic sha. I transform within divine order."</li>
+                        <li>Draw a sacred pattern (mandala, flower of life) today</li>
+                    </ol>
+                </div>
+                <p><strong>Pattern Recognition:</strong></p>
+                <textarea placeholder="What sacred patterns uphold your world? Where have you broken patterns that should have been preserved?"></textarea>
+            </div>
+
+            <div class="practice-levels">
+                <!-- Level 1: Recognition -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓏞</div>
+                        <h3 class="level-title">Level 1: Recognition</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🧩</span> Sacred Pattern Mapping
+                        </div>
+                        <p><strong>Identify the sacred patterns in your life:</strong></p>
+                        <textarea placeholder="1. Daily rhythms that sustain you...
+2. Relationship patterns that create harmony...
+3. Work/creative patterns that generate flow...
+4. Spiritual patterns that connect you to source..."></textarea>
+                        
+                        <div class="interactive-exercise">
+                            <button class="exercise-toggle" onclick="toggleExercise(this)">
+                                <span>⚗️</span> Alchemical Transformation
+                            </button>
+                            <div class="exercise-content">
+                                <p><strong>Practice:</strong> Choose one "base element" in your life (a challenge, limitation, or raw material). How can you transform it while preserving the essential patterns?</p>
+                                <textarea placeholder="Describe your alchemical transformation plan..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2: Alignment -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓋴</div>
+                        <h3 class="level-title">Level 2: Alignment</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🔄</span> Pattern-Preserving Change
+                        </div>
+                        <p><strong>Implement one change that honors sacred patterns:</strong></p>
+                        <div class="ritual-instruction">
+                            <p>Before acting, ask:</p>
+                            <ul>
+                                <li>What essential pattern must be preserved?</li>
+                                <li>How does this change honor the existing order?</li>
+                                <li>What might be broken that should remain intact?</li>
+                            </ul>
+                        </div>
+                        <textarea placeholder="Describe your pattern-preserving change and its effects..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Level 3: Integration -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓎛</div>
+                        <h3 class="level-title">Level 3: Integration</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🏺</span> Sacred Architecture Blueprint
+                        </div>
+                        <p>Design your life's sacred architecture based on Khemi's wisdom:</p>
+                        <div class="ritual-instruction">
+                            <p><strong>Your blueprint includes:</strong> Foundational patterns (non-negotiable) · Transformational zones (where alchemy occurs) · Preservation areas (sacred constants)</p>
+                        </div>
+                        <textarea placeholder="Design your sacred architecture...
+
+Foundational Patterns (3 essential rhythms):
+Transformational Zones (Where you innovate):
+Preservation Areas (What never changes):"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORCE 24: UTU-NES -->
+        <div class="force-section" id="force-24">
+            <div class="force-header">
+                <div class="force-number">24</div>
+                <div class="force-name-container">
+                    <div class="kemetic-name">Utu-nes</div>
+                    <div class="force-origin">"The Sacred Flame of Judgment" from the City of the Flame</div>
+                </div>
+            </div>
+            
+            <div class="declaration-box">
+                𓀂 "My bau (manifested power/rage) has never been unleashed without cause."
+            </div>
+            
+            <div class="innerstanding-box">
+                <div class="innerstanding-title">
+                    <span class="hieroglyph">𓋹</span> SACRED INNERSTANDING
+                </div>
+                <p><strong>Utu-nes</strong> is the sacred fire that judges with precision. This force understands that divine wrath (bau) is a surgical instrument—never unleashed indiscriminately, always directed with cause, measured against Ma'at's scales.</p>
+                <div class="ritual-instruction">
+                    <p><strong>𓏞 KEY TEACHING:</strong> Your power to judge and act must be wielded like a priest's ceremonial blade—precise, justified, and in sacred service. Unmeasured wrath creates chaos; measured wrath restores order.</p>
+                </div>
+            </div>
+
+            <div class="sunrise-ritual">
+                <div class="practice-title">
+                    <span class="hieroglyph">☀️</span> Day 24: Sunrise Fire Practice
+                </div>
+                <div class="ritual-instruction">
+                    <p><strong>AT SUNRISE:</strong></p>
+                    <ol>
+                        <li>Face East with a candle (safely contained)</li>
+                        <li>Breathe deeply 24 times (for Force 24)</li>
+                        <li>Watch the flame, noting its precise boundaries</li>
+                        <li>Speak: "My fire is measured. My wrath is justified. My power serves order."</li>
+                        <li>Carry a small flame symbol (match, red stone) today</li>
+                    </ol>
+                </div>
+                <p><strong>Fire Reflection:</strong></p>
+                <textarea placeholder="Where has your fire been indiscriminate? Where is justified wrath needed?"></textarea>
+            </div>
+
+            <div class="practice-levels">
+                <!-- Level 1: Recognition -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓏞</div>
+                        <h3 class="level-title">Level 1: Recognition</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🔥</span> Wrath Audit
+                        </div>
+                        <p><strong>Review your use of power and anger:</strong></p>
+                        <textarea placeholder="1. When was your wrath justified and precise?...
+2. When was it indiscriminate or excessive?...
+3. What patterns do you see in your use of 'bau'?"></textarea>
+                        
+                        <div class="interactive-exercise">
+                            <button class="exercise-toggle" onclick="toggleExercise(this)">
+                                <span>⚖️</span> The Scales of Judgment
+                            </button>
+                            <div class="exercise-content">
+                                <p><strong>Practice:</strong> Before expressing anger today, weigh it on Ma'at's scales. Left scale: The offense. Right scale: Your proposed response. Are they balanced?</p>
+                                <textarea placeholder="Describe one instance of measured judgment..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2: Alignment -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓋴</div>
+                        <h3 class="level-title">Level 2: Alignment</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">⚔️</span> Surgical Response Practice
+                        </div>
+                        <p><strong>Apply measured response to one situation:</strong></p>
+                        <div class="ritual-instruction">
+                            <p>Before acting, ask:</p>
+                            <ul>
+                                <li>Is this response proportional to the offense?</li>
+                                <li>Does it serve restoration of order?</li>
+                                <li>Is it precise or scattered?</li>
+                                <li>Would Ma'at approve this use of power?</li>
+                            </ul>
+                        </div>
+                        <textarea placeholder="Describe your surgical response and its outcome..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Level 3: Integration -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓎛</div>
+                        <h3 class="level-title">Level 3: Integration</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🗡️</span> Sacred Warrior Code
+                        </div>
+                        <p>Create your code for wielding power as Utu-nes:</p>
+                        <div class="ritual-instruction">
+                            <p><em>Template: "I wield power only when [conditions]. My responses will be [qualities]. I reserve wrath for [purposes]."</em></p>
+                        </div>
+                        <textarea placeholder="Write your sacred warrior code...
+
+Example: 
+'I wield power only when harmony is broken. My responses will be proportional and precise. I reserve wrath for protecting the vulnerable and restoring order.'"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORCE 25: KHAUI -->
+        <div class="force-section" id="force-25">
+            <div class="force-header">
+                <div class="force-number">25</div>
+                <div class="force-name-container">
+                    <div class="kemetic-name">Khaui</div>
+                    <div class="force-origin">"The Cutter of the Sky" from the City of Cutting Clarity</div>
+                </div>
+            </div>
+            
+            <div class="declaration-box">
+                𓀃 "I have not been a walking isfet, a living deception."
+            </div>
+            
+            <div class="innerstanding-box">
+                <div class="innerstanding-title">
+                    <span class="hieroglyph">𓋹</span> SACRED INNERSTANDING
+                </div>
+                <p><strong>Khaui</strong> cuts through illusion with sky-splitting clarity. This force represents the razor-sharp discernment that separates truth from deception, ensuring one's very being is not a walking embodiment of chaos (isfet).</p>
+                <div class="ritual-instruction">
+                    <p><strong>𓏞 KEY TEACHING:</strong> Your existence should be a living truth, not a walking deception. Cut away all masks, facades, and self-deceptions until only authentic being remains.</p>
+                </div>
+            </div>
+
+            <div class="sunrise-ritual">
+                <div class="practice-title">
+                    <span class="hieroglyph">☀️</span> Day 25: Sunrise Clarity Practice
+                </div>
+                <div class="ritual-instruction">
+                    <p><strong>AT SUNRISE:</strong></p>
+                    <ol>
+                        <li>Face East making a cutting motion through the air</li>
+                        <li>Breathe deeply 25 times (for Force 25)</li>
+                        <li>Visualize cutting through illusions and deceptions</li>
+                        <li>Speak: "I cut through deception. I live as truth. No masks, only my true ren."</li>
+                        <li>Carry a sharp object (key, blade-shaped stone) as symbol</li>
+                    </ol>
+                </div>
+                <p><strong>Clarity Cutting:</strong></p>
+                <textarea placeholder="What deceptions need cutting away? What masks do you still wear?"></textarea>
+            </div>
+
+            <div class="practice-levels">
+                <!-- Level 1: Recognition -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓏞</div>
+                        <h3 class="level-title">Level 1: Recognition</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">✂️</span> Deception Inventory
+                        </div>
+                        <p><strong>Identify areas of deception in your life:</strong></p>
+                        <textarea placeholder="1. Self-deceptions (lies I tell myself)...
+2. Social masks (roles I play for others)...
+3. Professional facades (work personas)...
+4. Spiritual pretenses (religious performances)..."></textarea>
+                        
+                        <div class="interactive-exercise">
+                            <button class="exercise-toggle" onclick="toggleExercise(this)">
+                                <span>🔪</span> The Truth Blade
+                            </button>
+                            <div class="exercise-content">
+                                <p><strong>Practice:</strong> For one hour today, speak only absolute truth. Notice where you're tempted to deceive, embellish, or hide. What wants to be cut away?</p>
+                                <textarea placeholder="Describe your truth-speaking hour and revelations..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2: Alignment -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓋴</div>
+                        <h3 class="level-title">Level 2: Alignment</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">👤</span> Authentic Expression Practice
+                        </div>
+                        <p><strong>Choose one situation to be completely authentic:</strong></p>
+                        <div class="ritual-instruction">
+                            <p>Before engaging, ask:</p>
+                            <ul>
+                                <li>What mask might I normally wear here?</li>
+                                <li>What is my deepest truth in this situation?</li>
+                                <li>How can I express this without deception?</li>
+                            </ul>
+                        </div>
+                        <textarea placeholder="Describe your authentic expression and its reception..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Level 3: Integration -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓎛</div>
+                        <h3 class="level-title">Level 3: Integration</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">📜</span> True Ren Declaration
+                        </div>
+                        <p>Declare your true name (ren) based on Khaui's cutting clarity:</p>
+                        <div class="ritual-instruction">
+                            <p><em>Template: "I am [your true qualities]. I am not [masks/deceptions]. My existence manifests [your authentic purpose]."</em></p>
+                        </div>
+                        <textarea placeholder="Write your true ren declaration...
+
+Example: 
+'I am a seeker of truth, a protector of the vulnerable, a creator of beauty. I am not the people-pleaser, the achievement-chaser, or the spiritual-performer. My existence manifests divine clarity in human form.'"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORCE 26: NEKHEN -->
+        <div class="force-section" id="force-26">
+            <div class="force-header">
+                <div class="force-number">26</div>
+                <div class="force-name-container">
+                    <div class="kemetic-name">Nekhen</div>
+                    <div class="force-origin">From the City of the Falcon (Divine Kingship)</div>
+                </div>
+            </div>
+            
+            <div class="declaration-box">
+                𓀄 "I have not stolen the living skin of the earth-god (Geb)."
+            </div>
+            
+            <div class="innerstanding-box">
+                <div class="innerstanding-title">
+                    <span class="hieroglyph">𓋹</span> SACRED INNERSTANDING
+                </div>
+                <p><strong>Nekhen</strong> represents the falcon's perspective—seeing the earth as sacred body of Geb. This force governs stewardship, not ownership; reverence, not exploitation. The earth's "skin" (land, resources) is divine flesh, never to be stolen or violated.</p>
+                <div class="ritual-instruction">
+                    <p><strong>𓏞 KEY TEACHING:</strong> You are a steward of Geb's body. Use earth's gifts with reverence, never taking more than needed, always honoring the sacredness of land, water, and life.</p>
+                </div>
+            </div>
+
+            <div class="sunrise-ritual">
+                <div class="practice-title">
+                    <span class="hieroglyph">☀️</span> Day 26: Sunrise Earth Practice
+                </div>
+                <div class="ritual-instruction">
+                    <p><strong>AT SUNRISE:</strong></p>
+                    <ol>
+                        <li>Face East touching the earth (ground, plant, soil)</li>
+                        <li>Breathe deeply 26 times (for Force 26)</li>
+                        <li>Feel the earth as living skin of Geb</li>
+                        <li>Speak: "I honor Geb's body. I take only what is given. I steward with reverence."</li>
+                        <li>Carry a small piece of earth (stone, leaf) today</li>
+                    </ol>
+                </div>
+                <p><strong>Earth Connection:</strong></p>
+                <textarea placeholder="How do you experience the earth as sacred? Where might you be 'stealing' rather than stewarding?"></textarea>
+            </div>
+
+            <div class="practice-levels">
+                <!-- Level 1: Recognition -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓏞</div>
+                        <h3 class="level-title">Level 1: Recognition</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🌍</span> Earth Relationship Audit
+                        </div>
+                        <p><strong>Assess your relationship with earth's resources:</strong></p>
+                        <textarea placeholder="1. How do you use water? (Sacred fluid or commodity?)...
+2. How do you consume food? (Nourishment or excess?)...
+3. How do you use energy? (Stewardship or waste?)...
+4. How do you relate to land? (Home or property?)"></textarea>
+                        
+                        <div class="interactive-exercise">
+                            <button class="exercise-toggle" onclick="toggleExercise(this)">
+                                <span>🦅</span> Falcon's Eye View
+                            </button>
+                            <div class="exercise-content">
+                                <p><strong>Practice:</strong> Spend 15 minutes observing nature from Nekhen's perspective. See the earth as Geb's living body. What do you notice about your usual relationship to it?</p>
+                                <textarea placeholder="Describe your falcon's eye observations..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2: Alignment -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓋴</div>
+                        <h3 class="level-title">Level 2: Alignment</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🤲</span> Reverent Stewardship Practice
+                        </div>
+                        <p><strong>Implement one act of earth stewardship:</strong></p>
+                        <div class="ritual-instruction">
+                            <p>Before acting, ask:</p>
+                            <ul>
+                                <li>Does this honor Geb's body?</li>
+                                <li>Am I taking or receiving?</li>
+                                <li>How can I give back more than I take?</li>
+                            </ul>
+                        </div>
+                        <textarea placeholder="Describe your stewardship act and its meaning..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Level 3: Integration -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓎛</div>
+                        <h3 class="level-title">Level 3: Integration</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🏞️</span> Earth Covenant
+                        </div>
+                        <p>Create your covenant with Geb based on Nekhen's wisdom:</p>
+                        <div class="ritual-instruction">
+                            <p><em>Template: "I covenant with Geb to [specific practices]. I will honor earth's body by [actions]. I will restore where I have taken by [reparations]."</em></p>
+                        </div>
+                        <textarea placeholder="Write your earth covenant...
+
+Example: 
+'I covenant with Geb to walk lightly on his skin. I will honor earth's body by reducing waste, planting trees, and giving thanks before meals. I will restore by cleaning one natural space each month.'"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORCE 27: NEKHER -->
+        <div class="force-section" id="force-27">
+            <div class="force-header">
+                <div class="force-number">27</div>
+                <div class="force-name-container">
+                    <div class="kemetic-name">Nekher</div>
+                    <div class="force-origin">From the City of the Vulture Goddess (Divine Feminine)</div>
+                </div>
+            </div>
+            
+            <div class="declaration-box">
+                𓀅 "I have not spoken against the neter (divine force/principle)."
+            </div>
+            
+            <div class="innerstanding-box">
+                <div class="innerstanding-title">
+                    <span class="hieroglyph">𓋹</span> SACRED INNERSTANDING
+                </div>
+                <p><strong>Nekher</strong> embodies reverence for divine principles (neteru). This force understands that to speak against a neter is to deny the cosmic reality it represents. The vulture goddess transforms death into life—teaching sacred alchemy, not blasphemy.</p>
+                <div class="ritual-instruction">
+                    <p><strong>𓏞 KEY TEACHING:</strong> Honor all manifestations of the divine. Even when you disagree with human interpretations, never deny the sacred principles themselves. Transform corruption into nourishment, like the vulture purifying death.</p>
+                </div>
+            </div>
+
+            <div class="sunrise-ritual">
+                <div class="practice-title">
+                    <span class="hieroglyph">☀️</span> Day 27: Sunrise Reverence Practice
+                </div>
+                <div class="ritual-instruction">
+                    <p><strong>AT SUNRISE:</strong></p>
+                    <ol>
+                        <li>Face East with hands in prayer position</li>
+                        <li>Breathe deeply 27 times (for Force 27)</li>
+                        <li>Visualize the neteru (divine principles) you interact with</li>
+                        <li>Speak: "I honor all neteru. I transform, never blaspheme. I see divinity in all forms."</li>
+                        <li>Wear or carry something feather-like today</li>
+                    </ol>
+                </div>
+                <p><strong>Divine Reverence:</strong></p>
+                <textarea placeholder="What divine principles do you sometimes speak against? How can you transform criticism into reverence?"></textarea>
+            </div>
+
+            <div class="practice-levels">
+                <!-- Level 1: Recognition -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓏞</div>
+                        <h3 class="level-title">Level 1: Recognition</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🕊️</span> Blasphemy Audit
+                        </div>
+                        <p><strong>Identify where you speak against divine principles:</strong></p>
+                        <textarea placeholder="1. Criticism of sacred traditions (religions, spiritual paths)...
+2. Denial of universal principles (love, justice, truth)...
+3. Mockery of others' sacred experiences...
+4. Cynicism toward divine manifestations..."></textarea>
+                        
+                        <div class="interactive-exercise">
+                            <button class="exercise-toggle" onclick="toggleExercise(this)">
+                                <span>♻️</span> Vulture's Alchemy
+                            </button>
+                            <div class="exercise-content">
+                                <p><strong>Practice:</strong> Take one thing you typically criticize (a belief, practice, or tradition). Instead of rejecting it, find the sacred principle within it. Transform criticism into understanding.</p>
+                                <textarea placeholder="Describe your alchemical transformation of criticism..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2: Alignment -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓋴</div>
+                        <h3 class="level-title">Level 2: Alignment</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🙏</span> Sacred Witness Practice
+                        </div>
+                        <p><strong>Practice reverent witnessing of one tradition:</strong></p>
+                        <div class="ritual-instruction">
+                            <p>Before observing/engaging, ask:</p>
+                            <ul>
+                                <li>What divine principle does this express?</li>
+                                <li>How can I honor the neter without endorsing every interpretation?</li>
+                                <li>Where is the sacred essence here?</li>
+                            </ul>
+                        </div>
+                        <textarea placeholder="Describe your reverent witnessing and insights..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Level 3: Integration -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓎛</div>
+                        <h3 class="level-title">Level 3: Integration</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🏛️</span> Pantheon of Reverence
+                        </div>
+                        <p>Create your personal pantheon of honored neteru:</p>
+                        <div class="ritual-instruction">
+                            <p><strong>For each principle you encounter:</strong> Name it · Describe its sacred essence · Note how you will honor it · Identify its shadow (misuse)</p>
+                        </div>
+                        <textarea placeholder="Design your pantheon of reverence...
+
+Example Neter 1: Ma'at (Order)
+Sacred Essence: Cosmic harmony and truth
+How I Honor: Speak truth, act justly
+Shadow: Rigidity, judgmentalism
+
+Example Neter 2: Het-Hert (Joy)
+Sacred Essence: Celebration of life
+How I Honor: Find beauty daily
+Shadow: Escapism, excess"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORCE 28: SER-KHERU -->
+        <div class="force-section" id="force-28">
+            <div class="force-header">
+                <div class="force-number">28</div>
+                <div class="force-name-container">
+                    <div class="kemetic-name">Ser-kheru</div>
+                    <div class="force-origin">"He Who Commands the Voice" from the Gateway of Utterance</div>
+                </div>
+            </div>
+            
+            <div class="declaration-box">
+                𓀆 "I have not corrupted the heka of my speech into a storm that strips the dignity from another."
+            </div>
+            
+            <div class="innerstanding-box">
+                <div class="innerstanding-title">
+                    <span class="hieroglyph">𓋹</span> SACRED INNERSTANDING
+                </div>
+                <p><strong>Ser-kheru</strong> masters the creative power of speech (heka) as divine utterance. This force governs the gateway where thought becomes word, ensuring speech builds dignity rather than destroying it. Words should be temples, not tornadoes.</p>
+                <div class="ritual-instruction">
+                    <p><strong>𓏞 KEY TEACHING:</strong> Your voice is sacred architecture. Build with it. Create spaces of dignity for others to dwell in. Never use speech as a storm that strips away another's worth.</p>
+                </div>
+            </div>
+
+            <div class="sunrise-ritual">
+                <div class="practice-title">
+                    <span class="hieroglyph">☀️</span> Day 28: Sunrise Speech Practice
+                </div>
+                <div class="ritual-instruction">
+                    <p><strong>AT SUNRISE:</strong></p>
+                    <ol>
+                        <li>Face East speaking words into cupped hands</li>
+                        <li>Breathe deeply 28 times (for Force 28)</li>
+                        <li>Feel your breath as sacred wind carrying words</li>
+                        <li>Speak: "My words build dignity. My speech creates temples. My voice honors all beings."</li>
+                        <li>Carry a small bell or chime today</li>
+                    </ol>
+                </div>
+                <p><strong>Speech Reflection:</strong></p>
+                <textarea placeholder="When have your words been storms? When have they been temples? What speech patterns need transforming?"></textarea>
+            </div>
+
+            <div class="practice-levels">
+                <!-- Level 1: Recognition -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓏞</div>
+                        <h3 class="level-title">Level 1: Recognition</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">🗣️</span> Speech Pattern Audit
+                        </div>
+                        <p><strong>Analyze your speech patterns for dignity-building:</strong></p>
+                        <textarea placeholder="1. Criticism patterns (constructive or destructive?)...
+2. Praise patterns (genuine or manipulative?)...
+3. Correction patterns (restorative or shaming?)...
+4. Expression patterns (authentic or performative?)..."></textarea>
+                        
+                        <div class="interactive-exercise">
+                            <button class="exercise-toggle" onclick="toggleExercise(this)">
+                                <span>🏛️</span> Temple-Building Words
+                            </button>
+                            <div class="exercise-content">
+                                <p><strong>Practice:</strong> For three conversations today, consciously build "temples" with your words. Create spaces where others feel their dignity honored and expanded.</p>
+                                <textarea placeholder="Describe your temple-building conversations..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2: Alignment -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓋴</div>
+                        <h3 class="level-title">Level 2: Alignment</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">✨</span> Dignity-Preserving Communication
+                        </div>
+                        <p><strong>Apply dignity-preserving speech in one challenging situation:</strong></p>
+                        <div class="ritual-instruction">
+                            <p>Before speaking, ask:</p>
+                            <ul>
+                                <li>Will these words build or destroy dignity?</li>
+                                <li>Am I creating a temple or a storm?</li>
+                                <li>How can I say hard truths while preserving worth?</li>
+                                <li>What architecture does this speech create?</li>
+                            </ul>
+                        </div>
+                        <textarea placeholder="Describe your dignity-preserving communication and its effects..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Level 3: Integration -->
+                <div class="practice-level">
+                    <div class="level-header">
+                        <div class="level-icon">𓎛</div>
+                        <h3 class="level-title">Level 3: Integration</h3>
+                    </div>
+                    
+                    <div class="sacred-practice">
+                        <div class="practice-title">
+                            <span class="hieroglyph">📜</span> Sacred Utterance Codex
+                        </div>
+                        <p>Create your codex for sacred speech based on Ser-kheru:</p>
+                        <div class="ritual-instruction">
+                            <p><strong>Your codex includes:</strong> Permitted speech (what builds) · Forbidden speech (what destroys) · Ritual utterances (sacred phrases) · Correction protocols (how to address harm)</p>
+                        </div>
+                        <textarea placeholder="Write your sacred utterance codex...
+
+Permitted Speech:
+- Words that affirm dignity
+- Truth spoken with compassion
+- Encouragement that empowers
+
+Forbidden Speech:
+- Words that strip worth
+- Truth without love
+- Criticism that shames
+
+Ritual Utterances:
+- "I see your worth"
+- "Your dignity matters"
+- "Let me build with you"
+
+Correction Protocols:
+1. Pause before speaking
+2. Check dignity preservation
+3. Speak to restore, not punish"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPLETION CEREMONY -->
+        <div class="completion-section">
+            <h2 style="color: #FFD700; margin-bottom: 30px; font-size: 2.5em;">
+                𓇳 Week 4 Completion: Solar Path Weighing 𓇳
+            </h2>
+            
+            <div class="flame-decoration"></div>
+            
+            <div class="ritual-instruction" style="text-align:left; margin:40px auto; max-width:800px; padding:30px;">
+                <p><strong>𓏞 FINAL CEREMONY - Day of Solar Integration:</strong></p>
+                <ol>
+                    <li>At sunrise, create circle with 7 solar symbols (coins, crystals, golden objects)</li>
+                    <li>Stand in center facing East as sun rises</li>
+                    <li>For each force (22-28), speak its declaration while holding corresponding symbol</li>
+                    <li>Place each symbol on a golden cloth (or yellow fabric)</li>
+                    <li>Burn a small paper with one "shadow pattern" you release</li>
+                    <li>Speak: <em>"The Solar Path is walked. My sight illuminates. My patterns honor order. My wrath is measured. My being is true. My stewardship reveres. My reverence transforms. My speech builds dignity. Forces 22-28 are woven into my solar body."</em></li>
+                    <li>Meditate as sunlight fills your space for 56 minutes (8 x 7)</li>
+                </ol>
+            </div>
+            
+            <div class="journal-section">
+                <h3 style="color: #FFD700; text-align:center;">𓎟 Solar Integration Reflections 𓎟</h3>
+                
+                <div class="journal-prompt">
+                    <p><strong>What illumination did the Solar Path bring?</strong></p>
+                    <textarea placeholder="Revelations about your sight, patterns, power, authenticity, stewardship, reverence, and speech..."></textarea>
+                </div>
+                
+                <div class="journal-prompt">
+                    <p><strong>What shadows were burned away by solar fire?</strong></p>
+                    <textarea placeholder="Patterns of terrorizing, chaos-casting, deception, exploitation, blasphemy, and dignity-stripping..."></textarea>
+                </div>
+                
+                <div class="journal-prompt">
+                    <p><strong>What solar essence now radiates from you?</strong></p>
+                    <textarea placeholder="Your illuminated being that survived the weighing..."></textarea>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center;">
+                <button class="sacred-btn gold-btn" onclick="completeWorkbook()" style="padding: 25px 50px; font-size: 1.3em;">
+                    ✅ Complete Week 4: The Solar Path
+                </button>
+                
+                <div style="margin-top: 30px; color: #FFD700; font-style: italic; font-size: 1.2em; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <p><em>"The sun does not discriminate in its illumination. Walk now as solar being—your presence naturally illuminates, your actions automatically align with cosmic order, your speech inherently builds dignity."</em></p>
+                </div>
             </div>
         </div>
         
-        <!-- Download Section -->
-        <div style="text-align:center; padding:40px; margin:40px 0; background:rgba(255,255,255,0.06); border-radius:15px; border:1px solid #FFD700;">
-            <h3 style="color: #FFD700;">📚 Week 4 Resources</h3>
-            <button class="btn" onclick="generatePDF(4)">📥 Download Wisdom PDF</button>
-            <button class="btn" onclick="window.print()">🖨️ Print Workbook</button>
-            <a href="../hall-of-truth.html" class="btn" onclick="return confirm('Return to Hall of Truth? Your progress is saved.')">
-                🏛 Return to Hall of Truth
-            </a>
-            
-            <!-- Unlock Week 5 Button (hidden by default) -->
-            <a href="../week5/index.html" class="btn btn-unlock" id="unlockWeek5Link">
-                🔓 Unlock Week 5: The Sacred Waters →
-            </a>
-            
-            <div style="margin-top:30px;">
-                <h4 style="color: #FFD700;">🎧 Wisdom Meditations</h4>
-                <button class="btn" style="background:#330066;">Intuition Development (20 min)</button>
-                <button class="btn" style="background:#330066;">Discernment Practice (15 min)</button>
-            </div>
-        </div>
-        
-        <!-- NAVIGATION SECTION (at bottom) -->
-        <div class="nav-section">
-            <h3 style="color: #FFD700; text-align: center;">Continue Your Journey</h3>
+        <!-- NAVIGATION & RESOURCES -->
+        <div class="navigation-section">
+            <h2 style="color: #FFD700; margin-bottom: 40px; font-size: 2.2em;">
+                𓏙 SOLAR PATH RESOURCES 𓏙
+            </h2>
             
             <div class="nav-buttons">
-                <a href="../week4/index.html" class="nav-btn back">
-                    ← Back to Week 4: The Solar Path
+                <a href="../week4/index.html" class="nav-btn">
+                    <span style="font-size: 1.5em;">←</span>
+                    <strong>Back to Week 4 Overview</strong>
+                    <span style="font-size: 0.9em; opacity: 0.8;">The Solar Path Gateway</span>
                 </a>
                 
-                <a href="../week5/index.html" class="nav-btn forward" id="navToWeek5">
-                    Continue to Week 5: The Sacred Waters →
+                <a href="../week3/workbook.html" class="nav-btn">
+                    <span style="font-size: 1.5em;">⚖️</span>
+                    <strong>Week 3 Workbook</strong>
+                    <span style="font-size: 0.9em; opacity: 0.8;">Balance of Opposites</span>
+                </a>
+                
+                <a href="../week5/index.html" class="nav-btn disabled" id="week5Nav">
+                    <span style="font-size: 1.5em;">🔒</span>
+                    <strong>Week 5: Sacred Waters</strong>
+                    <span style="font-size: 0.9em; opacity: 0.8;">Complete Week 4 to unlock</span>
+                </a>
+                
+                <a href="../../hall-of-truth.html" class="nav-btn">
+                    <span style="font-size: 1.5em;">🏛️</span>
+                    <strong>Hall of Truth Portal</strong>
+                    <span style="font-size: 0.9em; opacity: 0.8;">Return to Main Gateway</span>
                 </a>
             </div>
             
-            <div style="margin-top: 30px; padding: 25px; background: rgba(255, 215, 0, 0.08); border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.2);">
-                <p style="color: #FFD700; font-size: 0.9em; text-align: center;">
-                    <strong>Note:</strong> Complete all Week 4 exercises above to unlock Week 5. Your progress saves automatically.
-                </p>
+            <div style="margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <button class="sacred-btn" onclick="saveProgress()">
+                    <span style="font-size: 1.3em;">💾</span> Save Workbook
+                </button>
+                
+                <button class="sacred-btn" onclick="exportWorkbook()">
+                    <span style="font-size: 1.3em;">📥</span> Export as PDF
+                </button>
+                
+                <button class="sacred-btn" onclick="printWorkbook()">
+                    <span style="font-size: 1.3em;">🖨️</span> Print Sacred Record
+                </button>
+                
+                <button class="sacred-btn gold-btn" onclick="clearWorkbook()">
+                    <span style="font-size: 1.3em;">🔄</span> Start Fresh
+                </button>
+            </div>
+            
+            <div style="margin-top: 50px; padding: 40px; background: rgba(255, 215, 0, 0.05); border-radius: 20px; border: 1px solid #FFD700;">
+                <h3 style="color: #FFD700;">𓍹 WEEK 5 PREVIEW: The Sacred Waters (Forces 29-35) 𓍹</h3>
+                <p style="margin:20px 0; color: #f7eaff;">Complete the Solar Path to unlock the purification, emotional mastery, and fluid wisdom of the Sacred Waters.</p>
+                <div style="display: inline-block; background: rgba(255, 215, 0, 0.1); padding: 15px 30px; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                    <p style="margin: 0; color: #FFD700; font-size: 0.9em;">
+                        <strong>Unlocks when:</strong> All 7 Forces (22-28) completed + Solar Integration Ceremony performed
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Workbook completion function
-        function completeWorkbook() {
-            // Check if enough fields are filled
-            const requiredFields = document.querySelectorAll('textarea, input[type="text"], input[type="number"]');
-            let filledFields = 0;
+        // Check access on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // For testing: Uncomment to force access
+            // localStorage.setItem('balance_of_opposites_completed', 'true');
             
-            requiredFields.forEach(field => {
-                if (field.value.trim() !== '') {
-                    filledFields++;
-                }
-            });
+            const week3Completed = localStorage.getItem('balance_of_opposites_completed');
+            const lockScreen = document.getElementById('lockScreen');
+            const workbook = document.getElementById('workbookContent');
             
-            if (filledFields < 3) {
-                if (!confirm(`You have ${filledFields} filled fields (minimum 3 recommended). Mark as complete anyway?`)) {
-                    return;
-                }
+            console.log('Week 3 completion status:', week3Completed);
+            
+            if (week3Completed === 'true') {
+                // Show workbook, hide lock screen
+                lockScreen.style.display = 'none';
+                workbook.style.display = 'block';
+                
+                // Record access
+                localStorage.setItem('week4_workbook_accessed', new Date().toISOString());
+                console.log('Week 4 workbook unlocked');
+                
+                // Initialize workbook
+                initializeWorkbook();
+            } else {
+                // Show lock screen, hide workbook
+                lockScreen.style.display = 'flex';
+                workbook.style.display = 'none';
+                console.log('Week 4 locked - complete Week 3 first');
             }
             
-            // Mark workbook as completed
-            localStorage.setItem('discernment_temple_completed', 'true');
-            localStorage.setItem('week4_completed_date', new Date().toISOString());
-            
-            // Update progress tracker
-            document.getElementById('step3').classList.add('completed');
-            
-            // Show success message
-            showNotification('✅ Week 4 Workbook Completed! Week 5 is now unlocked.', 'success');
-            
-            // Update completion section
-            document.getElementById('completeButton').style.display = 'none';
-            document.getElementById('unlockWeek5Link').style.display = 'inline-block';
-            
-            // Enable the Week 5 navigation button
-            document.getElementById('navToWeek5').classList.add('forward');
-            
-            // Update completion section content
-            const completionSection = document.getElementById('completionSection');
-            completionSection.innerHTML = `
-                <h2 style="color: #4CAF50; margin-bottom: 20px; font-size: 2em;">✅ Discernment Temple Complete</h2>
-                
-                <div style="font-size: 3em; margin: 20px 0; color: #FFD700;">👁️</div>
-                
-                <div style="background: rgba(76, 175, 80, 0.08); padding: 25px; border-radius: 10px; max-width: 500px; margin: 20px auto; border: 1px solid #4CAF50;">
-                    <p style="color: #f7eaff; font-size: 1.1em; margin: 0;">
-                        <strong>Completion Date:</strong> ${new Date().toLocaleDateString()}<br>
-                        <strong>Forces Mastered:</strong> 22-28 of Ma'at<br>
-                        <strong>Wisdom Level Achieved:</strong> Discernment
-                    </p>
-                </div>
-                
-                <div style="margin: 30px 0; max-width: 500px; margin-left: auto; margin-right: auto;">
-                    <p style="color: #FFD700; font-style: italic;">
-                        "You have awakened the Eye of Horus. The Sacred Waters await your purified vision."
-                    </p>
-                </div>
-                
-                <a href="../week5/index.html" class="btn" style="background: linear-gradient(135deg, #4CAF50, #2E7D32); padding: 18px 45px; font-size: 1.1em;">
-                    🔓 Proceed to Week 5: The Sacred Waters →
-                </a>
-                
-                <a href="../week4/index.html" class="btn" style="background: rgba(255, 215, 0, 0.1); margin-top: 20px;">
-                    ← Return to Week 4 Overview
-                </a>
+            // Test unlock button for development
+            const testBtn = document.createElement('button');
+            testBtn.textContent = '🔓 Test Unlock';
+            testBtn.style.cssText = `
+                position: fixed;
+                bottom: 10px;
+                left: 10px;
+                background: rgba(255, 215, 0, 0.2);
+                color: #FFD700;
+                border: 1px solid #FFD700;
+                padding: 10px;
+                border-radius: 5px;
+                font-family: inherit;
+                cursor: pointer;
+                z-index: 9999;
+                font-size: 0.8em;
             `;
-            
-            // Auto-redirect after 5 seconds
-            setTimeout(() => {
-                if (confirm('Discernment mastered! Would you like to proceed to Week 5: The Sacred Waters?')) {
-                    window.location.href = '../week5/index.html';
-                }
-            }, 5000);
-        }
-        
-        // Check workbook completion status
-        function checkWorkbookStatus() {
-            const workbookCompleted = localStorage.getItem('discernment_temple_completed');
-            
-            if (workbookCompleted === 'true') {
-                // Update progress steps
-                document.getElementById('step3').classList.add('completed');
-                
-                // Show unlock link
-                document.getElementById('unlockWeek5Link').style.display = 'inline-block';
-                
-                // Hide complete button
-                document.getElementById('completeButton').style.display = 'none';
-                
-                // Enable Week 5 navigation button
-                document.getElementById('navToWeek5').style.background = 'linear-gradient(135deg, #4CAF50, #2E7D32)';
-                
-                // Update completion section
-                document.getElementById('completionSection').style.display = 'none';
-            }
-            
-            // Check if coming from Week 5 without completion
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('locked') === 'true') {
-                document.getElementById('lockScreen').classList.add('active');
-            }
-        }
-        
-        function hideLockScreen() {
-            document.getElementById('lockScreen').classList.remove('active');
-        }
-        
-        // Auto-save functionality
-        function saveAllReflections() {
-            const reflections = {};
-            document.querySelectorAll('textarea, input[type="text"], input[type="number"]').forEach((el, index) => {
-                reflections[`week4_reflection_${index}`] = el.value;
-                localStorage.setItem(`discernment_workbook_${index}`, el.value);
+            testBtn.addEventListener('click', function() {
+                localStorage.setItem('balance_of_opposites_completed', 'true');
+                alert('Week 4 unlocked for testing! Refreshing...');
+                location.reload();
             });
-            return reflections;
-        }
-        
-        // Auto-save every 30 seconds
-        setInterval(saveAllReflections, 30000);
-        
-        // Save on input
-        document.querySelectorAll('textarea, input').forEach((el, index) => {
-            el.addEventListener('input', function() {
-                localStorage.setItem(`discernment_workbook_${index}`, this.value);
-            });
-            
-            // Load saved reflections
-            const saved = localStorage.getItem(`discernment_workbook_${index}`);
-            if (saved) {
-                el.value = saved;
-            }
+            document.body.appendChild(testBtn);
         });
         
-        function generatePDF(week) {
-            const content = `Week ${week} Discernment Workbook\n\nExercises Completed. For full PDF, complete all fields and use print function.`;
-            
-            const blob = new Blob([content], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Week${week}_Discernment_Workbook.txt`;
-            a.click();
-            
-            showNotification('Workbook content saved! For complete PDF, use print function.', 'success');
-        }
-        
-        function showNotification(message, type) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 30px;
-                right: 30px;
-                background: ${type === 'success' ? 'linear-gradient(135deg, #4CAF50, #2E7D32)' : 'linear-gradient(135deg, #FFD700, #f7eaff)'};
-                color: ${type === 'success' ? 'white' : '#140025'};
-                padding: 20px 30px;
-                border-radius: 10px;
-                font-family: inherit;
-                z-index: 10000;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-                animation: slideIn 0.3s ease;
-                max-width: 300px;
-                border: 2px solid ${type === 'success' ? '#4CAF50' : '#FFD700'};
-            `;
-            
-            notification.innerHTML = `
-                <strong>${type === 'success' ? '✓' : '⚠'}</strong>
-                <div style="margin-top: 10px; font-size: 0.9em;">${message}</div>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            // Remove after 3 seconds
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
-            
-            // Add CSS for animations
-            if (!document.querySelector('#notification-styles')) {
-                const style = document.createElement('style');
-                style.id = 'notification-styles';
-                style.textContent = `
-                    @keyframes slideIn {
-                        from { transform: translateX(100%); opacity: 0; }
-                        to { transform: translateX(0); opacity: 1; }
-                    }
-                    @keyframes slideOut {
-                        from { transform: translateX(0); opacity: 1; }
-                        to { transform: translateX(100%); opacity: 0; }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
-        }
-        
-        // Check completion on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            checkWorkbookStatus();
-            
-            // Show lock screen if trying to access Week 5 from navigation
-            const week5Links = document.querySelectorAll('a[href*="week5"]');
-            week5Links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const workbookCompleted = localStorage.getItem('discernment_temple_completed');
+        function initializeWorkbook() {
+            // Navigation between forces
+            window.scrollToForce = function(forceNumber) {
+                const element = document.getElementById(`force-${forceNumber}`);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
                     
-                    if (workbookCompleted !== 'true' && !this.classList.contains('btn-unlock')) {
-                        e.preventDefault();
-                        document.getElementById('lockScreen').classList.add('active');
+                    // Update tracker dots
+                    document.querySelectorAll('.tracker-dot').forEach(dot => {
+                        dot.classList.remove('active');
+                        if (parseInt(dot.textContent) === forceNumber) {
+                            dot.classList.add('active');
+                        }
+                        
+                        // Mark as completed if we've scrolled past
+                        const dotNum = parseInt(dot.textContent);
+                        if (dotNum < forceNumber) {
+                            dot.classList.add('completed');
+                        }
+                    });
+                }
+            };
+            
+            // Toggle exercise content
+            window.toggleExercise = function(button) {
+                const content = button.nextElementSibling;
+                content.classList.toggle('active');
+                button.innerHTML = content.classList.contains('active') 
+                    ? '<span>📝</span> Hide Exercise' 
+                    : button.innerHTML.replace('Hide', 'Show');
+            };
+            
+            // Auto-save functionality
+            function saveAllReflections() {
+                const reflections = {};
+                document.querySelectorAll('textarea, input[type="text"]').forEach((el, index) => {
+                    reflections[`week4_force_${index}`] = el.value;
+                    localStorage.setItem(`solar_path_${index}`, el.value);
+                });
+                return reflections;
+            }
+            
+            // Auto-save every 30 seconds
+            setInterval(saveAllReflections, 30000);
+            
+            // Save on input
+            document.querySelectorAll('textarea, input[type="text"]').forEach((el, index) => {
+                el.addEventListener('input', function() {
+                    localStorage.setItem(`solar_path_${index}`, this.value);
+                    
+                    // Mark force as in progress
+                    const forceSection = this.closest('.force-section');
+                    if (forceSection) {
+                        const forceNum = forceSection.id.split('-')[1];
+                        const trackerDot = document.querySelector(`.tracker-dot[onclick*="${forceNum}"]`);
+                        if (trackerDot && !trackerDot.classList.contains('completed')) {
+                            trackerDot.style.background = 'rgba(255, 215, 0, 0.3)';
+                            trackerDot.style.borderColor = '#f7eaff';
+                        }
                     }
                 });
+                
+                // Load saved reflections
+                const saved = localStorage.getItem(`solar_path_${index}`);
+                if (saved) {
+                    el.value = saved;
+                }
+            });
+            
+            // Workbook completion
+            window.completeWorkbook = function() {
+                // Check if all forces have some content
+                const forceSections = document.querySelectorAll('.force-section');
+                let completedForces = 0;
+                
+                forceSections.forEach(section => {
+                    const textareas = section.querySelectorAll('textarea');
+                    let hasContent = false;
+                    textareas.forEach(ta => {
+                        if (ta.value.trim().length > 10) hasContent = true;
+                    });
+                    if (hasContent) completedForces++;
+                });
+                
+                if (completedForces < 4) {
+                    if (!confirm(`You have ${completedForces} forces with substantial reflections (recommended: 4+). Mark as complete anyway?`)) {
+                        return;
+                    }
+                }
+                
+                // Mark workbook as completed
+                localStorage.setItem('solar_path_completed', 'true');
+                localStorage.setItem('solar_path_completion_date', new Date().toISOString());
+                
+                // Update all tracker dots
+                document.querySelectorAll('.tracker-dot').forEach(dot => {
+                    dot.classList.add('completed');
+                    dot.classList.remove('active');
+                });
+                
+                // Enable Week 5 navigation
+                const week5Nav = document.getElementById('week5Nav');
+                week5Nav.classList.remove('disabled');
+                week5Nav.href = '../week5/index.html';
+                week5Nav.innerHTML = `
+                    <span style="font-size: 1.5em;">💧</span>
+                    <strong>Week 5: Sacred Waters</strong>
+                    <span style="font-size: 0.9em; opacity: 0.8;">Unlocked! Click to proceed</span>
+                `;
+                
+                // Show completion badge
+                showNotification('✅ Week 4: Solar Path Completed! Week 5 is now unlocked.', 'success');
+                
+                // Update completion section
+                const completionSection = document.querySelector('.completion-section');
+                completionSection.innerHTML = `
+                    <h2 style="color: #4CAF50; margin-bottom: 30px; font-size: 2.5em;">
+                        𓇳 SOLAR PATH MASTERED 𓇳
+                    </h2>
+                    
+                    <div style="font-size: 4em; margin: 20px 0; color: #FFD700;">☀️</div>
+                    
+                    <div style="background: rgba(76, 175, 80, 0.08); padding: 30px; border-radius: 15px; max-width: 600px; margin: 20px auto; border: 2px solid #4CAF50;">
+                        <p style="color: #f7eaff; font-size: 1.1em; margin: 0;">
+                            <strong>Completion:</strong> ${new Date().toLocaleDateString()}<br>
+                            <strong>Forces Integrated:</strong> 22-28 of Ma'at<br>
+                            <strong>Solar Level Achieved:</strong> Illuminated Being
+                        </p>
+                    </div>
+                    
+                    <div style="margin: 30px 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        <p style="color: #FFD700; font-style: italic; font-size: 1.1em;">
+                            "You have walked the path of Ra. Your sight illuminates, your patterns honor cosmic order, your being radiates solar truth. The Sacred Waters await your purified presence."
+                        </p>
+                    </div>
+                    
+                    <div class="nav-buttons" style="max-width: 500px; margin: 40px auto;">
+                        <a href="../week5/index.html" class="nav-btn" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);">
+                            <span style="font-size: 1.5em;">💧</span>
+                            <strong>Proceed to Week 5</strong>
+                            <span style="font-size: 0.9em; opacity: 0.8;">The Sacred Waters</span>
+                        </a>
+                        
+                        <a href="../week4/index.html" class="nav-btn" style="background: rgba(255, 215, 0, 0.1);">
+                            <span style="font-size: 1.5em;">☀️</span>
+                            <strong>Return to Overview</strong>
+                            <span style="font-size: 0.9em; opacity: 0.8;">Week 4: Solar Path</span>
+                        </a>
+                    </div>
+                `;
+                
+                // Auto-redirect after 8 seconds
+                setTimeout(() => {
+                    if (confirm('Solar Path mastered! Proceed to Week 5: The Sacred Waters?')) {
+                        window.location.href = '../week5/index.html';
+                    }
+                }, 8000);
+            };
+            
+            // Save progress function
+            window.saveProgress = function() {
+                saveAllReflections();
+                showNotification('📀 Workbook progress saved locally!', 'success');
+            };
+            
+            // Export function
+            window.exportWorkbook = function() {
+                const content = document.querySelector('.sacred-workbook').innerText;
+                const blob = new Blob([content], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `Week4_Solar_Path_Workbook_${new Date().toISOString().slice(0,10)}.txt`;
+                a.click();
+                showNotification('📥 Workbook exported as text file!', 'success');
+            };
+            
+            // Print function
+            window.printWorkbook = function() {
+                window.print();
+            };
+            
+            // Clear workbook (with confirmation)
+            window.clearWorkbook = function() {
+                if (confirm('Clear all workbook reflections? This cannot be undone.')) {
+                    localStorage.clear();
+                    location.reload();
+                }
+            };
+            
+            // Notification system
+            function showNotification(message, type) {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 30px;
+                    right: 30px;
+                    background: ${type === 'success' ? 'linear-gradient(135deg, #4CAF50, #2E7D32)' : 'linear-gradient(135deg, #FFD700, #f7eaff)'};
+                    color: ${type === 'success' ? 'white' : '#140025'};
+                    padding: 20px 30px;
+                    border-radius: 10px;
+                    font-family: inherit;
+                    z-index: 10000;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                    animation: slideIn 0.3s ease;
+                    max-width: 300px;
+                    border: 2px solid ${type === 'success' ? '#4CAF50' : '#FFD700'};
+                `;
+                
+                notification.innerHTML = `
+                    <strong>${type === 'success' ? '✓' : '⚠'}</strong>
+                    <div style="margin-top: 10px; font-size: 0.9em;">${message}</div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+                
+                // Add CSS for animations if not present
+                if (!document.querySelector('#notification-styles')) {
+                    const style = document.createElement('style');
+                    style.id = 'notification-styles';
+                    style.textContent = `
+                        @keyframes slideIn {
+                            from { transform: translateX(100%); opacity: 0; }
+                            to { transform: translateX(0); opacity: 1; }
+                        }
+                        @keyframes slideOut {
+                            from { transform: translateX(0); opacity: 1; }
+                            to { transform: translateX(100%); opacity: 0; }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+            }
+            
+            // Initialize first force as active
+            document.querySelector('.tracker-dot').classList.add('active');
+            
+            // Add scroll observer to track progress
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const forceId = entry.target.id;
+                        const forceNumber = parseInt(forceId.split('-')[1]);
+                        
+                        // Update tracker
+                        document.querySelectorAll('.tracker-dot').forEach(dot => {
+                            dot.classList.remove('active');
+                            const dotNum = parseInt(dot.textContent);
+                            if (dotNum === forceNumber) {
+                                dot.classList.add('active');
+                            }
+                            if (dotNum < forceNumber) {
+                                dot.classList.add('completed');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            document.querySelectorAll('.force-section').forEach(section => {
+                observer.observe(section);
             });
             
             // Initial save
             saveAllReflections();
-        });
+            
+            // Check if already completed
+            const alreadyCompleted = localStorage.getItem('solar_path_completed');
+            if (alreadyCompleted === 'true') {
+                document.querySelectorAll('.tracker-dot').forEach(dot => {
+                    dot.classList.add('completed');
+                    dot.classList.remove('active');
+                });
+                
+                const week5Nav = document.getElementById('week5Nav');
+                week5Nav.classList.remove('disabled');
+                week5Nav.href = '../week5/index.html';
+                week5Nav.innerHTML = `
+                    <span style="font-size: 1.5em;">💧</span>
+                    <strong>Week 5: Sacred Waters</strong>
+                    <span style="font-size: 0.9em; opacity: 0.8;">Unlocked! Click to proceed</span>
+                `;
+            }
+        }
     </script>
 </body>
-</html>        
+</html>
