@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sacred Workbook: The Sacred Flame - Forces 8-14</title>
+    <title>Week 2 Workbook: The Sacred Flame - Forces 8-14</title>
     <style>
-        /* [ALL PREVIOUS CSS REMAINS THE SAME - just adding completion button styles] */
+        /* [ALL EXISTING CSS REMAINS - ADD NEW STYLES BELOW] */
         
-        /* Add these new styles at the end of the style section */
+        /* Completion Certificate Styles */
         .completion-certificate {
             background: rgba(212, 175, 55, 0.1);
             padding: 50px 40px;
@@ -120,9 +120,7 @@
 </head>
 <body>
     <div class="workbook-container">
-        <!-- [ALL PREVIOUS CONTENT REMAINS THE SAME UP TO DOWNLOAD SECTION] -->
-        
-        <!-- ADD PROGRESS STEPS HERE (after support-box, before download-section) -->
+        <!-- Progress Steps -->
         <div class="progress-steps">
             <div class="step completed">
                 <div class="step-number">1</div>
@@ -137,6 +135,8 @@
                 <div>Unlock Week 3</div>
             </div>
         </div>
+
+        <!-- FORCE SECTIONS (your existing 7 forces sections go here) -->
         
         <!-- WEEK COMPLETION CERTIFICATE SECTION -->
         <div class="completion-certificate" id="completionSection">
@@ -169,33 +169,25 @@
             </div>
         </div>
         
-        <!-- DOWNLOAD SECTION (MODIFIED) -->
-        <div class="download-section">
-            <h2 style="color:var(--primary-gold); font-family:'Cinzel', serif; margin-bottom:40px; font-size:1.8em; font-weight:600;">
-                Sacred Flame Resources
-            </h2>
-            
-            <button class="btn-primary" onclick="generatePDF()">
-                📥 Download Sacred Flame PDF
-            </button>
-            
-            <button class="btn-secondary" onclick="saveProgress()">
-                💾 Save My Week 2 Progress
-            </button>
-            
-            <a href="index.html" class="btn-secondary" onclick="return confirm('Return to Week 2? Your progress is saved.')">
-                ← Return to Week 2 Overview
-            </a>
-            
-            <!-- This link only appears when workbook is completed -->
-            <a href="../week3/index.html" class="btn-primary" id="unlockWeek3Link" style="display: none; background: linear-gradient(135deg, var(--success-green) 0%, #2E7D32 100%);">
-                🔓 Unlock Week 3: The Veil & Voice →
-            </a>
-            
-            <!-- [Audio Practices section remains the same] -->
+        <!-- MODIFIED NAVIGATION SECTION -->
+        <div style="text-align: center; margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(255, 215, 0, 0.25);">
+            <div class="nav-links">
+                <a href="index.html" class="nav-button">
+                    ← Return to Week 2 Overview
+                </a>
+                
+                <!-- This link only appears when workbook is completed -->
+                <a href="../week3/index.html" class="btn-primary" id="unlockWeek3Link" style="display: none; background: linear-gradient(135deg, var(--success-green) 0%, #2E7D32 100%); margin: 0 15px;">
+                    🔓 Unlock Week 3: The Veil & Voice →
+                </a>
+                
+                <button class="btn-secondary" onclick="saveProgress()">
+                    💾 Save My Progress
+                </button>
+            </div>
         </div>
         
-        <!-- LOCK SCREEN (hidden by default) -->
+        <!-- LOCK SCREEN -->
         <div class="lock-screen" id="lockScreen">
             <div style="font-size: 4em; margin-bottom: 20px; color: var(--primary-gold);">🔒</div>
             <h2 style="color: #FFD700; margin-bottom: 20px;">Week 3 is Locked</h2>
@@ -212,16 +204,12 @@
                 Your progress is automatically saved. Complete the workbook exercises to proceed.
             </p>
         </div>
-        
-        <!-- [SUPPORT SECTION REMAINS THE SAME] -->
     </div>
 
     <script>
-        // [ALL PREVIOUS JAVASCRIPT REMAINS - ADD NEW FUNCTIONS BELOW]
-        
         // Workbook completion function
         function completeWorkbook() {
-            // Check if all required fields are filled
+            // Check if all required fields are filled (optional)
             const requiredFields = document.querySelectorAll('textarea, input[type="text"]');
             let emptyFields = 0;
             
@@ -231,14 +219,14 @@
                 }
             });
             
-            if (emptyFields > 5) { // Allow some empty fields
+            if (emptyFields > 0) {
                 if (!confirm(`You have ${emptyFields} empty reflection fields. Mark as complete anyway?`)) {
                     return;
                 }
             }
             
-            // Mark workbook as completed
-            localStorage.setItem('sacred_flame_workbook_completed', 'true');
+            // Mark workbook as completed in localStorage
+            localStorage.setItem('week2_workbook_completed', 'true');
             localStorage.setItem('week2_completed_date', new Date().toISOString());
             
             // Update progress steps
@@ -291,7 +279,7 @@
         
         // Check workbook completion status
         function checkWorkbookStatus() {
-            const workbookCompleted = localStorage.getItem('sacred_flame_workbook_completed');
+            const workbookCompleted = localStorage.getItem('week2_workbook_completed');
             
             if (workbookCompleted === 'true') {
                 // Update progress steps
@@ -303,27 +291,61 @@
                 // Hide complete button
                 document.getElementById('completeButton').style.display = 'none';
             }
-            
-            // Check if coming from Week 3 without completion
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('locked') === 'true') {
-                document.getElementById('lockScreen').classList.add('active');
-            }
         }
         
         function hideLockScreen() {
             document.getElementById('lockScreen').classList.remove('active');
         }
         
+        function showNotification(message, type) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'rgba(76, 175, 80, 0.9)' : 'rgba(255, 87, 87, 0.9)'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 8px;
+                z-index: 10000;
+                font-family: 'Georgia', serif;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+        
+        function saveProgress() {
+            const progress = {
+                completed: localStorage.getItem('week2_workbook_completed'),
+                date: localStorage.getItem('week2_completed_date'),
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('week2_progress_backup', JSON.stringify(progress));
+            showNotification('💾 Progress saved successfully!', 'success');
+        }
+        
         // Check completion on page load
         document.addEventListener('DOMContentLoaded', function() {
             checkWorkbookStatus();
             
-            // Show lock screen if trying to access Week 3 from navigation
-            const week3Links = document.querySelectorAll('a[href*="week3"]');
-            week3Links.forEach(link => {
+            // Check if coming from Week 3 without completion
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('locked') === 'true') {
+                document.getElementById('lockScreen').classList.add('active');
+            }
+            
+            // Intercept Week 3 navigation attempts
+            document.querySelectorAll('a[href*="week3"]').forEach(link => {
                 link.addEventListener('click', function(e) {
-                    const workbookCompleted = localStorage.getItem('sacred_flame_workbook_completed');
+                    const workbookCompleted = localStorage.getItem('week2_workbook_completed');
                     
                     if (workbookCompleted !== 'true') {
                         e.preventDefault();
