@@ -4,6 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 5: The Sacred Waters - Forces 29-35 of Ma'at</title>
+    
+    <!-- ========== WEEK 5 PROTECTION SCRIPT ========== -->
+    <script>
+        // Week 5 Protection Script
+        (function() {
+            try {
+                // Get current user from localStorage
+                const userData = localStorage.getItem('tors_sacred_current');
+                
+                // If no user is logged in, redirect to Hall of Truth
+                if (!userData) {
+                    console.log('No user data found, redirecting...');
+                    alert('Sacred access required. Please login to access Week 5.');
+                    window.location.href = 'https://www.tors.life/hall-of-truth.html';
+                    return;
+                }
+                
+                // Parse user data
+                let currentUser;
+                try {
+                    currentUser = JSON.parse(userData);
+                } catch (e) {
+                    console.error('Error parsing user data:', e);
+                    localStorage.removeItem('tors_sacred_current');
+                    window.location.href = 'https://www.tors.life/hall-of-truth.html';
+                    return;
+                }
+                
+                const weekNumber = 5;
+                
+                // Check if user has access to this week
+                if (!currentUser.weeks || !currentUser.weeks.includes(weekNumber)) {
+                    console.log('User does not have access to week', weekNumber);
+                    alert(`Week ${weekNumber} access requires purchase. You only have access to weeks: ${currentUser.weeks ? currentUser.weeks.join(', ') : 'none'}`);
+                    window.location.href = 'https://www.tors.life/hall-of-truth.html';
+                    return;
+                }
+                
+                // Check Week 4 workbook completion
+                const week4Completed = localStorage.getItem('discernment_temple_completed');
+                
+                // User has access - add user interface when DOM is ready
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Add logout button to top right
+                    const logoutBtn = document.createElement('button');
+                    logoutBtn.innerHTML = 'Logout';
+                    logoutBtn.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: rgba(255, 215, 0, 0.2);
+                        color: #FFD700;
+                        border: 1px solid #FFD700;
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        z-index: 10000;
+                        font-family: "Georgia", serif;
+                        font-size: 14px;
+                        transition: all 0.3s ease;
+                    `;
+                    logoutBtn.onmouseenter = function() {
+                        this.style.background = 'rgba(255, 215, 0, 0.3)';
+                        this.style.boxShadow = '0 0 10px rgba(255, 215, 0, 0.5)';
+                    };
+                    logoutBtn.onmouseleave = function() {
+                        this.style.background = 'rgba(255, 215, 0, 0.2)';
+                        this.style.boxShadow = 'none';
+                    };
+                    logoutBtn.onclick = function() {
+                        if (confirm('Leave sacred waters?')) {
+                            localStorage.removeItem('tors_sacred_current');
+                            window.location.href = 'https://www.tors.life/hall-of-truth.html';
+                        }
+                    };
+                    document.body.appendChild(logoutBtn);
+                    
+                    // Add welcome message to top left
+                    const welcomeMsg = document.createElement('div');
+                    welcomeMsg.innerHTML = `Water Guardian: ${currentUser.name}`;
+                    welcomeMsg.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        left: 20px;
+                        color: #FFD700;
+                        font-family: "Georgia", serif;
+                        z-index: 10000;
+                        background: rgba(0,0,0,0.5);
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        font-size: 14px;
+                        border: 1px solid rgba(255, 215, 0, 0.3);
+                    `;
+                    document.body.appendChild(welcomeMsg);
+                    
+                    // Check if we need to show lock screen
+                    if (week4Completed !== 'true') {
+                        document.getElementById('lockScreen').classList.add('active');
+                        document.getElementById('mainContent').style.display = 'none';
+                    } else {
+                        document.getElementById('lockScreen').style.display = 'none';
+                        document.getElementById('mainContent').style.display = 'block';
+                        
+                        // Record access
+                        localStorage.setItem('week5_first_access', new Date().toISOString());
+                        
+                        // Initialize page features
+                        initializePageFeatures();
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Week 5 protection script error:', error);
+                // Don't redirect on error, let page load with content
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('lockScreen').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'block';
+                    initializePageFeatures();
+                });
+            }
+        })();
+    </script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
 
@@ -507,9 +630,6 @@
     </style>
 </head>
 <body class="temple-page">
-    <!-- PROTECTION SCRIPT -->
-    <script src="/portal/js/protect.js"></script>
-    
     <!-- LOCK SCREEN -->
     <div class="lock-screen" id="lockScreen">
         <div style="font-size: 5em; margin-bottom: 20px; color: #FFD700; animation: float 3s infinite ease-in-out;">🔒</div>
@@ -545,7 +665,7 @@
         </div>
         
         <div style="margin: 40px 0; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-            <a href="../week4/curriculum.html" class="nav-button" style="padding: 18px 35px; font-size: 1.1em;">
+            <a href="../week4/workbook.html" class="nav-button" style="padding: 18px 35px; font-size: 1.1em;">
                 👁️ Complete Week 4 Workbook
             </a>
             <a href="../week4/index.html" class="nav-button" style="background: rgba(255, 215, 0, 0.1); padding: 18px 35px;">
@@ -565,7 +685,7 @@
     </div>
     
     <!-- MAIN CONTENT (hidden by default) -->
-    <div class="container" id="mainContent" style="display: none;">
+    <div class="container" id="mainContent">
         <!-- Floating Water Disc -->
         <div class="water-disc" id="waterDisc" title="Sacred Waters Reminder">𓈗</div>
         
@@ -937,7 +1057,7 @@
         
         <!-- Navigation -->
         <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255, 215, 0, 0.25);">
-            <a href="/hall-of-truth.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
+            <a href="../hall-of-truth.html" class="back-link">𓁦 Return to Hall of Truth Portal</a>
             
             <div class="nav-links">
                 <a href="../week4/index.html" class="nav-button">
@@ -947,7 +1067,7 @@
                     👁️ Week 4 Workbook
                 </a>
                 <!-- Week 6 link initially locked -->
-                <a href="../week6/index.html" class="nav-button locked" id="week6Link" onclick="checkWeek6Access(event)">
+                <a href="../week6/index.html" class="nav-button locked" id="week6Link">
                     Next: The Eye of Judgment →
                 </a>
             </div>
@@ -961,151 +1081,147 @@
     </div>
 
     <script>
-        // Check if Week 4 workbook is completed
-        document.addEventListener('DOMContentLoaded', function() {
-            const week4Completed = localStorage.getItem('discernment_temple_completed');
-            const hasValidToken = localStorage.getItem('maatToken');
-            
-            // First check token (existing protection)
-            if (!hasValidToken) {
-                // Token check will redirect via protect.js
-                return;
-            }
-            
-            // Then check workbook completion
-            if (week4Completed !== 'true') {
-                // Show lock screen, hide main content
-                document.getElementById('lockScreen').classList.add('active');
-                document.getElementById('mainContent').style.display = 'none';
-            } else {
-                // Show main content, hide lock screen
-                document.getElementById('lockScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
-                
-                // Record access
-                localStorage.setItem('week5_first_access', new Date().toISOString());
-            }
-            
-            // Week 6 access check function
-            window.checkWeek6Access = function(event) {
-                const week5Completed = localStorage.getItem('sacred_waters_completed');
-                if (week5Completed !== 'true') {
-                    event.preventDefault();
-                    alert('Complete Week 5 practices to unlock Week 6: The Eye of Judgment.');
-                }
-            };
-            
-            // Progress animation
-            const progressBar = document.querySelector('.progress');
-            if (progressBar) {
-                setTimeout(() => {
-                    progressBar.style.width = '71%';
-                }, 500);
-            }
-            
-            // Day circles interaction
-            const dayCircles = document.querySelectorAll('.day-circle');
-            let currentDay = 5; // Week 5, Day 5
-            
-            dayCircles.forEach((circle, index) => {
-                const dayNumber = parseInt(circle.textContent);
-                
-                if (dayNumber < currentDay) {
-                    circle.classList.add('completed');
-                } else if (dayNumber === currentDay) {
-                    circle.classList.add('active');
-                }
-                
-                circle.addEventListener('click', function() {
-                    if (dayNumber <= currentDay) {
-                        alert(`Accessing Day ${dayNumber} of The Sacred Waters practice. Today's focus: Force ${28 + dayNumber}`);
-                    } else {
-                        alert(`Day ${dayNumber} unlocks after completing previous days. Focus on today's sunrise practice.`);
-                    }
-                });
-            });
-            
-            // Water disc interaction
-            const waterDisc = document.getElementById('waterDisc');
-            if (waterDisc) {
-                waterDisc.addEventListener('click', function() {
-                    alert('𓈗 Remember your water practice today.\n\nCarry water symbolically or literally. Notice where you flow easily and where you resist.');
-                });
-            }
-            
-            // Force cards hover enhancement
-            document.querySelectorAll('.force-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.zIndex = '10';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.zIndex = '1';
-                });
-            });
-            
-            // Element cards interaction
-            document.querySelectorAll('.element-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const title = this.querySelector('h4').textContent;
-                    alert(`Exploring ${title}: This Sacred Waters wisdom will guide your week's practice.`);
-                });
-            });
-            
-            // Water flow reminder
-            function checkForWaterReminder() {
-                const now = new Date();
-                const hours = now.getHours();
-                
-                if ((hours === 9 || hours === 15) && !document.querySelector('.water-notification')) {
-                    const notification = document.createElement('div');
-                    notification.className = 'water-notification';
-                    notification.style.cssText = `
-                        position: fixed;
-                        bottom: 90px;
-                        right: 20px;
-                        background: rgba(255, 215, 0, 0.15);
-                        backdrop-filter: blur(10px);
-                        color: #FFD700;
-                        padding: 15px 25px;
-                        border-radius: 8px;
-                        font-family: "Georgia", serif;
-                        z-index: 1000;
-                        border: 1px solid #FFD700;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                        animation: slideIn 0.5s ease;
-                    `;
-                    notification.innerHTML = '𓈗 Water Reminder: Check your flow. Are you forcing or allowing?';
-                    document.body.appendChild(notification);
-                    
+        // Initialize page features
+        function initializePageFeatures() {
+            try {
+                // Progress animation
+                const progressBar = document.querySelector('.progress');
+                if (progressBar) {
                     setTimeout(() => {
-                        notification.style.animation = 'slideOut 0.5s ease';
-                        setTimeout(() => notification.remove(), 500);
-                    }, 8000);
+                        progressBar.style.width = '71%';
+                    }, 500);
                 }
-            }
-            
-            // Add CSS for animations
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideIn {
-                    from { transform: translateX(100%); opacity: 0; }
-                    to { transform: translateX(0); opacity: 1; }
+                
+                // Day circles interaction
+                const dayCircles = document.querySelectorAll('.day-circle');
+                let currentDay = 5; // Week 5, Day 5
+                
+                dayCircles.forEach((circle, index) => {
+                    const dayNumber = parseInt(circle.textContent);
+                    
+                    if (dayNumber < currentDay) {
+                        circle.classList.add('completed');
+                    } else if (dayNumber === currentDay) {
+                        circle.classList.add('active');
+                    }
+                    
+                    circle.addEventListener('click', function() {
+                        if (dayNumber <= currentDay) {
+                            alert(`Accessing Day ${dayNumber} of The Sacred Waters practice. Today's focus: Force ${28 + dayNumber}`);
+                        } else {
+                            alert(`Day ${dayNumber} unlocks after completing previous days. Focus on today's sunrise practice.`);
+                        }
+                    });
+                });
+                
+                // Water disc interaction
+                const waterDisc = document.getElementById('waterDisc');
+                if (waterDisc) {
+                    waterDisc.addEventListener('click', function() {
+                        alert('𓈗 Remember your water practice today.\n\nCarry water symbolically or literally. Notice where you flow easily and where you resist.');
+                    });
                 }
-                @keyframes slideOut {
-                    from { transform: translateX(0); opacity: 1; }
-                    to { transform: translateX(100%); opacity: 0; }
+                
+                // Force cards hover enhancement
+                document.querySelectorAll('.force-card').forEach(card => {
+                    card.addEventListener('mouseenter', function() {
+                        this.style.zIndex = '10';
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        this.style.zIndex = '1';
+                    });
+                });
+                
+                // Element cards interaction
+                document.querySelectorAll('.element-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const title = this.querySelector('h4').textContent;
+                        alert(`Exploring ${title}: This Sacred Waters wisdom will guide your week's practice.`);
+                    });
+                });
+                
+                // Week 6 link handler
+                const week6Link = document.getElementById('week6Link');
+                if (week6Link) {
+                    week6Link.addEventListener('click', function(e) {
+                        const week5Completed = localStorage.getItem('sacred_waters_completed');
+                        if (week5Completed !== 'true') {
+                            e.preventDefault();
+                            alert('Complete Week 5 practices to unlock Week 6: The Eye of Judgment.');
+                        }
+                    });
                 }
-                @keyframes float {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-10px); }
+                
+                // Water flow reminder
+                function checkForWaterReminder() {
+                    const now = new Date();
+                    const hours = now.getHours();
+                    
+                    if ((hours === 9 || hours === 15) && !document.querySelector('.water-notification')) {
+                        const notification = document.createElement('div');
+                        notification.className = 'water-notification';
+                        notification.style.cssText = `
+                            position: fixed;
+                            bottom: 90px;
+                            right: 20px;
+                            background: rgba(255, 215, 0, 0.15);
+                            backdrop-filter: blur(10px);
+                            color: #FFD700;
+                            padding: 15px 25px;
+                            border-radius: 8px;
+                            font-family: "Georgia", serif;
+                            z-index: 1000;
+                            border: 1px solid #FFD700;
+                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                            animation: slideIn 0.5s ease;
+                        `;
+                        notification.innerHTML = '𓈗 Water Reminder: Check your flow. Are you forcing or allowing?';
+                        document.body.appendChild(notification);
+                        
+                        setTimeout(() => {
+                            notification.style.animation = 'slideOut 0.5s ease';
+                            setTimeout(() => notification.remove(), 500);
+                        }, 8000);
+                    }
                 }
-            `;
-            document.head.appendChild(style);
-            
-            if (week4Completed === 'true') {
+                
+                // Add CSS for animations
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOut {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                    @keyframes float {
+                        0%, 100% { transform: translateY(0); }
+                        50% { transform: translateY(-10px); }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                // Check for water reminders periodically
                 checkForWaterReminder();
                 setInterval(checkForWaterReminder, 3600000); // 1 hour
+                
+            } catch (error) {
+                console.error('Error initializing page features:', error);
+            }
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if main content should be shown
+            const week4Completed = localStorage.getItem('discernment_temple_completed');
+            
+            // If Week 4 is completed, show main content
+            if (week4Completed === 'true') {
+                document.getElementById('lockScreen').style.display = 'none';
+                initializePageFeatures();
             }
         });
     </script>
