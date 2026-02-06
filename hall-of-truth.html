@@ -195,7 +195,7 @@
             box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
         }
 
-        .karma-button {
+        .isfet-maat-button {
             background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
             color: white;
             border: none;
@@ -208,11 +208,15 @@
             transition: all 0.3s ease;
             min-width: 200px;
             box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
 
-        .karma-button:hover {
+        .isfet-maat-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(76, 175, 80, 0.5);
+            color: white;
         }
 
         .investment-details {
@@ -235,7 +239,7 @@
             color: #FFD700;
         }
 
-        .karma-explanation {
+        .isfet-maat-explanation {
             background: rgba(76, 175, 80, 0.1);
             border: 1px solid #4CAF50;
             border-radius: 10px;
@@ -244,7 +248,7 @@
             text-align: left;
         }
 
-        .karma-explanation h4 {
+        .isfet-maat-explanation h4 {
             color: #4CAF50;
             margin-top: 0;
         }
@@ -431,7 +435,7 @@
             .stat-box { min-width: 120px; }
             .investment-amount { font-size: 2.5em; }
             .investment-buttons { flex-direction: column; }
-            .investment-button, .karma-button { width: 100%; }
+            .investment-button, .isfet-maat-button { width: 100%; }
         }
 
         /* Animated hieroglyph background */
@@ -543,37 +547,6 @@
             margin: 5px;
             font-family: "Georgia", serif;
         }
-
-        #karmaModal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 10000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .karma-content {
-            background: linear-gradient(135deg, #1A3021, #2E7D32);
-            border: 3px solid #4CAF50;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
-            color: white;
-            font-family: "Georgia", serif;
-            box-shadow: 0 0 50px rgba(76, 175, 80, 0.3);
-        }
-
-        .karma-content h2 {
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
     </style>
 </head>
 <body class="temple-page">
@@ -664,17 +637,22 @@
                     🏛️ Make Sacred Investment ($911)
                 </button>
                 
-                <button onclick="openKarmaModal()" class="karma-button">
-                    🌿 Choose Karma Option
-                </button>
+                <a href="https://tors.life/karma.html" class="isfet-maat-button">
+                    🌿 Isfet-Ma'at Path
+                </a>
             </div>
             
-            <div class="karma-explanation">
-                <h4>🌿 The Karma Path: Sacred Flexibility</h4>
-                <p>The Karma Option exists for those who feel called to this path but face financial barriers. 
-                It represents the principle of Ma'at that all sincere seekers should have access to sacred knowledge.</p>
-                <p>Choose an amount that honors both your circumstances and the sacred exchange of energy. 
-                No proof required - we trust in your integrity and the laws of Ma'at.</p>
+            <div class="isfet-maat-explanation">
+                <h4>🌿 The Isfet-Ma'at Path: Self-Guided Transformation</h4>
+                <p>The Isfet-Ma'at Path is for those who feel called to this journey but need financial flexibility.</p>
+                <p>This path offers <strong>three levels of commitment</strong> with strict completion timelines:</p>
+                <ul>
+                    <li><strong>Beginner's Commitment ($111):</strong> 55 days to complete</li>
+                    <li><strong>Seeker's Pledge ($222):</strong> 70 days to complete</li>
+                    <li><strong>Initiate's Vow ($333):</strong> 90 days to complete</li>
+                </ul>
+                <p><strong>Important:</strong> The Isfet-Ma'at Path is <strong>self-taught only</strong> - no instructor guidance, no group chat, no one-on-one help.</p>
+                <p>Lifetime access is granted only upon completing all 7 gateways within your chosen timeframe.</p>
             </div>
         </div>
 
@@ -854,35 +832,6 @@
         </div>
     </div>
 
-    <!-- Karma Modal -->
-    <div id="karmaModal">
-        <div class="karma-content">
-            <h2>🌿 The Karma Path</h2>
-            <p>This path honors the principle of Ma'at that sacred knowledge should be accessible to all sincere seekers.</p>
-            
-            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <h4>How the Karma Option Works:</h4>
-                <ol style="text-align: left; margin: 20px; padding-left: 20px;">
-                    <li>Choose an amount that feels right for your current circumstances</li>
-                    <li>No proof of income or situation required - we trust in Ma'at</li>
-                    <li>Make your payment through the link below</li>
-                    <li>Receive immediate access to all content</li>
-                </ol>
-            </div>
-            
-            <div style="margin: 30px 0;">
-                <button onclick="goToKarmaPayment()" class="modal-button" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);">
-                    🌿 Continue with Karma Option
-                </button>
-                <button onclick="closeKarmaModal()" class="cancel-button">Return to Portal</button>
-            </div>
-            
-            <p style="font-size: 0.9em; color: #d4bfff;">
-                Suggested amounts: $111, $222, $333, or any amount that honors both your situation and the sacred exchange.
-            </p>
-        </div>
-    </div>
-
     <script>
         // Animated hieroglyph background
         const bg = document.getElementById('hieroglyph-bg');
@@ -926,18 +875,6 @@
         
         function goToPayment() {
             window.location.href = 'https://buy.stripe.com/5kQcN55xt2EY8ycbZF77O0w';
-        }
-        
-        function goToKarmaPayment() {
-            window.location.href = 'https://buy.stripe.com/eVa4hXeK91UYdwc8wq77O0w';
-        }
-        
-        function openKarmaModal() {
-            document.getElementById('karmaModal').style.display = 'flex';
-        }
-        
-        function closeKarmaModal() {
-            document.getElementById('karmaModal').style.display = 'none';
         }
         
         function enterToken() {
@@ -1024,24 +961,17 @@
             }, 500);
         });
         
-        // Close modals on ESC key
+        // Close modal on ESC key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
-                closeKarmaModal();
             }
         });
         
-        // Close modals when clicking outside
+        // Close modal when clicking outside
         document.getElementById('paymentModal').addEventListener('click', function(e) {
             if (e.target.id === 'paymentModal') {
                 closeModal();
-            }
-        });
-        
-        document.getElementById('karmaModal').addEventListener('click', function(e) {
-            if (e.target.id === 'karmaModal') {
-                closeKarmaModal();
             }
         });
     </script>
