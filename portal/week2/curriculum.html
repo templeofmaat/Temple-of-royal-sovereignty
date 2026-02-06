@@ -835,6 +835,72 @@
             transform: scale(1.1);
         }
 
+        /* Navigation Box Styles */
+        .navigation-box {
+            background: rgba(255, 215, 0, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 2px solid #FFD700;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navigation-box::before {
+            content: '𓂀 𓎟 𓊹';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5em;
+            opacity: 0.1;
+            color: #FFD700;
+        }
+
+        .navigation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .nav-card {
+            background: rgba(30, 0, 60, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #FFD700;
+            transition: all 0.3s ease;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            border-color: #f7eaff;
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .nav-title {
+            color: #FFD700;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-description {
+            margin-bottom: 25px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .nav-btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
         @media (max-width: 768px) {
             .sacred-container { 
                 padding: 20px;
@@ -866,6 +932,13 @@
                 padding: 15px 25px;
                 margin: 10px;
                 font-size: 1em;
+            }
+            .navigation-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-btn-container {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -1867,7 +1940,7 @@ Sanctuary (How you access inner peace):"></textarea>
                     <span class="hieroglyph">🖨️</span> Print Sacred Record
                 </button>
                 
-                <a href="index.html" class="sacred-btn" style="background:rgba(255,255,255,0.1);">
+                <a href="../index.html" class="sacred-btn" style="background:rgba(255,255,255,0.1); text-decoration: none;">
                     <span class="hieroglyph">🏛️</span> Hall of Truth Portal
                 </a>
             </div>
@@ -1891,14 +1964,59 @@ Sanctuary (How you access inner peace):"></textarea>
                     <p>𓏞 Audio practices enhance your journey. Use headphones for deepest immersion.</p>
                 </div>
             </div>
+        </div>
+        
+        <!-- NAVIGATION SECTION -->
+        <div class="navigation-box">
+            <h2 style="color:#FFD700; margin-bottom:40px; font-size:2.2em;">
+                𓂀 CONTINUE YOUR JOURNEY 𓂀
+            </h2>
             
-            <div style="margin-top:50px; padding:40px; background:rgba(255,255,255,0.05); border-radius:20px; border:1px solid #FFD700;">
-                <h3 style="color:#FFD700;">𓍹 WEEK 3 PREVIEW: The Silent Watchers (Forces 15-21) 𓍹</h3>
-                <p style="margin:20px 0;">Prepare for the journey inward with Forces 15-21: The guardians of inner space, sacred silence, and divine listening.</p>
-                <button class="sacred-btn" style="background:transparent; border:2px solid #FFD700;">
-                    <span class="hieroglyph">🔜</span> Continue to Week 3
-                </button>
+            <div class="flame-decoration" style="width:80%; margin:20px auto;"></div>
+            
+            <div class="navigation-grid">
+                <!-- Continue to Week 3 -->
+                <div class="nav-card">
+                    <div class="nav-title">
+                        <span class="hieroglyph">🔜</span> WEEK 3: The Silent Watchers
+                    </div>
+                    <p class="nav-description">
+                        Prepare for the journey inward with Forces 15-21: The guardians of inner space, sacred silence, and divine listening.
+                    </p>
+                    <p style="color:#FFD700; font-style:italic; margin:15px 0;">
+                        <strong>SOON</strong>
+                    </p>
+                    <div class="nav-btn-container">
+                        <a href="../week3/index.html" class="sacred-btn" style="background:transparent; border:2px solid #FFD700; text-decoration: none;">
+                            <span class="hieroglyph">𓂀</span> Continue to Week 3
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Return to Hall of Truth -->
+                <div class="nav-card">
+                    <div class="nav-title">
+                        <span class="hieroglyph">🏛️</span> RETURN TO HALL OF TRUTH
+                    </div>
+                    <p class="nav-description">
+                        Go back to the main portal to access other weeks, review previous materials, or explore additional resources for your journey.
+                    </p>
+                    <div class="nav-btn-container">
+                        <a href="../hall-of-truth.html" class="sacred-btn" style="background:transparent; border:2px solid #FFD700; text-decoration: none;">
+                            <span class="hieroglyph">𓎟</span> Return to Hall of Truth
+                        </a>
+                        <a href="../week2/index.html" class="sacred-btn" style="background:rgba(255,255,255,0.1); text-decoration: none;">
+                            <span class="hieroglyph">⬅️</span> Back to Week 2
+                        </a>
+                    </div>
+                </div>
             </div>
+            
+            <div class="flame-decoration" style="width:60%; margin:40px auto;"></div>
+            
+            <p style="color:#f7eaff; font-style:italic; max-width:800px; margin:30px auto; text-align:center;">
+                "The journey through the Sacred Flame has purified your essence. Carry this fire forward into the silent depths of Week 3, where inner listening becomes your greatest power."
+            </p>
         </div>
     </div>
 
