@@ -543,6 +543,44 @@
             to { transform: translateX(100%); opacity: 0; }
         }
 
+        /* Token Entry Styles */
+        .token-entry-box {
+            background: rgba(255, 215, 0, 0.08);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .token-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #FFD700;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-family: monospace;
+        }
+
+        .token-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .token-button:hover {
+            background: #45a049;
+        }
+
         @media (max-width: 768px) {
             .content-grid { grid-template-columns: 1fr; gap: 30px; }
             .container { padding: 25px; }
@@ -567,9 +605,6 @@
     </style>
 </head>
 <body class="temple-page">
-    <!-- PROTECTION SCRIPT - Make sure this path is correct -->
-    <!-- <script src="/portal/js/protect.js"></script> -->
-    
     <!-- LOCK SCREEN - FIXED: Starts visible, will be hidden if access granted -->
     <div class="lock-screen active" id="lockScreen">
         <div style="font-size: 5em; margin-bottom: 20px; color: #FFD700; animation: float 3s infinite ease-in-out;">🔒</div>
@@ -603,9 +638,26 @@
                 </div>
             </div>
         </div>
+
+        <!-- TOKEN ENTRY BOX -->
+        <div class="token-entry-box" id="tokenEntryBox">
+            <h4 style="color: #FFD700; margin-bottom: 15px;">🔐 Have an Access Token?</h4>
+            <p style="margin-bottom: 15px; color: #f7eaff; font-size: 0.95em;">
+                If you've made a sacred investment, enter your access token below:
+            </p>
+            
+            <input type="text" id="tokenInput" placeholder="Enter MAAT-... or T-..." class="token-input">
+            
+            <button onclick="verifyToken()" class="token-button">
+                🔓 Unlock with Token
+            </button>
+            
+            <p style="margin-top: 15px; font-size: 0.85em; color: #8c78ff; text-align: center;">
+                Or visit <a href="https://tors.life/hall-of-truth.html" style="color: #FFD700;">Hall of Truth</a> to enter your token
+            </p>
+        </div>
         
         <div style="margin: 40px 0; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-            <!-- Update these paths to match your actual file structure -->
             <a href="../week3/workbook.html" class="nav-button" style="padding: 18px 35px; font-size: 1.1em;">
                 ⚖️ Complete Week 3 Workbook
             </a>
@@ -1003,18 +1055,48 @@
     </div>
 
     <script>
-        // Simplified check without token protection for testing
+        // Main access check function
         document.addEventListener('DOMContentLoaded', function() {
-            // For testing: Uncomment the line below to force unlock Week 4
-            // localStorage.setItem('balance_of_opposites_completed', 'true');
-            
+            // Check for BOTH possible access methods
             const week3Completed = localStorage.getItem('balance_of_opposites_completed');
+            const maatToken = localStorage.getItem('maatToken');
+            
             const lockScreen = document.getElementById('lockScreen');
             const mainContent = document.getElementById('mainContent');
             
-            console.log('Week 3 completed status:', week3Completed);
+            console.log('Week 3 completed:', week3Completed);
+            console.log('Maat Token exists:', !!maatToken);
             
-            if (week3Completed === 'true') {
+            // Parse the token if it exists
+            let tokenValid = false;
+            let tokenData = null;
+            
+            if (maatToken) {
+                try {
+                    tokenData = JSON.parse(maatToken);
+                    console.log('Token data:', tokenData);
+                    
+                    // Check if token is valid and not expired
+                    if (tokenData.expires && tokenData.expires > Date.now()) {
+                        tokenValid = true;
+                        console.log('Token is valid and not expired');
+                        
+                        // If token has an email, display it
+                        if (tokenData.email) {
+                            console.log('Token holder email:', tokenData.email);
+                        }
+                    } else if (tokenData.expires) {
+                        console.log('Token expired:', new Date(tokenData.expires));
+                        // Optional: Remove expired token
+                        localStorage.removeItem('maatToken');
+                    }
+                } catch (e) {
+                    console.error('Error parsing token:', e);
+                }
+            }
+            
+            // Show content if EITHER condition is met
+            if (week3Completed === 'true' || tokenValid) {
                 // Show main content, hide lock screen
                 lockScreen.classList.remove('active');
                 lockScreen.classList.add('hidden');
@@ -1023,22 +1105,106 @@
                 // Record access
                 localStorage.setItem('week4_first_access', new Date().toISOString());
                 console.log('Week 4 unlocked successfully');
+                
+                // If unlocked by token, also set week3 as completed for consistency
+                if (tokenValid && !week3Completed) {
+                    localStorage.setItem('balance_of_opposites_completed', 'true');
+                    console.log('Week 3 marked as completed via token');
+                }
+                
+                // Update badge to show access method
+                const unlockedBadge = document.getElementById('unlockedBadge');
+                if (unlockedBadge) {
+                    if (tokenValid) {
+                        unlockedBadge.textContent = '🔓 Token Access';
+                        unlockedBadge.style.background = 'rgba(255, 215, 0, 0.2)';
+                        unlockedBadge.style.color = '#FFD700';
+                        unlockedBadge.style.borderColor = '#FFD700';
+                    }
+                }
             } else {
                 // Show lock screen, hide main content
                 lockScreen.classList.add('active');
                 lockScreen.classList.remove('hidden');
                 mainContent.classList.add('main-content-hidden');
-                console.log('Week 4 locked - Week 3 not completed');
+                console.log('Week 4 locked - No valid access method');
+                
+                // Show helpful message about token format
+                const tokenInput = document.getElementById('tokenInput');
+                if (tokenInput) {
+                    tokenInput.addEventListener('focus', function() {
+                        this.setAttribute('placeholder', 'Enter token starting with MAAT- or T-');
+                    });
+                    tokenInput.addEventListener('blur', function() {
+                        this.setAttribute('placeholder', 'Enter MAAT-... or T-...');
+                    });
+                }
             }
             
-            // Week 5 access check function
-            window.checkWeek5Access = function(event) {
-                const week4Completed = localStorage.getItem('solar_path_completed');
-                if (week4Completed !== 'true') {
-                    event.preventDefault();
-                    alert('Complete Week 4 practices to unlock Week 5: The Sacred Waters.');
+            // Function to verify token entered by user
+            window.verifyToken = function() {
+                const tokenInput = document.getElementById('tokenInput');
+                const token = tokenInput.value.trim();
+                
+                if (!token) {
+                    alert('Please enter an access token');
+                    return;
+                }
+                
+                // Check if this matches our token pattern
+                if (token.startsWith('MAAT-') || token.startsWith('T-')) {
+                    // Create token data structure (simplified - in real use, validate against server)
+                    const tokenData = {
+                        token: token,
+                        expires: Date.now() + (365 * 24 * 60 * 60 * 1000), // 1 year from now
+                        email: 'token_holder@example.com',
+                        name: 'Sacred Investor',
+                        source: 'manual_entry'
+                    };
+                    
+                    // Save to localStorage
+                    localStorage.setItem('maatToken', JSON.stringify(tokenData));
+                    
+                    // Also mark week3 as completed for consistency
+                    localStorage.setItem('balance_of_opposites_completed', 'true');
+                    
+                    // Show success message
+                    const tokenEntryBox = document.getElementById('tokenEntryBox');
+                    if (tokenEntryBox) {
+                        tokenEntryBox.innerHTML = `
+                            <div style="text-align: center; padding: 20px;">
+                                <div style="font-size: 3em; color: #4CAF50; margin-bottom: 15px;">✓</div>
+                                <h4 style="color: #FFD700; margin-bottom: 15px;">Token Accepted!</h4>
+                                <p style="color: #f7eaff;">Week 4 is now unlocked. Refreshing page...</p>
+                                <div style="margin-top: 20px; padding: 10px; background: rgba(76, 175, 80, 0.1); border-radius: 5px; border: 1px solid #4CAF50;">
+                                    <p style="font-size: 0.85em; color: #d4bfff; margin: 0;">
+                                        Token: ${token.substring(0, 15)}...
+                                    </p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
+                    // Reload after a short delay
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1500);
+                } else {
+                    alert('Invalid token format.\n\nValid tokens should start with:\n• MAAT- (for admin generated tokens)\n• T- (for system generated tokens)\n\nPlease check your email for the correct token.');
+                    tokenInput.focus();
+                    tokenInput.select();
                 }
             };
+            
+            // Allow Enter key to submit token
+            const tokenInput = document.getElementById('tokenInput');
+            if (tokenInput) {
+                tokenInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        verifyToken();
+                    }
+                });
+            }
             
             // Progress animation
             const progressBar = document.querySelector('.progress');
@@ -1123,7 +1289,7 @@
             console.log('All localStorage items:');
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i);
-                if (key.includes('week') || key.includes('balance')) {
+                if (key.includes('week') || key.includes('balance') || key.includes('maat') || key.includes('token')) {
                     console.log(`  ${key}: ${localStorage.getItem(key)}`);
                 }
             }
@@ -1143,13 +1309,52 @@
                 font-family: inherit;
                 cursor: pointer;
                 z-index: 9999;
+                font-size: 12px;
             `;
             testUnlockBtn.addEventListener('click', function() {
                 localStorage.setItem('balance_of_opposites_completed', 'true');
-                alert('Week 4 unlocked for testing! Refresh the page.');
-                location.reload();
+                
+                // Also create a test token
+                const testToken = {
+                    token: 'MAAT-TEST-' + Date.now(),
+                    expires: Date.now() + (365 * 24 * 60 * 60 * 1000),
+                    email: 'test@example.com',
+                    name: 'Test User'
+                };
+                localStorage.setItem('maatToken', JSON.stringify(testToken));
+                
+                alert('Week 4 unlocked for testing!\n\nTest token created.\nRefreshing page...');
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
             });
             document.body.appendChild(testUnlockBtn);
+            
+            // Clear tokens button (for troubleshooting)
+            const clearTokensBtn = document.createElement('button');
+            clearTokensBtn.textContent = '🗑️ Clear Tokens';
+            clearTokensBtn.style.cssText = `
+                position: fixed;
+                bottom: 50px;
+                left: 10px;
+                background: rgba(255, 0, 0, 0.2);
+                color: #FF6B6B;
+                border: 1px solid #FF6B6B;
+                padding: 10px;
+                border-radius: 5px;
+                font-family: inherit;
+                cursor: pointer;
+                z-index: 9999;
+                font-size: 12px;
+            `;
+            clearTokensBtn.addEventListener('click', function() {
+                localStorage.removeItem('maatToken');
+                localStorage.removeItem('balance_of_opposites_completed');
+                localStorage.removeItem('week4_first_access');
+                alert('All access tokens cleared. Page will refresh.');
+                location.reload();
+            });
+            document.body.appendChild(clearTokensBtn);
         });
     </script>
 </body>
